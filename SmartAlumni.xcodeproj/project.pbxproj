@@ -7,23 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0FE91BADCE4B2E8E1DF522 /* Pods_SmartAlumni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */; };
+		911B4A2D1F37C2350028BBE1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */; };
+		911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A311F37E1EB0028BBE1 /* UserAPI.swift */; };
+		911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A331F3898940028BBE1 /* APIConstants.swift */; };
+		911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CF2C01F39D06100FEC8D6 /* Constants.swift */; };
+		911CF2C31F39D41C00FEC8D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CF2C21F39D41C00FEC8D6 /* Extensions.swift */; };
+		9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA521F4309AD00174534 /* EditProfileConfigurator.swift */; };
+		9125CA601F4309AD00174534 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA541F4309AD00174534 /* EditProfileInteractor.swift */; };
+		9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA561F4309AD00174534 /* EditProfilePresenter.swift */; };
+		9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA581F4309AD00174534 /* EditProfileRouter.swift */; };
+		9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA5A1F4309AD00174534 /* EditProfileViewController.swift */; };
+		9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA5C1F4309AD00174534 /* EditProfileViewModel.swift */; };
+		9125CA651F4309AD00174534 /* EditProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9125CA5E1F4309AD00174534 /* EditProfileWorker.swift */; };
+		913C1D3E1F407FC10080F5CE /* OTPConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D311F407FC10080F5CE /* OTPConfigurator.swift */; };
+		913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D331F407FC10080F5CE /* OTPInteractor.swift */; };
+		913C1D401F407FC10080F5CE /* OTPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D351F407FC10080F5CE /* OTPPresenter.swift */; };
+		913C1D411F407FC10080F5CE /* OTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D371F407FC10080F5CE /* OTPRouter.swift */; };
+		913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D391F407FC10080F5CE /* OTPViewController.swift */; };
+		913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */; };
+		913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3D1F407FC10080F5CE /* OTPWorker.swift */; };
+		915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33771F38A32600729106 /* SignUpConfigurator.swift */; };
+		915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33791F38A32600729106 /* SignUpInteractor.swift */; };
+		915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337B1F38A32600729106 /* SignUpPresenter.swift */; };
+		915C33871F38A32600729106 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337D1F38A32600729106 /* SignUpRouter.swift */; };
+		915C33881F38A32600729106 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337F1F38A32600729106 /* SignUpViewController.swift */; };
+		915C33891F38A32600729106 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33811F38A32600729106 /* SignUpViewModel.swift */; };
+		915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33831F38A32600729106 /* SignUpWorker.swift */; };
+		915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33A11F38A81B00729106 /* PhoneNumberField.swift */; };
+		915C33A41F38C18000729106 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33A31F38C18000729106 /* Utilities.swift */; };
 		9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E1FF1F2F747000A240E3 /* AppDelegate.swift */; };
-		9187E2021F2F747000A240E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E2011F2F747000A240E3 /* ViewController.swift */; };
 		9187E2051F2F747000A240E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2031F2F747000A240E3 /* Main.storyboard */; };
 		9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2061F2F747000A240E3 /* Assets.xcassets */; };
 		9187E20A1F2F747000A240E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */; };
 		91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */; };
+		91BDAF481F4446D200BC1666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDAF471F4446D200BC1666 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.release.xcconfig"; sourceTree = "<group>"; };
+		911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		911B4A311F37E1EB0028BBE1 /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = Networking/UserAPI.swift; sourceTree = "<group>"; };
+		911B4A331F3898940028BBE1 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = Networking/APIConstants.swift; sourceTree = "<group>"; };
+		911CF2C01F39D06100FEC8D6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
+		911CF2C21F39D41C00FEC8D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Supporting/Extensions.swift; sourceTree = "<group>"; };
+		9125CA521F4309AD00174534 /* EditProfileConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileConfigurator.swift; sourceTree = "<group>"; };
+		9125CA541F4309AD00174534 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
+		9125CA561F4309AD00174534 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		9125CA581F4309AD00174534 /* EditProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		9125CA5A1F4309AD00174534 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		9125CA5C1F4309AD00174534 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		9125CA5E1F4309AD00174534 /* EditProfileWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileWorker.swift; sourceTree = "<group>"; };
+		913C1D311F407FC10080F5CE /* OTPConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPConfigurator.swift; sourceTree = "<group>"; };
+		913C1D331F407FC10080F5CE /* OTPInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPInteractor.swift; sourceTree = "<group>"; };
+		913C1D351F407FC10080F5CE /* OTPPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPPresenter.swift; sourceTree = "<group>"; };
+		913C1D371F407FC10080F5CE /* OTPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPRouter.swift; sourceTree = "<group>"; };
+		913C1D391F407FC10080F5CE /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		913C1D3D1F407FC10080F5CE /* OTPWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPWorker.swift; sourceTree = "<group>"; };
+		915C33771F38A32600729106 /* SignUpConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfigurator.swift; sourceTree = "<group>"; };
+		915C33791F38A32600729106 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		915C337B1F38A32600729106 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		915C337D1F38A32600729106 /* SignUpRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		915C337F1F38A32600729106 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		915C33811F38A32600729106 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		915C33831F38A32600729106 /* SignUpWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
+		915C33A11F38A81B00729106 /* PhoneNumberField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberField.swift; path = ../../../PhoneNumberField.swift; sourceTree = "<group>"; };
+		915C33A31F38C18000729106 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Networking/Utilities.swift; sourceTree = "<group>"; };
 		9187E1FC1F2F747000A240E3 /* SmartAlumni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAlumni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E1FF1F2F747000A240E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9187E2011F2F747000A240E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9187E2041F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9187E2061F2F747000A240E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9187E2091F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9187E20B1F2F747000A240E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		91BDAF471F4446D200BC1666 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
+		C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartAlumni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +91,279 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0FE91BADCE4B2E8E1DF522 /* Pods_SmartAlumni.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72C6CEB91A659F4233346175 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		911B4A301F37E19C0028BBE1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				911B4A311F37E1EB0028BBE1 /* UserAPI.swift */,
+				915C33A31F38C18000729106 /* Utilities.swift */,
+				911B4A331F3898940028BBE1 /* APIConstants.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		911B4A351F3899710028BBE1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		911CF2BF1F39D02B00FEC8D6 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				911CF2C01F39D06100FEC8D6 /* Constants.swift */,
+				911CF2C21F39D41C00FEC8D6 /* Extensions.swift */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		9125CA501F4309AD00174534 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA511F4309AD00174534 /* Configurator */,
+				9125CA531F4309AD00174534 /* Interactor */,
+				9125CA551F4309AD00174534 /* Presenter */,
+				9125CA571F4309AD00174534 /* Router */,
+				9125CA591F4309AD00174534 /* View */,
+				9125CA5B1F4309AD00174534 /* ViewModel */,
+				9125CA5D1F4309AD00174534 /* Worker */,
+			);
+			name = EditProfile;
+			path = Scenes/EditProfile;
+			sourceTree = "<group>";
+		};
+		9125CA511F4309AD00174534 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA521F4309AD00174534 /* EditProfileConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9125CA531F4309AD00174534 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA541F4309AD00174534 /* EditProfileInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9125CA551F4309AD00174534 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA561F4309AD00174534 /* EditProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9125CA571F4309AD00174534 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA581F4309AD00174534 /* EditProfileRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9125CA591F4309AD00174534 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA5A1F4309AD00174534 /* EditProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9125CA5B1F4309AD00174534 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA5C1F4309AD00174534 /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9125CA5D1F4309AD00174534 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA5E1F4309AD00174534 /* EditProfileWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		913C1D2F1F407FC10080F5CE /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D301F407FC10080F5CE /* Configurator */,
+				913C1D321F407FC10080F5CE /* Interactor */,
+				913C1D341F407FC10080F5CE /* Presenter */,
+				913C1D361F407FC10080F5CE /* Router */,
+				913C1D381F407FC10080F5CE /* View */,
+				913C1D3A1F407FC10080F5CE /* ViewModel */,
+				913C1D3C1F407FC10080F5CE /* Worker */,
+			);
+			name = OTP;
+			path = Scenes/OTP;
+			sourceTree = "<group>";
+		};
+		913C1D301F407FC10080F5CE /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D311F407FC10080F5CE /* OTPConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		913C1D321F407FC10080F5CE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D331F407FC10080F5CE /* OTPInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		913C1D341F407FC10080F5CE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D351F407FC10080F5CE /* OTPPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		913C1D361F407FC10080F5CE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D371F407FC10080F5CE /* OTPRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		913C1D381F407FC10080F5CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D391F407FC10080F5CE /* OTPViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		913C1D3A1F407FC10080F5CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		913C1D3C1F407FC10080F5CE /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				913C1D3D1F407FC10080F5CE /* OTPWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		915C336F1F38A0B800729106 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9125CA501F4309AD00174534 /* EditProfile */,
+				913C1D2F1F407FC10080F5CE /* OTP */,
+				915C33751F38A32600729106 /* SignUp */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		915C33751F38A32600729106 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				915C33761F38A32600729106 /* Configurator */,
+				915C33781F38A32600729106 /* Interactor */,
+				915C337A1F38A32600729106 /* Presenter */,
+				915C337C1F38A32600729106 /* Router */,
+				915C337E1F38A32600729106 /* View */,
+				915C33801F38A32600729106 /* ViewModel */,
+				915C33821F38A32600729106 /* Worker */,
+			);
+			name = SignUp;
+			path = Scenes/SignUp;
+			sourceTree = "<group>";
+		};
+		915C33761F38A32600729106 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				915C33771F38A32600729106 /* SignUpConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		915C33781F38A32600729106 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				915C33791F38A32600729106 /* SignUpInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		915C337A1F38A32600729106 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				915C337B1F38A32600729106 /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		915C337C1F38A32600729106 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				915C337D1F38A32600729106 /* SignUpRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		915C337E1F38A32600729106 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				915C33A11F38A81B00729106 /* PhoneNumberField.swift */,
+				915C337F1F38A32600729106 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		915C33801F38A32600729106 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				915C33811F38A32600729106 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		915C33821F38A32600729106 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				915C33831F38A32600729106 /* SignUpWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		9187E1F31F2F747000A240E3 = {
 			isa = PBXGroup;
 			children = (
 				9187E1FE1F2F747000A240E3 /* SmartAlumni */,
 				9187E1FD1F2F747000A240E3 /* Products */,
+				D6552F3AE3A2D3A97D242E0A /* Pods */,
+				72C6CEB91A659F4233346175 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +379,27 @@
 			isa = PBXGroup;
 			children = (
 				9187E1FF1F2F747000A240E3 /* AppDelegate.swift */,
-				9187E2011F2F747000A240E3 /* ViewController.swift */,
 				9187E2031F2F747000A240E3 /* Main.storyboard */,
+				911B4A351F3899710028BBE1 /* Controller */,
 				9187E2061F2F747000A240E3 /* Assets.xcassets */,
 				9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */,
 				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
+				915C336F1F38A0B800729106 /* Scenes */,
 				9187E20B1F2F747000A240E3 /* Info.plist */,
+				91BDAF471F4446D200BC1666 /* User.swift */,
+				911CF2BF1F39D02B00FEC8D6 /* Supporting */,
+				911B4A301F37E19C0028BBE1 /* Networking */,
 			);
 			path = SmartAlumni;
+			sourceTree = "<group>";
+		};
+		D6552F3AE3A2D3A97D242E0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */,
+				4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +409,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9187E20E1F2F747000A240E3 /* Build configuration list for PBXNativeTarget "SmartAlumni" */;
 			buildPhases = (
+				9736B85062E45CBC3319AFF0 /* [CP] Check Pods Manifest.lock */,
 				9187E1F81F2F747000A240E3 /* Sources */,
 				9187E1F91F2F747000A240E3 /* Frameworks */,
 				9187E1FA1F2F747000A240E3 /* Resources */,
+				E0BC11E9E4687B710826FFD2 /* [CP] Embed Pods Frameworks */,
+				25EF96749825D28364F1C79E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,14 +473,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25EF96749825D28364F1C79E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9736B85062E45CBC3319AFF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0BC11E9E4687B710826FFD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9187E1F81F2F747000A240E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9187E2021F2F747000A240E3 /* ViewController.swift in Sources */,
+				911CF2C31F39D41C00FEC8D6 /* Extensions.swift in Sources */,
+				9125CA601F4309AD00174534 /* EditProfileInteractor.swift in Sources */,
+				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
+				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
+				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
+				911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */,
+				9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */,
+				913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */,
+				9125CA651F4309AD00174534 /* EditProfileWorker.swift in Sources */,
+				915C33871F38A32600729106 /* SignUpRouter.swift in Sources */,
+				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
+				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
+				9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */,
+				911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */,
+				9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */,
+				911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */,
+				915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */,
+				913C1D401F407FC10080F5CE /* OTPPresenter.swift in Sources */,
+				913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */,
+				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
+				911B4A2D1F37C2350028BBE1 /* WelcomeViewController.swift in Sources */,
 				91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */,
+				915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */,
+				915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */,
+				913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */,
+				913C1D411F407FC10080F5CE /* OTPRouter.swift in Sources */,
+				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
+				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
+				913C1D3E1F407FC10080F5CE /* OTPConfigurator.swift in Sources */,
+				915C33891F38A32600729106 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +677,12 @@
 		};
 		9187E20F1F2F747000A240E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = SmartAlumni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ng.Kornet.SmartAlumni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,10 +692,12 @@
 		};
 		9187E2101F2F747000A240E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = SmartAlumni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ng.Kornet.SmartAlumni;
 				PRODUCT_NAME = "$(TARGET_NAME)";

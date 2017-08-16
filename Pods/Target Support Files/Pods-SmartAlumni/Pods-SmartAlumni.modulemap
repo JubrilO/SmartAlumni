@@ -1,0 +1,6 @@
+framework module Pods_SmartAlumni {
+  umbrella header "Pods-SmartAlumni-umbrella.h"
+
+  export *
+  module * { export * }
+}

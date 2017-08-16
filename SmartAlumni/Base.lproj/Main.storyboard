@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cfb-SJ-CuM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jlG-ay-Xc7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,36 +26,50 @@
                                 <color key="textColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-Ln-YBU">
-                                <rect key="frame" x="131" y="604" width="113" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <state key="normal" title="Agree &amp; Continue">
-                                    <color key="titleColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="SA Logo " translatesAutoresizingMaskIntoConstraints="NO" id="hjh-EB-YHj">
                                 <rect key="frame" x="73" y="286" width="228" height="154"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faI-aS-62H">
+                                <rect key="frame" x="75" y="589" width="225" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="Qxf-SC-Nio"/>
+                                    <constraint firstAttribute="height" constant="50" id="UlK-K1-VuS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Agree &amp; Continue">
+                                    <color key="titleColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onAgreeButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhA-ho-0wa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XA2-W2-U7n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1EL-RK-lm1"/>
+                            <constraint firstItem="faI-aS-62H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6EH-H1-6Ey"/>
                             <constraint firstItem="hjh-EB-YHj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E36-94-Obj"/>
                             <constraint firstItem="hjh-EB-YHj" firstAttribute="top" secondItem="XA2-W2-U7n" secondAttribute="bottom" constant="171" id="Z3S-5J-cBx"/>
                             <constraint firstItem="XA2-W2-U7n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="71" id="d8H-MP-VSZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TxF-Ln-YBU" secondAttribute="bottom" constant="34" id="dGe-51-Bjv"/>
-                            <constraint firstItem="TxF-Ln-YBU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s9F-ux-9Pa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="faI-aS-62H" secondAttribute="bottom" constant="28" id="eWy-qp-tOr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WOh-zd-Yt5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="125"/>
+            <point key="canvasLocation" x="1172" y="124.58770614692655"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="TEn-V4-LV9">
             <objects>
-                <viewController id="KfC-XF-RRV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="verifyNumberVC" id="KfC-XF-RRV" customClass="SignUpViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yNh-A4-f12"/>
                         <viewControllerLayoutGuide type="bottom" id="mov-cX-8N9"/>
@@ -77,26 +90,29 @@
                                 <color key="textColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NG +234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-p8-YiO">
-                                <rect key="frame" x="51" y="312" width="76" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-p8-YiO">
+                                <rect key="frame" x="51" y="316.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" red="0.41960784313725491" green="0.63921568627450975" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwt-vu-W2a">
-                                <rect key="frame" x="128" y="310.5" width="6" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwt-vu-W2a">
+                                <rect key="frame" x="52" y="310.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8082949010" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3Z-tm-qxU">
-                                <rect key="frame" x="135" y="312" width="190" height="22"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3Z-tm-qxU" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
+                                <rect key="frame" x="53" y="305.5" width="272" height="22"/>
                                 <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KfC-XF-RRV" id="23L-pu-GDg"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6T-Er-ilH">
-                                <rect key="frame" x="50" y="341" width="275" height="1"/>
+                                <rect key="frame" x="50" y="334.5" width="275" height="1"/>
                                 <color key="backgroundColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="m3N-ZJ-xzK"/>
@@ -118,6 +134,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onContinueButtonTouch:" destination="KfC-XF-RRV" eventType="touchUpInside" id="grS-cM-qxE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9h9-gn-041">
                                 <rect key="frame" x="0.0" y="20" width="50" height="50"/>
@@ -126,19 +145,29 @@
                                     <constraint firstAttribute="width" constant="50" id="mH4-q7-HNL"/>
                                 </constraints>
                                 <state key="normal" image="Back "/>
+                                <connections>
+                                    <action selector="onBackButtonTouch:" destination="KfC-XF-RRV" eventType="touchUpInside" id="FhC-bP-c7Z"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jqi-G6-zz8">
+                                <rect key="frame" x="177" y="604" width="20" height="20"/>
+                                <color key="color" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="G2y-fE-yqh" firstAttribute="centerX" secondItem="kNF-t0-ErL" secondAttribute="centerX" id="3HR-cX-7lw"/>
                             <constraint firstItem="cK0-69-LTO" firstAttribute="top" secondItem="nXL-1C-6Mq" secondAttribute="bottom" constant="40" id="3hp-Ry-yvy"/>
                             <constraint firstItem="mov-cX-8N9" firstAttribute="top" secondItem="G2y-fE-yqh" secondAttribute="bottom" constant="28" id="6DI-Ys-oLX"/>
+                            <constraint firstItem="jqi-G6-zz8" firstAttribute="centerY" secondItem="G2y-fE-yqh" secondAttribute="centerY" id="A7J-wq-pGw"/>
                             <constraint firstItem="h3Z-tm-qxU" firstAttribute="centerY" secondItem="CuF-p8-YiO" secondAttribute="centerY" id="BUc-Jg-3kc"/>
+                            <constraint firstItem="jqi-G6-zz8" firstAttribute="centerX" secondItem="kNF-t0-ErL" secondAttribute="centerX" id="Ioy-RO-QIg"/>
                             <constraint firstItem="cK0-69-LTO" firstAttribute="leading" secondItem="kNF-t0-ErL" secondAttribute="leading" constant="50" id="O9J-1h-fQ5"/>
                             <constraint firstItem="9h9-gn-041" firstAttribute="leading" secondItem="kNF-t0-ErL" secondAttribute="leading" id="QUG-6y-kni"/>
                             <constraint firstAttribute="trailing" secondItem="A6T-Er-ilH" secondAttribute="trailing" constant="50" id="Rix-Lg-SR5"/>
                             <constraint firstItem="h3Z-tm-qxU" firstAttribute="leading" secondItem="Rwt-vu-W2a" secondAttribute="trailing" constant="1" id="Uj7-Kl-7s0"/>
-                            <constraint firstItem="CuF-p8-YiO" firstAttribute="top" secondItem="cK0-69-LTO" secondAttribute="bottom" constant="8" id="Uxl-S1-0af"/>
+                            <constraint firstItem="CuF-p8-YiO" firstAttribute="top" secondItem="cK0-69-LTO" secondAttribute="bottom" constant="12" id="Uxl-S1-0af"/>
                             <constraint firstItem="CuF-p8-YiO" firstAttribute="leading" secondItem="kNF-t0-ErL" secondAttribute="leading" constant="51" id="a2m-K0-yYW"/>
                             <constraint firstItem="A6T-Er-ilH" firstAttribute="top" secondItem="h3Z-tm-qxU" secondAttribute="bottom" constant="7" id="cF7-x6-QdK"/>
                             <constraint firstAttribute="trailing" secondItem="nXL-1C-6Mq" secondAttribute="trailing" constant="48" id="d1R-cU-VSx"/>
@@ -150,16 +179,30 @@
                             <constraint firstItem="A6T-Er-ilH" firstAttribute="leading" secondItem="kNF-t0-ErL" secondAttribute="leading" constant="50" id="yZX-qR-GVz"/>
                             <constraint firstItem="9h9-gn-041" firstAttribute="top" secondItem="yNh-A4-f12" secondAttribute="bottom" id="zS8-ji-Qrx"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BKQ-co-6Tr" appends="YES" id="Bu5-I1-BBA"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="jqi-G6-zz8" id="8ud-tI-oJC"/>
+                        <outlet property="continueButton" destination="G2y-fE-yqh" id="sgh-YP-IAL"/>
+                        <outlet property="countryCodeLabel" destination="CuF-p8-YiO" id="tPs-pi-tbB"/>
+                        <outlet property="phoneNumberTextField" destination="h3Z-tm-qxU" id="cgn-Hi-v9u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJ1-80-Cl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BKQ-co-6Tr">
+                    <connections>
+                        <action selector="onTapGestureRecognised:" destination="KfC-XF-RRV" id="CPq-wa-mJO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1042.4000000000001" y="125.4872563718141"/>
+            <point key="canvasLocation" x="1981.5999999999999" y="125.4872563718141"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3Xh-v6-ByC">
             <objects>
-                <viewController id="wDO-cf-lNn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OTPScene" id="wDO-cf-lNn" customClass="OTPViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5J9-XM-WFO"/>
                         <viewControllerLayoutGuide type="bottom" id="DEj-oF-s2n"/>
@@ -183,7 +226,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-CO-Zw0">
-                                <rect key="frame" x="95" y="322.5" width="34.5" height="14.5"/>
+                                <rect key="frame" x="71.5" y="322.5" width="34.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -196,7 +239,7 @@
                                     <constraint firstAttribute="height" constant="50" id="zqY-ma-Obf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="Resend Code (39)">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -204,6 +247,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onContinueButtonTouch:" destination="wDO-cf-lNn" eventType="touchUpInside" id="w33-YP-XBa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDP-Sa-Kl8">
                                 <rect key="frame" x="0.0" y="20" width="50" height="50"/>
@@ -212,50 +258,78 @@
                                     <constraint firstAttribute="height" constant="50" id="mgJ-5C-nKR"/>
                                 </constraints>
                                 <state key="normal" image="Back "/>
+                                <connections>
+                                    <action selector="onBackButtonTouch:" destination="wDO-cf-lNn" eventType="touchUpInside" id="CbC-8E-dIX"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1yK-jd-gWe">
-                                <rect key="frame" x="95" y="347" width="185" height="36"/>
+                                <rect key="frame" x="71.5" y="347" width="232" height="36"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-fB-Nv5" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-fB-Nv5" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="PPe-SS-18w"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wDO-cf-lNn" id="9PL-xi-CUm"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-Xd-vZD" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-Xd-vZD" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="47" y="0.0" width="44" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="SQe-nS-eoR"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wDO-cf-lNn" id="qMO-PI-Gis"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JuG-A8-SNN" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JuG-A8-SNN" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="94" y="0.0" width="44" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="OD6-Am-m4s"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wDO-cf-lNn" id="r5y-nG-fE2"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-M4-0qF" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-M4-0qF" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="141" y="0.0" width="44" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="qlR-pd-bKY"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wDO-cf-lNn" id="kCs-W0-Sc9"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kog-0Y-7a0" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
+                                        <rect key="frame" x="188" y="0.0" width="44" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="naR-2y-VfC"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wDO-cf-lNn" id="TSi-7J-xYw"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wDP-Sa-Kl8" firstAttribute="top" secondItem="5J9-XM-WFO" secondAttribute="bottom" id="0hy-h8-L8f"/>
                             <constraint firstItem="1yK-jd-gWe" firstAttribute="top" secondItem="pBe-CO-Zw0" secondAttribute="bottom" constant="10" id="75h-hg-RrE"/>
@@ -271,16 +345,33 @@
                             <constraint firstItem="88q-Uo-UdH" firstAttribute="centerX" secondItem="SOS-S3-UXY" secondAttribute="centerX" id="l9L-j9-Pjf"/>
                             <constraint firstItem="N5b-4D-jgL" firstAttribute="top" secondItem="88q-Uo-UdH" secondAttribute="bottom" constant="15" id="t3j-Mz-HK3"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="T96-0I-ehM" appends="YES" id="13B-jT-6Bj"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="confirmationLabel" destination="N5b-4D-jgL" id="f7F-3x-h8O"/>
+                        <outlet property="continueButton" destination="Jhu-FG-u35" id="sfL-Me-4kE"/>
+                        <outlet property="textField1" destination="3s4-fB-Nv5" id="F8d-xF-qCn"/>
+                        <outlet property="textField2" destination="5KW-Xd-vZD" id="P86-kv-pGq"/>
+                        <outlet property="textField3" destination="JuG-A8-SNN" id="yY3-CU-9ZP"/>
+                        <outlet property="textField4" destination="kPZ-M4-0qF" id="jsN-gN-lV4"/>
+                        <outlet property="textField5" destination="kog-0Y-7a0" id="3h4-bj-FHN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebi-HP-y6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="T96-0I-ehM">
+                    <connections>
+                        <action selector="onBackgroundTap:" destination="wDO-cf-lNn" id="xOY-Ni-5pB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1846" y="127"/>
+            <point key="canvasLocation" x="2784.8000000000002" y="126.38680659670166"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Profile View Controller-->
         <scene sceneID="exB-a4-SQQ">
             <objects>
-                <viewController id="5Nb-dF-Ovp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileScene" id="5Nb-dF-Ovp" customClass="EditProfileViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OCg-yk-mN4"/>
                         <viewControllerLayoutGuide type="bottom" id="hbv-xj-bj8"/>
@@ -305,9 +396,13 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onContinueButtonTouch:" destination="5Nb-dF-Ovp" eventType="touchUpInside" id="yWF-Gm-hap"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlacholder" translatesAutoresizingMaskIntoConstraints="NO" id="rkg-r5-oWX">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlacholder" translatesAutoresizingMaskIntoConstraints="NO" id="rkg-r5-oWX">
                                 <rect key="frame" x="15" y="73" width="68" height="68"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="Yy6-fP-CXb"/>
                                     <constraint firstAttribute="width" constant="68" id="eu7-p4-77A"/>
@@ -317,18 +412,27 @@
                                         <integer key="value" value="34"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zR9-Tb-bDd" appends="YES" id="GPr-XH-gOk"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlF-4H-XOF" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                 <rect key="frame" x="107" y="79" width="248" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Nb-dF-Ovp" id="XGg-IB-t7j"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3A-VD-8LJ" customClass="UnderlinedTextField" customModule="SmartAlumni" customModuleProvider="target">
                                 <rect key="frame" x="107" y="109" width="248" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Nb-dF-Ovp" id="V2a-nx-p4S"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOBILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhO-Uc-uKi">
                                 <rect key="frame" x="15" y="213.5" width="46" height="14.5"/>
@@ -367,9 +471,17 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Nb-dF-Ovp" id="cM6-E7-ZBW"/>
+                                </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AYS-d6-N6l">
+                                <rect key="frame" x="177.5" y="604" width="20" height="20"/>
+                                <color key="color" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JhO-Uc-uKi" firstAttribute="top" secondItem="hYz-cM-UlQ" secondAttribute="bottom" constant="24" id="0qO-Zf-8Ab"/>
                             <constraint firstItem="X3A-VD-8LJ" firstAttribute="top" secondItem="dlF-4H-XOF" secondAttribute="bottom" constant="10" id="1va-0i-XLa"/>
@@ -388,7 +500,9 @@
                             <constraint firstItem="IgH-sl-kK1" firstAttribute="leading" secondItem="RxO-y0-K9Y" secondAttribute="leading" constant="15" id="ZoB-6B-3WG"/>
                             <constraint firstItem="dlF-4H-XOF" firstAttribute="leading" secondItem="rkg-r5-oWX" secondAttribute="trailing" constant="24" id="aNq-j4-jcg"/>
                             <constraint firstItem="hYz-cM-UlQ" firstAttribute="trailing" secondItem="X3A-VD-8LJ" secondAttribute="trailing" id="cmi-5v-Y7D"/>
+                            <constraint firstItem="AYS-d6-N6l" firstAttribute="centerY" secondItem="PtG-fr-pe5" secondAttribute="centerY" id="hKj-Rg-8lG"/>
                             <constraint firstItem="hbv-xj-bj8" firstAttribute="top" secondItem="PtG-fr-pe5" secondAttribute="bottom" constant="28" id="hL7-LX-o9D"/>
+                            <constraint firstItem="AYS-d6-N6l" firstAttribute="centerX" secondItem="RxO-y0-K9Y" secondAttribute="centerX" id="lU7-ZS-QDu"/>
                             <constraint firstItem="hKi-2O-R1l" firstAttribute="leading" secondItem="RxO-y0-K9Y" secondAttribute="leading" constant="15" id="mV5-ef-smH"/>
                             <constraint firstItem="dlF-4H-XOF" firstAttribute="top" secondItem="OCg-yk-mN4" secondAttribute="bottom" constant="59" id="mti-8v-wGU"/>
                             <constraint firstItem="0Rm-Q6-eV0" firstAttribute="leading" secondItem="RxO-y0-K9Y" secondAttribute="leading" constant="15" id="nPC-4S-HqO"/>
@@ -397,11 +511,33 @@
                             <constraint firstItem="PtG-fr-pe5" firstAttribute="centerX" secondItem="RxO-y0-K9Y" secondAttribute="centerX" id="tqy-rj-8sv"/>
                             <constraint firstItem="hYz-cM-UlQ" firstAttribute="leading" secondItem="RxO-y0-K9Y" secondAttribute="leading" constant="15" id="x5B-OH-KFz"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DMc-kk-G3r" appends="YES" id="R5l-5Y-HPQ"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="AYS-d6-N6l" id="3Fu-k5-xVH"/>
+                        <outlet property="continueButton" destination="PtG-fr-pe5" id="Cc7-R3-70S"/>
+                        <outlet property="emailTextField" destination="hYz-cM-UlQ" id="HQz-dv-2oS"/>
+                        <outlet property="firstNameTextField" destination="dlF-4H-XOF" id="HYV-Uj-nPx"/>
+                        <outlet property="lastNameTextField" destination="X3A-VD-8LJ" id="Kve-1l-Z3Y"/>
+                        <outlet property="phoneNumberLabel" destination="IgH-sl-kK1" id="zqR-4k-i64"/>
+                        <outlet property="profileImageView" destination="rkg-r5-oWX" id="hea-1d-B0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAr-No-Osx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zR9-Tb-bDd">
+                    <connections>
+                        <action selector="onProfileImageTap:" destination="5Nb-dF-Ovp" id="YAp-M8-gtC"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DMc-kk-G3r">
+                    <connections>
+                        <action selector="onBackgroundTap:" destination="5Nb-dF-Ovp" id="JpV-iZ-YLm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2648.8000000000002" y="127.28635682158921"/>
+            <point key="canvasLocation" x="3588" y="127.28635682158921"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="y8B-pb-Gbo">
@@ -459,7 +595,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2C-bF-FKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3457" y="115"/>
+            <point key="canvasLocation" x="4396" y="114.69265367316342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NFc-y1-4Iz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jlG-ay-Xc7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecF-rc-zcT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZoH-4V-dSj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kac-gV-Jmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="124.58770614692655"/>
         </scene>
     </scenes>
     <resources>

@@ -10,8 +10,10 @@ import UIKit
 
 class UnderlinedTextField: UITextField {
     
-    fileprivate struct Constants {
-        static let borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
+    var borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0) {
+        didSet{
+            self.setNeedsDisplay()
+        }
     }
     
     let padding = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0);
@@ -20,12 +22,12 @@ class UnderlinedTextField: UITextField {
     override func draw(_ rect: CGRect) {
         let border = CALayer()
         let width = CGFloat(1.0)
-        border.borderColor = Constants.borderColor.cgColor
+        border.borderColor = borderColor.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
         border.borderWidth = width
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
-        self.tintColor = Constants.borderColor
+        self.tintColor = borderColor
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
