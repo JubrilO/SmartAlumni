@@ -8,6 +8,11 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (1.2.3)
   - PhoneNumberKit/UIKit (1.2.3):
     - PhoneNumberKit/PhoneNumberKitCore
+  - Realm (2.6.2):
+    - Realm/Headers (= 2.6.2)
+  - Realm/Headers (2.6.2)
+  - RealmSwift (2.6.2):
+    - Realm (= 2.6.2)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (3.1.4)
 
@@ -16,6 +21,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Locksmith
   - PhoneNumberKit
+  - RealmSwift
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
 
@@ -34,9 +40,11 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
+  Realm: 29222766425b9f831228f81b63f0e38a97a4d700
+  RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 7a43221d5062578c9b1121056bbef104d6589f4d
+PODFILE CHECKSUM: 769b5070bfc7b636d9d7c399a38ff0b60f17b095
 
 COCOAPODS: 1.2.1

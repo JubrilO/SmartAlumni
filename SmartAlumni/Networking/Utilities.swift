@@ -22,19 +22,20 @@ class Utilities {
     }
     
     class func parseUIDFromJSON(json: JSON) -> (String?, String?){
-        
+    
         if json["status"].stringValue == "success" {
             let jwt = json["data"]["security_token"].stringValue
             let uid = json["data"]["_id"].stringValue
             return(uid, nil)
         }
         else {
-            let error = json["data"]["err"].stringValue
+            let error = json["err"].stringValue
             return(nil, error)
         }
     }
     
     class func parseUserFromJSON(json: JSON) -> (user: User?, error: String?) {
+        print(json)
         if json["status"].stringValue == "success" {
             let user = User(json: json)
             return (user: user, error: nil)

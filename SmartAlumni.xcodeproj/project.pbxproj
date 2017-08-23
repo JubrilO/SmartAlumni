@@ -127,6 +127,9 @@
 		911CF2BF1F39D02B00FEC8D6 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				9187E2061F2F747000A240E3 /* Assets.xcassets */,
+				9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */,
+				9187E20B1F2F747000A240E3 /* Info.plist */,
 				911CF2C01F39D06100FEC8D6 /* Constants.swift */,
 				911CF2C21F39D41C00FEC8D6 /* Extensions.swift */,
 			);
@@ -380,17 +383,22 @@
 			children = (
 				9187E1FF1F2F747000A240E3 /* AppDelegate.swift */,
 				9187E2031F2F747000A240E3 /* Main.storyboard */,
-				911B4A351F3899710028BBE1 /* Controller */,
-				9187E2061F2F747000A240E3 /* Assets.xcassets */,
-				9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */,
 				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
+				911B4A351F3899710028BBE1 /* Controller */,
 				915C336F1F38A0B800729106 /* Scenes */,
-				9187E20B1F2F747000A240E3 /* Info.plist */,
-				91BDAF471F4446D200BC1666 /* User.swift */,
+				91BDAF491F44770100BC1666 /* Model */,
 				911CF2BF1F39D02B00FEC8D6 /* Supporting */,
 				911B4A301F37E19C0028BBE1 /* Networking */,
 			);
 			path = SmartAlumni;
+			sourceTree = "<group>";
+		};
+		91BDAF491F44770100BC1666 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91BDAF471F4446D200BC1666 /* User.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D6552F3AE3A2D3A97D242E0A /* Pods */ = {

@@ -14,11 +14,13 @@ struct Constants {
     struct UserDefaults {
         static let OTP = "OTP"
         static let UID = "UID"
+        static let PhoneNumber = "PhoneNumber"
     }
     
     struct StoryboardIdentifiers {
         static let OTPScene = "OTPScene"
         static let EditProfileScene = "EditProfileScene"
+        static let SignUpCompleteScene = "SignUpCompleteScene"
     }
     
     struct  Errors {

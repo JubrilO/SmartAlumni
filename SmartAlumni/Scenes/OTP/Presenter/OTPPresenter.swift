@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OTPPresenterInput: OTPInteractorOutput {
-
+    
 }
 
 protocol OTPPresenterOutput: class {
@@ -20,14 +20,14 @@ protocol OTPPresenterOutput: class {
 }
 
 final class OTPPresenter {
-
+    
     private(set) weak var output: OTPPresenterOutput!
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(output: OTPPresenterOutput) {
-
+        
         self.output = output
     }
 }
@@ -36,8 +36,8 @@ final class OTPPresenter {
 // MARK: - OTPPresenterInput
 
 extension OTPPresenter: OTPPresenterInput {
-
-
+    
+    
     // MARK: - Presentation logic
     
     func presentError() {
@@ -52,7 +52,7 @@ extension OTPPresenter: OTPPresenterInput {
     func displayPhoneNumber(phoneNumber: String?) {
         if let phoneNumber = phoneNumber {
             let copy = "Enter the four digit code we sent to \(phoneNumber)"
-        output.displayOTPCopy(copy: copy)
+            output.displayOTPCopy(copy: copy)
         }
     }
 }

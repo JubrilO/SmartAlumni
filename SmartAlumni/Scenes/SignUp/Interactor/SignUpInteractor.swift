@@ -68,6 +68,7 @@ final class SignUpInteractor: SignUpViewControllerOutput {
                     }
                     
                     UserDefaults.standard.set(otp!, forKey: Constants.UserDefaults.OTP)
+                    UserDefaults.standard.set(phoneNumber.adjustedNationalNumber(), forKey: Constants.UserDefaults.PhoneNumber)
                     self.output.presentOTPScene()
                 }
                 return

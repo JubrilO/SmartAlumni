@@ -9,23 +9,23 @@
 import UIKit
 
 protocol EditProfileRouterProtocol {
-
+    
     weak var viewController: EditProfileViewController? { get }
-
-    func navigateToSomewhere()
+    
     func routeToCamera()
     func routeToPhotoLibrary()
+    func routeToSignUpCompletion()
 }
 
 final class EditProfileRouter {
-
+    
     weak var viewController: EditProfileViewController?
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(viewController: EditProfileViewController?) {
-
+        
         self.viewController = viewController
     }
 }
@@ -34,13 +34,9 @@ final class EditProfileRouter {
 // MARK: - EditProfileRouterProtocol
 
 extension EditProfileRouter: EditProfileRouterProtocol {
-
-
+    
+    
     // MARK: - Navigation
-
-    func navigateToSomewhere() {
-
-    }
     
     func routeToCamera() {
         
@@ -67,5 +63,11 @@ extension EditProfileRouter: EditProfileRouterProtocol {
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.allowsEditing = true
         viewController?.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func routeToSignUpCompletion() {
+        if let signUpCompleteVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SignUpCompleteScene) {
+            viewController?.navigationController?.pushViewController(signUpCompleteVC, animated: true)
+        }
     }
 }

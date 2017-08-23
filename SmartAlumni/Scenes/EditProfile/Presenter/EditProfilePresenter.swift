@@ -13,8 +13,9 @@ protocol EditProfilePresenterInput: EditProfileInteractorOutput {
 }
 
 protocol EditProfilePresenterOutput: class {
-
-    func displaySomething(viewModel: EditProfileViewModel)
+    
+    func presentNextScene()
+    func displayError(errorMessage: String)
 }
 
 final class EditProfilePresenter {
@@ -34,15 +35,15 @@ final class EditProfilePresenter {
 // MARK: - EditProfilePresenterInput
 
 extension EditProfilePresenter: EditProfilePresenterInput {
-
-
+    
     // MARK: - Presentation logic
-
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = EditProfileViewModel()
-        output.displaySomething(viewModel: viewModel)
+    
+    func presentNextScene() {
+        output.presentNextScene()
     }
+
+    func presentError(errorMessage: String) {
+        output.displayError(errorMessage: errorMessage)
+    }
+
 }

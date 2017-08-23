@@ -15,7 +15,7 @@ protocol EditProfileViewControllerInput: EditProfilePresenterOutput {
 
 protocol EditProfileViewControllerOutput {
     
-    func saveProfile(firstName: String, lastName: String, email: String, profileImage: UIImage)
+    func saveProfile(firstName: String, lastName: String, username: String, email: String, profileImage: UIImage)
 }
 
 final class EditProfileViewController: UIViewController {
@@ -23,6 +23,7 @@ final class EditProfileViewController: UIViewController {
     var output: EditProfileViewControllerOutput!
     var router: EditProfileRouterProtocol!
     
+    @IBOutlet weak var usernameTextField: UnderlinedTextField!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var firstNameTextField: UnderlinedTextField!
@@ -64,6 +65,7 @@ final class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        configureTextFields()
     }
     
     @IBAction func onProfileImageTap(_ sender: UITapGestureRecognizer) {
@@ -77,7 +79,8 @@ final class EditProfileViewController: UIViewController {
     }
     
     @IBAction func onContinueButtonTouch(_ sender: UIButton) {
-        
+        continueButton.isHidden = true
+        activityIndicator.startAnimating()
         validator.validate(self)
     }
     
@@ -86,6 +89,9 @@ final class EditProfileViewController: UIViewController {
         validator.registerField(firstNameTextField, rules: [RequiredRule()])
         validator.registerField(lastNameTextField, rules: [RequiredRule()])
         validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule()])
+        validator.registerField(usernameTextField, rules: [RequiredRule()])
+        
+        phoneNumberLabel.text = UserDefaults.standard.string(forKey: Constants.UserDefaults.PhoneNumber)
     }
     
     
@@ -116,15 +122,17 @@ extension EditProfileViewController: ValidationDelegate {
         let firstName = firstNameTextField.text!
         let lastName = lastNameTextField.text!
         let email = emailTextField.text!
+        let username = usernameTextField.text!
         var profileImage = profileImageView.image!
         if profileImageView.image! != Constants.PlaceholderImages.AddPhoto {
             profileImage = Constants.PlaceholderImages.ProfilePicture
         }
-        output.saveProfile(firstName: firstName, lastName: lastName, email: email, profileImage: profileImage)
+        output.saveProfile(firstName: firstName, lastName: lastName, username: username, email: email, profileImage: profileImage)
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
-        
+        activityIndicator.stopAnimating()
+        continueButton.isHidden = false
         for (field, _ ) in errors {
             if let field = field as? UnderlinedTextField {
                 field.borderColor = UIColor.red
@@ -135,17 +143,18 @@ extension EditProfileViewController: ValidationDelegate {
 
 extension EditProfileViewController: EditProfileViewControllerInput {
     
-    
     // MARK: - Display logic
-    
-    func displaySomething(viewModel: EditProfileViewModel) {
-        
-        // TODO: Update UI
+   
+    func displayError(errorMessage: String) {
+        continueButton.isHidden = false
+        activityIndicator.stopAnimating()
+        self.displayErrorModal(error: errorMessage)
     }
-    
-    func displayValidationError() {
-        
+
+    func presentNextScene() {
+        router.routeToSignUpCompletion()
     }
+
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -156,9 +165,14 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImageView.image = selectedImage
+        }
+        
         if let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImageView.image = selectedImage
         }
+        
         dismiss(animated: true, completion: nil)
     }
 }

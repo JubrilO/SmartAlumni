@@ -14,7 +14,8 @@ protocol EditProfileInteractorInput: EditProfileViewControllerOutput {
 
 protocol EditProfileInteractorOutput {
 
-    func presentSomething()
+    func presentError(errorMessage: String)
+    func presentNextScene()
 }
 
 final class EditProfileInteractor {
@@ -37,21 +38,18 @@ final class EditProfileInteractor {
 
 extension EditProfileInteractor: EditProfileViewControllerOutput {
 
-
-    // MARK: - Business logic
-
-    func doSomething() {
-
-        // TODO: Create some Worker to do the work
-
-        worker.doSomeWork()
-
-        // TODO: Pass the result to the Presenter
-
-        output.presentSomething()
-    }
-    
-    func saveProfile(firstName: String, lastName: String, email: String, profileImage: UIImage) {
-        worker.updateProfile()
+    func saveProfile(firstName: String, lastName: String, username: String, email: String, profileImage: UIImage) {
+        
+        worker.updateProfile(firstName: firstName, lastName: lastName, username: username, email: email, profileImage: profileImage) {
+            user, error in
+            
+            guard error == nil else {
+                self.output.presentError(errorMessage: error!)
+                return
+            }
+            if let _ = user {
+                self.output.presentNextScene()
+            }
+        }
     }
 }
