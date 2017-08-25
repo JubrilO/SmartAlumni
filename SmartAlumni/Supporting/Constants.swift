@@ -21,6 +21,7 @@ struct Constants {
         static let OTPScene = "OTPScene"
         static let EditProfileScene = "EditProfileScene"
         static let SignUpCompleteScene = "SignUpCompleteScene"
+        static let InitialNavScene = "InitialNavScene"
     }
     
     struct  Errors {

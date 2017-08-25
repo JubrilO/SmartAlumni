@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import Locksmith
 
 class Utilities {
     
@@ -24,7 +25,6 @@ class Utilities {
     class func parseUIDFromJSON(json: JSON) -> (String?, String?){
     
         if json["status"].stringValue == "success" {
-            let jwt = json["data"]["security_token"].stringValue
             let uid = json["data"]["_id"].stringValue
             return(uid, nil)
         }
@@ -38,6 +38,8 @@ class Utilities {
         print(json)
         if json["status"].stringValue == "success" {
             let user = User(json: json)
+            let jwt = json["data"]["security_token"].stringValue
+            try! Locksmith.updateData(data: ["security_token" : jwt], forUserAccount: user!.uid)
             return (user: user, error: nil)
         }
         else {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0FE91BADCE4B2E8E1DF522 /* Pods_SmartAlumni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */; };
-		911B4A2D1F37C2350028BBE1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */; };
+		911B4A2D1F37C2350028BBE1 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */; };
 		911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A311F37E1EB0028BBE1 /* UserAPI.swift */; };
 		911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A331F3898940028BBE1 /* APIConstants.swift */; };
 		911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CF2C01F39D06100FEC8D6 /* Constants.swift */; };
@@ -27,6 +27,13 @@
 		913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D391F407FC10080F5CE /* OTPViewController.swift */; };
 		913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */; };
 		913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3D1F407FC10080F5CE /* OTPWorker.swift */; };
+		91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */; };
+		91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */; };
+		91503D5E1F4E2C14002C8F46 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D531F4E2C14002C8F46 /* WelcomePresenter.swift */; };
+		91503D5F1F4E2C14002C8F46 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D551F4E2C14002C8F46 /* WelcomeRouter.swift */; };
+		91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D571F4E2C14002C8F46 /* WelcomeViewController.swift */; };
+		91503D611F4E2C14002C8F46 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D591F4E2C14002C8F46 /* WelcomeViewModel.swift */; };
+		91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */; };
 		915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33771F38A32600729106 /* SignUpConfigurator.swift */; };
 		915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33791F38A32600729106 /* SignUpInteractor.swift */; };
 		915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337B1F38A32600729106 /* SignUpPresenter.swift */; };
@@ -40,13 +47,23 @@
 		9187E2051F2F747000A240E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2031F2F747000A240E3 /* Main.storyboard */; };
 		9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2061F2F747000A240E3 /* Assets.xcassets */; };
 		9187E20A1F2F747000A240E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */; };
+		918D425C1F50023D00C848FA /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D425B1F50023D00C848FA /* School.swift */; };
+		9190AE8B1F4F8FBB003DEA3F /* JoinSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */; };
+		9190AE9E1F4F9197003DEA3F /* SelectSchoolConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE911F4F9197003DEA3F /* SelectSchoolConfigurator.swift */; };
+		9190AE9F1F4F9197003DEA3F /* SelectSchoolInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE931F4F9197003DEA3F /* SelectSchoolInteractor.swift */; };
+		9190AEA01F4F9197003DEA3F /* SelectSchoolPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE951F4F9197003DEA3F /* SelectSchoolPresenter.swift */; };
+		9190AEA11F4F9197003DEA3F /* SelectSchoolRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE971F4F9197003DEA3F /* SelectSchoolRouter.swift */; };
+		9190AEA21F4F9197003DEA3F /* SelectSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE991F4F9197003DEA3F /* SelectSchoolViewController.swift */; };
+		9190AEA31F4F9197003DEA3F /* SelectSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE9B1F4F9197003DEA3F /* SelectSchoolViewModel.swift */; };
+		9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE9D1F4F9197003DEA3F /* SelectSchoolWorker.swift */; };
+		9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */; };
 		91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */; };
 		91BDAF481F4446D200BC1666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDAF471F4446D200BC1666 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.release.xcconfig"; sourceTree = "<group>"; };
-		911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		911B4A311F37E1EB0028BBE1 /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = Networking/UserAPI.swift; sourceTree = "<group>"; };
 		911B4A331F3898940028BBE1 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = Networking/APIConstants.swift; sourceTree = "<group>"; };
 		911CF2C01F39D06100FEC8D6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
@@ -65,6 +82,13 @@
 		913C1D391F407FC10080F5CE /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		913C1D3D1F407FC10080F5CE /* OTPWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPWorker.swift; sourceTree = "<group>"; };
+		91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
+		91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		91503D531F4E2C14002C8F46 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		91503D551F4E2C14002C8F46 /* WelcomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
+		91503D571F4E2C14002C8F46 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		91503D591F4E2C14002C8F46 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeWorker.swift; sourceTree = "<group>"; };
 		915C33771F38A32600729106 /* SignUpConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfigurator.swift; sourceTree = "<group>"; };
 		915C33791F38A32600729106 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		915C337B1F38A32600729106 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -80,6 +104,16 @@
 		9187E2061F2F747000A240E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9187E2091F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9187E20B1F2F747000A240E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		918D425B1F50023D00C848FA /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = School.swift; path = Models/School.swift; sourceTree = "<group>"; };
+		9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JoinSchool.storyboard; sourceTree = "<group>"; };
+		9190AE911F4F9197003DEA3F /* SelectSchoolConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolConfigurator.swift; sourceTree = "<group>"; };
+		9190AE931F4F9197003DEA3F /* SelectSchoolInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolInteractor.swift; sourceTree = "<group>"; };
+		9190AE951F4F9197003DEA3F /* SelectSchoolPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolPresenter.swift; sourceTree = "<group>"; };
+		9190AE971F4F9197003DEA3F /* SelectSchoolRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolRouter.swift; sourceTree = "<group>"; };
+		9190AE991F4F9197003DEA3F /* SelectSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolViewController.swift; sourceTree = "<group>"; };
+		9190AE9B1F4F9197003DEA3F /* SelectSchoolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolViewModel.swift; sourceTree = "<group>"; };
+		9190AE9D1F4F9197003DEA3F /* SelectSchoolWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolWorker.swift; sourceTree = "<group>"; };
+		9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolCell.swift; sourceTree = "<group>"; };
 		91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		91BDAF471F4446D200BC1666 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +153,7 @@
 		911B4A351F3899710028BBE1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				911B4A2C1F37C2350028BBE1 /* WelcomeViewController.swift */,
+				911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -127,6 +161,7 @@
 		911CF2BF1F39D02B00FEC8D6 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
 				9187E2061F2F747000A240E3 /* Assets.xcassets */,
 				9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */,
 				9187E20B1F2F747000A240E3 /* Info.plist */,
@@ -278,14 +313,87 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
-		915C336F1F38A0B800729106 /* Scenes */ = {
+		91503D4D1F4E2C14002C8F46 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				91503D4E1F4E2C14002C8F46 /* Configurator */,
+				91503D501F4E2C14002C8F46 /* Interactor */,
+				91503D521F4E2C14002C8F46 /* Presenter */,
+				91503D541F4E2C14002C8F46 /* Router */,
+				91503D561F4E2C14002C8F46 /* View */,
+				91503D581F4E2C14002C8F46 /* ViewModel */,
+				91503D5A1F4E2C14002C8F46 /* Worker */,
+			);
+			name = Welcome;
+			path = Scenes/Welcome;
+			sourceTree = "<group>";
+		};
+		91503D4E1F4E2C14002C8F46 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		91503D501F4E2C14002C8F46 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		91503D521F4E2C14002C8F46 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				91503D531F4E2C14002C8F46 /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		91503D541F4E2C14002C8F46 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				91503D551F4E2C14002C8F46 /* WelcomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		91503D561F4E2C14002C8F46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91503D571F4E2C14002C8F46 /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91503D581F4E2C14002C8F46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91503D591F4E2C14002C8F46 /* WelcomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91503D5A1F4E2C14002C8F46 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		915C336F1F38A0B800729106 /* SignUp Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9187E2031F2F747000A240E3 /* Main.storyboard */,
+				91503D4D1F4E2C14002C8F46 /* Welcome */,
 				9125CA501F4309AD00174534 /* EditProfile */,
 				913C1D2F1F407FC10080F5CE /* OTP */,
 				915C33751F38A32600729106 /* SignUp */,
 			);
-			name = Scenes;
+			name = "SignUp Scenes";
 			sourceTree = "<group>";
 		};
 		915C33751F38A32600729106 /* SignUp */ = {
@@ -382,10 +490,9 @@
 			isa = PBXGroup;
 			children = (
 				9187E1FF1F2F747000A240E3 /* AppDelegate.swift */,
-				9187E2031F2F747000A240E3 /* Main.storyboard */,
-				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
 				911B4A351F3899710028BBE1 /* Controller */,
-				915C336F1F38A0B800729106 /* Scenes */,
+				9190AE8C1F4F90EF003DEA3F /* Join School Scenes */,
+				915C336F1F38A0B800729106 /* SignUp Scenes */,
 				91BDAF491F44770100BC1666 /* Model */,
 				911CF2BF1F39D02B00FEC8D6 /* Supporting */,
 				911B4A301F37E19C0028BBE1 /* Networking */,
@@ -393,10 +500,92 @@
 			path = SmartAlumni;
 			sourceTree = "<group>";
 		};
+		9190AE8C1F4F90EF003DEA3F /* Join School Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */,
+				9190AE8F1F4F9197003DEA3F /* SelectSchool */,
+			);
+			name = "Join School Scenes";
+			sourceTree = "<group>";
+		};
+		9190AE8F1F4F9197003DEA3F /* SelectSchool */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE901F4F9197003DEA3F /* Configurator */,
+				9190AE921F4F9197003DEA3F /* Interactor */,
+				9190AE941F4F9197003DEA3F /* Presenter */,
+				9190AE961F4F9197003DEA3F /* Router */,
+				9190AE981F4F9197003DEA3F /* View */,
+				9190AE9A1F4F9197003DEA3F /* ViewModel */,
+				9190AE9C1F4F9197003DEA3F /* Worker */,
+			);
+			name = SelectSchool;
+			path = "Join School Scenes/SelectSchool";
+			sourceTree = "<group>";
+		};
+		9190AE901F4F9197003DEA3F /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE911F4F9197003DEA3F /* SelectSchoolConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9190AE921F4F9197003DEA3F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE931F4F9197003DEA3F /* SelectSchoolInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9190AE941F4F9197003DEA3F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE951F4F9197003DEA3F /* SelectSchoolPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9190AE961F4F9197003DEA3F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE971F4F9197003DEA3F /* SelectSchoolRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9190AE981F4F9197003DEA3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE991F4F9197003DEA3F /* SelectSchoolViewController.swift */,
+				9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9190AE9A1F4F9197003DEA3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE9B1F4F9197003DEA3F /* SelectSchoolViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9190AE9C1F4F9197003DEA3F /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				9190AE9D1F4F9197003DEA3F /* SelectSchoolWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		91BDAF491F44770100BC1666 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				91BDAF471F4446D200BC1666 /* User.swift */,
+				918D425B1F50023D00C848FA /* School.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -473,6 +662,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9190AE8B1F4F8FBB003DEA3F /* JoinSchool.storyboard in Resources */,
 				9187E20A1F2F747000A240E3 /* LaunchScreen.storyboard in Resources */,
 				9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */,
 				9187E2051F2F747000A240E3 /* Main.storyboard in Resources */,
@@ -535,31 +725,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				911CF2C31F39D41C00FEC8D6 /* Extensions.swift in Sources */,
+				91503D611F4E2C14002C8F46 /* WelcomeViewModel.swift in Sources */,
 				9125CA601F4309AD00174534 /* EditProfileInteractor.swift in Sources */,
 				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
 				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
 				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
 				911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */,
 				9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */,
+				91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */,
 				913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */,
+				918D425C1F50023D00C848FA /* School.swift in Sources */,
+				9190AEA01F4F9197003DEA3F /* SelectSchoolPresenter.swift in Sources */,
 				9125CA651F4309AD00174534 /* EditProfileWorker.swift in Sources */,
+				9190AEA11F4F9197003DEA3F /* SelectSchoolRouter.swift in Sources */,
+				91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */,
+				9190AEA21F4F9197003DEA3F /* SelectSchoolViewController.swift in Sources */,
+				9190AE9E1F4F9197003DEA3F /* SelectSchoolConfigurator.swift in Sources */,
 				915C33871F38A32600729106 /* SignUpRouter.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
 				9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */,
 				911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */,
+				9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */,
 				9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */,
 				911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */,
 				915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */,
 				913C1D401F407FC10080F5CE /* OTPPresenter.swift in Sources */,
+				91503D5F1F4E2C14002C8F46 /* WelcomeRouter.swift in Sources */,
 				913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */,
+				91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */,
 				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
-				911B4A2D1F37C2350028BBE1 /* WelcomeViewController.swift in Sources */,
+				911B4A2D1F37C2350028BBE1 /* EntryViewController.swift in Sources */,
+				9190AEA31F4F9197003DEA3F /* SelectSchoolViewModel.swift in Sources */,
 				91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */,
+				91503D5E1F4E2C14002C8F46 /* WelcomePresenter.swift in Sources */,
 				915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */,
+				91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */,
 				915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */,
+				9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */,
 				913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */,
 				913C1D411F407FC10080F5CE /* OTPRouter.swift in Sources */,
+				9190AE9F1F4F9197003DEA3F /* SelectSchoolInteractor.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,

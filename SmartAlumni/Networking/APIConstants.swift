@@ -15,5 +15,6 @@ struct APIConstants {
     static let OtpURL = UserURL + "/otp"
     static let SignUpURL = UserURL + "/sign-up"
     static let UpdateProfileURL = UserURL + "/update"
+    static let SchoolURL = RootURL + "/school"
 
 }

@@ -77,4 +77,8 @@ class UserAPI {
             }
         }
     }
+    
+    func fetchAllSchools(completionHandler: @escaping ()) {
+        
+    }
 }

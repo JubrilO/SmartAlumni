@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EntryViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -344,6 +344,7 @@
                             <constraint firstItem="wDP-Sa-Kl8" firstAttribute="leading" secondItem="SOS-S3-UXY" secondAttribute="leading" id="fvY-oX-W26"/>
                             <constraint firstItem="88q-Uo-UdH" firstAttribute="centerX" secondItem="SOS-S3-UXY" secondAttribute="centerX" id="l9L-j9-Pjf"/>
                             <constraint firstItem="N5b-4D-jgL" firstAttribute="top" secondItem="88q-Uo-UdH" secondAttribute="bottom" constant="15" id="t3j-Mz-HK3"/>
+                            <constraint firstItem="DEj-oF-s2n" firstAttribute="top" secondItem="Jhu-FG-u35" secondAttribute="bottom" constant="28" id="wDz-zo-QHn"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="T96-0I-ehM" appends="YES" id="13B-jT-6Bj"/>
@@ -552,10 +553,10 @@
             </objects>
             <point key="canvasLocation" x="3588" y="127.28635682158921"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="y8B-pb-Gbo">
             <objects>
-                <viewController storyboardIdentifier="SignUpCompleteScene" id="cfb-SJ-CuM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpCompleteScene" id="cfb-SJ-CuM" customClass="WelcomeViewController" customModule="SmartAlumni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="582-nd-dSy"/>
                         <viewControllerLayoutGuide type="bottom" id="qzi-iW-gpj"/>
@@ -584,7 +585,7 @@
                                     <constraint firstAttribute="height" constant="50" id="sb2-BX-n1W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="Join the movement">
+                                <state key="normal" title="Join a School">
                                     <color key="titleColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -592,6 +593,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onJoinSchoolButtonTouch:" destination="cfb-SJ-CuM" eventType="touchUpInside" id="Fhg-Xe-osh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -605,6 +609,10 @@
                             <constraint firstItem="tKO-uE-3Qs" firstAttribute="centerX" secondItem="8iH-Gx-3zV" secondAttribute="centerX" id="oTe-vL-cIx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="joinSchoolButton" destination="SVc-ac-zcQ" id="aQ9-HJ-RtO"/>
+                        <outlet property="welcomeLabel" destination="tKO-uE-3Qs" id="fvZ-Cj-4be"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2C-bF-FKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -613,7 +621,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NFc-y1-4Iz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jlG-ay-Xc7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InitialNavScene" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jlG-ay-Xc7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecF-rc-zcT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

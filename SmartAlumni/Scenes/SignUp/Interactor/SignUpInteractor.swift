@@ -44,6 +44,7 @@ final class SignUpInteractor: SignUpViewControllerOutput {
         
         case .valid(let phoneNumberRaw):
             phoneNumber = PhoneNumberKit().format(phoneNumberRaw, toType: .international)
+            UserDefaults.standard.set(phoneNumber, forKey: Constants.UserDefaults.PhoneNumber)
             signUpUser(phoneNumber: phoneNumberRaw)
         }
     }
@@ -68,7 +69,8 @@ final class SignUpInteractor: SignUpViewControllerOutput {
                     }
                     
                     UserDefaults.standard.set(otp!, forKey: Constants.UserDefaults.OTP)
-                    UserDefaults.standard.set(phoneNumber.adjustedNationalNumber(), forKey: Constants.UserDefaults.PhoneNumber)
+                    let phoneFormatted = PhoneNumberKit().format(phoneNumber, toType: .international)
+                    UserDefaults.standard.set(phoneFormatted, forKey: Constants.UserDefaults.PhoneNumber)
                     self.output.presentOTPScene()
                 }
                 return

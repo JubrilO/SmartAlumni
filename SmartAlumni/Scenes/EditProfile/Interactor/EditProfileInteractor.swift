@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol EditProfileInteractorInput: EditProfileViewControllerOutput {
-
+    
 }
 
 protocol EditProfileInteractorOutput {
-
+    
     func presentError(errorMessage: String)
     func presentNextScene()
 }
 
 final class EditProfileInteractor {
-
+    
     let output: EditProfileInteractorOutput
     let worker: EditProfileWorker
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(output: EditProfileInteractorOutput, worker: EditProfileWorker = EditProfileWorker()) {
-
+        
         self.output = output
         self.worker = worker
     }
@@ -37,7 +38,7 @@ final class EditProfileInteractor {
 // MARK: - EditProfileInteractorInput
 
 extension EditProfileInteractor: EditProfileViewControllerOutput {
-
+    
     func saveProfile(firstName: String, lastName: String, username: String, email: String, profileImage: UIImage) {
         
         worker.updateProfile(firstName: firstName, lastName: lastName, username: username, email: email, profileImage: profileImage) {
@@ -47,7 +48,8 @@ extension EditProfileInteractor: EditProfileViewControllerOutput {
                 self.output.presentError(errorMessage: error!)
                 return
             }
-            if let _ = user {
+            if let user = user {
+                self.worker.addUserToRealm(user: user)
                 self.output.presentNextScene()
             }
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EditProfileWorker {
     
@@ -34,6 +35,13 @@ class EditProfileWorker {
         UserAPI.sharedManager.updateProfile(parameters: parameters) {
             user, error in
             completionHandler(user, error)
+        }
+    }
+    
+    func addUserToRealm(user: User) {
+        let realm = try! Realm()
+        try! Realm().write {
+            realm.add(user)
         }
     }
 }

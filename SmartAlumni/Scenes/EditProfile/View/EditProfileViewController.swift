@@ -90,7 +90,6 @@ final class EditProfileViewController: UIViewController {
         validator.registerField(lastNameTextField, rules: [RequiredRule()])
         validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule()])
         validator.registerField(usernameTextField, rules: [RequiredRule()])
-        
         phoneNumberLabel.text = UserDefaults.standard.string(forKey: Constants.UserDefaults.PhoneNumber)
     }
     
