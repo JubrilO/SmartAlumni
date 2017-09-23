@@ -484,7 +484,7 @@
                                 <rect key="frame" x="109" y="120" width="246" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="5Nb-dF-Ovp" id="fh8-pf-rQK"/>
                                 </connections>

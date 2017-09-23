@@ -22,6 +22,17 @@ struct Constants {
         static let EditProfileScene = "EditProfileScene"
         static let SignUpCompleteScene = "SignUpCompleteScene"
         static let InitialNavScene = "InitialNavScene"
+        static let SelectSchoolScene = "SelectSchoolScene"
+        static let SelectSetScene = "SelectSetScene"
+        static let JoinSetCompletionScene = "JoinSetCompletionScene"
+    }
+    
+    struct StoryboardNames {
+        static let JoinSchool = "JoinSchool"
+    }
+    
+    struct CellIdentifiers {
+        static let SelectSchoolCell = "SelectSchoolCell"
     }
     
     struct  Errors {

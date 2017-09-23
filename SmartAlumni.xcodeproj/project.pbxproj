@@ -48,6 +48,14 @@
 		9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2061F2F747000A240E3 /* Assets.xcassets */; };
 		9187E20A1F2F747000A240E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */; };
 		918D425C1F50023D00C848FA /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D425B1F50023D00C848FA /* School.swift */; };
+		918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D425D1F50C4D100C848FA /* SchoolAPI.swift */; };
+		918D428E1F54DBBA00C848FA /* SelectSetConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D42811F54DBBA00C848FA /* SelectSetConfigurator.swift */; };
+		918D428F1F54DBBA00C848FA /* SelectSetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D42831F54DBBA00C848FA /* SelectSetInteractor.swift */; };
+		918D42901F54DBBA00C848FA /* SelectSetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D42851F54DBBA00C848FA /* SelectSetPresenter.swift */; };
+		918D42911F54DBBA00C848FA /* SelectSetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D42871F54DBBA00C848FA /* SelectSetRouter.swift */; };
+		918D42921F54DBBA00C848FA /* SelectSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D42891F54DBBA00C848FA /* SelectSetViewController.swift */; };
+		918D42931F54DBBA00C848FA /* SelectSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D428B1F54DBBA00C848FA /* SelectSetViewModel.swift */; };
+		918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918D428D1F54DBBA00C848FA /* SelectSetWorker.swift */; };
 		9190AE8B1F4F8FBB003DEA3F /* JoinSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */; };
 		9190AE9E1F4F9197003DEA3F /* SelectSchoolConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE911F4F9197003DEA3F /* SelectSchoolConfigurator.swift */; };
 		9190AE9F1F4F9197003DEA3F /* SelectSchoolInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE931F4F9197003DEA3F /* SelectSchoolInteractor.swift */; };
@@ -59,6 +67,9 @@
 		9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */; };
 		91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */; };
 		91BDAF481F4446D200BC1666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDAF471F4446D200BC1666 /* User.swift */; };
+		91EB8DC11F749F2700D37371 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC01F749F2700D37371 /* Department.swift */; };
+		91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC21F749F3D00D37371 /* Faculty.swift */; };
+		91EB8DC51F7683A500D37371 /* JoinSetCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC41F7683A500D37371 /* JoinSetCompletionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +116,14 @@
 		9187E2091F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9187E20B1F2F747000A240E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918D425B1F50023D00C848FA /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = School.swift; path = Models/School.swift; sourceTree = "<group>"; };
+		918D425D1F50C4D100C848FA /* SchoolAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchoolAPI.swift; path = Networking/SchoolAPI.swift; sourceTree = "<group>"; };
+		918D42811F54DBBA00C848FA /* SelectSetConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetConfigurator.swift; sourceTree = "<group>"; };
+		918D42831F54DBBA00C848FA /* SelectSetInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetInteractor.swift; sourceTree = "<group>"; };
+		918D42851F54DBBA00C848FA /* SelectSetPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetPresenter.swift; sourceTree = "<group>"; };
+		918D42871F54DBBA00C848FA /* SelectSetRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetRouter.swift; sourceTree = "<group>"; };
+		918D42891F54DBBA00C848FA /* SelectSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetViewController.swift; sourceTree = "<group>"; };
+		918D428B1F54DBBA00C848FA /* SelectSetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetViewModel.swift; sourceTree = "<group>"; };
+		918D428D1F54DBBA00C848FA /* SelectSetWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSetWorker.swift; sourceTree = "<group>"; };
 		9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JoinSchool.storyboard; sourceTree = "<group>"; };
 		9190AE911F4F9197003DEA3F /* SelectSchoolConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolConfigurator.swift; sourceTree = "<group>"; };
 		9190AE931F4F9197003DEA3F /* SelectSchoolInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolInteractor.swift; sourceTree = "<group>"; };
@@ -116,6 +135,9 @@
 		9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolCell.swift; sourceTree = "<group>"; };
 		91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		91BDAF471F4446D200BC1666 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		91EB8DC01F749F2700D37371 /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Department.swift; path = Models/Department.swift; sourceTree = "<group>"; };
+		91EB8DC21F749F3D00D37371 /* Faculty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculty.swift; path = Models/Faculty.swift; sourceTree = "<group>"; };
+		91EB8DC41F7683A500D37371 /* JoinSetCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinSetCompletionViewController.swift; sourceTree = "<group>"; };
 		AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
 		C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartAlumni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				911B4A311F37E1EB0028BBE1 /* UserAPI.swift */,
+				918D425D1F50C4D100C848FA /* SchoolAPI.swift */,
 				915C33A31F38C18000729106 /* Utilities.swift */,
 				911B4A331F3898940028BBE1 /* APIConstants.swift */,
 			);
@@ -500,10 +523,83 @@
 			path = SmartAlumni;
 			sourceTree = "<group>";
 		};
+		918D427F1F54DBBA00C848FA /* SelectSet */ = {
+			isa = PBXGroup;
+			children = (
+				918D42801F54DBBA00C848FA /* Configurator */,
+				918D42821F54DBBA00C848FA /* Interactor */,
+				918D42841F54DBBA00C848FA /* Presenter */,
+				918D42861F54DBBA00C848FA /* Router */,
+				918D42881F54DBBA00C848FA /* View */,
+				918D428A1F54DBBA00C848FA /* ViewModel */,
+				918D428C1F54DBBA00C848FA /* Worker */,
+			);
+			name = SelectSet;
+			path = "Join School Scenes/SelectSet";
+			sourceTree = "<group>";
+		};
+		918D42801F54DBBA00C848FA /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				918D42811F54DBBA00C848FA /* SelectSetConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		918D42821F54DBBA00C848FA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				918D42831F54DBBA00C848FA /* SelectSetInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		918D42841F54DBBA00C848FA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				918D42851F54DBBA00C848FA /* SelectSetPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		918D42861F54DBBA00C848FA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				918D42871F54DBBA00C848FA /* SelectSetRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		918D42881F54DBBA00C848FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				918D42891F54DBBA00C848FA /* SelectSetViewController.swift */,
+				91EB8DC41F7683A500D37371 /* JoinSetCompletionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		918D428A1F54DBBA00C848FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				918D428B1F54DBBA00C848FA /* SelectSetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		918D428C1F54DBBA00C848FA /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				918D428D1F54DBBA00C848FA /* SelectSetWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		9190AE8C1F4F90EF003DEA3F /* Join School Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				9190AE8A1F4F8FBB003DEA3F /* JoinSchool.storyboard */,
+				918D427F1F54DBBA00C848FA /* SelectSet */,
 				9190AE8F1F4F9197003DEA3F /* SelectSchool */,
 			);
 			name = "Join School Scenes";
@@ -586,6 +682,8 @@
 			children = (
 				91BDAF471F4446D200BC1666 /* User.swift */,
 				918D425B1F50023D00C848FA /* School.swift */,
+				91EB8DC01F749F2700D37371 /* Department.swift */,
+				91EB8DC21F749F3D00D37371 /* Faculty.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -730,10 +828,12 @@
 				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
 				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
 				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
+				918D42901F54DBBA00C848FA /* SelectSetPresenter.swift in Sources */,
 				911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */,
 				9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */,
 				91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */,
 				913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */,
+				91EB8DC51F7683A500D37371 /* JoinSetCompletionViewController.swift in Sources */,
 				918D425C1F50023D00C848FA /* School.swift in Sources */,
 				9190AEA01F4F9197003DEA3F /* SelectSchoolPresenter.swift in Sources */,
 				9125CA651F4309AD00174534 /* EditProfileWorker.swift in Sources */,
@@ -755,6 +855,7 @@
 				913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */,
 				91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */,
 				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
+				918D428F1F54DBBA00C848FA /* SelectSetInteractor.swift in Sources */,
 				911B4A2D1F37C2350028BBE1 /* EntryViewController.swift in Sources */,
 				9190AEA31F4F9197003DEA3F /* SelectSchoolViewModel.swift in Sources */,
 				91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */,
@@ -763,13 +864,21 @@
 				91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */,
 				915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */,
 				9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */,
+				91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */,
+				918D42911F54DBBA00C848FA /* SelectSetRouter.swift in Sources */,
+				918D42921F54DBBA00C848FA /* SelectSetViewController.swift in Sources */,
+				918D42931F54DBBA00C848FA /* SelectSetViewModel.swift in Sources */,
 				913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */,
 				913C1D411F407FC10080F5CE /* OTPRouter.swift in Sources */,
 				9190AE9F1F4F9197003DEA3F /* SelectSchoolInteractor.swift in Sources */,
+				91EB8DC11F749F2700D37371 /* Department.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
+				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
+				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
 				913C1D3E1F407FC10080F5CE /* OTPConfigurator.swift in Sources */,
+				918D428E1F54DBBA00C848FA /* SelectSetConfigurator.swift in Sources */,
 				915C33891F38A32600729106 /* SignUpViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

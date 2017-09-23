@@ -12,7 +12,7 @@ protocol SelectSchoolRouterProtocol {
 
     weak var viewController: SelectSchoolViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToSelectSetScene(schoolIndex: Int)
 }
 
 final class SelectSchoolRouter {
@@ -36,7 +36,13 @@ extension SelectSchoolRouter: SelectSchoolRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-
+    func navigateToSelectSetScene(schoolIndex: Int) {
+        if let school = viewController?.output.schools[schoolIndex] {
+        
+        if let selectSetVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SelectSetScene) as? SelectSetViewController {
+            selectSetVC.output.school = school
+        viewController?.navigationController?.pushViewController(selectSetVC, animated: true)
+        }
+    }
     }
 }

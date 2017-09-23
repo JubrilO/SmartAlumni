@@ -68,7 +68,6 @@ class UserAPI {
                 guard let jsonData = response.result.value else {
                     return
                 }
-                print(jsonData)
                 let userTupule = Utilities.parseUserFromJSON(json: JSON(jsonData))
                 completionHandler(userTupule.user, userTupule.error)
             case .failure(let error):
@@ -78,7 +77,42 @@ class UserAPI {
         }
     }
     
-    func fetchAllSchools(completionHandler: @escaping ()) {
+    func joinSchool(schoolID: String, facultyID: String, departmentID: String, set: Int, completionHandler: @escaping (Bool, String?) -> ()) {
         
+        if let userID = UserDefaults.standard.string(forKey: Constants.UserDefaults.UID) {
+            let parameters = ["_id" : userID,
+                              "school_details" :
+                                [
+                                    "school" : schoolID,
+                                    "faculty" : facultyID,
+                                    "deparment" : departmentID,
+                                    "set" : set
+                ]
+                ] as [String : Any]
+            
+            print("Making network call")
+            Alamofire.request(APIConstants.JoinSchoolURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+                response in
+                
+                switch response.result {
+                case .success:
+                    guard let jsonData = response.result.value else {
+                        completionHandler(false, "Could not fetch JSON Data")
+                        return
+                    }
+                    let successTuple = Utilities.parseSuccessFromJSON(json: JSON(jsonData))
+                    successTuple.0 ? completionHandler(true, nil) : completionHandler(false, "\(successTuple.1 ?? "Error")")
+                    
+                case .failure(let error):
+                    print(error)
+                    completionHandler(false, "\(error)")
+                }
+                
+            }
+        }
+        else {
+            print("no Uid saved")
+        }
     }
+    
 }

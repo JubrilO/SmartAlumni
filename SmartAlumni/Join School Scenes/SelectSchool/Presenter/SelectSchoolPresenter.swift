@@ -9,23 +9,24 @@
 import UIKit
 
 protocol SelectSchoolPresenterInput: SelectSchoolInteractorOutput {
-
+    
 }
 
 protocol SelectSchoolPresenterOutput: class {
-
-    func displaySomething(viewModel: SelectSchoolViewModel)
+    
+    func displaySchools(viewModels: [SelectSchoolViewModel])
+    func displayError(errorMessage: String)
 }
 
 final class SelectSchoolPresenter {
-
+    
     private(set) weak var output: SelectSchoolPresenterOutput!
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(output: SelectSchoolPresenterOutput) {
-
+        
         self.output = output
     }
 }
@@ -34,15 +35,30 @@ final class SelectSchoolPresenter {
 // MARK: - SelectSchoolPresenterInput
 
 extension SelectSchoolPresenter: SelectSchoolPresenterInput {
-
-
+    
+    
     // MARK: - Presentation logic
-
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = SelectSchoolViewModel()
-        output.displaySomething(viewModel: viewModel)
+    
+    func presentError(errorMessage: String) {
+        output.displayError(errorMessage: errorMessage)
+    }
+    
+    func presentSchools(schools: [School]) {
+        var viewModels = [SelectSchoolViewModel]()
+        for school in schools {
+            let viewModel = SelectSchoolViewModel(schoolName: school.name)
+            viewModels.append(viewModel)
+        }
+        output.displaySchools(viewModels: viewModels)
+    }
+    
+    func presentSearchResults(schools: [School]) {
+    
+        var viewModels = [SelectSchoolViewModel]()
+        for school in schools {
+            let viewModel = SelectSchoolViewModel(schoolName: school.name)
+            viewModels.append(viewModel)
+        }
+        output.displaySchools(viewModels: viewModels)
     }
 }

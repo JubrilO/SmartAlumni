@@ -12,6 +12,12 @@ import Locksmith
 
 class Utilities {
     
+    fileprivate struct Constants {
+        static let Success = "success"
+        static let data = "data"
+        static let status = "status"
+    }
+    
     class func parseOTPFromJSON(json: JSON) -> String? {
         
         if json["status"].stringValue == "success" {
@@ -23,7 +29,7 @@ class Utilities {
     }
     
     class func parseUIDFromJSON(json: JSON) -> (String?, String?){
-    
+        
         if json["status"].stringValue == "success" {
             let uid = json["data"]["_id"].stringValue
             return(uid, nil)
@@ -35,7 +41,7 @@ class Utilities {
     }
     
     class func parseUserFromJSON(json: JSON) -> (user: User?, error: String?) {
-        print(json)
+        
         if json["status"].stringValue == "success" {
             let user = User(json: json)
             let jwt = json["data"]["security_token"].stringValue
@@ -45,6 +51,33 @@ class Utilities {
         else {
             let error = json["data"]["err"].stringValue
             return(user: nil, error: error)
+        }
+    }
+    
+    class func parseSchoolsFromJSON(json: JSON) -> (schools: [School]?, error: String?) {
+        
+        if json["status"].stringValue == Constants.Success{
+            
+            var schools = [School]()
+            for schoolJSON in json["data"].arrayValue {
+                let school = School(json: schoolJSON)
+                schools.append(school)
+            }
+            return (schools, nil)
+        }
+            
+        else {
+            let error = json["err"].stringValue
+            return (nil, error)
+        }
+    }
+    
+    class func parseSuccessFromJSON(json: JSON) -> (success: Bool, error: String?){
+        if json["status"].stringValue == Constants.Success {
+            return (true, nil)
+        }
+        else {
+            return (false, json["err"].stringValue)
         }
     }
     

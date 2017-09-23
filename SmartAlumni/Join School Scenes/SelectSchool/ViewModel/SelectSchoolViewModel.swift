@@ -9,5 +9,6 @@
 import UIKit
 
 struct SelectSchoolViewModel {
+    var schoolName: String
 
 }
