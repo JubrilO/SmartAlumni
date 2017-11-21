@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0FE91BADCE4B2E8E1DF522 /* Pods_SmartAlumni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */; };
+		6E2C7D1D23A20C866D52C1E2 /* Pods_SmartAlumni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94901EF5BB0BA4E34A7F3E9 /* Pods_SmartAlumni.framework */; };
+		91185B081FB5ACD800ADFD39 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185B071FB5ACD800ADFD39 /* OptionCell.swift */; };
 		911B4A2D1F37C2350028BBE1 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */; };
 		911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A311F37E1EB0028BBE1 /* UserAPI.swift */; };
 		911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A331F3898940028BBE1 /* APIConstants.swift */; };
@@ -27,6 +28,10 @@
 		913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D391F407FC10080F5CE /* OTPViewController.swift */; };
 		913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */; };
 		913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D3D1F407FC10080F5CE /* OTPWorker.swift */; };
+		913C542C1FBDB6EA00B7B554 /* OptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913C542B1FBDB6EA00B7B554 /* OptionView.xib */; };
+		913C54311FBE405300B7B554 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54301FBE405300B7B554 /* OptionView.swift */; };
+		913C54331FC09DA100B7B554 /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54321FC09DA100B7B554 /* PollCell.swift */; };
+		9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146838E1FB306EF003F2DE1 /* Animation.swift */; };
 		91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */; };
 		91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */; };
 		91503D5E1F4E2C14002C8F46 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D531F4E2C14002C8F46 /* WelcomePresenter.swift */; };
@@ -43,6 +48,18 @@
 		915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33831F38A32600729106 /* SignUpWorker.swift */; };
 		915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33A11F38A81B00729106 /* PhoneNumberField.swift */; };
 		915C33A41F38C18000729106 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33A31F38C18000729106 /* Utilities.swift */; };
+		916287801F771FF40015F467 /* Polls.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9162877F1F771FF40015F467 /* Polls.storyboard */; };
+		916287821F7720510015F467 /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916287811F7720510015F467 /* Landing.storyboard */; };
+		916287841F790EAC0015F467 /* PollAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916287831F790EAC0015F467 /* PollAPI.swift */; };
+		916287861F790FA80015F467 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916287851F790FA80015F467 /* Poll.swift */; };
+		916287881F799ADC0015F467 /* PollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916287871F799ADC0015F467 /* PollOption.swift */; };
+		9164AA441FA3890A00A66F37 /* PollsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA371FA3890A00A66F37 /* PollsConfigurator.swift */; };
+		9164AA451FA3890A00A66F37 /* PollsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA391FA3890A00A66F37 /* PollsInteractor.swift */; };
+		9164AA461FA3890A00A66F37 /* PollsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA3B1FA3890A00A66F37 /* PollsPresenter.swift */; };
+		9164AA471FA3890A00A66F37 /* PollsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA3D1FA3890A00A66F37 /* PollsRouter.swift */; };
+		9164AA481FA3890A00A66F37 /* PollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA3F1FA3890A00A66F37 /* PollsViewController.swift */; };
+		9164AA491FA3890A00A66F37 /* PollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA411FA3890A00A66F37 /* PollsViewModel.swift */; };
+		9164AA4A1FA3890A00A66F37 /* PollsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164AA431FA3890A00A66F37 /* PollsWorker.swift */; };
 		9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E1FF1F2F747000A240E3 /* AppDelegate.swift */; };
 		9187E2051F2F747000A240E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2031F2F747000A240E3 /* Main.storyboard */; };
 		9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2061F2F747000A240E3 /* Assets.xcassets */; };
@@ -67,13 +84,22 @@
 		9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */; };
 		91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */; };
 		91BDAF481F4446D200BC1666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDAF471F4446D200BC1666 /* User.swift */; };
+		91C4FBC51FAAB2B1007FCCF2 /* NewPollConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBB61FAAB2B1007FCCF2 /* NewPollConfigurator.swift */; };
+		91C4FBC61FAAB2B1007FCCF2 /* NewPollInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBB81FAAB2B1007FCCF2 /* NewPollInteractor.swift */; };
+		91C4FBC71FAAB2B1007FCCF2 /* NewPollPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBBA1FAAB2B1007FCCF2 /* NewPollPresenter.swift */; };
+		91C4FBC81FAAB2B1007FCCF2 /* NewPollRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBBC1FAAB2B1007FCCF2 /* NewPollRouter.swift */; };
+		91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBBE1FAAB2B1007FCCF2 /* NewPollViewController.swift */; };
+		91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBC01FAAB2B1007FCCF2 /* NewPollViewModel.swift */; };
+		91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBC21FAAB2B1007FCCF2 /* NewPollWorker.swift */; };
+		91C4FBCF1FAB9F95007FCCF2 /* TimeIntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBCE1FAB9F95007FCCF2 /* TimeIntervalPicker.swift */; };
 		91EB8DC11F749F2700D37371 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC01F749F2700D37371 /* Department.swift */; };
 		91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC21F749F3D00D37371 /* Faculty.swift */; };
 		91EB8DC51F7683A500D37371 /* JoinSetCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB8DC41F7683A500D37371 /* JoinSetCompletionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.release.xcconfig"; sourceTree = "<group>"; };
+		86A61ADD04690FC861A07B6E /* Pods-SmartAlumni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.release.xcconfig"; sourceTree = "<group>"; };
+		91185B071FB5ACD800ADFD39 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		911B4A311F37E1EB0028BBE1 /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = Networking/UserAPI.swift; sourceTree = "<group>"; };
 		911B4A331F3898940028BBE1 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = Networking/APIConstants.swift; sourceTree = "<group>"; };
@@ -93,6 +119,10 @@
 		913C1D391F407FC10080F5CE /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		913C1D3B1F407FC10080F5CE /* OTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		913C1D3D1F407FC10080F5CE /* OTPWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPWorker.swift; sourceTree = "<group>"; };
+		913C542B1FBDB6EA00B7B554 /* OptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionView.xib; sourceTree = "<group>"; };
+		913C54301FBE405300B7B554 /* OptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		913C54321FC09DA100B7B554 /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
+		9146838E1FB306EF003F2DE1 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Supporting/Animation.swift; sourceTree = "<group>"; };
 		91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
 		91503D531F4E2C14002C8F46 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
@@ -109,6 +139,18 @@
 		915C33831F38A32600729106 /* SignUpWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
 		915C33A11F38A81B00729106 /* PhoneNumberField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberField.swift; path = ../../../PhoneNumberField.swift; sourceTree = "<group>"; };
 		915C33A31F38C18000729106 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Networking/Utilities.swift; sourceTree = "<group>"; };
+		9162877F1F771FF40015F467 /* Polls.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Polls.storyboard; path = "Polls Scenes/Polls.storyboard"; sourceTree = "<group>"; };
+		916287811F7720510015F467 /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
+		916287831F790EAC0015F467 /* PollAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollAPI.swift; path = Networking/PollAPI.swift; sourceTree = "<group>"; };
+		916287851F790FA80015F467 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Poll.swift; path = Models/Poll.swift; sourceTree = "<group>"; };
+		916287871F799ADC0015F467 /* PollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollOption.swift; path = Models/PollOption.swift; sourceTree = "<group>"; };
+		9164AA371FA3890A00A66F37 /* PollsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsConfigurator.swift; sourceTree = "<group>"; };
+		9164AA391FA3890A00A66F37 /* PollsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsInteractor.swift; sourceTree = "<group>"; };
+		9164AA3B1FA3890A00A66F37 /* PollsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsPresenter.swift; sourceTree = "<group>"; };
+		9164AA3D1FA3890A00A66F37 /* PollsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsRouter.swift; sourceTree = "<group>"; };
+		9164AA3F1FA3890A00A66F37 /* PollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsViewController.swift; sourceTree = "<group>"; };
+		9164AA411FA3890A00A66F37 /* PollsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsViewModel.swift; sourceTree = "<group>"; };
+		9164AA431FA3890A00A66F37 /* PollsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsWorker.swift; sourceTree = "<group>"; };
 		9187E1FC1F2F747000A240E3 /* SmartAlumni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAlumni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E1FF1F2F747000A240E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9187E2041F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,11 +177,19 @@
 		9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolCell.swift; sourceTree = "<group>"; };
 		91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		91BDAF471F4446D200BC1666 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		91C4FBB61FAAB2B1007FCCF2 /* NewPollConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollConfigurator.swift; sourceTree = "<group>"; };
+		91C4FBB81FAAB2B1007FCCF2 /* NewPollInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollInteractor.swift; sourceTree = "<group>"; };
+		91C4FBBA1FAAB2B1007FCCF2 /* NewPollPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollPresenter.swift; sourceTree = "<group>"; };
+		91C4FBBC1FAAB2B1007FCCF2 /* NewPollRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollRouter.swift; sourceTree = "<group>"; };
+		91C4FBBE1FAAB2B1007FCCF2 /* NewPollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollViewController.swift; sourceTree = "<group>"; };
+		91C4FBC01FAAB2B1007FCCF2 /* NewPollViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
+		91C4FBC21FAAB2B1007FCCF2 /* NewPollWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollWorker.swift; sourceTree = "<group>"; };
+		91C4FBCE1FAB9F95007FCCF2 /* TimeIntervalPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalPicker.swift; sourceTree = "<group>"; };
 		91EB8DC01F749F2700D37371 /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Department.swift; path = Models/Department.swift; sourceTree = "<group>"; };
 		91EB8DC21F749F3D00D37371 /* Faculty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculty.swift; path = Models/Faculty.swift; sourceTree = "<group>"; };
 		91EB8DC41F7683A500D37371 /* JoinSetCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinSetCompletionViewController.swift; sourceTree = "<group>"; };
-		AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
-		C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartAlumni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AACF35A4119C03DE8166DC99 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
+		F94901EF5BB0BA4E34A7F3E9 /* Pods_SmartAlumni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartAlumni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,19 +197,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0FE91BADCE4B2E8E1DF522 /* Pods_SmartAlumni.framework in Frameworks */,
+				6E2C7D1D23A20C866D52C1E2 /* Pods_SmartAlumni.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72C6CEB91A659F4233346175 /* Frameworks */ = {
+		7695C5E7641125FF63D98A75 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C68FD5FC5C58A6F0C6678650 /* Pods_SmartAlumni.framework */,
+				AACF35A4119C03DE8166DC99 /* Pods-SmartAlumni.debug.xcconfig */,
+				86A61ADD04690FC861A07B6E /* Pods-SmartAlumni.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		911B4A301F37E19C0028BBE1 /* Networking */ = {
@@ -167,24 +218,18 @@
 			children = (
 				911B4A311F37E1EB0028BBE1 /* UserAPI.swift */,
 				918D425D1F50C4D100C848FA /* SchoolAPI.swift */,
+				916287831F790EAC0015F467 /* PollAPI.swift */,
 				915C33A31F38C18000729106 /* Utilities.swift */,
 				911B4A331F3898940028BBE1 /* APIConstants.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		911B4A351F3899710028BBE1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		911CF2BF1F39D02B00FEC8D6 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
 				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
+				9146838E1FB306EF003F2DE1 /* Animation.swift */,
 				9187E2061F2F747000A240E3 /* Assets.xcassets */,
 				9187E2081F2F747000A240E3 /* LaunchScreen.storyboard */,
 				9187E20B1F2F747000A240E3 /* Info.plist */,
@@ -336,6 +381,15 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		913C542F1FBDF06A00B7B554 /* OptionView */ = {
+			isa = PBXGroup;
+			children = (
+				913C54301FBE405300B7B554 /* OptionView.swift */,
+				913C542B1FBDB6EA00B7B554 /* OptionView.xib */,
+			);
+			path = OptionView;
+			sourceTree = "<group>";
+		};
 		91503D4D1F4E2C14002C8F46 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,10 +464,11 @@
 		915C336F1F38A0B800729106 /* SignUp Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */,
 				9187E2031F2F747000A240E3 /* Main.storyboard */,
-				91503D4D1F4E2C14002C8F46 /* Welcome */,
 				9125CA501F4309AD00174534 /* EditProfile */,
 				913C1D2F1F407FC10080F5CE /* OTP */,
+				91503D4D1F4E2C14002C8F46 /* Welcome */,
 				915C33751F38A32600729106 /* SignUp */,
 			);
 			name = "SignUp Scenes";
@@ -491,13 +546,96 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		9162877E1F771F870015F467 /* Polls Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBC41FAAB2B1007FCCF2 /* NewPoll */,
+				9164AA351FA3890A00A66F37 /* Polls */,
+				9162877F1F771FF40015F467 /* Polls.storyboard */,
+			);
+			name = "Polls Scenes";
+			sourceTree = "<group>";
+		};
+		9164AA351FA3890A00A66F37 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA361FA3890A00A66F37 /* Configurator */,
+				9164AA381FA3890A00A66F37 /* Interactor */,
+				9164AA3A1FA3890A00A66F37 /* Presenter */,
+				9164AA3C1FA3890A00A66F37 /* Router */,
+				9164AA3E1FA3890A00A66F37 /* View */,
+				9164AA401FA3890A00A66F37 /* ViewModel */,
+				9164AA421FA3890A00A66F37 /* Worker */,
+			);
+			name = Polls;
+			path = "Polls Scenes/Polls";
+			sourceTree = "<group>";
+		};
+		9164AA361FA3890A00A66F37 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA371FA3890A00A66F37 /* PollsConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9164AA381FA3890A00A66F37 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA391FA3890A00A66F37 /* PollsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9164AA3A1FA3890A00A66F37 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA3B1FA3890A00A66F37 /* PollsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9164AA3C1FA3890A00A66F37 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA3D1FA3890A00A66F37 /* PollsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9164AA3E1FA3890A00A66F37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				913C542F1FBDF06A00B7B554 /* OptionView */,
+				9164AA3F1FA3890A00A66F37 /* PollsViewController.swift */,
+				913C54321FC09DA100B7B554 /* PollCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9164AA401FA3890A00A66F37 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA411FA3890A00A66F37 /* PollsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9164AA421FA3890A00A66F37 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				9164AA431FA3890A00A66F37 /* PollsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		9187E1F31F2F747000A240E3 = {
 			isa = PBXGroup;
 			children = (
 				9187E1FE1F2F747000A240E3 /* SmartAlumni */,
 				9187E1FD1F2F747000A240E3 /* Products */,
-				D6552F3AE3A2D3A97D242E0A /* Pods */,
-				72C6CEB91A659F4233346175 /* Frameworks */,
+				7695C5E7641125FF63D98A75 /* Pods */,
+				FF400F14DC6259619F421535 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,12 +651,13 @@
 			isa = PBXGroup;
 			children = (
 				9187E1FF1F2F747000A240E3 /* AppDelegate.swift */,
-				911B4A351F3899710028BBE1 /* Controller */,
 				9190AE8C1F4F90EF003DEA3F /* Join School Scenes */,
+				9162877E1F771F870015F467 /* Polls Scenes */,
 				915C336F1F38A0B800729106 /* SignUp Scenes */,
 				91BDAF491F44770100BC1666 /* Model */,
 				911CF2BF1F39D02B00FEC8D6 /* Supporting */,
 				911B4A301F37E19C0028BBE1 /* Networking */,
+				916287811F7720510015F467 /* Landing.storyboard */,
 			);
 			path = SmartAlumni;
 			sourceTree = "<group>";
@@ -682,19 +821,93 @@
 			children = (
 				91BDAF471F4446D200BC1666 /* User.swift */,
 				918D425B1F50023D00C848FA /* School.swift */,
+				916287871F799ADC0015F467 /* PollOption.swift */,
 				91EB8DC01F749F2700D37371 /* Department.swift */,
+				916287851F790FA80015F467 /* Poll.swift */,
 				91EB8DC21F749F3D00D37371 /* Faculty.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D6552F3AE3A2D3A97D242E0A /* Pods */ = {
+		91C4FBB71FAAB2B1007FCCF2 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
-				AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */,
-				4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */,
+				91C4FBB61FAAB2B1007FCCF2 /* NewPollConfigurator.swift */,
 			);
-			name = Pods;
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		91C4FBB91FAAB2B1007FCCF2 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBB81FAAB2B1007FCCF2 /* NewPollInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		91C4FBBB1FAAB2B1007FCCF2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBBA1FAAB2B1007FCCF2 /* NewPollPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		91C4FBBD1FAAB2B1007FCCF2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBBC1FAAB2B1007FCCF2 /* NewPollRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		91C4FBBF1FAAB2B1007FCCF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBBE1FAAB2B1007FCCF2 /* NewPollViewController.swift */,
+				91C4FBCE1FAB9F95007FCCF2 /* TimeIntervalPicker.swift */,
+				91185B071FB5ACD800ADFD39 /* OptionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91C4FBC11FAAB2B1007FCCF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBC01FAAB2B1007FCCF2 /* NewPollViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91C4FBC31FAAB2B1007FCCF2 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBC21FAAB2B1007FCCF2 /* NewPollWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		91C4FBC41FAAB2B1007FCCF2 /* NewPoll */ = {
+			isa = PBXGroup;
+			children = (
+				91C4FBB71FAAB2B1007FCCF2 /* Configurator */,
+				91C4FBB91FAAB2B1007FCCF2 /* Interactor */,
+				91C4FBBB1FAAB2B1007FCCF2 /* Presenter */,
+				91C4FBBD1FAAB2B1007FCCF2 /* Router */,
+				91C4FBBF1FAAB2B1007FCCF2 /* View */,
+				91C4FBC11FAAB2B1007FCCF2 /* ViewModel */,
+				91C4FBC31FAAB2B1007FCCF2 /* Worker */,
+			);
+			name = NewPoll;
+			path = "Polls Scenes/NewPoll";
+			sourceTree = "<group>";
+		};
+		FF400F14DC6259619F421535 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F94901EF5BB0BA4E34A7F3E9 /* Pods_SmartAlumni.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -704,12 +917,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9187E20E1F2F747000A240E3 /* Build configuration list for PBXNativeTarget "SmartAlumni" */;
 			buildPhases = (
-				9736B85062E45CBC3319AFF0 /* [CP] Check Pods Manifest.lock */,
+				68506182A99342AB45F304C7 /* [CP] Check Pods Manifest.lock */,
 				9187E1F81F2F747000A240E3 /* Sources */,
 				9187E1F91F2F747000A240E3 /* Frameworks */,
 				9187E1FA1F2F747000A240E3 /* Resources */,
-				E0BC11E9E4687B710826FFD2 /* [CP] Embed Pods Frameworks */,
-				25EF96749825D28364F1C79E /* [CP] Copy Pods Resources */,
+				2571A0B7CCB8220E135D7370 /* [CP] Embed Pods Frameworks */,
+				37515CEB9EA3274E71966481 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -727,12 +940,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Kornet;
 				TargetAttributes = {
 					9187E1FB1F2F747000A240E3 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = E5H7W73394;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -760,9 +974,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				913C542C1FBDB6EA00B7B554 /* OptionView.xib in Resources */,
+				916287821F7720510015F467 /* Landing.storyboard in Resources */,
 				9190AE8B1F4F8FBB003DEA3F /* JoinSchool.storyboard in Resources */,
 				9187E20A1F2F747000A240E3 /* LaunchScreen.storyboard in Resources */,
 				9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */,
+				916287801F771FF40015F467 /* Polls.storyboard in Resources */,
 				9187E2051F2F747000A240E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,7 +987,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25EF96749825D28364F1C79E /* [CP] Copy Pods Resources */ = {
+		2571A0B7CCB8220E135D7370 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37515CEB9EA3274E71966481 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -785,34 +1038,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9736B85062E45CBC3319AFF0 /* [CP] Check Pods Manifest.lock */ = {
+		68506182A99342AB45F304C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartAlumni-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E0BC11E9E4687B710826FFD2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -823,8 +1064,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				911CF2C31F39D41C00FEC8D6 /* Extensions.swift in Sources */,
+				91C4FBCF1FAB9F95007FCCF2 /* TimeIntervalPicker.swift in Sources */,
+				9164AA451FA3890A00A66F37 /* PollsInteractor.swift in Sources */,
+				9164AA441FA3890A00A66F37 /* PollsConfigurator.swift in Sources */,
 				91503D611F4E2C14002C8F46 /* WelcomeViewModel.swift in Sources */,
 				9125CA601F4309AD00174534 /* EditProfileInteractor.swift in Sources */,
+				9164AA481FA3890A00A66F37 /* PollsViewController.swift in Sources */,
+				91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */,
 				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
 				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
 				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
@@ -833,6 +1079,7 @@
 				9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */,
 				91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */,
 				913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */,
+				9164AA471FA3890A00A66F37 /* PollsRouter.swift in Sources */,
 				91EB8DC51F7683A500D37371 /* JoinSetCompletionViewController.swift in Sources */,
 				918D425C1F50023D00C848FA /* School.swift in Sources */,
 				9190AEA01F4F9197003DEA3F /* SelectSchoolPresenter.swift in Sources */,
@@ -842,16 +1089,21 @@
 				9190AEA21F4F9197003DEA3F /* SelectSchoolViewController.swift in Sources */,
 				9190AE9E1F4F9197003DEA3F /* SelectSchoolConfigurator.swift in Sources */,
 				915C33871F38A32600729106 /* SignUpRouter.swift in Sources */,
+				916287881F799ADC0015F467 /* PollOption.swift in Sources */,
+				91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
 				9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */,
 				911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */,
 				9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */,
+				9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */,
 				9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */,
+				9164AA491FA3890A00A66F37 /* PollsViewModel.swift in Sources */,
 				911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */,
 				915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */,
 				913C1D401F407FC10080F5CE /* OTPPresenter.swift in Sources */,
 				91503D5F1F4E2C14002C8F46 /* WelcomeRouter.swift in Sources */,
+				916287841F790EAC0015F467 /* PollAPI.swift in Sources */,
 				913C1D421F407FC10080F5CE /* OTPViewController.swift in Sources */,
 				91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */,
 				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
@@ -861,20 +1113,31 @@
 				91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */,
 				91503D5E1F4E2C14002C8F46 /* WelcomePresenter.swift in Sources */,
 				915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */,
+				913C54311FBE405300B7B554 /* OptionView.swift in Sources */,
+				91C4FBC51FAAB2B1007FCCF2 /* NewPollConfigurator.swift in Sources */,
+				916287861F790FA80015F467 /* Poll.swift in Sources */,
+				91C4FBC81FAAB2B1007FCCF2 /* NewPollRouter.swift in Sources */,
 				91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */,
+				9164AA4A1FA3890A00A66F37 /* PollsWorker.swift in Sources */,
 				915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */,
 				9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */,
+				91C4FBC61FAAB2B1007FCCF2 /* NewPollInteractor.swift in Sources */,
 				91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */,
+				91C4FBC71FAAB2B1007FCCF2 /* NewPollPresenter.swift in Sources */,
 				918D42911F54DBBA00C848FA /* SelectSetRouter.swift in Sources */,
+				9164AA461FA3890A00A66F37 /* PollsPresenter.swift in Sources */,
 				918D42921F54DBBA00C848FA /* SelectSetViewController.swift in Sources */,
+				913C54331FC09DA100B7B554 /* PollCell.swift in Sources */,
 				918D42931F54DBBA00C848FA /* SelectSetViewModel.swift in Sources */,
 				913C1D431F407FC10080F5CE /* OTPViewModel.swift in Sources */,
 				913C1D411F407FC10080F5CE /* OTPRouter.swift in Sources */,
 				9190AE9F1F4F9197003DEA3F /* SelectSchoolInteractor.swift in Sources */,
 				91EB8DC11F749F2700D37371 /* Department.swift in Sources */,
+				91185B081FB5ACD800ADFD39 /* OptionCell.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
 				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
+				91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */,
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
 				913C1D3E1F407FC10080F5CE /* OTPConfigurator.swift in Sources */,
@@ -915,7 +1178,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -923,7 +1188,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -965,7 +1234,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -973,7 +1244,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1000,7 +1275,7 @@
 		};
 		9187E20F1F2F747000A240E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC3D7B3851B2AD20911B8690 /* Pods-SmartAlumni.debug.xcconfig */;
+			baseConfigurationReference = AACF35A4119C03DE8166DC99 /* Pods-SmartAlumni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5H7W73394;
@@ -1015,7 +1290,7 @@
 		};
 		9187E2101F2F747000A240E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CBB1DBDA69E593907A4A8ED /* Pods-SmartAlumni.release.xcconfig */;
+			baseConfigurationReference = 86A61ADD04690FC861A07B6E /* Pods-SmartAlumni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5H7W73394;

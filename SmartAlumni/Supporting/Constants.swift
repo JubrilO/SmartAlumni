@@ -25,14 +25,18 @@ struct Constants {
         static let SelectSchoolScene = "SelectSchoolScene"
         static let SelectSetScene = "SelectSetScene"
         static let JoinSetCompletionScene = "JoinSetCompletionScene"
+        static let LandingTabBarScene = "LandingTabBarScene"
+        static let PollsNavScene = "PollsNavScene"
     }
     
     struct StoryboardNames {
         static let JoinSchool = "JoinSchool"
+        static let Polls = "Polls"
     }
     
     struct CellIdentifiers {
         static let SelectSchoolCell = "SelectSchoolCell"
+        static let PollCell = "PollCell"
     }
     
     struct  Errors {
@@ -42,6 +46,9 @@ struct Constants {
     
     struct Colors {
         static let borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
+        static let softBlue = UIColor(red: 107/255, green: 163/255, blue: 241/255, alpha: 1.0)
+        static let darkGrey = UIColor(red: 78/255, green: 86/255, blue: 95/255, alpha: 1.0)
+        
     }
     
     struct PlaceholderImages {

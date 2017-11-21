@@ -66,9 +66,7 @@ final class SelectSetInteractor: SelectSetViewControllerOutput{
         let departmentID = school.departments.filter { $0.name == department }.first?.id
         let set = Int(set)
         
-        if let facultyID = facultyID, let departmentID = departmentID, let set = set {
-            print("Joining school")
-            
+        if let facultyID = facultyID, let departmentID = departmentID, let set = set {            
             worker.joinSchool(schoolID: school.id, facultyID: facultyID, departmentID: departmentID, set: set) {
                 
                 success, error in

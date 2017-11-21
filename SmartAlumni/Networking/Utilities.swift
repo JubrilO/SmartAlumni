@@ -81,4 +81,29 @@ class Utilities {
         }
     }
     
+    class func parsePollsFromJSON(json: JSON) -> (polls: [Poll]?, error: String?) {
+        if json["status"].stringValue == Constants.Success {
+            var polls = [Poll]()
+            for pollJSON in json["data"].arrayValue {
+                let poll = Poll(json: pollJSON)
+                polls.append(poll)
+            }
+            return (polls, nil)
+        }
+        else {
+            let error = json["err"].stringValue
+            return (nil, error)
+        }
+    }
+    
+    class func generatePollDict(title: String, question: String, options: [Option], startDate: String, endDate: String, visibility: [String : Any]) -> [String : Any] {
+        var optionsDict = [[String : Any]]()
+        for option in options {
+            let optionDict = ["name" : option.text, "value" : 0] as [String: Any]
+            optionsDict.append(optionDict)
+        }
+        let parameters = ["name" : title, "question" : question, "start_date" : startDate, "end_date" : endDate, "options" : optionsDict, "visibility" : visibility] as [String : Any]
+        return parameters
+    }
+    
 }

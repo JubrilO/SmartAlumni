@@ -9,18 +9,20 @@
 import UIKit
 
 class JoinSetCompletionViewController: UIViewController {
-
+    
     @IBOutlet weak var successLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
     
     @IBAction func dismissScreen(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        let landingStoryboard = UIStoryboard(name: "Landing", bundle: nil)
+        let landingVC = landingStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.LandingTabBarScene)
+        present(landingVC, animated: true, completion: nil)
     }
     
-
+    
 }

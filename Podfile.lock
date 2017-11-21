@@ -1,50 +1,62 @@
 PODS:
-  - Alamofire (4.4.0)
-  - IQKeyboardManagerSwift (4.0.9)
-  - Locksmith (3.0.0)
-  - PhoneNumberKit (1.2.3):
-    - PhoneNumberKit/PhoneNumberKitCore (= 1.2.3)
-    - PhoneNumberKit/UIKit (= 1.2.3)
-  - PhoneNumberKit/PhoneNumberKitCore (1.2.3)
-  - PhoneNumberKit/UIKit (1.2.3):
+  - Alamofire (4.5.1)
+  - IQKeyboardManagerSwift (5.0.6)
+  - Locksmith (4.0.0)
+  - PhoneNumberKit (2.0.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.0.0)
+    - PhoneNumberKit/UIKit (= 2.0.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.0.0)
+  - PhoneNumberKit/UIKit (2.0.0):
     - PhoneNumberKit/PhoneNumberKitCore
-  - Realm (2.6.2):
-    - Realm/Headers (= 2.6.2)
-  - Realm/Headers (2.6.2)
-  - RealmSwift (2.6.2):
-    - Realm (= 2.6.2)
+  - Realm (3.0.1):
+    - Realm/Headers (= 3.0.1)
+  - Realm/Headers (3.0.1)
+  - RealmSwift (3.0.1):
+    - Realm (= 3.0.1)
+  - Segmentio (2.1.2)
+  - SkyFloatingLabelTextField (3.3.0)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
+  - Alamofire (~> 4.5)
   - IQKeyboardManagerSwift
   - Locksmith
   - PhoneNumberKit
   - RealmSwift
+  - Segmentio (from `https://github.com/Yalantis/Segmentio.git`, branch `master`)
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
 
 EXTERNAL SOURCES:
+  Segmentio:
+    :branch: master
+    :git: https://github.com/Yalantis/Segmentio.git
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 CHECKOUT OPTIONS:
+  Segmentio:
+    :commit: b29c3207a49683d203c0c44203748d9da918cd6f
+    :git: https://github.com/Yalantis/Segmentio.git
   SwiftValidator:
     :commit: 6cff6cac3e02a617f7cf11323e18526a117d5673
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
-  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
-  PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
-  Realm: 29222766425b9f831228f81b63f0e38a97a4d700
-  RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  PhoneNumberKit: 073b3cef30c2a64ddcd623ea5953bc84bb5b3fc4
+  Realm: ba6144c74f835f7497791f6599d63a7755377b83
+  RealmSwift: 7d13b1ac4b6022a13f841e3143e7789c9e40ad0d
+  Segmentio: 5d6ce19ca05e83164fff1371396fe6212b8ea82f
+  SkyFloatingLabelTextField: 771be94beca6868a6cea187f70c965ebd81d2f93
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 769b5070bfc7b636d9d7c399a38ff0b60f17b095
+PODFILE CHECKSUM: 6a415884e614ff31a84a371dc4f9e1243e70141c
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

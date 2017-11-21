@@ -102,7 +102,6 @@ final class SelectSetViewController: UIViewController {
 extension SelectSetViewController: ValidationDelegate {
     
     func validationSuccessful() {
-        print("validation successful")
         output.joinSet(faculty: facultyTextField.text!, department: departmentTextField.text!, set: setTextField.text!)
     }
     
