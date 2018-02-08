@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import PromiseKit
+
 
 protocol EditProfileInteractorInput: EditProfileViewControllerOutput {
     
@@ -17,6 +19,7 @@ protocol EditProfileInteractorOutput {
     
     func presentError(errorMessage: String)
     func presentNextScene()
+    func presentUsersEmail(email: String)
 }
 
 final class EditProfileInteractor {
@@ -39,19 +42,21 @@ final class EditProfileInteractor {
 
 extension EditProfileInteractor: EditProfileViewControllerOutput {
     
-    func saveProfile(firstName: String, lastName: String, username: String, email: String, profileImage: UIImage) {
-        
-        worker.updateProfile(firstName: firstName, lastName: lastName, username: username, email: email, profileImage: profileImage) {
-            user, error in
-            
-            guard error == nil else {
-                self.output.presentError(errorMessage: error!)
-                return
-            }
-            if let user = user {
-                self.worker.addUserToRealm(user: user)
-                self.output.presentNextScene()
-            }
+    
+    func fetchEmailAddress() {
+        if let email = UserDefaults.standard.string(forKey: Constants.UserDefaults.Email) {
+            output.presentUsersEmail(email: email)
+        }
+    }
+    
+    func saveProfile(firstName: String, lastName: String, username: String, phoneNumber: String, profileImage: UIImage) {
+        firstly {
+            self.worker.updateProfileParams(firstName: firstName, lastName: lastName, username: username, phoneNumber: phoneNumber, profileImage: profileImage)
+        }.then { user -> Void in
+            self.worker.addUserToRealm(user: user)
+            self.output.presentNextScene()
+        }.catch { error in
+             self.output.presentError(errorMessage: error.localizedDescription)
         }
     }
 }

@@ -15,8 +15,9 @@ protocol SelectSchoolViewControllerInput: SelectSchoolPresenterOutput {
 protocol SelectSchoolViewControllerOutput {
     
     var schools: [School] {get}
-
-    func fetchAllSchools()
+    var searchResults: [School] {get}
+    var schoolCategory: SchoolCategory {get set}
+    func fetchSchools()
     func updateSearchResults(searchText: String)
     func routeToSchool(index: Int)
 }
@@ -67,21 +68,33 @@ final class SelectSchoolViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         setupTableView()
-        fetchAllSchools()
+        setupNavigationBar()
+        fetchSchools()
     }
 
 
     // MARK: - Load data
 
-    func fetchAllSchools() {
+    func fetchSchools() {
 
         tableView.isHidden = true
         activityIndicator.startAnimating()
-        output.fetchAllSchools()
+        output.fetchSchools()
     }
     
     func setupTableView() {
         tableView.tableFooterView = UIView()
+    }
+    
+    func setupNavigationBar() {
+        title = "Select a School"
+        let leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: #selector(popViewController))
+        navigationItem.backBarButtonItem = leftBarButtonItem
+        navigationItem.backBarButtonItem?.tintColor = Constants.Colors.softBlue
+    }
+    
+    func popViewController() {
+       navigationController?.popViewController(animated: true)
     }
 }
 
@@ -90,11 +103,11 @@ final class SelectSchoolViewController: UIViewController {
 
 extension SelectSchoolViewController: SelectSchoolViewControllerInput {
 
-
     // MARK: - Display logic
     
     func displayError(errorMessage: String) {
-        self.displayError(errorMessage: errorMessage)
+        activityIndicator.stopAnimating()
+        displayErrorModal(error: errorMessage)
     }
     
     func displaySchools(viewModels: [SelectSchoolViewModel]) {
@@ -133,5 +146,9 @@ extension SelectSchoolViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output.updateSearchResults(searchText: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        output.updateSearchResults(searchText: "")
     }
 }

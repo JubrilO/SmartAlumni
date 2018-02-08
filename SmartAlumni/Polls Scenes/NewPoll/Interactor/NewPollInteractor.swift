@@ -36,11 +36,14 @@ final class NewPollInteractor {
 // MARK: - NewPollInteractorInput
 
 extension NewPollInteractor: NewPollViewControllerOutput {
-
-
+    
     // MARK: - Business logic
-
+    
+    func displayError() {
+        
+    }
+    
     func createPoll(title: String, question: String, options: [Option], timeInterval: String, visibility: String) {
-        <#code#>
+
     }
 }

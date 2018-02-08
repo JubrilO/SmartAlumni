@@ -11,13 +11,13 @@ import UIKit
 class OptionView: UIView {
     @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
-    @IBOutlet weak var overlayView: UIView
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pollCompletionIndicator: UIImageView!
     
     func fillUpBar(percentage: Double) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.overlayView.frame = CGRect(x: 0, y: 0, (width: percentage/100 * self.frame.width), height: self.frame.height)
+            self.overlayView.frame = CGRect(x: 0, y: 0, width: CGFloat(percentage/100) * self.frame.width, height: self.frame.height)
         })
     }
     

@@ -17,9 +17,9 @@ class Utilities {
         static let data = "data"
         static let status = "status"
     }
-    
-    class func parseOTPFromJSON(json: JSON) -> String? {
         
+    class func parseOTPFromJSON(json: JSON) -> String? {
+        print(json)
         if json["status"].stringValue == "success" {
             return json["data"].stringValue
         }
@@ -29,6 +29,7 @@ class Utilities {
     }
     
     class func parseUIDFromJSON(json: JSON) -> (String?, String?){
+        print(json)
         
         if json["status"].stringValue == "success" {
             let uid = json["data"]["_id"].stringValue
@@ -40,8 +41,8 @@ class Utilities {
         }
     }
     
-    class func parseUserFromJSON(json: JSON) -> (user: User?, error: String?) {
-        
+    class func parseUserFromJSON(json: JSON) -> (user: User?, error: Error?) {
+        print(json)
         if json["status"].stringValue == "success" {
             let user = User(json: json)
             let jwt = json["data"]["security_token"].stringValue
@@ -50,13 +51,13 @@ class Utilities {
         }
         else {
             let error = json["data"]["err"].stringValue
-            return(user: nil, error: error)
+            return(user: nil, error: StringError(error))
         }
     }
     
-    class func parseSchoolsFromJSON(json: JSON) -> (schools: [School]?, error: String?) {
-        
-        if json["status"].stringValue == Constants.Success{
+    class func parseSchoolsFromJSON(json: JSON) -> (schools: [School]?, error: Error?) {
+        print(json)
+        if json["status"].stringValue == Constants.Success {
             
             var schools = [School]()
             for schoolJSON in json["data"].arrayValue {
@@ -68,11 +69,12 @@ class Utilities {
             
         else {
             let error = json["err"].stringValue
-            return (nil, error)
+            return (nil, StringError(error))
         }
     }
     
-    class func parseSuccessFromJSON(json: JSON) -> (success: Bool, error: String?){
+    class func parseSuccessFromJSON(json: JSON) -> (success: Bool, error: String?) {
+        print(json)
         if json["status"].stringValue == Constants.Success {
             return (true, nil)
         }
@@ -82,6 +84,7 @@ class Utilities {
     }
     
     class func parsePollsFromJSON(json: JSON) -> (polls: [Poll]?, error: String?) {
+        print(json)
         if json["status"].stringValue == Constants.Success {
             var polls = [Poll]()
             for pollJSON in json["data"].arrayValue {
@@ -106,4 +109,18 @@ class Utilities {
         return parameters
     }
     
+}
+
+struct StringError : LocalizedError {
+    var errorDescription: String? { return mMsg }
+    var failureReason: String? { return mMsg }
+    var recoverySuggestion: String? { return "" }
+    var helpAnchor: String? { return "" }
+    
+    private var mMsg : String
+    
+    init(_ description: String)
+    {
+        mMsg = description
+    }
 }

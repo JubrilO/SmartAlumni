@@ -177,8 +177,14 @@ final class NewPollViewController: UIViewController {
         validator.registerField(titleTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
         validator.registerField(questionTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
         visiblityPickerView.delegate = self
-        visibilityTextField.inputView = visiblityPickerView
+        visibilityTextField.inputView = nil
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(routeToVisibilityScene))
+        visibilityTextField.addGestureRecognizer(tapGesture)
         visibilityTextField.delegate = self
+    }
+    
+    func routeToVisibilityScene() {
+        router.navigateToVisibilityScene()
     }
     
     func updateIntervalLabel(string: String, type: TimeIntervalType) {
@@ -396,6 +402,15 @@ extension NewPollViewController: UITextFieldDelegate {
             return true
         }
     }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == visibilityTextField {
+            return false
+        }
+        return true
+    }
+    
+    
 }
 
 enum TimeIntervalType {

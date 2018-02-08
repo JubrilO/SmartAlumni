@@ -67,6 +67,8 @@ extension EditProfileRouter: EditProfileRouterProtocol {
     
     func routeToSignUpCompletion() {
         if let signUpCompleteVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SignUpCompleteScene) {
+            UserDefaults.standard.set(false, forKey: Constants.UserDefaults.SignUpStage2)
+            UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage3)
             viewController?.navigationController?.pushViewController(signUpCompleteVC, animated: true)
         }
     }

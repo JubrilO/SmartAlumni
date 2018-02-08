@@ -39,7 +39,7 @@ extension SignUpRouter: SignUpRouterProtocol {
     
     func presentOTPScene() {
         if let otpViewController = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.OTPScene) as? OTPViewController {
-            otpViewController.output.phoneNumber  = viewController?.output.phoneNumber
+            otpViewController.output.email  = viewController?.output.email
             viewController?.navigationController?.pushViewController(otpViewController, animated: true)
         }
     }

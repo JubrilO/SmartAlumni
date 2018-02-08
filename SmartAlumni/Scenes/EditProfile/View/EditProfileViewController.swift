@@ -8,14 +8,16 @@
 
 import UIKit
 import SwiftValidator
+import SkyFloatingLabelTextField
+import PhoneNumberKit
 
 protocol EditProfileViewControllerInput: EditProfilePresenterOutput {
     
 }
 
 protocol EditProfileViewControllerOutput {
-    
-    func saveProfile(firstName: String, lastName: String, username: String, email: String, profileImage: UIImage)
+    func fetchEmailAddress()
+    func saveProfile(firstName: String, lastName: String, username: String, phoneNumber: String, profileImage: UIImage)
 }
 
 final class EditProfileViewController: UIViewController {
@@ -23,16 +25,17 @@ final class EditProfileViewController: UIViewController {
     var output: EditProfileViewControllerOutput!
     var router: EditProfileRouterProtocol!
     
-    @IBOutlet weak var usernameTextField: UnderlinedTextField!
+    @IBOutlet weak var phoneNumberTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var firstNameTextField: UnderlinedTextField!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var firstNameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var emailTextField: UnderlinedTextField!
-    @IBOutlet weak var lastNameTextField: UnderlinedTextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
     
     let validator = Validator()
+    var textFields = [SkyFloatingLabelTextField]()
     
     
     // MARK: - Initializers
@@ -65,7 +68,9 @@ final class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        hideNavigationBar()
         configureTextFields()
+        output.fetchEmailAddress()
     }
     
     @IBAction func onProfileImageTap(_ sender: UITapGestureRecognizer) {
@@ -80,17 +85,31 @@ final class EditProfileViewController: UIViewController {
     
     @IBAction func onContinueButtonTouch(_ sender: UIButton) {
         continueButton.isHidden = true
+        clearTextFieldErrors()
         activityIndicator.startAnimating()
         validator.validate(self)
     }
     
     func configureTextFields() {
-        
-        validator.registerField(firstNameTextField, rules: [RequiredRule()])
-        validator.registerField(lastNameTextField, rules: [RequiredRule()])
-        validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule()])
-        validator.registerField(usernameTextField, rules: [RequiredRule()])
-        phoneNumberLabel.text = UserDefaults.standard.string(forKey: Constants.UserDefaults.PhoneNumber)
+        textFields = [firstNameTextField, lastNameTextField, phoneNumberTextField, usernameTextField, emailTextField, phoneNumberTextField]
+        setupTextFieldFonts()
+        validator.registerField(firstNameTextField, rules: [RequiredRule(), MinLengthRule()])
+        validator.registerField(lastNameTextField, rules: [RequiredRule(), MinLengthRule()])
+        validator.registerField(phoneNumberTextField, rules: [RequiredRule()])
+        validator.registerField(usernameTextField, rules: [RequiredRule(), MinLengthRule()])
+    }
+    
+    func setupTextFieldFonts() {
+        let titleFont = UIFont.boldSystemFont(ofSize: 10)
+        for field in textFields {
+            field.titleFont = titleFont
+        }
+    }
+    
+    func clearTextFieldErrors() {
+        for field in textFields {
+            field.errorMessage = nil
+        }
     }
     
     
@@ -109,6 +128,21 @@ final class EditProfileViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func parsePhoneNumber(string: String) -> String? {
+        let phoneNumberKit = PhoneNumberKit()
+        do {
+            let phoneNumber = try phoneNumberKit.parse(string)
+            let formattedPhoneNumber = phoneNumberKit.format(phoneNumber, toType: .international)
+            return formattedPhoneNumber
+        }
+        catch {
+            phoneNumberTextField.errorMessage = "Invalid Phone Number"
+            activityIndicator.stopAnimating()
+            continueButton.isHidden = false
+            return nil
+        }
+    }
+    
 }
 
 
@@ -120,21 +154,24 @@ extension EditProfileViewController: ValidationDelegate {
         
         let firstName = firstNameTextField.text!
         let lastName = lastNameTextField.text!
-        let email = emailTextField.text!
+        let phoneNumberString = phoneNumberTextField.text!
         let username = usernameTextField.text!
         var profileImage = profileImageView.image!
-        if profileImageView.image! != Constants.PlaceholderImages.AddPhoto {
+        if profileImageView.image! == Constants.PlaceholderImages.AddPhoto {
             profileImage = Constants.PlaceholderImages.ProfilePicture
         }
-        output.saveProfile(firstName: firstName, lastName: lastName, username: username, email: email, profileImage: profileImage)
+        
+        if let phoneNumber = parsePhoneNumber(string: phoneNumberString) {
+            output.saveProfile(firstName: firstName, lastName: lastName, username: username, phoneNumber: phoneNumber, profileImage: profileImage)
+        }
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
         activityIndicator.stopAnimating()
         continueButton.isHidden = false
-        for (field, _ ) in errors {
-            if let field = field as? UnderlinedTextField {
-                field.borderColor = UIColor.red
+        for (field, error ) in errors {
+            if let field = field as? SkyFloatingLabelTextField {
+                field.errorMessage = error.errorMessage
             }
         }
     }
@@ -152,6 +189,10 @@ extension EditProfileViewController: EditProfileViewControllerInput {
 
     func presentNextScene() {
         router.routeToSignUpCompletion()
+    }
+    
+    func displayEmail(email: String) {
+        emailTextField.text = email
     }
 
 }
@@ -171,7 +212,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         if let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImageView.image = selectedImage
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }

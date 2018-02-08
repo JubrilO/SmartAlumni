@@ -9,13 +9,70 @@
 import Foundation
 import UIKit
 
+func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        completion()
+    }
+}
+
+
 extension UIViewController {
     
-    func displayErrorModal(error: String) {
+    var previousViewController:UIViewController?{
+        if let controllersOnNavStack = self.navigationController?.viewControllers{
+            let n = controllersOnNavStack.count
+            //if self is still on Navigation stack
+            if controllersOnNavStack.last === self, n > 1{
+                return controllersOnNavStack[n - 2]
+            }else if n > 0{
+                return controllersOnNavStack[n - 1]
+            }
+        }
+        return nil
+    }
+
+    
+    func displayErrorModal(error: String?) {
         
         let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func hideNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func showNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
+
+extension UIResponder {
+    private weak static var _currentFirstResponder: UIResponder? = nil
+    
+    public static var first: UIResponder? {
+        UIResponder._currentFirstResponder = nil
+        UIApplication.shared.sendAction(#selector(findFirstResponder(sender:)), to: nil, from: nil, for: nil)
+        return UIResponder._currentFirstResponder
+    }
+    
+    @objc internal func findFirstResponder(sender: AnyObject) {
+        UIResponder._currentFirstResponder = self
+    }
+}
+
+extension UIImage {
+    enum JPEGQuality: CGFloat {
+        case lowest  = 0
+        case low     = 0.25
+        case medium  = 0.5
+        case high    = 0.75
+        case highest = 1
+    }
+    func jpeg(_ quality: JPEGQuality) -> Data? {
+        return UIImageJPEGRepresentation(self, quality.rawValue)
+    }
+}
+

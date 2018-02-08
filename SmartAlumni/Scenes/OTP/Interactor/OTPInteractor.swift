@@ -10,19 +10,21 @@ import UIKit
 
 protocol OTPInteractorInput: OTPViewControllerOutput {
     
-    var phoneNumber: String? {get set}
+    //var email: String? {get set}
 
 }
 
 protocol OTPInteractorOutput {
     
-    func presentError()
+    func presentError(errorMessage: String?)
     func presentNextScene()
-    func displayPhoneNumber(phoneNumber: String?)
+    func displayEmail(email: String?)
 }
 
 
 final class OTPInteractor: OTPViewControllerOutput {
+    
+    
 
     let output: OTPInteractorOutput
     let worker: OTPWorker
@@ -36,25 +38,39 @@ final class OTPInteractor: OTPViewControllerOutput {
     }
 
     // MARK: - Business logic
-    var phoneNumber: String?
+    var email: String?
     
     func verifyOTP(otp: String) {
         
         if let generatedOTP = UserDefaults.standard.string(forKey: Constants.UserDefaults.OTP) {
             
             guard generatedOTP == otp else {
-                output.presentError()
+                output.presentError(errorMessage: Constants.Errors.InvalidOTP )
                 return
             }
-            
+            UserDefaults.standard.set(false, forKey: Constants.UserDefaults.SignUpStage1)
+            UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage2)
             output.presentNextScene()
         }
         
     }
     
     func fetchPhoneNumber() {
-        
-        output.displayPhoneNumber(phoneNumber: phoneNumber)
+        let email = UserDefaults.standard.string(forKey: Constants.UserDefaults.Email)
+        output.displayEmail(email: email)
+    }
+    
+    func resendOTP() {
+        worker.resendOTP {
+            otp, error in
+            guard error == nil else {
+                self.output.presentError(errorMessage: error?.localizedDescription)
+                return
+            }
+            if let otp = otp {
+                UserDefaults.standard.set(otp, forKey: Constants.UserDefaults.OTP)
+            }
+        }
     }
 
 }

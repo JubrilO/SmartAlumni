@@ -13,9 +13,17 @@ class SelectSchoolWorker {
 
     // MARK: - Business Logic
 
-    func fetchAllSchools(completionHandler: @escaping ([School]?, String?) -> ()) {
+    func fetchAllSchools(completionHandler: @escaping ([School]?, Error?) -> ()) {
         
         SchoolAPI.sharedManager.getAllSchools {
+            schools, error in
+            completionHandler(schools, error)
+        }
+    }
+    
+    func fetchSchools(category: SchoolCategory, completionHandler: @escaping ([School]?, Error?) -> ()) {
+        
+        SchoolAPI.sharedManager.fetchSchoolsByCategory(category: category) {
             schools, error in
             completionHandler(schools, error)
         }

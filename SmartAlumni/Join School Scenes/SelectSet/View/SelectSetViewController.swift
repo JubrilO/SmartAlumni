@@ -8,23 +8,30 @@
 
 import UIKit
 import SwiftValidator
+import Kingfisher
 
 protocol SelectSetViewControllerInput: SelectSetPresenterOutput {
-
+    
 }
 
 protocol SelectSetViewControllerOutput {
     
+    var selectedDepartment: Department? {get set}
+    var selectedFaculty: Faculty? {get set}
+    var selectedSet: Int? {get set}
     var school: School {get set}
     func updatePickerOptions(optionType: OptionType)
-    func joinSet(faculty: String, department: String, set: String)
+    func joinSet()
 }
 
 final class SelectSetViewController: UIViewController {
-
+    
     var output: SelectSetViewControllerOutput!
     var router: SelectSetRouterProtocol!
-
+    
+    @IBOutlet weak var lineDividerView: UIView!
+    @IBOutlet weak var arrowImageView2: UIImageView!
+    @IBOutlet weak var arrowImageView1: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var schoolImageView: UIImageView!
     @IBOutlet weak var continueButton: UIButton!
@@ -36,73 +43,104 @@ final class SelectSetViewController: UIViewController {
     let validator = Validator()
     var pickerOptions = [String]()
     var activeField: UnderlinedTextField?
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(configurator: SelectSetConfigurator = SelectSetConfigurator.sharedInstance) {
-
+        
         super.init(nibName: nil, bundle: nil)
-
+        
         configure()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
-
+        
         super.init(coder: aDecoder)
-
+        
         configure()
     }
-
-
+    
+    
     // MARK: - Configurator
-
+    
     private func configure(configurator: SelectSetConfigurator = SelectSetConfigurator.sharedInstance) {
-
+        
         configurator.configure(viewController: self)
     }
-
-
+    
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         title = output.school.name
+        if let imageURL = output.school.imageURL {
+            let url = URL(string: imageURL)
+            schoolImageView.kf.setImage(with: url)
+        }
         setupTextFields()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displayTextFieldData()
+    }
+    
+    @IBAction func onFacultyTextFieldTap(_ sender: UITapGestureRecognizer) {
+        print("Faculty text field....")
     }
     
     @IBAction func onBackgroundTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
-
+        
     }
-
+    
+    @IBAction func onDeparmentTextFieldTap(_ sender: UITapGestureRecognizer) {
+    }
+    
     @IBAction func onContinueButtonTouch(_ sender: UIButton) {
         view.endEditing(true)
         validator.validate(self)
         continueButton.isHidden = true
         activityIndicator.startAnimating()
     }
-
+    
     // MARK: - Load data
     
     func setupTextFields() {
         pickerView.delegate = self
         pickerView.dataSource = self
-        facultyTextField.inputView = pickerView
-        departmentTextField.inputView = pickerView
         setTextField.inputView = pickerView
+        validator.registerField(setTextField, rules: [RequiredRule()])
+        if output.school.category == SchoolCategory.Primary.rawValue ||  output.school.category == SchoolCategory.Secondary.rawValue {
+            arrowImageView1.isHidden = true
+            arrowImageView2.isHidden = true
+            facultyTextField.isHidden = true
+            departmentTextField.isHidden = true
+        }
+        else {
         
         validator.registerField(facultyTextField, rules: [RequiredRule()])
         validator.registerField(departmentTextField, rules: [RequiredRule()])
-        validator.registerField(setTextField, rules: [RequiredRule()])
+        }
+    }
+    
+    func displayTextFieldData() {
+        if let selectedDepartment = output.selectedDepartment {
+            departmentTextField.text = selectedDepartment.name
+        }
+        if let selectedFaculty = output.selectedFaculty {
+            facultyTextField.text = selectedFaculty.name
+        }
     }
 }
 
 extension SelectSetViewController: ValidationDelegate {
     
     func validationSuccessful() {
-        output.joinSet(faculty: facultyTextField.text!, department: departmentTextField.text!, set: setTextField.text!)
+        output.joinSet()
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
@@ -137,7 +175,7 @@ extension SelectSetViewController: SelectSetViewControllerInput {
         print("join school complete")
         router.navigateToJoinSchoolCompletion()
     }
-
+    
 }
 
 extension SelectSetViewController: UITextFieldDelegate {
@@ -146,7 +184,21 @@ extension SelectSetViewController: UITextFieldDelegate {
         return false
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == facultyTextField {
+            router.navigateToSelectDetailsScene(dataType: .Faculty, data: output.school.faculties)
+        }
+        else if textField == departmentTextField {
+            router.navigateToSelectDetailsScene(dataType: .Department, data: output.school.departments)
+        }
+        else {
+            return true
+        }
+        return false
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Editing!!!")
         activeField = textField as? UnderlinedTextField
         if textField == facultyTextField {
             output.updatePickerOptions(optionType: .faculty)
@@ -176,6 +228,7 @@ extension SelectSetViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if let activeField = activeField {
             activeField.text = pickerOptions[row]
+            output.selectedSet = Int(pickerOptions[row])
         }
     }
 }

@@ -14,7 +14,10 @@ struct Constants {
     struct UserDefaults {
         static let OTP = "OTP"
         static let UID = "UID"
-        static let PhoneNumber = "PhoneNumber"
+        static let Email = "Email"
+        static let SignUpStage1 = "SignUpStage1"
+        static let SignUpStage2 = "SignUpStage2"
+        static let SignUpStage3 = "SignUpStage3"
     }
     
     struct StoryboardIdentifiers {
@@ -27,6 +30,11 @@ struct Constants {
         static let JoinSetCompletionScene = "JoinSetCompletionScene"
         static let LandingTabBarScene = "LandingTabBarScene"
         static let PollsNavScene = "PollsNavScene"
+        static let PollVisibilityScene = "PollVisibilityScene"
+        static let PollCompletionScene = "PollCompletionScene"
+        static let VisibilityOptionScene = "PollCompletionScene"
+        static let SelectSchoolCategoryScene = "SelectSchoolCategoryScene"
+        static let SelectFacultyScene = "SelectFacultyScene"
     }
     
     struct StoryboardNames {
@@ -37,6 +45,8 @@ struct Constants {
     struct CellIdentifiers {
         static let SelectSchoolCell = "SelectSchoolCell"
         static let PollCell = "PollCell"
+        static let VisibilityCell = "VisibilityCell"
+        static let VisibilityOptionCell = "VisibilityOptionCell"
     }
     
     struct  Errors {
@@ -55,6 +65,8 @@ struct Constants {
         
         static let AddPhoto = UIImage(named: "photoPlacholder")!
         static let ProfilePicture = UIImage(named: "profilePicture")!
+        static let Circle = UIImage(named: "Oval")!
+        static let Checkmark = UIImage(named: "checkmark")!
     }
     
     static let SmartAlumniUser = "SmartAlumniUser"

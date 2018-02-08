@@ -13,7 +13,7 @@ class SelectSetWorker {
 
     // MARK: - Business Logic
 
-    func joinSchool(schoolID: String, facultyID: String, departmentID: String, set: Int, completionHandler: @escaping (Bool, String?) -> ()) {
+    func joinSchool(schoolID: String, facultyID: String? = nil, departmentID: String? = nil, set: Int, completionHandler: @escaping (Bool, String?) -> ()) {
        print("Preparing to make API Call")
         UserAPI.sharedManager.joinSchool(schoolID: schoolID, facultyID: facultyID, departmentID: departmentID, set: set) {
             success, error in

@@ -17,7 +17,9 @@ protocol PollsInteractorOutput {
     func presentSomething()
 }
 
-final class PollsInteractor {
+final class PollsInteractor: PollsViewControllerOutput {
+    var polls = [Poll]()
+    
 
     let output: PollsInteractorOutput
     let worker: PollsWorker
@@ -30,12 +32,11 @@ final class PollsInteractor {
         self.output = output
         self.worker = worker
     }
-}
 
 
 // MARK: - PollsInteractorInput
 
-extension PollsInteractor: PollsViewControllerOutput {
+
 
 
     // MARK: - Business logic
@@ -43,8 +44,6 @@ extension PollsInteractor: PollsViewControllerOutput {
     func doSomething() {
 
         // TODO: Create some Worker to do the work
-
-        worker.doSomeWork()
 
         // TODO: Pass the result to the Presenter
 

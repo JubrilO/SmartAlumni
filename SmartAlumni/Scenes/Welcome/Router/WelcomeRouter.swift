@@ -38,7 +38,7 @@ extension WelcomeRouter: WelcomeRouterProtocol {
 
     func navigateToJoinSchoolList() {
         let JoinSchoolStoryboard = UIStoryboard(name: Constants.StoryboardNames.JoinSchool, bundle: nil)
-        let selectSchoolVC = JoinSchoolStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SelectSchoolScene)
+        let selectSchoolVC = JoinSchoolStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SelectSchoolCategoryScene)
         viewController?.navigationController?.pushViewController(selectSchoolVC, animated: true)
     }
 }

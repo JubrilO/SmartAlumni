@@ -20,13 +20,13 @@ protocol PollsViewControllerOutput {
 
 final class PollsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     var output: PollsViewControllerOutput!
     var router: PollsRouterProtocol!
     @IBOutlet weak var emptyStateImageView: UIImageView!
     @IBOutlet weak var segmentioView: Segmentio!
     @IBOutlet weak var emptyStateLabel1: UILabel!
     @IBOutlet weak var emptyStateLabel2: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Initializers
 
@@ -136,13 +136,13 @@ extension PollsViewController: PollsViewControllerInput {
 extension PollsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.PollCell)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.PollCell) as! PollCell
         let poll = output.polls[indexPath.row]
         cell.setup(poll: poll)
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.polls.count
     }
     

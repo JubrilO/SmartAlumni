@@ -9,21 +9,22 @@
 import UIKit
 
 protocol NewPollRouterProtocol {
-
+    
     weak var viewController: NewPollViewController? { get }
-
-    func navigateToSomewhere()
+    
+    func navigateToVisibilityScene()
+    
 }
 
 final class NewPollRouter {
-
+    
     weak var viewController: NewPollViewController?
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(viewController: NewPollViewController?) {
-
+        
         self.viewController = viewController
     }
 }
@@ -32,11 +33,14 @@ final class NewPollRouter {
 // MARK: - NewPollRouterProtocol
 
 extension NewPollRouter: NewPollRouterProtocol {
-
-
+    
+    
     // MARK: - Navigation
-
-    func navigateToSomewhere() {
-
+    
+    func navigateToVisibilityScene() {
+        if  let visibilityVC = UIStoryboard(name: Constants.StoryboardNames.Polls, bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollVisibilityScene) as? PollVisibilityViewController {
+            print("pushing vc")
+            viewController?.navigationController?.pushViewController(visibilityVC, animated: true)
+        }
     }
 }

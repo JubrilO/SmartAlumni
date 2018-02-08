@@ -16,6 +16,7 @@ protocol EditProfilePresenterOutput: class {
     
     func presentNextScene()
     func displayError(errorMessage: String)
+    func displayEmail(email: String)
 }
 
 final class EditProfilePresenter {
@@ -37,6 +38,10 @@ final class EditProfilePresenter {
 extension EditProfilePresenter: EditProfilePresenterInput {
     
     // MARK: - Presentation logic
+    
+    func presentUsersEmail(email: String) {
+        output.displayEmail(email: email)
+    }
     
     func presentNextScene() {
         output.presentNextScene()

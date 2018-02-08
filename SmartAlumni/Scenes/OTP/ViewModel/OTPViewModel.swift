@@ -10,5 +10,5 @@ import UIKit
 
 struct OTPViewModel {
 
-    var errorMessage: String
+    var errorMessage: String?
 }

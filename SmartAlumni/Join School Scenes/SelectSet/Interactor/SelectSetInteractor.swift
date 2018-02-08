@@ -21,8 +21,11 @@ protocol SelectSetInteractorOutput {
 
 final class SelectSetInteractor: SelectSetViewControllerOutput{
     var school: School = School()
-
-
+    var selectedFaculty: Faculty?
+    var selectedDepartment: Department?
+    var selectedSet: Int?
+    
+    
     
     let output: SelectSetInteractorOutput
     let worker: SelectSetWorker
@@ -45,7 +48,7 @@ final class SelectSetInteractor: SelectSetViewControllerOutput{
     // MARK: - Business logic
     
     func updatePickerOptions(optionType: OptionType) {
-        var options = [String]()
+        var options = [""]
         print(school.faculties.count)
         switch optionType {
         case .faculty:
@@ -54,37 +57,27 @@ final class SelectSetInteractor: SelectSetViewControllerOutput{
         case .department:
             options = school.departments.map {$0.name}
         case .set:
-            options = school.sets
+            options += school.sets
         }
         output.presentOptions(options: options)
         
     }
     
-    func joinSet(faculty: String, department: String, set: String) {
+    func joinSet() {
         
-        let facultyID = school.faculties.filter { $0.name == faculty }.first?.id
-        let departmentID = school.departments.filter { $0.name == department }.first?.id
-        let set = Int(set)
-        
-        if let facultyID = facultyID, let departmentID = departmentID, let set = set {            
-            worker.joinSchool(schoolID: school.id, facultyID: facultyID, departmentID: departmentID, set: set) {
-                
-                success, error in
-                
-                if success {
-                    print("Joined school successfully")
-                    self.output.presentJoinSchoolCompletion()
-                }
-                else {
-                    self.output.presentError(errorMessage: error)
-                }
+        worker.joinSchool(schoolID: school.id, facultyID: selectedFaculty?.id, departmentID: selectedDepartment?.id, set: selectedSet!) {
+            
+            success, error in
+            
+            if success {
+                print("Joined school successfully")
+                UserDefaults.standard.set(false, forKey: Constants.UserDefaults.SignUpStage3)
+                self.output.presentJoinSchoolCompletion()
+            }
+            else {
+                self.output.presentError(errorMessage: error)
             }
         }
-        
-        else {
-            print("could not get all required parameters")
-        }
-    
     }
-    
 }
+

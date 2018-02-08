@@ -15,9 +15,8 @@ class SignUpWorker {
     // MARK: - Business Logic
     
     
-    func signUpUser(phoneNumber: PhoneNumber, completionHandler: @escaping (String?) -> () ) {
-        let phoneNumberString = PhoneNumberKit().format(phoneNumber, toType: .e164)
-        UserAPI.sharedManager.signUpUser(phoneNumber: phoneNumberString) {
+    func signUpUser(email: String, completionHandler: @escaping (String?) -> () ) {
+        UserAPI.sharedManager.signUpUser(email: email) {
            _ , errorMessage in
             guard errorMessage != nil else {
                 completionHandler(nil)
@@ -27,12 +26,12 @@ class SignUpWorker {
         }
     }
 
-    func generateOTP(phoneNumber: PhoneNumber, completionHandler: @escaping (String?, String?) -> () ) {
+    func generateOTP(email: String, completionHandler: @escaping (String?, String?) -> () ) {
         
-        let phoneNumberString = PhoneNumberKit().format(phoneNumber, toType: .e164)
-        UserAPI.sharedManager.GenerateOTP(phoneNumber: phoneNumberString) {
+        //let phoneNumberString = PhoneNumberKit().format(phoneNumber, toType: .e164)
+        UserAPI.sharedManager.GenerateOTP(email: email) {
             otp, error in
             completionHandler(otp, error?.localizedDescription)
-        }
+        } 
     }
 }

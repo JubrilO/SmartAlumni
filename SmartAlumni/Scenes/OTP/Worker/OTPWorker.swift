@@ -9,12 +9,14 @@
 import UIKit
 
 class OTPWorker {
-
-
-    // MARK: - Business Logic
-
-    func doSomeWork() {
-
-        // TODO: Do the work
+    
+    func resendOTP(completionHandler: @escaping (String?, Error?) -> ()) {
+        if let userEmail = UserDefaults.standard.string(forKey: Constants.UserDefaults.Email) {
+            UserAPI.sharedManager.GenerateOTP(email: userEmail) {
+                otp, error in
+                completionHandler(otp, error)
+            }
+        }
     }
+    
 }

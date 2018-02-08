@@ -8,6 +8,7 @@
 
 import UIKit
 import PhoneNumberKit
+import SwiftValidator
 
 protocol SignUpInteractorInput: SignUpViewControllerOutput {
 }
@@ -18,49 +19,59 @@ protocol SignUpInteractorOutput {
     func presentOTPScene()
 }
 
-final class SignUpInteractor: SignUpViewControllerOutput {
-
+final class SignUpInteractor: SignUpViewControllerOutput, ValidationDelegate {
+    
+    
     let output: SignUpInteractorOutput
     let worker: SignUpWorker
-    var phoneNumber: String?
-
+    var email: String?
+    
+    let validator = Validator()
+    
     // MARK: - Initializers
-
+    
     init(output: SignUpInteractorOutput, worker: SignUpWorker = SignUpWorker()) {
-
+        
         self.output = output
         self.worker = worker
     }
-
-
-// MARK: - SignUpInteractorInput
-
-    func validate(textField: PhoneNumberTextField) {
-        
-        switch textField.validate() {
-        
-        case .invalid:
-            output.presentError(errorMessage: Constants.Errors.InvalidNumber)
-        
-        case .valid(let phoneNumberRaw):
-            phoneNumber = PhoneNumberKit().format(phoneNumberRaw, toType: .international)
-            UserDefaults.standard.set(phoneNumber, forKey: Constants.UserDefaults.PhoneNumber)
-            signUpUser(phoneNumber: phoneNumberRaw)
+    
+    
+    // MARK: - SignUpInteractorInput
+    
+    func registerTextField(feild: UITextField) {
+        validator.registerField(feild, rules: [RequiredRule(), EmailRule(message: "Please enter a valid email address")])
+    }
+    
+    func validate() {
+        validator.validate(self)
+    }
+    
+    func validationSuccessful() {
+        guard let email = email else {
+            print("No email")
+            return
+        }
+        signUpUser(email: email)
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        for (_, error) in errors {
+            output.presentError(errorMessage: error.errorMessage)
         }
     }
-
-
-
+    
+    
     // MARK: - Business logic
     
-    func signUpUser(phoneNumber: PhoneNumber) {
+    func signUpUser(email: String) {
         
-        worker.signUpUser(phoneNumber: phoneNumber) {
+        worker.signUpUser(email: email) {
             errorMessage in
             
             guard errorMessage != nil else {
                 
-                self.worker.generateOTP(phoneNumber: phoneNumber) {
+                self.worker.generateOTP(email: email) {
                     otp, error in
                     
                     guard otp != nil else {
@@ -69,8 +80,8 @@ final class SignUpInteractor: SignUpViewControllerOutput {
                     }
                     
                     UserDefaults.standard.set(otp!, forKey: Constants.UserDefaults.OTP)
-                    let phoneFormatted = PhoneNumberKit().format(phoneNumber, toType: .international)
-                    UserDefaults.standard.set(phoneFormatted, forKey: Constants.UserDefaults.PhoneNumber)
+                    UserDefaults.standard.set(email, forKey: Constants.UserDefaults.Email)
+                    UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage1)
                     self.output.presentOTPScene()
                 }
                 return
@@ -79,5 +90,5 @@ final class SignUpInteractor: SignUpViewControllerOutput {
             self.output.presentError(errorMessage: errorMessage!)
         }
     }
-
+    
 }

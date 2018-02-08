@@ -10,22 +10,26 @@ import UIKit
 import SwiftValidator
 
 protocol OTPViewControllerInput: OTPPresenterOutput {
-
+    
 }
 
 protocol OTPViewControllerOutput {
-
-    var phoneNumber: String? {get set}
+    
+    var email: String? {get set}
     func verifyOTP(otp: String)
     func fetchPhoneNumber()
+    func resendOTP()
 }
 
 final class OTPViewController: UIViewController {
-
+    
     var output: OTPViewControllerOutput!
     var router: OTPRouterProtocol!
     let validator = Validator()
-
+    var timer = Timer()
+    var totalTime = 60
+    
+    @IBOutlet weak var resendOTPButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var textField5: UnderlinedTextField!
     @IBOutlet weak var textField4: UnderlinedTextField!
@@ -33,46 +37,48 @@ final class OTPViewController: UIViewController {
     @IBOutlet weak var textField2: UnderlinedTextField!
     @IBOutlet weak var textField1: UnderlinedTextField!
     @IBOutlet weak var confirmationLabel: UILabel!
-
+    
     // MARK: - Initializers
-
+    
     init(configurator: OTPConfigurator = OTPConfigurator.sharedInstance) {
-
+        
         super.init(nibName: nil, bundle: nil)
-
+        
         configure()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
-
+        
         super.init(coder: aDecoder)
-
+        
         configure()
     }
-
-
+    
+    
     // MARK: - Configurator
-
+    
     private func configure(configurator: OTPConfigurator = OTPConfigurator.sharedInstance) {
-
+        
         configurator.configure(viewController: self)
     }
-
-
+    
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         configureTextFields()
+        configureButtons()
+        hideNavigationBar()
         getUserPhoneNumber()
     }
-
+    
     @IBAction func onContinueButtonTouch(_ sender: UIButton) {
         
         validator.validate(self)
     }
-
+    
     @IBAction func onBackButtonTouch(_ sender: UIButton) {
         
         router.popViewController()
@@ -80,6 +86,32 @@ final class OTPViewController: UIViewController {
     
     @IBAction func onBackgroundTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @IBAction func onResendOTPButtonTap(_ sender: UIButton) {
+        sender.isEnabled = false
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateResendButton), userInfo: nil, repeats: true)
+        output.resendOTP()
+    }
+    
+    func updateResendButton() {
+        resendOTPButton.setTitle("Resend Code (\(totalTime))", for: .normal)
+        if totalTime != 0 {
+            totalTime -= 1
+        } else {
+            resendOTPButton.isEnabled = true
+            resendOTPButton.setTitle("Resend Code", for: .normal)
+            totalTime = 60
+            endTimer()
+        }
+    }
+    
+    func endTimer() {
+        timer.invalidate()
+    }
+    
+    func configureButtons() {
+        resendOTPButton.setTitle("Send new code", for: .normal)
     }
     
     func configureTextFields() {
@@ -128,8 +160,8 @@ extension OTPViewController: ValidationDelegate {
 // MARK: - OTPPresenterOutput
 
 extension OTPViewController: OTPViewControllerInput {
-
-
+    
+    
     // MARK: - Display logic
     
     func presentNextScene() {
@@ -144,14 +176,14 @@ extension OTPViewController: OTPViewControllerInput {
     func displayOTPCopy(copy: String) {
         self.confirmationLabel.text = copy
     }
-    
 }
 
 extension OTPViewController: UITextFieldDelegate {
     
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if string.characters.count > 0 {
+        if string.count > 0 {
             let nextTag = textField.tag + 1
             
             let nextResponder = textField.superview?.viewWithTag(nextTag)
@@ -163,7 +195,7 @@ extension OTPViewController: UITextFieldDelegate {
             nextResponder?.becomeFirstResponder()
             return false
         }
-        else if (textField.text!.characters.count >= 1  && string.characters.count == 0) {
+        else if (textField.text!.count >= 1  && string.count == 0) {
             let previousTag = textField.tag - 1
             
             var previousResponder = textField.superview?.viewWithTag(previousTag)

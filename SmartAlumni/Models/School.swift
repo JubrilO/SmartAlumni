@@ -15,6 +15,7 @@ class School {
     var id = ""
     var name = ""
     var category = ""
+    var imageURL: String?
     var sets = [String]()
     var departments = [Department]()
     var faculties = [Faculty]()
@@ -24,6 +25,7 @@ class School {
         self.id = json["_id"].stringValue
         self.name = json["name"].stringValue
         self.category = json["category"].stringValue
+        self.imageURL = json["image"].string
         if let sets = json["sets"].arrayObject as? [String] {
             self.sets = sets
         }

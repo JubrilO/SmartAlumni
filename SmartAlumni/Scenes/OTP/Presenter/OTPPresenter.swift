@@ -37,11 +37,10 @@ final class OTPPresenter {
 
 extension OTPPresenter: OTPPresenterInput {
     
-    
     // MARK: - Presentation logic
     
-    func presentError() {
-        let viewModel = OTPViewModel(errorMessage: Constants.Errors.InvalidOTP)
+    func presentError(errorMessage: String?) {
+        let viewModel = OTPViewModel(errorMessage: errorMessage)
         output.displayError(viewModel: viewModel)
     }
     
@@ -49,9 +48,9 @@ extension OTPPresenter: OTPPresenterInput {
         output.presentNextScene()
     }
     
-    func displayPhoneNumber(phoneNumber: String?) {
-        if let phoneNumber = phoneNumber {
-            let copy = "Enter the four digit code we sent to \(phoneNumber)"
+    func displayEmail(email: String?) {
+        if let email = email {
+            let copy = "Enter the four digit code we sent to \(email)"
             output.displayOTPCopy(copy: copy)
         }
     }

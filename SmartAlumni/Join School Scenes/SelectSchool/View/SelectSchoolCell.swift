@@ -10,7 +10,10 @@ import UIKit
 
 class SelectSchoolCell: UITableViewCell {
 
+    
+    @IBOutlet weak var checkImageView: UIImageView!
     @IBOutlet weak var schoolLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +24,6 @@ class SelectSchoolCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
+
+

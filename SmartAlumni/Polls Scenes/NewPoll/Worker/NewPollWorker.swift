@@ -13,7 +13,10 @@ class NewPollWorker {
 
     // MARK: - Business Logic
 
-    func createNewPoll() {
-        
+    func createNewPoll(title: String, question: String, options: [Option], startDate: String, endDate: String, visiblity: [String: Any], completionHandler: @escaping (Bool?, String?) -> ()) {
+        PollAPI.sharedManager.createPoll(title: title, question: question, options: options, startDate: startDate, endDate: startDate, visibility: visiblity) {
+            success, error in
+            
+        }
     }
 }

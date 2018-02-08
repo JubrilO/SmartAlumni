@@ -44,10 +44,11 @@ class PollAPI {
                 print(error)
                 completionHandler(nil, error.localizedDescription)
             }
-        
+            
+        }
     }
     
-    func createPoll(title: String, question: String, options: [Option], startDate: String, endDate: String, visibility: [String : Any],  completionHandler: @escaping (Bool, String?) -> ()) {
+    func createPoll(title: String, question: String, options: [Option], startDate: String, endDate: String, visibility: [String : Any],  completionHandler: @escaping (Bool?, String?) -> ()) {
         let parameters = Utilities.generatePollDict(title: title, question: question, options: options, startDate: startDate, endDate: endDate, visibility: visibility)
         Alamofire.request(APIConstants.CreatePollURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
@@ -64,3 +65,4 @@ class PollAPI {
         }
     }
 }
+

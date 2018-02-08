@@ -37,7 +37,7 @@ extension SelectSchoolRouter: SelectSchoolRouterProtocol {
     // MARK: - Navigation
 
     func navigateToSelectSetScene(schoolIndex: Int) {
-        if let school = viewController?.output.schools[schoolIndex] {
+        if let school = viewController?.output.searchResults[schoolIndex] {
         
         if let selectSetVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SelectSetScene) as? SelectSetViewController {
             selectSetVC.output.school = school

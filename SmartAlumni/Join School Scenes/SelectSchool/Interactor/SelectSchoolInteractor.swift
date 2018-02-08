@@ -24,8 +24,9 @@ final class SelectSchoolInteractor {
     let output: SelectSchoolInteractorOutput
     let worker: SelectSchoolWorker
     
-    var seachResults = [School]()
+    var searchResults = [School]()
     var schools = [School]()
+    var schoolCategory: SchoolCategory = .Tertiary
     
     
     // MARK: - Initializers
@@ -42,23 +43,23 @@ final class SelectSchoolInteractor {
 
 extension SelectSchoolInteractor: SelectSchoolViewControllerOutput {
     
-    
     // MARK: - Business logic
     
-    func fetchAllSchools() {
+    func fetchSchools() {
         
         // TODO: Create some Worker to do the work
         
-        worker.fetchAllSchools {
+        worker.fetchSchools(category: schoolCategory) {
             schools, error in
             
             guard error == nil else {
-                self.output.presentError(errorMessage: error!)
+                self.output.presentError(errorMessage: error!.localizedDescription)
                 return
             }
             
             if let schools = schools {
                 self.schools = schools
+                self.searchResults = schools
                 self.output.presentSchools(schools: schools)
             }
         }
@@ -67,18 +68,19 @@ extension SelectSchoolInteractor: SelectSchoolViewControllerOutput {
     func updateSearchResults(searchText: String) {
         
         if searchText == "" {
+            searchResults = schools
             output.presentSearchResults(schools: schools)
         }
         else {
-            seachResults = schools.filter  {
+            searchResults = schools.filter  {
                 school in
                 return school.name.lowercased().range(of: searchText.lowercased()) != nil
             }
-            output.presentSearchResults(schools: seachResults)
+            output.presentSearchResults(schools: searchResults)
         }
     }
     
     func routeToSchool(index: Int) {
-        let school = schools[index]
+        //let school = schools[index]
     }
 }

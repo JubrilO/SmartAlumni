@@ -10,7 +10,7 @@ import Foundation
 
 struct APIConstants {
     
-    static let RootURL = "http://35.177.21.159:3000/api"
+    static let RootURL = "https://www.smartalumni.ng/api"
     static let UserURL = RootURL + "/user"
     static let OtpURL = UserURL + "/otp"
     static let SignUpURL = UserURL + "/sign-up"

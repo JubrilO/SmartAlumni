@@ -8,14 +8,19 @@
 
 import UIKit
 import PhoneNumberKit
+import SkyFloatingLabelTextField
+import  SwiftValidator
 
 protocol SignUpViewControllerInput: SignUpPresenterOutput {
     
 }
 
 protocol SignUpViewControllerOutput {
-    var phoneNumber: String? {get set}
-    func validate(textField: PhoneNumberTextField)
+    var email: String? {get set}
+    var validator: Validator {get}
+    func signUpUser(email: String)
+    func registerTextField(feild: UITextField)
+    func validate()
 }
 
 final class SignUpViewController: UIViewController {
@@ -24,10 +29,12 @@ final class SignUpViewController: UIViewController {
     var router: SignUpRouterProtocol!
     
     
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var countryCodeLabel: UILabel!
-    @IBOutlet weak var phoneNumberTextField: PhoneNumberTextField!
+    
+    let validator = Validator()
     
     // MARK: - Initializers
     
@@ -48,13 +55,19 @@ final class SignUpViewController: UIViewController {
         configurator.configure(viewController: self)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        output.registerTextField(feild: emailTextField)
+        setupTextFields()
+    }
     
     // MARK: - Actions
     
     @IBAction func onContinueButtonTouch(_ sender: UIButton) {
         activityIndicator.startAnimating()
         continueButton.isHidden = true
-        output.validate(textField: phoneNumberTextField)
+        output.email = emailTextField.text!
+        output.validate()
     }
     
     @IBAction func onBackButtonTouch(_ sender: UIButton) {
@@ -65,10 +78,28 @@ final class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func setupTextFields() {
+        emailTextField.titleFont = UIFont.boldSystemFont(ofSize: 10)
+    }
+    
 }
 
 
 // MARK: - SignUpPresenterOutput
+
+extension SignUpViewController: ValidationDelegate {
+    
+    func validationSuccessful() {
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        activityIndicator.stopAnimating()
+        continueButton.isHidden = false
+        for (_, error) in errors {
+            self.displayErrorModal(error: error.errorMessage)
+        }
+    }
+}
 
 extension SignUpViewController: SignUpViewControllerInput {
     // MARK: - Display logic
@@ -86,3 +117,4 @@ extension SignUpViewController: SignUpViewControllerInput {
     }
     
 }
+

@@ -10,18 +10,20 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Locksmith
+import FirebaseStorage
 
 class UserAPI {
     
     static let sharedManager = UserAPI()
     
-    func GenerateOTP(phoneNumber: String, completionHandler: @escaping (_ otp: String?, _ error: Error?) -> Void ) {
+    func GenerateOTP(email: String, completionHandler: @escaping (_ otp: String?, _ error: Error?) -> Void ) {
         
-        Alamofire.request(APIConstants.OtpURL, method: .post, parameters: ["phone_number" : phoneNumber], encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(APIConstants.OtpURL, method: .post, parameters: ["email" : email], encoding: JSONEncoding.default).responseJSON {
             response in
             switch response.result {
             case .success:
                 guard let jsonData = response.result.value else {
+                    completionHandler(nil, response.result.error)
                     return
                 }
                 print(jsonData)
@@ -33,21 +35,21 @@ class UserAPI {
         }
     }
     
-    func signUpUser(phoneNumber: String, completionHandler: @escaping (String?, String?) -> Void ) {
+    func signUpUser(email: String, completionHandler: @escaping (String?, String?) -> Void ) {
         
         
-        Alamofire.request(APIConstants.SignUpURL, method: .post, parameters: ["phone_number" : phoneNumber], encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(APIConstants.SignUpURL, method: .post, parameters: ["email" : email], encoding: JSONEncoding.default).responseJSON {
             response in
             print(response.result)
             switch response.result {
             case .success:
                 print("success")
                 guard let jsonData = response.result.value else {
+                    completionHandler(nil, response.result.error?.localizedDescription)
                     return
                 }
                 let uidTupule = Utilities.parseUIDFromJSON(json: JSON(jsonData))
                 if let uid = uidTupule.0 {
-                    //try! Locksmith.updateData(data: ["uid" : uid], forUserAccount: Constants.SmartAlumniUser)
                     UserDefaults.standard.set(uid, forKey: Constants.UserDefaults.UID)
                 }
                 completionHandler(uidTupule.0, uidTupule.1)
@@ -58,7 +60,39 @@ class UserAPI {
         }
     }
     
-    func updateProfile(parameters: [String : Any], completionHandler: @escaping (User?, String?) -> Void ) {
+    func saveImageToFirebase(image: UIImage, quality: UIImage.JPEGQuality, completionHandler: @escaping (String?, Error?) -> () ) {
+        
+        guard let mediumQualityImageData = image.jpeg(quality) else {
+            print("No image Data")
+            return
+        }
+        let imageID = UUID().uuidString
+        print(imageID)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        let imageRef = Storage.storage().reference().child("profile_images/\(imageID).jpg")
+        let task = imageRef.putData(mediumQualityImageData, metadata: metadata) {
+            (metadata, error) in
+            guard let metadata = metadata else {
+                print(error?.localizedDescription ?? "")
+                completionHandler(nil, error)
+                return
+            }
+            print("Upload Complete")
+            let urlString = metadata.downloadURL()?.absoluteString
+            completionHandler(urlString, error)
+        }
+        task.observe(.progress) { snapshot in
+            // Download reported progress
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            print("Percentage Completion: \(percentComplete)")
+        }
+        
+        
+    }
+    
+    func updateProfile(parameters: [String : Any], completionHandler: @escaping (User?, Error?) -> Void ) {
         
         Alamofire.request(APIConstants.UpdateProfileURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
@@ -66,52 +100,62 @@ class UserAPI {
             switch response.result {
             case .success:
                 guard let jsonData = response.result.value else {
+                    completionHandler(nil, response.result.error)
                     return
                 }
+                print(JSON(jsonData))
                 let userTupule = Utilities.parseUserFromJSON(json: JSON(jsonData))
                 completionHandler(userTupule.user, userTupule.error)
             case .failure(let error):
                 print(error)
-                completionHandler(nil, error.localizedDescription)
+                completionHandler(nil, error)
             }
         }
     }
     
-    func joinSchool(schoolID: String, facultyID: String, departmentID: String, set: Int, completionHandler: @escaping (Bool, String?) -> ()) {
+    func joinSchool(schoolID: String, facultyID: String? = nil, departmentID: String? = nil, set: Int, completionHandler: @escaping (Bool, String?) -> ()) {
         
-        if let userID = UserDefaults.standard.string(forKey: Constants.UserDefaults.UID) {
-            let parameters = ["_id" : userID,
-                              "school_details" :
-                                [
-                                    "school" : schoolID,
-                                    "faculty" : facultyID,
-                                    "deparment" : departmentID,
-                                    "set" : set
+        guard let userID = UserDefaults.standard.string(forKey: Constants.UserDefaults.UID) else { completionHandler(false, "No UID saved"); return }
+        var parameters = [String: Any]()
+        if let facultyID = facultyID, let departmentID = departmentID {
+            parameters = ["_id" : userID,
+                          "school_details" :
+                            [
+                                "school" : schoolID,
+                                "faculty" : facultyID,
+                                "deparment" : departmentID,
+                                "school_set" : set
                 ]
-                ] as [String : Any]
-            
-            print("Making network call")
-            Alamofire.request(APIConstants.JoinSchoolURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-                response in
-                
-                switch response.result {
-                case .success:
-                    guard let jsonData = response.result.value else {
-                        completionHandler(false, "Could not fetch JSON Data")
-                        return
-                    }
-                    let successTuple = Utilities.parseSuccessFromJSON(json: JSON(jsonData))
-                    successTuple.0 ? completionHandler(true, nil) : completionHandler(false, "\(successTuple.1 ?? "Error")")
-                    
-                case .failure(let error):
-                    print(error)
-                    completionHandler(false, "\(error)")
-                }
-                
-            }
+            ]
         }
-        else {
-            print("no Uid saved")
+        else{
+            parameters =
+                ["_id" : userID,
+                 "school_details" :
+                    [
+                        "school" : schoolID,
+                        "school_set" : set
+                    ]
+            ]
+        }
+        
+        print("Making network call")
+        Alamofire.request(APIConstants.JoinSchoolURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                guard let jsonData = response.result.value else {
+                    completionHandler(false, "Could not fetch JSON Data")
+                    return
+                }
+                let successTuple = Utilities.parseSuccessFromJSON(json: JSON(jsonData))
+                successTuple.0 ? completionHandler(true, nil) : completionHandler(false, "\(successTuple.1 ?? "Error")")
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(false, "\(error)")
+            }
+            
         }
     }
     
