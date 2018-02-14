@@ -13,8 +13,9 @@ protocol NewPollPresenterInput: NewPollInteractorOutput {
 }
 
 protocol NewPollPresenterOutput: class {
-
-    func displaySomething(viewModel: NewPollViewModel)
+    func displayPollVisibilityOptions(options: String)
+    func dispayError(errorMessage: String?)
+    func diplayPollCompletionScene()
 }
 
 final class NewPollPresenter {
@@ -37,12 +38,18 @@ extension NewPollPresenter: NewPollPresenterInput {
 
 
     // MARK: - Presentation logic
-
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = NewPollViewModel()
-        output.displaySomething(viewModel: viewModel)
+    
+    func presentPollCreationCompleteScene() {
+        output.diplayPollCompletionScene()
     }
+    
+    func presentError(string: String?) {
+        output.dispayError(errorMessage: string)
+    }
+    
+    func presentPollVisiblityOptions(string: String) {
+        output.displayPollVisibilityOptions(options: string)
+    }
+    
+
 }

@@ -17,6 +17,10 @@ protocol PollVisibilityInteractorOutput {
     func presentSchools()
     func presentFaculties()
     func presentDepartments()
+    func presentSelectedSchool(school: School)
+    func presentSelectedFaculties(faculties: [Faculty])
+    func presentSelectedDeparments(departments: [Department])
+    func presentSelectedSets(sets: [String])
 }
 
 final class PollVisibilityInteractor: PollVisibilityViewControllerOutput  {
@@ -28,7 +32,7 @@ final class PollVisibilityInteractor: PollVisibilityViewControllerOutput  {
     var pickerData = [String]()
     var departments = [Department]()
     var faculties = [Faculty]()
-    var targetSchool = School()
+    var targetSchool: School?
     var targetDeparments = [Department]()
     var targetFaculties = [Faculty]()
     var targetSets = [String]()
@@ -74,6 +78,20 @@ final class PollVisibilityInteractor: PollVisibilityViewControllerOutput  {
        let selectedSchool =  schools[schoolIndex]
         pickerData = selectedSchool.faculties.map{$0.name}
         output.presentFaculties()
+    }
+    
+    func getPollVisiblityData() {
+        if let selectedSchool = targetSchool {
+            output.presentSelectedSchool(school: selectedSchool)
+        }
+        output.presentSelectedFaculties(faculties: targetFaculties)
+        output.presentSelectedDeparments(departments: targetDeparments)
+        output.presentSelectedSets(sets: targetSets)
+        
+    }
+    
+    func saveVisibilityOptions() {
+        
     }
     
     func fetchDepartments() {

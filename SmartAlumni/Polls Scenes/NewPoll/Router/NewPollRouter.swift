@@ -12,7 +12,8 @@ protocol NewPollRouterProtocol {
     
     weak var viewController: NewPollViewController? { get }
     
-    func navigateToVisibilityScene()
+    func navigateToPollVisibilityScene(school: School?, departments: [Department], faculties: [Faculty], sets: [String])
+    func navigateToPollCompletionScene()
     
 }
 
@@ -37,10 +38,21 @@ extension NewPollRouter: NewPollRouterProtocol {
     
     // MARK: - Navigation
     
-    func navigateToVisibilityScene() {
+    func navigateToPollVisibilityScene(school: School?, departments: [Department], faculties: [Faculty], sets: [String]) {
+        
         if  let visibilityVC = UIStoryboard(name: Constants.StoryboardNames.Polls, bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollVisibilityScene) as? PollVisibilityViewController {
             print("pushing vc")
+            visibilityVC.output.targetSchool = school
+            visibilityVC.output.targetFaculties = faculties
+            visibilityVC.output.targetDeparments = departments
+            visibilityVC.output.targetSets = sets
             viewController?.navigationController?.pushViewController(visibilityVC, animated: true)
+        }
+    }
+    
+    func navigateToPollCompletionScene() {
+        if let pollCompletionVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollCompletionScene) as? PollCompletionViewController {
+            viewController?.navigationController?.pushViewController(pollCompletionVC, animated: true)
         }
     }
 }

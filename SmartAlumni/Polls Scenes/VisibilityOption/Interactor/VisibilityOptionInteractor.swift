@@ -23,10 +23,26 @@ final class VisibilityOptionInteractor: VisibilityOptionViewControllerOutput {
     let output: VisibilityOptionInteractorOutput
     let worker: VisibilityOptionWorker
     var schoolData = [String]()
-    var schools = [School]()
-    var faculties = [Faculty]()
-    var sets = [String]()
-    var departments = [Department]()    
+    var schools = [School]() {
+        didSet {
+           schools = schools.sorted{ school1 , school2 in return school1.name < school2.name}
+        }
+    }
+    var faculties = [Faculty]() {
+        didSet {
+            faculties = faculties.sorted{faculty1, faculty2 in return faculty1.name < faculty2.name}
+        }
+    }
+    var sets = [String]() {
+        didSet {
+            sets = sets.sorted{ set1, set2 in return set1 < set2}
+        }
+    }
+    var departments = [Department]() {
+        didSet {
+            departments = departments.sorted{ dept1, dept2 in return dept1.name < dept2.name}
+        }
+    }
     var dataType: DataType = .School
     
     
@@ -53,15 +69,20 @@ final class VisibilityOptionInteractor: VisibilityOptionViewControllerOutput {
                 }
                 if let schools = schools {
                     self.schools = schools
+                        //.sorted{$0.name > $1.name}
                     self.schoolData = schools.map{$0.name}
+                        //.sorted{$0 > $1}
                     self.output.presentData()
                 }
             }
         case .Faculty:
+            schoolData = faculties.map{$0.name}
             output.presentData()
         case .Department:
+            schoolData = departments.map{$0.name}
             output.presentData()
         case .Set:
+            schoolData = sets
             output.presentData()
             
         }

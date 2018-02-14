@@ -12,11 +12,19 @@ class NewPollWorker {
 
 
     // MARK: - Business Logic
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
 
-    func createNewPoll(title: String, question: String, options: [Option], startDate: String, endDate: String, visiblity: [String: Any], completionHandler: @escaping (Bool?, String?) -> ()) {
-        PollAPI.sharedManager.createPoll(title: title, question: question, options: options, startDate: startDate, endDate: startDate, visibility: visiblity) {
+
+    func createNewPoll(title: String, question: String, options: [Option], startDate: Date, endDate: Date, visiblity: [String: Any], completionHandler: @escaping (Bool?, String?) -> ()) {
+        let startDateFormatted = dateFormatter.string(from: startDate)
+        let endDateFormatted = dateFormatter.string(from: endDate)
+        PollAPI.sharedManager.createPoll(title: title, question: question, options: options, startDate: startDateFormatted, endDate: endDateFormatted, visibility: visiblity) {
             success, error in
-            
+            completionHandler(success, error)
         }
     }
 }

@@ -9,8 +9,11 @@
 import Foundation
 import SwiftyJSON
 import Locksmith
+import RealmSwift
 
 class Utilities {
+    
+    let realm = try! Realm()
     
     fileprivate struct Constants {
         static let Success = "success"
@@ -56,7 +59,6 @@ class Utilities {
     }
     
     class func parseSchoolsFromJSON(json: JSON) -> (schools: [School]?, error: Error?) {
-        print(json)
         if json["status"].stringValue == Constants.Success {
             
             var schools = [School]()
@@ -94,7 +96,7 @@ class Utilities {
             return (polls, nil)
         }
         else {
-            let error = json["err"].stringValue
+            let error = json["data"].stringValue
             return (nil, error)
         }
     }
@@ -105,7 +107,11 @@ class Utilities {
             let optionDict = ["name" : option.text, "value" : 0] as [String: Any]
             optionsDict.append(optionDict)
         }
-        let parameters = ["name" : title, "question" : question, "start_date" : startDate, "end_date" : endDate, "options" : optionsDict, "visibility" : visibility] as [String : Any]
+        var parameters  = [String:Any]()
+        let realm = try! Realm()
+        if let user = realm.objects(User.self).first {
+        parameters = ["name" : title, "creator" : user.uid, "question" : question, "start_date" : startDate, "end_date" : endDate, "options" : optionsDict, "visibility" : visibility] as [String : Any]
+        }
         return parameters
     }
     

@@ -211,7 +211,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5m-R7-4UB">
                                                         <rect key="frame" x="0.0" y="303" width="375" height="64"/>
                                                         <subviews>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Everyone" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYL-oB-eci" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYL-oB-eci" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                                 <rect key="frame" x="15" y="14" width="360" height="50"/>
                                                                 <color key="tintColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="0.5" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -427,14 +427,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="more" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-Di-jhC">
-                                                    <rect key="frame" x="345" y="18.5" width="14" height="9"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-Di-jhC">
+                                                    <rect key="frame" x="345" y="12" width="14" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="14" id="s1W-5t-stb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Target School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgP-ek-PT3">
-                                                    <rect key="frame" x="16" y="0.0" width="359" height="48"/>
+                                                    <rect key="frame" x="16" y="0.0" width="326" height="48"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -444,7 +444,7 @@
                                                 <constraint firstItem="dgP-ek-PT3" firstAttribute="leading" secondItem="t1P-Gi-2q6" secondAttribute="leading" constant="16" id="Gqa-qL-izA"/>
                                                 <constraint firstItem="dgP-ek-PT3" firstAttribute="top" secondItem="t1P-Gi-2q6" secondAttribute="top" id="Iri-GZ-Oyu"/>
                                                 <constraint firstAttribute="bottom" secondItem="dgP-ek-PT3" secondAttribute="bottom" id="Y23-z5-bnI"/>
-                                                <constraint firstAttribute="trailing" secondItem="dgP-ek-PT3" secondAttribute="trailing" id="l2b-om-ieT"/>
+                                                <constraint firstAttribute="trailing" secondItem="dgP-ek-PT3" secondAttribute="trailing" constant="33" id="l2b-om-ieT"/>
                                                 <constraint firstAttribute="trailing" secondItem="TYJ-Di-jhC" secondAttribute="trailing" constant="16" id="qUt-7L-ltc"/>
                                                 <constraint firstItem="TYJ-Di-jhC" firstAttribute="centerY" secondItem="t1P-Gi-2q6" secondAttribute="centerY" id="sC4-K1-ovY"/>
                                             </constraints>
@@ -566,7 +566,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VisibilityOptionCell" rowHeight="48" id="JRv-Sz-9kZ" customClass="VisibilityOptionCell" customModule="SmartAlumni" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VisibilityOptionCell" rowHeight="48" id="JRv-Sz-9kZ" customClass="VisibilityOptionCell" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JRv-Sz-9kZ" id="kJg-iQ-YS4">
@@ -602,9 +602,15 @@
                                     <outlet property="delegate" destination="iXw-nU-A7s" id="X3M-US-9cT"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="clq-NC-zxz">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                                <color key="color" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="clq-NC-zxz" firstAttribute="centerX" secondItem="ZVE-vZ-Le3" secondAttribute="centerX" id="BGx-fo-cLD"/>
+                            <constraint firstItem="clq-NC-zxz" firstAttribute="centerY" secondItem="ZVE-vZ-Le3" secondAttribute="centerY" id="eJJ-rt-yu7"/>
                             <constraint firstAttribute="trailing" secondItem="KwV-aG-9y7" secondAttribute="trailing" id="r6u-KT-o9W"/>
                             <constraint firstItem="KwV-aG-9y7" firstAttribute="leading" secondItem="ZVE-vZ-Le3" secondAttribute="leading" id="tGu-dC-zm5"/>
                             <constraint firstItem="145-Z1-yMk" firstAttribute="top" secondItem="KwV-aG-9y7" secondAttribute="bottom" id="vDR-1H-yRI"/>
@@ -612,6 +618,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="clq-NC-zxz" id="27Z-YW-afe"/>
                         <outlet property="tableView" destination="KwV-aG-9y7" id="TSx-I2-Ukj"/>
                     </connections>
                 </viewController>
@@ -641,7 +648,6 @@
     <resources>
         <image name="Oval" width="22" height="22"/>
         <image name="down" width="22" height="22"/>
-        <image name="more" width="14" height="9"/>
         <image name="next" width="22" height="22"/>
         <image name="plusNew" width="14" height="14"/>
         <image name="pollIllustration" width="210" height="247"/>

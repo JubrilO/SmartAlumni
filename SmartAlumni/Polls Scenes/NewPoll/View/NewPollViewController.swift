@@ -17,7 +17,13 @@ protocol NewPollViewControllerInput: NewPollPresenterOutput {
 protocol NewPollViewControllerOutput {
     
     func displayError()
-    func createPoll(title: String, question: String, options: [Option], timeInterval: String, visibility: String)
+    func createPoll(title: String, question: String, options: [Option])
+    func fetchPollVisibiltyOptions()
+    var targetSchool: School? {get set}
+    var targetFaculties: [Faculty] {get set}
+    var targetDepartments: [Department] {get set}
+    var targetSets: [String] {get set}
+    var timeInterval: DateComponents? {get set}
 }
 
 final class NewPollViewController: UIViewController {
@@ -46,9 +52,7 @@ final class NewPollViewController: UIViewController {
     var hour = ""
     var min = ""
     
-    let visiblityArray = ["Everyone", "Unilag", "FUTA"]
     let validator = Validator()
-    let visiblityPickerView = UIPickerView()
     
     // MARK: - Initializers
     
@@ -82,6 +86,7 @@ final class NewPollViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupFields()
+        output.fetchPollVisibiltyOptions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -174,27 +179,49 @@ final class NewPollViewController: UIViewController {
         titleTextField.titleFormatter = { (text:String) -> String in return text }
         questionTextField.titleFormatter = { (text:String) -> String in return text }
         visibilityTextField.titleFormatter = { (text:String) -> String in return text }
-        validator.registerField(titleTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
-        validator.registerField(questionTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
-        visiblityPickerView.delegate = self
+        
+       setupTextFieldValidation()
+        
         visibilityTextField.inputView = nil
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(routeToVisibilityScene))
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(routeToPollVisibilityScene))
         visibilityTextField.addGestureRecognizer(tapGesture)
         visibilityTextField.delegate = self
     }
     
-    func routeToVisibilityScene() {
-        router.navigateToVisibilityScene()
+    func setupTextFieldValidation() {
+        validator.registerField(titleTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
+        validator.registerField(questionTextField, rules: [RequiredRule(), MaxLengthRule(length: 20)])
+        validator.registerField(visibilityTextField, rules: [RequiredRule()])
+        
+        let option1Cell = optionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! OptionCell
+        let option2Cell = optionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! OptionCell
+        
+        validator.registerField(option1Cell.optionField, rules: [RequiredRule(), MaxLengthRule(length: 25)])
+        validator.registerField(option2Cell.optionField, rules: [RequiredRule(), MaxLengthRule(length: 25)])
+    }
+    
+    func routeToPollVisibilityScene() {
+        router.navigateToPollVisibilityScene(school: output.targetSchool, departments: output.targetDepartments, faculties: output.targetFaculties, sets: output.targetSets )
     }
     
     func updateIntervalLabel(string: String, type: TimeIntervalType) {
         switch type {
         case .day:
             timeIntervalLabel.text = "\(string.dayValue()) \(hour.hourValue()) \(min.minutesValue())"
+            output.timeInterval?.day = Int(string)
+            output.timeInterval?.hour = Int(hour)
+            output.timeInterval?.minute = Int(min)
         case .hour:
             timeIntervalLabel.text = "\(day.dayValue()) \(string.hourValue()) \(min.minutesValue())"
+            output.timeInterval?.day = Int(day)
+            output.timeInterval?.hour = Int(string)
+            output.timeInterval?.minute = Int(min)
         case .minute:
             timeIntervalLabel.text = "\(day.dayValue()) \(hour.hourValue()) \(string.minutesValue())"
+            output.timeInterval?.day = Int(day)
+            output.timeInterval?.hour = Int(hour)
+            output.timeInterval?.minute = Int(string)
         }
         
     }
@@ -274,17 +301,19 @@ extension NewPollViewController: ValidationDelegate {
             let title = titleTextField.text!
             let question = questionTextField.text!
             let options = getOptions()
-            let visibility = visibilityTextField.text!
-            let timeInterval = timeIntervalLabel.text!
-            output.createPoll(title: title, question: question, options: options, timeInterval: timeInterval, visibility: visibility)
+            output.createPoll(title: title, question: question, options: options)
         }
         else {
-            output.displayError()
+            displayErrorModal(error: "Invalid time interval")
         }
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
-        output.displayError()
+        for (field, error) in errors {
+            if let field = field as? SkyFloatingLabelTextField {
+                field.errorMessage = error.errorMessage
+            }
+        }
     }
 }
 
@@ -293,17 +322,21 @@ extension NewPollViewController: NewPollViewControllerInput {
     
     // MARK: - Display logic
     
-    func displaySomething(viewModel: NewPollViewModel) {
-        
-        // TODO: Update UI
+    func displayPollVisibilityOptions(options: String) {
+        visibilityTextField.text = options
+    }
+    
+    func diplayPollCompletionScene() {
+        router.navigateToPollCompletionScene()
+    }
+    
+    func dispayError(errorMessage: String?) {
+        displayErrorModal(error: errorMessage)
     }
 }
 
 extension NewPollViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == visiblityPickerView {
-            return visiblityArray[row]
-        }
         switch component {
         case 0:
             return days[row]
@@ -317,9 +350,7 @@ extension NewPollViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == visiblityPickerView {
-            visibilityTextField.text = visiblityArray[row]
-        }
+
         switch component {
         case 0:
             day = days[row]
@@ -339,18 +370,11 @@ extension NewPollViewController: UIPickerViewDelegate {
 extension NewPollViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView == visiblityPickerView {
-            return 1
-        }
-        else {
             return 3
-        }
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == visiblityPickerView {
-            return visiblityArray.count
-        }
+
         switch component {
         case 0:
             return 11
@@ -379,15 +403,6 @@ extension NewPollViewController: UITableViewDelegate, UITableViewDataSource {
         cell.addOptionButton.addTarget(self, action: #selector(addOption), for: .touchUpInside)
         if indexPath.row == (optionCount-1) {
             cell.addOptionButton.isHidden = false
-        }
-        
-        switch indexPath.row {
-        case 0:
-            validator.registerField(cell.optionField, rules: [RequiredRule()])
-        case 1:
-            validator.registerField(cell.optionField, rules: [RequiredRule()])
-        default:
-            break
         }
         return cell
     }
@@ -419,36 +434,4 @@ enum TimeIntervalType {
     case minute
 }
 
-extension String {
-    func dayValue() -> String {
-        if self == "0" || self == "" {
-            return ""
-        }
-        else if self == "1" {
-            return "\(self) day"
-        }
-        else {
-            return "\(self) days"
-        }
-    }
-    
-    func hourValue() -> String {
-        if self == "0" || self == ""{
-            return ""
-        }
-        else {
-            return "\(self) hr"
-        }
-    }
-    
-    func minutesValue() -> String {
-        if self == "0" || self == ""{
-            return ""
-        }
-        else {
-            return "\(self) min"
-        }
-    }
-    
-}
 

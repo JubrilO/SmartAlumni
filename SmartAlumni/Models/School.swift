@@ -44,6 +44,4 @@ class School {
         }
         self.faculties = faculties
     }
-    
-    
 }

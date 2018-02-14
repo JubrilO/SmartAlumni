@@ -9,7 +9,7 @@
 import UIKit
 
 protocol VisibilityOptionViewControllerInput: VisibilityOptionPresenterOutput {
-
+    
 }
 
 protocol VisibilityOptionViewControllerOutput {
@@ -23,60 +23,77 @@ protocol VisibilityOptionViewControllerOutput {
 }
 
 final class VisibilityOptionViewController: UIViewController {
-
+    
     var output: VisibilityOptionViewControllerOutput!
     var router: VisibilityOptionRouterProtocol!
-
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(onDoneButtonClick))
-
+    
+    var doneButton = UIBarButtonItem()
+    
+    
     
     // MARK: - Initializers
-
+    
     init(configurator: VisibilityOptionConfigurator = VisibilityOptionConfigurator.sharedInstance) {
-
+        
         super.init(nibName: nil, bundle: nil)
-
+        
         configure()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
-
+        
         super.init(coder: aDecoder)
-
+        
         configure()
     }
-
-
+    
+    
     // MARK: - Configurator
-
+    
     private func configure(configurator: VisibilityOptionConfigurator = VisibilityOptionConfigurator.sharedInstance) {
-
+        
         configurator.configure(viewController: self)
     }
-
-
+    
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         initialSetup()
+        addDoneButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         output.fetchData()
+        if output.dataType == .School{
+            activityIndicator.startAnimating()
+        }
     }
     
     func addDoneButton() {
+        doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(onDoneButtonClick))
+        navigationItem.rightBarButtonItem = doneButton
         doneButton.tintColor = .black
         doneButton.isEnabled = false
     }
     
-    func onDoneButtonClick() {
+    func onDoneButtonClick(sender: UIBarButtonItem) {
+        print("Done button clicked")
         if let selectedIndexes = tableView.indexPathsForSelectedRows {
+            print("Selected indexes exist")
             router.routeToNewPollScene(selectedIndexes: selectedIndexes, dataType: output.dataType)
         }
     }
     
     func initialSetup() {
+        activityIndicator.hidesWhenStopped = true
+        tableView.tableFooterView = UIView()
         switch output.dataType {
         case .School:
             title = "Target School"
@@ -98,11 +115,13 @@ final class VisibilityOptionViewController: UIViewController {
 // MARK: - VisibilityOptionPresenterOutput
 
 extension VisibilityOptionViewController: VisibilityOptionViewControllerInput {
-
-
+    
+    
     // MARK: - Display logic
-
+    
     func displayData() {
+        activityIndicator.stopAnimating()
+        tableView.isHidden = false
         tableView.reloadData()
     }
 }
@@ -117,28 +136,33 @@ extension VisibilityOptionViewController: UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.schoolData.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch output.dataType {
+        case .Department:
+            return output.departments.count
+        case .Faculty:
+            return output.faculties.count
         case .School:
-            router.routeToNewPollScene(selectedRowIndex: indexPath.row, dataType: .School)
-        default:
+            return output.schools.count
+        case .Set:
+            return output.sets.count
+        }
+    }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
             cell.checkmarkImageView.image = Constants.PlaceholderImages.Checkmark
             doneButton.isEnabled = true
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-                let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
-        cell.checkmarkImageView.image = Constants.PlaceholderImages.Circle
-        if let selectedRows = tableView.indexPathsForSelectedRows {
-            if selectedRows.isEmpty { doneButton.isEnabled = false }
+        
+        func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+            let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
+            cell.checkmarkImageView.image = Constants.PlaceholderImages.Circle
+//            if let selectedRows = tableView.indexPathsForSelectedRows {
+//                if selectedRows.isEmpty { doneButton.isEnabled = false }
+//            }
         }
     }
-}
+
 
 enum DataType: String{
     case School

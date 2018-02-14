@@ -32,14 +32,18 @@ struct Constants {
         static let PollsNavScene = "PollsNavScene"
         static let PollVisibilityScene = "PollVisibilityScene"
         static let PollCompletionScene = "PollCompletionScene"
-        static let VisibilityOptionScene = "PollCompletionScene"
+        static let VisibilityOptionScene = "VisibilityOptionScene"
         static let SelectSchoolCategoryScene = "SelectSchoolCategoryScene"
         static let SelectFacultyScene = "SelectFacultyScene"
+        static let WalletLandingScene = "WalletLandingScene"
+        static let TransactionDetailScene = "TransactionDetailScene"
     }
     
     struct StoryboardNames {
         static let JoinSchool = "JoinSchool"
         static let Polls = "Polls"
+        static let Wallet = "Wallet"
+        static let Landing = "Landing"
     }
     
     struct CellIdentifiers {
@@ -47,6 +51,7 @@ struct Constants {
         static let PollCell = "PollCell"
         static let VisibilityCell = "VisibilityCell"
         static let VisibilityOptionCell = "VisibilityOptionCell"
+        static let TransactionCell = "TransactionCell"
     }
     
     struct  Errors {

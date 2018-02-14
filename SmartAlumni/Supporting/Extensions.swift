@@ -76,3 +76,37 @@ extension UIImage {
     }
 }
 
+extension String {
+    func dayValue() -> String {
+        if self == "0" || self == "" {
+            return ""
+        }
+        else if self == "1" {
+            return "\(self) day"
+        }
+        else {
+            return "\(self) days"
+        }
+    }
+    
+    func hourValue() -> String {
+        if self == "0" || self == ""{
+            return ""
+        }
+        else {
+            return "\(self) hr"
+        }
+    }
+    
+    func minutesValue() -> String {
+        if self == "0" || self == ""{
+            return ""
+        }
+        else {
+            return "\(self) min"
+        }
+    }
+    
+}
+
+

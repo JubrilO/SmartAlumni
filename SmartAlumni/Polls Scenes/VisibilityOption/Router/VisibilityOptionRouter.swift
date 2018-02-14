@@ -52,8 +52,13 @@ extension VisibilityOptionRouter: VisibilityOptionRouterProtocol {
     }
     
     func routeToNewPollScene(selectedIndexes: [IndexPath], dataType: DataType) {
-        let pollVisibilityVC = viewController?.presentingViewController as! PollVisibilityViewController
+        let pollVisibilityVC = viewController?.previousViewController as! PollVisibilityViewController
         switch dataType {
+        case .School:
+            if let selectedIndex = selectedIndexes.first {
+                let school = viewController?.output.schools[selectedIndex.row]
+                pollVisibilityVC.output.targetSchool = school
+            }
         case .Faculty:
             var faculties = [Faculty]()
             for selectedIndex in selectedIndexes {
@@ -78,8 +83,6 @@ extension VisibilityOptionRouter: VisibilityOptionRouterProtocol {
                 }
             }
             pollVisibilityVC.output.targetSets = sets
-        default:
-            return
         }
        
         viewController?.navigationController?.popViewController(animated: true)
