@@ -13,8 +13,9 @@ protocol MessagesPresenterInput: MessagesInteractorOutput {
 }
 
 protocol MessagesPresenterOutput: class {
+    func displayChatRooms()
+    func displayError(errorString: String?)
 
-    func displaySomething(viewModel: MessagesViewModel)
 }
 
 final class MessagesPresenter {
@@ -38,11 +39,11 @@ extension MessagesPresenter: MessagesPresenterInput {
 
     // MARK: - Presentation logic
 
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = MessagesViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func presentChatRooms() {
+        output.displayChatRooms()
+    }
+    
+    func presentError(errorString: String?) {
+        output.displayError(errorString: errorString)
     }
 }

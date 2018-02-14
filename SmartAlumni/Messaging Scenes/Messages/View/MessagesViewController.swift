@@ -13,8 +13,9 @@ protocol MessagesViewControllerInput: MessagesPresenterOutput {
 }
 
 protocol MessagesViewControllerOutput {
-
-    func doSomething()
+    
+    var chatRooms: [ChatRoom] {get set}
+    func fetchChatRooms()
 }
 
 final class MessagesViewController: UIViewController {
@@ -22,7 +23,10 @@ final class MessagesViewController: UIViewController {
     var output: MessagesViewControllerOutput!
     var router: MessagesRouterProtocol!
 
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Initializers
 
     init(configurator: MessagesConfigurator = MessagesConfigurator.sharedInstance) {
@@ -53,19 +57,18 @@ final class MessagesViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
-        doSomethingOnLoad()
+        tableView.tableFooterView = UIView()
+        fetchChatRooms()
+        activityIndicator.startAnimating()
     }
 
 
     // MARK: - Load data
-
-    func doSomethingOnLoad() {
-
-        // TODO: Ask the Interactor to do some work
-
-        output.doSomething()
+    
+   func fetchChatRooms() {
+        output.fetchChatRooms()
     }
+
 }
 
 
@@ -76,8 +79,44 @@ extension MessagesViewController: MessagesViewControllerInput {
 
     // MARK: - Display logic
 
-    func displaySomething(viewModel: MessagesViewModel) {
+    func displayChatRooms() {
+        activityIndicator.stopAnimating()
+        tableView.reloadData()
+    }
+    
+    func displayError(errorString: String?) {
+        displayErrorModal(error: errorString)
+    }
+}
 
-        // TODO: Update UI
+
+// MARK: - UITableViewDataSource
+
+extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.MessageCell) as! MessageTableViewCell
+        let chatRoom = output.chatRooms[indexPath.row]
+        cell.nameLabel.text = chatRoom.name
+        cell.messageLabel.text = chatRoom.lastMessage?.content
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "dd/MM/yy"
+        dateFormatter.doesRelativeDateFormatting = true
+        if let date = chatRoom.lastMessage?.timeStamp {
+            print("Date Object \(date)")
+            cell.timeLabel.text = date.timeAgoSinceNow(useNumericDates: true)
+            
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.chatRooms.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 76
     }
 }

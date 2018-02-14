@@ -14,13 +14,15 @@ protocol MessagesInteractorInput: MessagesViewControllerOutput {
 
 protocol MessagesInteractorOutput {
 
-    func presentSomething()
+    func presentError(errorString: String?)
+    func presentChatRooms()
 }
 
-final class MessagesInteractor {
+final class MessagesInteractor: MessagesViewControllerOutput {
 
     let output: MessagesInteractorOutput
     let worker: MessagesWorker
+    var chatRooms = [ChatRoom]()
 
 
     // MARK: - Initializers
@@ -30,24 +32,23 @@ final class MessagesInteractor {
         self.output = output
         self.worker = worker
     }
-}
 
 
 // MARK: - MessagesInteractorInput
 
-extension MessagesInteractor: MessagesViewControllerOutput {
 
 
     // MARK: - Business logic
 
-    func doSomething() {
-
-        // TODO: Create some Worker to do the work
-
-        worker.doSomeWork()
-
-        // TODO: Pass the result to the Presenter
-
-        output.presentSomething()
+    func fetchChatRooms() {
+        worker.fetchChatRooms() {
+            chatRooms, error in
+            guard let chatRooms = chatRooms else {
+                self.output.presentError(errorString: error?.localizedDescription)
+                return
+            }
+            self.chatRooms = chatRooms
+            self.output.presentChatRooms()
+        }
     }
 }

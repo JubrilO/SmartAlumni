@@ -58,6 +58,21 @@ class Utilities {
         }
     }
     
+    class func parseChatRoomFromJSON(json: JSON) -> (chatRooms: [ChatRoom]?, error: Error?) {
+        if json["status"].stringValue == "success" {
+            var chatRooms = [ChatRoom]()
+            for chatRoomJSON in json["data"].arrayValue {
+                let chatRoom = ChatRoom(json: chatRoomJSON)
+                chatRooms.append(chatRoom)
+            }
+            return (chatRooms, nil)
+        }
+        else {
+            let error = json["err"].stringValue
+            return(nil, StringError(error))
+        }
+    }
+    
     class func parseSchoolsFromJSON(json: JSON) -> (schools: [School]?, error: Error?) {
         if json["status"].stringValue == Constants.Success {
             

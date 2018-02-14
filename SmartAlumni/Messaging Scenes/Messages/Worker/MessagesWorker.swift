@@ -13,8 +13,10 @@ class MessagesWorker {
 
     // MARK: - Business Logic
 
-    func doSomeWork() {
-
-        // TODO: Do the work
+    func fetchChatRooms(completionHandler: @escaping ([ChatRoom]? , Error?) -> ()) {
+        ChatAPI.sharedManager.getAllChatRooms {
+            chatRooms, error in
+            completionHandler(chatRooms, error)
+        }
     }
 }

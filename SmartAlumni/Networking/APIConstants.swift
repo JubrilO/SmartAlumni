@@ -12,6 +12,7 @@ struct APIConstants {
     
     static let RootURL = "https://www.smartalumni.ng/api"
     static let UserURL = RootURL + "/user"
+    static let ChatRoomURL = RootURL + "/room"
     static let OtpURL = UserURL + "/otp"
     static let SignUpURL = UserURL + "/sign-up"
     static let UpdateProfileURL = UserURL + "/update"
@@ -21,6 +22,7 @@ struct APIConstants {
     static let VotePollURL = PollURL + "/vote"
     static let AllPollsURL = PollURL + "/all"
     static let CreatePollURL = PollURL + "/create"
+    static let UserChatRoomsURL = ChatRoomURL + "/user"
 
 }
 

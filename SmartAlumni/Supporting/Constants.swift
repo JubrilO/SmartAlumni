@@ -37,6 +37,7 @@ struct Constants {
         static let SelectFacultyScene = "SelectFacultyScene"
         static let WalletLandingScene = "WalletLandingScene"
         static let TransactionDetailScene = "TransactionDetailScene"
+        static let MessagesScene = "MessagesScene"
     }
     
     struct StoryboardNames {
@@ -52,6 +53,7 @@ struct Constants {
         static let VisibilityCell = "VisibilityCell"
         static let VisibilityOptionCell = "VisibilityOptionCell"
         static let TransactionCell = "TransactionCell"
+        static let MessageCell = "messageCell"
     }
     
     struct  Errors {

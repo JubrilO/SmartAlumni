@@ -78,6 +78,18 @@
 		9183556C202D8C8900664BDC /* TransactionDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91835564202D8C8900664BDC /* TransactionDetailInteractor.swift */; };
 		9183556D202D8C8900664BDC /* TransactionDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91835566202D8C8900664BDC /* TransactionDetailRouter.swift */; };
 		9183556F202D99ED00664BDC /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183556E202D99ED00664BDC /* Transaction.swift */; };
+		918355712033C87900664BDC /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355702033C87900664BDC /* ChatRoom.swift */; };
+		918355732033CA2800664BDC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355722033CA2800664BDC /* Message.swift */; };
+		918355752033CF5900664BDC /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355742033CF5900664BDC /* ChatAPI.swift */; };
+		918355772033E0BB00664BDC /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355762033E0BB00664BDC /* MessageTableViewCell.swift */; };
+		9183557920343F7500664BDC /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183557820343F7500664BDC /* DateHelper.swift */; };
+		9183558B2034AE4300664BDC /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183557E2034AE4200664BDC /* ChatRoomViewModel.swift */; };
+		9183558C2034AE4300664BDC /* ChatRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355802034AE4200664BDC /* ChatRoomPresenter.swift */; };
+		9183558D2034AE4300664BDC /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355822034AE4200664BDC /* ChatRoomViewController.swift */; };
+		9183558E2034AE4300664BDC /* ChatRoomConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355842034AE4200664BDC /* ChatRoomConfigurator.swift */; };
+		9183558F2034AE4300664BDC /* ChatRoomWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355862034AE4200664BDC /* ChatRoomWorker.swift */; };
+		918355902034AE4300664BDC /* ChatRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918355882034AE4200664BDC /* ChatRoomInteractor.swift */; };
+		918355912034AE4300664BDC /* ChatRoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183558A2034AE4200664BDC /* ChatRoomRouter.swift */; };
 		9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E1FF1F2F747000A240E3 /* AppDelegate.swift */; };
 		9187E2051F2F747000A240E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2031F2F747000A240E3 /* Main.storyboard */; };
 		9187E2071F2F747000A240E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E2061F2F747000A240E3 /* Assets.xcassets */; };
@@ -214,6 +226,18 @@
 		91835564202D8C8900664BDC /* TransactionDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailInteractor.swift; sourceTree = "<group>"; };
 		91835566202D8C8900664BDC /* TransactionDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailRouter.swift; sourceTree = "<group>"; };
 		9183556E202D99ED00664BDC /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Models/Transaction.swift; sourceTree = "<group>"; };
+		918355702033C87900664BDC /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoom.swift; path = Models/ChatRoom.swift; sourceTree = "<group>"; };
+		918355722033CA2800664BDC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
+		918355742033CF5900664BDC /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatAPI.swift; path = Networking/ChatAPI.swift; sourceTree = "<group>"; };
+		918355762033E0BB00664BDC /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		9183557820343F7500664BDC /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = Supporting/DateHelper.swift; sourceTree = "<group>"; };
+		9183557E2034AE4200664BDC /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
+		918355802034AE4200664BDC /* ChatRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomPresenter.swift; sourceTree = "<group>"; };
+		918355822034AE4200664BDC /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		918355842034AE4200664BDC /* ChatRoomConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomConfigurator.swift; sourceTree = "<group>"; };
+		918355862034AE4200664BDC /* ChatRoomWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomWorker.swift; sourceTree = "<group>"; };
+		918355882034AE4200664BDC /* ChatRoomInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomInteractor.swift; sourceTree = "<group>"; };
+		9183558A2034AE4200664BDC /* ChatRoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomRouter.swift; sourceTree = "<group>"; };
 		9187E1FC1F2F747000A240E3 /* SmartAlumni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAlumni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E1FF1F2F747000A240E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9187E2041F2F747000A240E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -325,6 +349,7 @@
 				916287831F790EAC0015F467 /* PollAPI.swift */,
 				915C33A31F38C18000729106 /* Utilities.swift */,
 				911B4A331F3898940028BBE1 /* APIConstants.swift */,
+				918355742033CF5900664BDC /* ChatAPI.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -340,6 +365,7 @@
 				9187E20B1F2F747000A240E3 /* Info.plist */,
 				91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */,
 				9187E2061F2F747000A240E3 /* Assets.xcassets */,
+				9183557820343F7500664BDC /* DateHelper.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -807,6 +833,77 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		9183557C2034AE4200664BDC /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				9183557D2034AE4200664BDC /* ViewModel */,
+				9183557F2034AE4200664BDC /* Presenter */,
+				918355812034AE4200664BDC /* View */,
+				918355832034AE4200664BDC /* Configurator */,
+				918355852034AE4200664BDC /* Worker */,
+				918355872034AE4200664BDC /* Interactor */,
+				918355892034AE4200664BDC /* Router */,
+			);
+			name = ChatRoom;
+			path = "Messaging Scenes/ChatRoom";
+			sourceTree = "<group>";
+		};
+		9183557D2034AE4200664BDC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9183557E2034AE4200664BDC /* ChatRoomViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9183557F2034AE4200664BDC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				918355802034AE4200664BDC /* ChatRoomPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		918355812034AE4200664BDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				918355822034AE4200664BDC /* ChatRoomViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		918355832034AE4200664BDC /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				918355842034AE4200664BDC /* ChatRoomConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		918355852034AE4200664BDC /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				918355862034AE4200664BDC /* ChatRoomWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		918355872034AE4200664BDC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				918355882034AE4200664BDC /* ChatRoomInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		918355892034AE4200664BDC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9183558A2034AE4200664BDC /* ChatRoomRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		9187E1F31F2F747000A240E3 = {
 			isa = PBXGroup;
 			children = (
@@ -1156,12 +1253,14 @@
 			children = (
 				91BDAF471F4446D200BC1666 /* User.swift */,
 				918D425B1F50023D00C848FA /* School.swift */,
+				918355722033CA2800664BDC /* Message.swift */,
 				916287871F799ADC0015F467 /* PollOption.swift */,
 				91EB8DC01F749F2700D37371 /* Department.swift */,
 				916287851F790FA80015F467 /* Poll.swift */,
 				91B724501FC66C5F00961F40 /* PollVisibility.swift */,
 				91EB8DC21F749F3D00D37371 /* Faculty.swift */,
 				9183556E202D99ED00664BDC /* Transaction.swift */,
+				918355702033C87900664BDC /* ChatRoom.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1242,6 +1341,7 @@
 		91DB84921FDF440F00C4B033 /* Messaging Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9183557C2034AE4200664BDC /* ChatRoom */,
 				91DB84951FDF454C00C4B033 /* Messages */,
 				91DB84AB1FDF456F00C4B033 /* Messaging.storyboard */,
 			);
@@ -1283,6 +1383,7 @@
 			isa = PBXGroup;
 			children = (
 				91DB849B1FDF454C00C4B033 /* MessagesViewController.swift */,
+				918355762033E0BB00664BDC /* MessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1564,12 +1665,14 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1582,12 +1685,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1678,9 +1783,12 @@
 				9164AA471FA3890A00A66F37 /* PollsRouter.swift in Sources */,
 				9134F6AC1FC782270037202D /* PollVisibilityViewController.swift in Sources */,
 				91EB8DC51F7683A500D37371 /* JoinSetCompletionViewController.swift in Sources */,
+				9183558B2034AE4300664BDC /* ChatRoomViewModel.swift in Sources */,
 				918D425C1F50023D00C848FA /* School.swift in Sources */,
 				9190AEA01F4F9197003DEA3F /* SelectSchoolPresenter.swift in Sources */,
 				9125CA651F4309AD00174534 /* EditProfileWorker.swift in Sources */,
+				918355732033CA2800664BDC /* Message.swift in Sources */,
+				918355912034AE4300664BDC /* ChatRoomRouter.swift in Sources */,
 				91EDAF3D1FCD0B04001E68D9 /* PollCompletionViewModel.swift in Sources */,
 				9190AEA11F4F9197003DEA3F /* SelectSchoolRouter.swift in Sources */,
 				91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */,
@@ -1691,10 +1799,12 @@
 				915C33871F38A32600729106 /* SignUpRouter.swift in Sources */,
 				916287881F799ADC0015F467 /* PollOption.swift in Sources */,
 				91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */,
+				918355772033E0BB00664BDC /* MessageTableViewCell.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
 				91EDAF411FCD0B04001E68D9 /* PollCompletionWorker.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
 				91EDAF561FCD14AA001E68D9 /* VisibilityOptionPresenter.swift in Sources */,
+				9183558D2034AE4300664BDC /* ChatRoomViewController.swift in Sources */,
 				91EDAF5D1FCD1651001E68D9 /* VisibilityOptionCell.swift in Sources */,
 				9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */,
 				91ABBD72202D1DE7005F2C05 /* TransactionCell.swift in Sources */,
@@ -1738,14 +1848,20 @@
 				91C4FBC81FAAB2B1007FCCF2 /* NewPollRouter.swift in Sources */,
 				91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */,
 				9164AA4A1FA3890A00A66F37 /* PollsWorker.swift in Sources */,
+				9183558F2034AE4300664BDC /* ChatRoomWorker.swift in Sources */,
+				918355712033C87900664BDC /* ChatRoom.swift in Sources */,
 				91EDAF571FCD14AA001E68D9 /* VisibilityOptionViewController.swift in Sources */,
+				918355902034AE4300664BDC /* ChatRoomInteractor.swift in Sources */,
 				915C338A1F38A32600729106 /* SignUpWorker.swift in Sources */,
 				91DB84A41FDF454C00C4B033 /* MessagesViewModel.swift in Sources */,
+				9183558C2034AE4300664BDC /* ChatRoomPresenter.swift in Sources */,
 				9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */,
 				91C4FBC61FAAB2B1007FCCF2 /* NewPollInteractor.swift in Sources */,
 				91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */,
 				91C4FBC71FAAB2B1007FCCF2 /* NewPollPresenter.swift in Sources */,
 				9134F6AF1FC782360037202D /* PollVisibilityInteractor.swift in Sources */,
+				918355752033CF5900664BDC /* ChatAPI.swift in Sources */,
+				9183558E2034AE4300664BDC /* ChatRoomConfigurator.swift in Sources */,
 				91EDAF431FCD0B04001E68D9 /* PollCompletionRouter.swift in Sources */,
 				918D42911F54DBBA00C848FA /* SelectSetRouter.swift in Sources */,
 				9164AA461FA3890A00A66F37 /* PollsPresenter.swift in Sources */,
@@ -1767,6 +1883,7 @@
 				91EDAF5A1FCD14AA001E68D9 /* VisibilityOptionInteractor.swift in Sources */,
 				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
+				9183557920343F7500664BDC /* DateHelper.swift in Sources */,
 				91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */,
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
@@ -1832,6 +1949,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1888,7 +2006,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1914,6 +2033,9 @@
 			baseConfigurationReference = AACF35A4119C03DE8166DC99 /* Pods-SmartAlumni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = SmartAlumni/Info.plist;
@@ -1921,6 +2043,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ng.smartalumni.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1930,12 +2053,16 @@
 			baseConfigurationReference = 86A61ADD04690FC861A07B6E /* Pods-SmartAlumni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = SmartAlumni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ng.smartalumni.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
