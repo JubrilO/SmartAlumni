@@ -10,19 +10,19 @@ import UIKit
 
 protocol MessagesRouterProtocol {
 
-    weak var viewController: MessagesViewController? { get }
+    weak var viewController: MessagesListViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToChatRoom(chatRoomID: String)
 }
 
 final class MessagesRouter {
 
-    weak var viewController: MessagesViewController?
+    weak var viewController: MessagesListViewController?
 
 
     // MARK: - Initializers
 
-    init(viewController: MessagesViewController?) {
+    init(viewController: MessagesListViewController?) {
 
         self.viewController = viewController
     }
@@ -36,7 +36,10 @@ extension MessagesRouter: MessagesRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-
+    func navigateToChatRoom(chatRoomID: String) {
+        let chatRoomVC = ChatRoomViewController()
+       chatRoomVC.id = chatRoomID
+        viewController?.navigationController?.hidesBottomBarWhenPushed = true
+        viewController?.navigationController?.pushViewController(chatRoomVC, animated: true)
     }
 }

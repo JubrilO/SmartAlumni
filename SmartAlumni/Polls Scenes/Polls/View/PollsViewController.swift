@@ -111,7 +111,7 @@ final class PollsViewController: UIViewController {
                 titleTextColor: .black
             )
         )
-        let options = SegmentioOptions(backgroundColor: .white, maxVisibleItems: 2, scrollEnabled: true, indicatorOptions: indicatorOptions, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: .topAndBottom, height: 0), verticalSeparatorOptions: nil, imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: states, animationDuration: 0.3)
+        let options = SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: indicatorOptions, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: .topAndBottom, height: 0), verticalSeparatorOptions: nil, imageContentMode: .center, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: states, animationDuration: 0.3)
         content.append(ongoingItem)
         content.append(completedItem)
         segmentioView.selectedSegmentioIndex = 0

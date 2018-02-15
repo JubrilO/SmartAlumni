@@ -18,7 +18,7 @@ protocol MessagesViewControllerOutput {
     func fetchChatRooms()
 }
 
-final class MessagesViewController: UIViewController {
+final class MessagesListViewController: UIViewController {
 
     var output: MessagesViewControllerOutput!
     var router: MessagesRouterProtocol!
@@ -74,7 +74,7 @@ final class MessagesViewController: UIViewController {
 
 // MARK: - MessagesPresenterOutput
 
-extension MessagesViewController: MessagesViewControllerInput {
+extension MessagesListViewController: MessagesViewControllerInput {
 
 
     // MARK: - Display logic
@@ -92,7 +92,7 @@ extension MessagesViewController: MessagesViewControllerInput {
 
 // MARK: - UITableViewDataSource
 
-extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
+extension MessagesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.MessageCell) as! MessageTableViewCell
@@ -114,6 +114,11 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.chatRooms.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedChatRoom = output.chatRooms[indexPath.row]
+        router.navigateToChatRoom(chatRoomID: selectedChatRoom.id)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

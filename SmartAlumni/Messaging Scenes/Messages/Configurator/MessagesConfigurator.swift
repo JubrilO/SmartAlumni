@@ -18,7 +18,7 @@ final class MessagesConfigurator {
 
     // MARK: - Configuration
 
-    func configure(viewController: MessagesViewController) {
+    func configure(viewController: MessagesListViewController) {
 
         let router = MessagesRouter(viewController: viewController)
         let presenter = MessagesPresenter(output: viewController)
