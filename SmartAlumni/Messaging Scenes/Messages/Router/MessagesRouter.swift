@@ -12,7 +12,7 @@ protocol MessagesRouterProtocol {
 
     weak var viewController: MessagesListViewController? { get }
 
-    func navigateToChatRoom(chatRoomID: String)
+    func navigateToChatRoom(chatRoom: ChatRoom)
 }
 
 final class MessagesRouter {
@@ -36,9 +36,9 @@ extension MessagesRouter: MessagesRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToChatRoom(chatRoomID: String) {
-        let chatRoomVC = ChatRoomViewController()
-       chatRoomVC.id = chatRoomID
+    func navigateToChatRoom(chatRoom: ChatRoom) {
+        let chatRoomVC = ConversationViewController()
+       chatRoomVC.output.chatRoom = chatRoom
         viewController?.navigationController?.hidesBottomBarWhenPushed = true
         viewController?.navigationController?.pushViewController(chatRoomVC, animated: true)
     }

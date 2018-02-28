@@ -36,5 +36,23 @@ class ChatAPI {
             }
         }
     }
+    
+    func getMessagesFor(chatroom: ChatRoom, completionHandler: @escaping ([Message]?, Error?) -> Void) {
+        Alamofire.request(APIConstants.GetMessagesURL, method: .post, parameters: ["_id" : chatroom.id], encoding: JSONEncoding.default).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                guard let jsonData = response.result.value else {
+                    return
+                }
+                let messagesTuple = Utilities.parseMessagesFromJSON(json: JSON(jsonData))
+                completionHandler(messagesTuple.messages, messagesTuple.error)
+            case .failure(let error):
+                print(error)
+                completionHandler(nil, error)
+            }
+        }
+    }
 }
 

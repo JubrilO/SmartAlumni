@@ -201,7 +201,7 @@ final class NewPollViewController: UIViewController {
         validator.registerField(option2Cell.optionField, rules: [RequiredRule(), MaxLengthRule(length: 25)])
     }
     
-    func routeToPollVisibilityScene() {
+    @objc func routeToPollVisibilityScene() {
         router.navigateToPollVisibilityScene(school: output.targetSchool, departments: output.targetDepartments, faculties: output.targetFaculties, sets: output.targetSets )
     }
     
@@ -240,7 +240,7 @@ final class NewPollViewController: UIViewController {
         }
     }
     
-    func addOption() {
+    @objc func addOption() {
         print("Add option action!!")
         if optionCount < 4 {
             optionCount = optionCount + 1

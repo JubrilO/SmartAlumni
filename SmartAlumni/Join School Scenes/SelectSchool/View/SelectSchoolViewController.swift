@@ -93,7 +93,7 @@ final class SelectSchoolViewController: UIViewController {
         navigationItem.backBarButtonItem?.tintColor = Constants.Colors.softBlue
     }
     
-    func popViewController() {
+    @objc func popViewController() {
        navigationController?.popViewController(animated: true)
     }
 }

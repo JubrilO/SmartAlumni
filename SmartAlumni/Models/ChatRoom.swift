@@ -14,6 +14,7 @@ class ChatRoom {
     var name = ""
     var roomType = ""
     var imageURL = ""
+    var schoolID = ""
     var lastMessage: Message?
     
     required convenience init(json: JSON) {
@@ -22,9 +23,11 @@ class ChatRoom {
         self.id = json["_id"].stringValue
         self.name = json["name"].stringValue
         self.roomType = json["room_type"].stringValue
+        self.schoolID = json["school_details"]["school"].stringValue
         let lastMessageJSON = json["last_message"].object
         print("Last Message")
         print(lastMessageJSON)
         self.lastMessage = Message(json: JSON(lastMessageJSON))
     }
+    
 }

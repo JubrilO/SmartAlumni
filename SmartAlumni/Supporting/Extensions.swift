@@ -106,7 +106,19 @@ extension String {
             return "\(self) min"
         }
     }
-    
 }
 
+extension Dictionary {
+    func jsonString() -> String? {
+        let jsonData = try? JSONSerialization.data(withJSONObject: self, options: [])
+        guard jsonData != nil else {return nil}
+        let jsonString = String(data: jsonData!, encoding: .utf8)
+        guard jsonString != nil else {return nil}
+        return jsonString!
+    }
+}
+
+extension Notification.Name {
+    static let messageToClient = Notification.Name("MessageToClient")
+}
 

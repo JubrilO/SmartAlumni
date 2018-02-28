@@ -83,7 +83,7 @@ final class VisibilityOptionViewController: UIViewController {
         doneButton.isEnabled = false
     }
     
-    func onDoneButtonClick(sender: UIBarButtonItem) {
+    @objc func onDoneButtonClick(sender: UIBarButtonItem) {
         print("Done button clicked")
         if let selectedIndexes = tableView.indexPathsForSelectedRows {
             print("Selected indexes exist")

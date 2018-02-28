@@ -103,7 +103,7 @@ extension MessagesListViewController: UITableViewDelegate, UITableViewDataSource
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "dd/MM/yy"
         dateFormatter.doesRelativeDateFormatting = true
-        if let date = chatRoom.lastMessage?.timeStamp {
+        if let date = chatRoom.lastMessage?.sentDate {
             print("Date Object \(date)")
             cell.timeLabel.text = date.timeAgoSinceNow(useNumericDates: true)
             
@@ -118,7 +118,7 @@ extension MessagesListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedChatRoom = output.chatRooms[indexPath.row]
-        router.navigateToChatRoom(chatRoomID: selectedChatRoom.id)
+        router.navigateToChatRoom(chatRoom: selectedChatRoom)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

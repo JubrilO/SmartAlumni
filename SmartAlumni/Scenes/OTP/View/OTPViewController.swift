@@ -94,7 +94,7 @@ final class OTPViewController: UIViewController {
         output.resendOTP()
     }
     
-    func updateResendButton() {
+    @objc func updateResendButton() {
         resendOTPButton.setTitle("Resend Code (\(totalTime))", for: .normal)
         if totalTime != 0 {
             totalTime -= 1

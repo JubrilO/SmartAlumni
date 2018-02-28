@@ -107,7 +107,7 @@ final class PollVisibilityViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
-    func saveVisibilitySettings() {
+    @objc func saveVisibilitySettings() {
         print("saving visibility settings")
         if let targetSchool = output.targetSchool {
             router.navigateToNewPollScene(school: targetSchool, faculties: output.targetFaculties, departments: output.targetDeparments, sets: output.targetSets)

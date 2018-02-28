@@ -59,13 +59,28 @@ class Utilities {
     }
     
     class func parseChatRoomFromJSON(json: JSON) -> (chatRooms: [ChatRoom]?, error: Error?) {
-        if json["status"].stringValue == "success" {
+        if json["status"].stringValue == Constants.Success {
             var chatRooms = [ChatRoom]()
             for chatRoomJSON in json["data"].arrayValue {
                 let chatRoom = ChatRoom(json: chatRoomJSON)
                 chatRooms.append(chatRoom)
             }
             return (chatRooms, nil)
+        }
+        else {
+            let error = json["err"].stringValue
+            return(nil, StringError(error))
+        }
+    }
+    
+    class func parseMessagesFromJSON(json: JSON) -> (messages: [Message]?, error: Error?) {
+        if json["status"].stringValue == Constants.Success {
+            var messages = [Message]()
+            for  messageJSON in json["data"].arrayValue {
+                let message = Message(json: messageJSON )
+                messages.append(message)
+            }
+            return (messages, nil)
         }
         else {
             let error = json["err"].stringValue
@@ -137,7 +152,7 @@ struct StringError : LocalizedError {
     var failureReason: String? { return mMsg }
     var recoverySuggestion: String? { return "" }
     var helpAnchor: String? { return "" }
-    
+
     private var mMsg : String
     
     init(_ description: String)
