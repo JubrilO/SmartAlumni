@@ -106,7 +106,7 @@ class Message: MessageType {
         switch self.type {
         case .text:
             jsonDict = ["message" : [
-                "timestamp" : String(Int(self.sentDate.timeIntervalSince1970)),
+                "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
                 "messageid" : self.messageId,
                 "type" : MessageTypeConstants.text,
@@ -118,7 +118,7 @@ class Message: MessageType {
             
         case .image(imageurl: let url):
             jsonDict = ["message" : [
-                "timestamp" : String(Int(self.sentDate.timeIntervalSince1970)),
+                "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
                 "messageid" : self.messageId,
                 "type" : MessageTypeConstants.image,
@@ -131,7 +131,7 @@ class Message: MessageType {
             
         case .contact(name: let cnName, email: let cnEmail, phone: let cnPhone):
             jsonDict = ["message" : [
-                "timestamp" : String(Int(self.sentDate.timeIntervalSince1970)),
+                "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
                 "messageid" : self.messageId,
                 "type" : MessageTypeConstants.contact,
@@ -147,7 +147,7 @@ class Message: MessageType {
             
         case .document(name: let docname, size: let docsize, url: let docurl):
             jsonDict = ["message" : [
-                "timestamp" : String(Int(self.sentDate.timeIntervalSince1970)),
+                "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
                 "messageid" : self.messageId,
                 "type" : MessageTypeConstants.document,

@@ -213,6 +213,7 @@ extension ConversationViewController: MessagesDataSource {
     }
 }
 
+
 extension ConversationViewController: MessagesDisplayDelegate {
     
     // MARK: - Text Messages
@@ -241,6 +242,25 @@ extension ConversationViewController: MessagesDisplayDelegate {
         }
         header.dateLabel.text = MessageKitDateFormatter.shared.string(from: message.sentDate)
         return header
+    }
+    
+    
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let defaultAttributes: [NSAttributedStringKey: Any] = {
+            return [
+                NSAttributedStringKey.foregroundColor: UIColor(red: 143/255, green: 142/255, blue: 148/255, alpha: 1.0),
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 13)
+            ]
+        }()
+        if let message = message as? Message {
+        switch message.type {
+        case .text:
+            return NSAttributedString(string: message.sender.displayName, attributes: defaultAttributes)
+        default:
+            return nil
+        }
+    }
+        return nil
     }
     
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
