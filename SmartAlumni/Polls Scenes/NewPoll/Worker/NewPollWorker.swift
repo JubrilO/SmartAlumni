@@ -19,10 +19,10 @@ class NewPollWorker {
     }()
 
 
-    func createNewPoll(title: String, question: String, options: [Option], startDate: Date, endDate: Date, visiblity: [String: Any], completionHandler: @escaping (Bool?, String?) -> ()) {
+    func createNewPoll(title: String, question: String, options: [Option], startDate: Date, duration: Int, visiblity: [String: Any], completionHandler: @escaping (Bool?, String?) -> ()) {
         let startDateFormatted = dateFormatter.string(from: startDate)
-        let endDateFormatted = dateFormatter.string(from: endDate)
-        PollAPI.sharedManager.createPoll(title: title, question: question, options: options, startDate: startDateFormatted, endDate: endDateFormatted, visibility: visiblity) {
+        //let endDateFormatted = dateFormatter.string(from: endDate)
+        PollAPI.sharedManager.createPoll(title: title, question: question, options: options, startDate: startDateFormatted, duration: duration, visibility: visiblity) {
             success, error in
             completionHandler(success, error)
         }

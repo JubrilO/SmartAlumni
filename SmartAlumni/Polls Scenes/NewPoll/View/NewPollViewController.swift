@@ -23,7 +23,7 @@ protocol NewPollViewControllerOutput {
     var targetFaculties: [Faculty] {get set}
     var targetDepartments: [Department] {get set}
     var targetSets: [String] {get set}
-    var timeInterval: DateComponents? {get set}
+    var timeInterval: Duration {get set}
 }
 
 final class NewPollViewController: UIViewController {
@@ -209,19 +209,19 @@ final class NewPollViewController: UIViewController {
         switch type {
         case .day:
             timeIntervalLabel.text = "\(string.dayValue()) \(hour.hourValue()) \(min.minutesValue())"
-            output.timeInterval?.day = Int(string)
-            output.timeInterval?.hour = Int(hour)
-            output.timeInterval?.minute = Int(min)
+            output.timeInterval.day = Int(string)
+            output.timeInterval.hour = Int(hour)
+            output.timeInterval.minute = Int(min)
         case .hour:
             timeIntervalLabel.text = "\(day.dayValue()) \(string.hourValue()) \(min.minutesValue())"
-            output.timeInterval?.day = Int(day)
-            output.timeInterval?.hour = Int(string)
-            output.timeInterval?.minute = Int(min)
+            output.timeInterval.day = Int(day)
+            output.timeInterval.hour = Int(string)
+            output.timeInterval.minute = Int(min)
         case .minute:
             timeIntervalLabel.text = "\(day.dayValue()) \(hour.hourValue()) \(string.minutesValue())"
-            output.timeInterval?.day = Int(day)
-            output.timeInterval?.hour = Int(hour)
-            output.timeInterval?.minute = Int(string)
+            output.timeInterval.day = Int(day)
+            output.timeInterval.hour = Int(hour)
+            output.timeInterval.minute = Int(string)
         }
         
     }

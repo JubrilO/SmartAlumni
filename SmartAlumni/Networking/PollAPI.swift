@@ -32,6 +32,7 @@ class PollAPI {
     
     func votePoll(pollID: String, userID: String, optionIndex: Int, completionHandler: @escaping (Bool?, String?) -> ()){
         let parameters = [ "id" : userID, "voter" : ["user" : userID, "option" : optionIndex ]] as [String : Any]
+        print("Parameters \(parameters)")
         Alamofire.request(APIConstants.VotePollURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{
             response in
             
@@ -47,9 +48,9 @@ class PollAPI {
         }
     }
     
-    func createPoll(title: String, question: String, options: [Option], startDate: String, endDate: String, visibility: [String : Any],  completionHandler: @escaping (Bool?, String?) -> ()) {
+    func createPoll(title: String, question: String, options: [Option], startDate: String, duration: Int, visibility: [String : Any],  completionHandler: @escaping (Bool?, String?) -> ()) {
         
-        let parameters = Utilities.generatePollDict(title: title, question: question, options: options, startDate: startDate, endDate: endDate, visibility: visibility)
+        let parameters = Utilities.generatePollDict(title: title, question: question, options: options, startDate: startDate, duration: duration, visibility: visibility)
         print(parameters)
         Alamofire.request(APIConstants.CreatePollURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in

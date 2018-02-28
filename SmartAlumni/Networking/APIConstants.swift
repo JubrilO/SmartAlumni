@@ -21,7 +21,7 @@ struct APIConstants {
     static let PollURL = RootURL + "/poll"
     static let VotePollURL = PollURL + "/vote"
     static let AllPollsURL = PollURL + "/all"
-    static let CreatePollURL = PollURL + "/create"
+    static let CreatePollURL = PollURL + "/create-ios"
     static let UserChatRoomsURL = ChatRoomURL + "/user"
     static let GetMessagesURL = ChatRoomURL + "/get-chat-history"
 

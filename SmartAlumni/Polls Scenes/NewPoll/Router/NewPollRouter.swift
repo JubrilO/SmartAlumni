@@ -52,6 +52,7 @@ extension NewPollRouter: NewPollRouterProtocol {
     
     func navigateToPollCompletionScene() {
         if let pollCompletionVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollCompletionScene) as? PollCompletionViewController {
+            pollCompletionVC.navigationItem.hidesBackButton = true
             viewController?.navigationController?.pushViewController(pollCompletionVC, animated: true)
         }
     }

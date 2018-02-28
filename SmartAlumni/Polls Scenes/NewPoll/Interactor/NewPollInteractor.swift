@@ -38,7 +38,7 @@ final class NewPollInteractor: NewPollViewControllerOutput {
     var targetFaculties = [Faculty]()
     var targetDepartments = [Department]()
     var targetSets = [String]()
-    var timeInterval: DateComponents?
+    var timeInterval = Duration()
     
     // MARK: - Business logic
     
@@ -49,10 +49,9 @@ final class NewPollInteractor: NewPollViewControllerOutput {
     func createPoll(title: String, question: String, options: [Option]) {
         let startDate = Date()
         let timeInterval = timeIntervalFromDateComponents()
-        let endDate = startDate.addingTimeInterval(timeInterval)
         let pollVisibiltyOptions = generatePollVisibiltyDict()
         
-        worker.createNewPoll(title: title, question: question, options: options, startDate: startDate, endDate: endDate, visiblity: pollVisibiltyOptions) {
+        worker.createNewPoll(title: title, question: question, options: options, startDate: startDate, duration: Int(timeInterval), visiblity: pollVisibiltyOptions) {
             successful, error in
             guard error == nil else {
                 self.output.presentError(string: error)
@@ -87,17 +86,17 @@ final class NewPollInteractor: NewPollViewControllerOutput {
     
     func timeIntervalFromDateComponents() -> Double {
         var totalSeconds = 0
-        if let day = timeInterval?.day {
+        if let day = timeInterval.day {
             totalSeconds += day * 24 * 60 * 60
             print("Total Seconds: \(totalSeconds)")
         }
-        if let hours = timeInterval?.hour {
+        if let hours = timeInterval.hour {
             totalSeconds += hours * 60 * 60
             print("Total Seconds: \(totalSeconds)")
 
         }
-        if let seconds = timeInterval?.second {
-            totalSeconds += seconds
+        if let minute = timeInterval.minute {
+            totalSeconds += minute * 60
             print("Total Seconds: \(totalSeconds)")
         }
         return Double(totalSeconds)
@@ -108,4 +107,10 @@ final class NewPollInteractor: NewPollViewControllerOutput {
             output.presentPollVisiblityOptions(string: targetSchool.name)
         }
     }
+}
+
+struct Duration {
+    var day: Int?
+    var hour: Int?
+    var minute: Int?
 }

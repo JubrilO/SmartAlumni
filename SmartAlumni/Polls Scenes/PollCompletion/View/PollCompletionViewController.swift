@@ -56,6 +56,7 @@ final class PollCompletionViewController: UIViewController {
     }
     
     @IBAction func onDoneButtonClick(_ sender: UIButton) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
 

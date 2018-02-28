@@ -131,16 +131,16 @@ class Utilities {
         }
     }
     
-    class func generatePollDict(title: String, question: String, options: [Option], startDate: String, endDate: String, visibility: [String : Any]) -> [String : Any] {
+    class func generatePollDict(title: String, question: String, options: [Option], startDate: String, duration: Int, visibility: [String : Any]) -> [String : Any] {
         var optionsDict = [[String : Any]]()
-        for option in options {
-            let optionDict = ["name" : option.text, "value" : 0] as [String: Any]
+        for (index, option) in options.enumerated() {
+            let optionDict = ["name" : option.text, "value" : 0, "index" : index+1] as [String: Any]
             optionsDict.append(optionDict)
         }
         var parameters  = [String:Any]()
         let realm = try! Realm()
         if let user = realm.objects(User.self).first {
-        parameters = ["name" : title, "creator" : user.uid, "question" : question, "start_date" : startDate, "end_date" : endDate, "options" : optionsDict, "visibility" : visibility] as [String : Any]
+        parameters = ["name" : title, "creator" : user.uid, "question" : question, "start_date" : startDate, "duration" : duration, "options" : optionsDict, "visibility" : visibility, "status": "ongoing"] as [String : Any]
         }
         return parameters
     }
