@@ -14,7 +14,8 @@ protocol PollsPresenterInput: PollsInteractorOutput {
 
 protocol PollsPresenterOutput: class {
 
-    func displaySomething(viewModel: PollsViewModel)
+    func displayPolls()
+    func displayError(error: String)
 }
 
 final class PollsPresenter {
@@ -38,11 +39,11 @@ extension PollsPresenter: PollsPresenterInput {
 
     // MARK: - Presentation logic
 
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = PollsViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func presentPolls() {
+        output.displayPolls()
+    }
+    
+    func presentError(error: String) {
+        output.displayError(error: error)
     }
 }

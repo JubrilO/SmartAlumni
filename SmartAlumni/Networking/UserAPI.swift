@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Locksmith
+import RealmSwift
 import FirebaseStorage
 
 class UserAPI {
@@ -117,7 +118,17 @@ class UserAPI {
         
         guard let userID = UserDefaults.standard.string(forKey: Constants.UserDefaults.UID) else { completionHandler(false, "No UID saved"); return }
         var parameters = [String: Any]()
-        if let facultyID = facultyID, let departmentID = departmentID {
+        let realm = try! Realm()
+        if let facultyID = facultyID, let departmentID = departmentID
+        {
+            
+            if let user = realm.objects(User.self).first {
+                let schoolDetails = SchoolDetails(schoolID: schoolID, facultyID: facultyID, departmentID: departmentID, set: set)
+                try! realm.write {
+                    user.schoolIds.append(schoolID)
+                    user.schoolDetailsList.append(schoolDetails)
+                }
+            }
             parameters = ["_id" : userID,
                           "school_details" :
                             [
@@ -129,6 +140,13 @@ class UserAPI {
             ]
         }
         else{
+            if let user = realm.objects(User.self).first {
+                let schoolDetails = SchoolDetails(schoolID: schoolID, set: set)
+                try! realm.write {
+                    user.schoolIds.append(schoolID)
+                    user.schoolDetailsList.append(schoolDetails)
+                }
+            }
             parameters =
                 ["_id" : userID,
                  "school_details" :

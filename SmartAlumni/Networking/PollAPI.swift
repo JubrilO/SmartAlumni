@@ -8,29 +8,40 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 import SwiftyJSON
 
 class PollAPI {
     static let sharedManager =  PollAPI()
     
     func getAllPolls(completionHandler:@escaping ([Poll]?, String?) -> ()) {
-        Alamofire.request(APIConstants.CreatePollURL, method: .post).responseJSON {
-            response in
-            guard response.result.error == nil else {return}
-            
-            switch response.result {
-            case .success:
-                guard let jsonData = response.result.value else {return}
-                let pollsTuple = Utilities.parsePollsFromJSON(json: JSON(jsonData))
-                completionHandler(pollsTuple.polls, pollsTuple.error)
-            case .failure(let error):
-                print(error)
-                completionHandler(nil, error.localizedDescription)
+        let realm = try! Realm()
+        if let user = realm.objects(User.self).first {
+            var schooldeetsJSONArray = [[String : Any]]()
+            for schoolDeets in user.schoolDetailsList {
+                schooldeetsJSONArray.append(schoolDeets.toJSON())
             }
+            let params : [String : Any] = ["_id": Array(user.schoolIds), "school_details" : schooldeetsJSONArray ]
+            print(params)
+            let req = Alamofire.request(APIConstants.UsersPollURL, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
+                response in
+                guard response.result.error == nil else {return}
+                
+                switch response.result {
+                case .success:
+                    guard let jsonData = response.result.value else {return}
+                    let pollsTuple = Utilities.parsePollsFromJSON(json: JSON(jsonData))
+                    completionHandler(pollsTuple.polls, pollsTuple.error)
+                case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error.localizedDescription)
+                }
+            }
+            print(req)
         }
     }
     
-    func votePoll(pollID: String, userID: String, optionIndex: Int, completionHandler: @escaping (Bool?, String?) -> ()){
+    func votePoll(pollID: String, userID: String, optionIndex: Int, completionHandler: @escaping (Bool, String?) -> ()){
         let parameters = [ "id" : userID, "voter" : ["user" : userID, "option" : optionIndex ]] as [String : Any]
         print("Parameters \(parameters)")
         Alamofire.request(APIConstants.VotePollURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{
@@ -43,7 +54,7 @@ class PollAPI {
                 completionHandler(successTuple.success, successTuple.error)
             case .failure(let error):
                 print(error)
-                completionHandler(nil, error.localizedDescription)
+                completionHandler(false, error.localizedDescription)
             }
         }
     }

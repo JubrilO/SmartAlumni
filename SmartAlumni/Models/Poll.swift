@@ -15,6 +15,7 @@ class Poll {
     var question = ""
     var startDate = Date()
     var endDate = Date()
+    var voters = [Voter]()
     var status = PollStatus.ongoing
     var options = [PollOption]()
     
@@ -34,6 +35,13 @@ class Poll {
             let pollOption = PollOption(json: optionJSON)
             options.append(pollOption)
         }
+        let votersArray = json["voters"].arrayValue
+        var voters = [Voter]()
+        for voterJson in  votersArray {
+            let voter = Voter(json: voterJson)
+            voters.append(voter)
+        }
+        self.voters = voters
         self.options = options
         if json["status"].stringValue == "ongoing" {
             self.status = PollStatus.ongoing
@@ -51,7 +59,7 @@ class Poll {
     
     private func convertStringToDate(dateString: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return dateFormatter.date(from: dateString)
     }
 }

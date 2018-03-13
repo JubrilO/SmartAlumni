@@ -20,6 +20,8 @@ class User: Object {
     @objc dynamic var phoneNumber = ""
     @objc dynamic var profileImage = ""
     @objc dynamic var notificationToken = ""
+    var schoolIds = List<String>()
+    var schoolDetailsList = List<SchoolDetails>()
     @objc dynamic var isAdmin = false
     
     required convenience init?(json: JSON) {

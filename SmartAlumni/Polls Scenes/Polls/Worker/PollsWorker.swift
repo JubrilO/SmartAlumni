@@ -13,8 +13,11 @@ class PollsWorker {
 
     // MARK: - Business Logic
 
-    func fetchPolls() {
+    func fetchPolls(completionHandler: @escaping ([Poll]?, String?) -> ()) {
         
-        // TODO: Do the work
+        PollAPI.sharedManager.getAllPolls {
+            polls, error in
+                completionHandler(polls, error)
+        }
     }
 }

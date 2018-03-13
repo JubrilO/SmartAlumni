@@ -15,7 +15,9 @@ protocol PollsViewControllerInput: PollsPresenterOutput {
 
 protocol PollsViewControllerOutput {
     var polls: [Poll] {get set}
-    func doSomething()
+    func fetchPolls()
+    func loadOngoingPolls()
+    func loadCompletedPolls()
 }
 
 final class PollsViewController: UIViewController {
@@ -58,9 +60,14 @@ final class PollsViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        fetchPolls()
+        
+
         self.title = "Polls"
+        // Hide line under navbar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
         setupSegmentio()
         
     }
@@ -68,9 +75,8 @@ final class PollsViewController: UIViewController {
 
     // MARK: - Load data
 
-    func doSomethingOnLoad() {
-
-        output.doSomething()
+    func fetchPolls() {
+        output.fetchPolls()
     }
     
     @IBAction func onNewPollButtonTouch(_ sender: UIButton) {
@@ -89,7 +95,21 @@ final class PollsViewController: UIViewController {
         emptyStateLabel2.isHidden = true
     }
     
+    @objc func onOptionViewTap(sender: UITapGestureRecognizer){
+        print("Tap Gesture")
+    }
+    
     func setupSegmentio() {
+        segmentioView.valueDidChange = { [unowned self] (_ segmentio: Segmentio, _ selectedSegmentioIndex: Int) in
+            switch selectedSegmentioIndex {
+            case 0:
+                self.output.loadOngoingPolls()
+            case 1:
+               self.output.loadCompletedPolls()
+            default:
+                self.output.loadOngoingPolls()
+            }
+        }
         var content = [SegmentioItem]()
         let ongoingItem = SegmentioItem(title: "Ongoing", image: nil)
         let completedItem = SegmentioItem(title: "Completed", image: nil)
@@ -126,11 +146,15 @@ extension PollsViewController: PollsViewControllerInput {
 
 
     // MARK: - Display logic
-
-    func displaySomething(viewModel: PollsViewModel) {
-
-        // TODO: Update UI
+    
+    func displayPolls() {
+        tableView.reloadData()
     }
+    
+    func displayError(error: String) {
+        displayErrorModal(error: error)
+    }
+
 }
 
 extension PollsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -138,12 +162,30 @@ extension PollsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.PollCell) as! PollCell
         let poll = output.polls[indexPath.row]
-        cell.setup(poll: poll)
+        cell.setup(poll: poll, viewController: self)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.polls.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let currentCell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.PollCell) as! PollCell
+        let poll = output.polls[indexPath.row]
+        currentCell.setup(poll: poll, viewController: self)
+        let questionLabelHeight = currentCell.questionLabel.textHeight
+        let titleLabelHeight = currentCell.titleLabel.textHeight
+        let questionNumberOfLines = currentCell.questionLabel.numberOfVisibleLines
+        let titleNumberofLines =
+            currentCell.titleLabel.numberOfVisibleLines
+        if currentCell.questionLabel.numberOfVisibleLines > 1 || currentCell.titleLabel.numberOfVisibleLines > 1 {
+            let titleHeight = ((titleLabelHeight - 19 + 2) * CGFloat((titleNumberofLines - 1)))
+            let questionHeight = ((questionLabelHeight - 14 + 1)   * CGFloat((questionNumberOfLines - 1)))
+            print("More than one line")
+            return 200.0 + (49.0 * CGFloat(poll.options.count - 1) + questionHeight + titleHeight)
+        }
+        return 200.0 + (49.0 * CGFloat(poll.options.count - 1))
     }
     
 }

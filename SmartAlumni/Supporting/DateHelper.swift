@@ -96,7 +96,7 @@ struct DateComponentUnitFormatter {
             case 1:
                 return useNumericDates ? "\(unitValue) \(format.singularUnit) ago" : format.pastSingular
             case -1:
-                return useNumericDates ? "In \(-unitValue) \(format.singularUnit)" : format.futureSingular
+                return useNumericDates ? "\(-unitValue) \(format.singularUnit)" : format.futureSingular
             case Int.min ..< -1:
                 return "In \(-unitValue) \(format.pluralUnit)"
             default:

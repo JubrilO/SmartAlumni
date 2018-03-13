@@ -263,6 +263,26 @@ extension ConversationViewController: MessagesDisplayDelegate {
         return nil
     }
     
+        func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let defaultAttributes: [NSAttributedStringKey: Any] = {
+            return [
+                NSAttributedStringKey.foregroundColor: UIColor(red: 143/255, green: 142/255, blue: 148/255, alpha: 1.0),
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 11)
+            ]
+        }()
+        guard let message = message as? Message else {return nil}
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mma"
+        let dateString = dateFormatter.string(from: message.sentDate)
+        switch message.type {
+        case .text:
+            return NSAttributedString(string: dateString, attributes: defaultAttributes)
+        default:
+            break
+        }
+        return nil
+    }
+    
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
         if let message = message as? Message {
             switch message.type {
@@ -354,17 +374,17 @@ extension ConversationViewController: MessagesLayoutDelegate {
     
     func cellTopLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
         if isFromCurrentSender(message: message) {
-            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 10))
         } else {
-            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 2, right: 0))
         }
     }
     
     func cellBottomLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
         if isFromCurrentSender(message: message) {
-            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+            return .messageLeading(UIEdgeInsets(top: 2, left: 10, bottom: 0, right: 0))
         } else {
-            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+            return .messageTrailing(UIEdgeInsets(top: 2, left: 10, bottom: 0, right: 0))
         }
     }
     

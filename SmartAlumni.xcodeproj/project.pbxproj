@@ -11,6 +11,7 @@
 		9115B39C202517A200FAB317 /* SelectSchoolCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115B39B202517A200FAB317 /* SelectSchoolCategoryVC.swift */; };
 		9115B39E2025DC2E00FAB317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9115B39D2025DC2E00FAB317 /* GoogleService-Info.plist */; };
 		91185B081FB5ACD800ADFD39 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185B071FB5ACD800ADFD39 /* OptionCell.swift */; };
+		911955BE20494CFD00DFD419 /* SchoolDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911955BD20494CFD00DFD419 /* SchoolDetails.swift */; };
 		911B4A2D1F37C2350028BBE1 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */; };
 		911B4A321F37E1EB0028BBE1 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A311F37E1EB0028BBE1 /* UserAPI.swift */; };
 		911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B4A331F3898940028BBE1 /* APIConstants.swift */; };
@@ -49,6 +50,14 @@
 		91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D571F4E2C14002C8F46 /* WelcomeViewController.swift */; };
 		91503D611F4E2C14002C8F46 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D591F4E2C14002C8F46 /* WelcomeViewModel.swift */; };
 		91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */; };
+		915B98C8204DCB7B0093FAD5 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98BB204DCB7B0093FAD5 /* ProjectsViewModel.swift */; };
+		915B98C9204DCB7B0093FAD5 /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98BD204DCB7B0093FAD5 /* ProjectsPresenter.swift */; };
+		915B98CA204DCB7B0093FAD5 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98BF204DCB7B0093FAD5 /* ProjectsViewController.swift */; };
+		915B98CB204DCB7B0093FAD5 /* ProjectsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C1204DCB7B0093FAD5 /* ProjectsConfigurator.swift */; };
+		915B98CC204DCB7B0093FAD5 /* ProjectsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C3204DCB7B0093FAD5 /* ProjectsWorker.swift */; };
+		915B98CD204DCB7B0093FAD5 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C5204DCB7B0093FAD5 /* ProjectsInteractor.swift */; };
+		915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */; };
+		915B98D0204F6FFF0093FAD5 /* Voter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98CF204F6FFF0093FAD5 /* Voter.swift */; };
 		915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33771F38A32600729106 /* SignUpConfigurator.swift */; };
 		915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33791F38A32600729106 /* SignUpInteractor.swift */; };
 		915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337B1F38A32600729106 /* SignUpPresenter.swift */; };
@@ -175,6 +184,7 @@
 		9115B39B202517A200FAB317 /* SelectSchoolCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectSchoolCategoryVC.swift; path = "Join School Scenes/SelectSchoolCategoryVC.swift"; sourceTree = "<group>"; };
 		9115B39D2025DC2E00FAB317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91185B071FB5ACD800ADFD39 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		911955BD20494CFD00DFD419 /* SchoolDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchoolDetails.swift; path = Models/SchoolDetails.swift; sourceTree = "<group>"; };
 		911B4A2C1F37C2350028BBE1 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		911B4A311F37E1EB0028BBE1 /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = Networking/UserAPI.swift; sourceTree = "<group>"; };
 		911B4A331F3898940028BBE1 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = Networking/APIConstants.swift; sourceTree = "<group>"; };
@@ -206,6 +216,14 @@
 		91503D571F4E2C14002C8F46 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		91503D591F4E2C14002C8F46 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeWorker.swift; sourceTree = "<group>"; };
+		915B98BB204DCB7B0093FAD5 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		915B98BD204DCB7B0093FAD5 /* ProjectsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
+		915B98BF204DCB7B0093FAD5 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		915B98C1204DCB7B0093FAD5 /* ProjectsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsConfigurator.swift; sourceTree = "<group>"; };
+		915B98C3204DCB7B0093FAD5 /* ProjectsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsWorker.swift; sourceTree = "<group>"; };
+		915B98C5204DCB7B0093FAD5 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
+		915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
+		915B98CF204F6FFF0093FAD5 /* Voter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voter.swift; path = Models/Voter.swift; sourceTree = "<group>"; };
 		915C33771F38A32600729106 /* SignUpConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfigurator.swift; sourceTree = "<group>"; };
 		915C33791F38A32600729106 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		915C337B1F38A32600729106 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -219,7 +237,7 @@
 		916287811F7720510015F467 /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		916287831F790EAC0015F467 /* PollAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollAPI.swift; path = Networking/PollAPI.swift; sourceTree = "<group>"; };
 		916287851F790FA80015F467 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Poll.swift; path = Models/Poll.swift; sourceTree = "<group>"; };
-		916287871F799ADC0015F467 /* PollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollOption.swift; path = Models/PollOption.swift; sourceTree = "<group>"; };
+		916287871F799ADC0015F467 /* PollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollOption.swift; sourceTree = "<group>"; };
 		9164AA371FA3890A00A66F37 /* PollsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsConfigurator.swift; sourceTree = "<group>"; };
 		9164AA391FA3890A00A66F37 /* PollsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsInteractor.swift; sourceTree = "<group>"; };
 		9164AA3B1FA3890A00A66F37 /* PollsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsPresenter.swift; sourceTree = "<group>"; };
@@ -609,6 +627,76 @@
 				91503D5B1F4E2C14002C8F46 /* WelcomeWorker.swift */,
 			);
 			path = Worker;
+			sourceTree = "<group>";
+		};
+		915B98B9204DCB7B0093FAD5 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				915B98BA204DCB7B0093FAD5 /* ViewModel */,
+				915B98BC204DCB7B0093FAD5 /* Presenter */,
+				915B98BE204DCB7B0093FAD5 /* View */,
+				915B98C0204DCB7B0093FAD5 /* Configurator */,
+				915B98C2204DCB7B0093FAD5 /* Worker */,
+				915B98C4204DCB7B0093FAD5 /* Interactor */,
+				915B98C6204DCB7B0093FAD5 /* Router */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		915B98BA204DCB7B0093FAD5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				915B98BB204DCB7B0093FAD5 /* ProjectsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		915B98BC204DCB7B0093FAD5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				915B98BD204DCB7B0093FAD5 /* ProjectsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		915B98BE204DCB7B0093FAD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				915B98BF204DCB7B0093FAD5 /* ProjectsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		915B98C0204DCB7B0093FAD5 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				915B98C1204DCB7B0093FAD5 /* ProjectsConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		915B98C2204DCB7B0093FAD5 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				915B98C3204DCB7B0093FAD5 /* ProjectsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		915B98C4204DCB7B0093FAD5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				915B98C5204DCB7B0093FAD5 /* ProjectsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		915B98C6204DCB7B0093FAD5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		915C336F1F38A0B800729106 /* SignUp Scenes */ = {
@@ -1206,10 +1294,12 @@
 				916287871F799ADC0015F467 /* PollOption.swift */,
 				91EB8DC01F749F2700D37371 /* Department.swift */,
 				916287851F790FA80015F467 /* Poll.swift */,
+				915B98CF204F6FFF0093FAD5 /* Voter.swift */,
 				91B724501FC66C5F00961F40 /* PollVisibility.swift */,
 				91EB8DC21F749F3D00D37371 /* Faculty.swift */,
 				9183556E202D99ED00664BDC /* Transaction.swift */,
 				918355702033C87900664BDC /* ChatRoom.swift */,
+				911955BD20494CFD00DFD419 /* SchoolDetails.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1290,6 +1380,7 @@
 		91CD9510203C503D005D535A /* Project Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				915B98B9204DCB7B0093FAD5 /* Projects */,
 				91CD9511203C503D005D535A /* NewProject */,
 				91CD9527203C515A005D535A /* Project.storyboard */,
 			);
@@ -1872,6 +1963,7 @@
 				91E07A4B2035BAA60069FDC3 /* ConversationConfigurator.swift in Sources */,
 				9183556F202D99ED00664BDC /* Transaction.swift in Sources */,
 				91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */,
+				915B98C8204DCB7B0093FAD5 /* ProjectsViewModel.swift in Sources */,
 				91DB84A61FDF454C00C4B033 /* MessagesViewController.swift in Sources */,
 				9134F6AB1FC782240037202D /* PollVisibilityPresenter.swift in Sources */,
 				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
@@ -1906,16 +1998,20 @@
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
 				91CD9523203C503D005D535A /* NewProjectConfigurator.swift in Sources */,
 				91EDAF411FCD0B04001E68D9 /* PollCompletionWorker.swift in Sources */,
+				915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
 				91EDAF561FCD14AA001E68D9 /* VisibilityOptionPresenter.swift in Sources */,
+				915B98CB204DCB7B0093FAD5 /* ProjectsConfigurator.swift in Sources */,
 				91EDAF5D1FCD1651001E68D9 /* VisibilityOptionCell.swift in Sources */,
 				9125CA631F4309AD00174534 /* EditProfileViewController.swift in Sources */,
 				91ABBD72202D1DE7005F2C05 /* TransactionCell.swift in Sources */,
 				911B4A341F3898940028BBE1 /* APIConstants.swift in Sources */,
+				915B98D0204F6FFF0093FAD5 /* Voter.swift in Sources */,
 				9134F6AA1FC7821B0037202D /* PollVisibilityViewModel.swift in Sources */,
 				9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */,
 				91ABBD6E202D1242005F2C05 /* WalletLandingWorker.swift in Sources */,
 				91E07A4C2035BAA60069FDC3 /* ConversationWorker.swift in Sources */,
+				915B98C9204DCB7B0093FAD5 /* ProjectsPresenter.swift in Sources */,
 				9183556B202D8C8900664BDC /* TransactionDetailWorker.swift in Sources */,
 				9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */,
 				9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */,
@@ -1938,6 +2034,7 @@
 				91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */,
 				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
 				91CD9525203C503D005D535A /* NewProjectInteractor.swift in Sources */,
+				915B98CD204DCB7B0093FAD5 /* ProjectsInteractor.swift in Sources */,
 				918D428F1F54DBBA00C848FA /* SelectSetInteractor.swift in Sources */,
 				91ABBD6F202D1242005F2C05 /* WalletLandingInteractor.swift in Sources */,
 				91CD9522203C503D005D535A /* NewProjectViewController.swift in Sources */,
@@ -1968,6 +2065,7 @@
 				91EB8DC31F749F3D00D37371 /* Faculty.swift in Sources */,
 				91C4FBC71FAAB2B1007FCCF2 /* NewPollPresenter.swift in Sources */,
 				9134F6AF1FC782360037202D /* PollVisibilityInteractor.swift in Sources */,
+				915B98CC204DCB7B0093FAD5 /* ProjectsWorker.swift in Sources */,
 				918355752033CF5900664BDC /* ChatAPI.swift in Sources */,
 				91EDAF431FCD0B04001E68D9 /* PollCompletionRouter.swift in Sources */,
 				918D42911F54DBBA00C848FA /* SelectSetRouter.swift in Sources */,
@@ -1975,6 +2073,7 @@
 				91835568202D8C8900664BDC /* TransactionDetailPresenter.swift in Sources */,
 				91EDAF421FCD0B04001E68D9 /* PollCompletionInteractor.swift in Sources */,
 				918D42921F54DBBA00C848FA /* SelectSetViewController.swift in Sources */,
+				915B98CA204DCB7B0093FAD5 /* ProjectsViewController.swift in Sources */,
 				91CD9526203C503D005D535A /* NewProjectRouter.swift in Sources */,
 				91DB84A91FDF454C00C4B033 /* MessagesInteractor.swift in Sources */,
 				913C54331FC09DA100B7B554 /* PollCell.swift in Sources */,
@@ -1995,6 +2094,7 @@
 				9183557920343F7500664BDC /* DateHelper.swift in Sources */,
 				91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */,
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
+				911955BE20494CFD00DFD419 /* SchoolDetails.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
 				9115B39C202517A200FAB317 /* SelectSchoolCategoryVC.swift in Sources */,
 				9134F6AE1FC782310037202D /* PollVisibilityWorker.swift in Sources */,
