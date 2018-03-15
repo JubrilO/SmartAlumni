@@ -58,6 +58,8 @@ extension SelectSchoolCategoryVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
+           
+            print("Case 0: Tertiary")
             navigateToSelectSchoolScene(category: .Tertiary)
         case 1:
             navigateToSelectSchoolScene(category: .Secondary)

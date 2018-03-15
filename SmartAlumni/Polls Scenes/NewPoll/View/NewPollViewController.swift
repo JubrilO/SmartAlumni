@@ -106,6 +106,7 @@ final class NewPollViewController: UIViewController {
     
     @IBAction func onNextButtonTouch(_ sender: UIBarButtonItem) {
         validator.validate(self)
+        diplayActivityIndicator()
     }
     
     @IBAction func onBackButtonTouch(_ sender: UIBarButtonItem) {
@@ -152,6 +153,20 @@ final class NewPollViewController: UIViewController {
             + UIApplication.shared.statusBarFrame.height
         scrollAreaHeightConstraint.constant = self.view.bounds.height - navBarHeight
         view.layoutIfNeeded()
+    }
+    
+    func diplayActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicator.color = UIColor.black
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+    }
+    
+    func hideActivityIndicator() {
+        let nextBarButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(onNextButtonTouch(_:)))
+        nextBarButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = nextBarButton
     }
     
     func setupTimeIntervalPicker() {
@@ -304,11 +319,13 @@ extension NewPollViewController: ValidationDelegate {
             output.createPoll(title: title, question: question, options: options)
         }
         else {
+            hideActivityIndicator()
             displayErrorModal(error: "Invalid time interval")
         }
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        hideActivityIndicator()
         for (field, error) in errors {
             if let field = field as? SkyFloatingLabelTextField {
                 field.errorMessage = error.errorMessage
@@ -327,6 +344,7 @@ extension NewPollViewController: NewPollViewControllerInput {
     }
     
     func diplayPollCompletionScene() {
+        hideActivityIndicator()
         router.navigateToPollCompletionScene()
     }
     

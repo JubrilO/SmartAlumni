@@ -13,6 +13,7 @@ protocol MessagesRouterProtocol {
     weak var viewController: MessagesListViewController? { get }
 
     func navigateToChatRoom(chatRoom: ChatRoom)
+    func navigateToJoinSchoolScene()
 }
 
 final class MessagesRouter {
@@ -41,5 +42,12 @@ extension MessagesRouter: MessagesRouterProtocol {
        chatRoomVC.output.chatRoom = chatRoom
         viewController?.navigationController?.hidesBottomBarWhenPushed = true
         viewController?.navigationController?.pushViewController(chatRoomVC, animated: true)
+    }
+    
+    func navigateToJoinSchoolScene() {
+        let joinSchoolStoryBoard = UIStoryboard(name: Constants.StoryboardNames.JoinSchool, bundle: nil)
+        let schoolCategoryVC = joinSchoolStoryBoard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.SelectSchoolCategoryScene)
+        let navVC = UINavigationController(rootViewController: schoolCategoryVC)
+        viewController?.present(navVC, animated: true, completion: nil)
     }
 }

@@ -14,7 +14,7 @@ protocol ProjectsPresenterInput: ProjectsInteractorOutput {
 
 protocol ProjectsPresenterOutput: class {
 
-    func displaySomething(viewModel: ProjectsViewModel)
+    func displayProjects()
 }
 
 final class ProjectsPresenter {
@@ -38,11 +38,7 @@ extension ProjectsPresenter: ProjectsPresenterInput {
 
     // MARK: - Presentation logic
 
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = ProjectsViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func presentProjects() {
+        output.displayProjects()
     }
 }

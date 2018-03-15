@@ -54,6 +54,7 @@ struct Constants {
         static let VisibilityOptionCell = "VisibilityOptionCell"
         static let TransactionCell = "TransactionCell"
         static let MessageCell = "messageCell"
+        static let ProjectCell = "ProjectCell"
     }
     
     struct  Errors {

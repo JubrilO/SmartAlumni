@@ -149,12 +149,17 @@ extension PollsViewController: PollsViewControllerInput {
     
     func displayPolls() {
         tableView.reloadData()
+        if output.polls.count < 1 {
+            tableView.isHidden = true
+        }
+        else {
+            tableView.isHidden = false
+        }
     }
     
     func displayError(error: String) {
         displayErrorModal(error: error)
     }
-
 }
 
 extension PollsViewController: UITableViewDataSource, UITableViewDelegate {

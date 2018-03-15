@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol MessagesViewControllerInput: MessagesPresenterOutput {
 
@@ -59,10 +60,20 @@ final class MessagesListViewController: UIViewController {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         fetchChatRooms()
+        let realm = try! Realm()
+        realm.objects(User.self)[0].toJSON()
         activityIndicator.startAnimating()
     }
 
-
+    @IBAction func onNewChatRoomButtonClick(_ sender: UIBarButtonItem) {
+        router.navigateToJoinSchoolScene()
+    }
+    
+    @IBAction func onTapGestureRecognised(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
     // MARK: - Load data
     
    func fetchChatRooms() {

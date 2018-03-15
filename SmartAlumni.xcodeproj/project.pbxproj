@@ -58,6 +58,9 @@
 		915B98CD204DCB7B0093FAD5 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C5204DCB7B0093FAD5 /* ProjectsInteractor.swift */; };
 		915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */; };
 		915B98D0204F6FFF0093FAD5 /* Voter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98CF204F6FFF0093FAD5 /* Voter.swift */; };
+		915B98D22059736F0093FAD5 /* ProjectsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D12059736F0093FAD5 /* ProjectsCollectionViewCell.swift */; };
+		915B98D420597F020093FAD5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D320597F020093FAD5 /* Project.swift */; };
+		915B98D620598E8D0093FAD5 /* ProjectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D520598E8D0093FAD5 /* ProjectAPI.swift */; };
 		915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33771F38A32600729106 /* SignUpConfigurator.swift */; };
 		915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33791F38A32600729106 /* SignUpInteractor.swift */; };
 		915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337B1F38A32600729106 /* SignUpPresenter.swift */; };
@@ -224,6 +227,9 @@
 		915B98C5204DCB7B0093FAD5 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
 		915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
 		915B98CF204F6FFF0093FAD5 /* Voter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Voter.swift; path = Models/Voter.swift; sourceTree = "<group>"; };
+		915B98D12059736F0093FAD5 /* ProjectsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCollectionViewCell.swift; sourceTree = "<group>"; };
+		915B98D320597F020093FAD5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
+		915B98D520598E8D0093FAD5 /* ProjectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectAPI.swift; path = Networking/ProjectAPI.swift; sourceTree = "<group>"; };
 		915C33771F38A32600729106 /* SignUpConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfigurator.swift; sourceTree = "<group>"; };
 		915C33791F38A32600729106 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		915C337B1F38A32600729106 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 				911B4A331F3898940028BBE1 /* APIConstants.swift */,
 				918355742033CF5900664BDC /* ChatAPI.swift */,
 				91CD950B20389EDE005D535A /* SocketIOManager.swift */,
+				915B98D520598E8D0093FAD5 /* ProjectAPI.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -663,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				915B98BF204DCB7B0093FAD5 /* ProjectsViewController.swift */,
+				915B98D12059736F0093FAD5 /* ProjectsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1300,6 +1308,7 @@
 				9183556E202D99ED00664BDC /* Transaction.swift */,
 				918355702033C87900664BDC /* ChatRoom.swift */,
 				911955BD20494CFD00DFD419 /* SchoolDetails.swift */,
+				915B98D320597F020093FAD5 /* Project.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2011,10 +2020,12 @@
 				9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */,
 				91ABBD6E202D1242005F2C05 /* WalletLandingWorker.swift in Sources */,
 				91E07A4C2035BAA60069FDC3 /* ConversationWorker.swift in Sources */,
+				915B98D420597F020093FAD5 /* Project.swift in Sources */,
 				915B98C9204DCB7B0093FAD5 /* ProjectsPresenter.swift in Sources */,
 				9183556B202D8C8900664BDC /* TransactionDetailWorker.swift in Sources */,
 				9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */,
 				9125CA5F1F4309AD00174534 /* EditProfileConfigurator.swift in Sources */,
+				915B98D620598E8D0093FAD5 /* ProjectAPI.swift in Sources */,
 				9164AA491FA3890A00A66F37 /* PollsViewModel.swift in Sources */,
 				9134F6AD1FC7822C0037202D /* PollVisibilityConfigurator.swift in Sources */,
 				91CD9524203C503D005D535A /* NewProjectWorker.swift in Sources */,
@@ -2034,6 +2045,7 @@
 				91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */,
 				915C33A41F38C18000729106 /* Utilities.swift in Sources */,
 				91CD9525203C503D005D535A /* NewProjectInteractor.swift in Sources */,
+				915B98D22059736F0093FAD5 /* ProjectsCollectionViewCell.swift in Sources */,
 				915B98CD204DCB7B0093FAD5 /* ProjectsInteractor.swift in Sources */,
 				918D428F1F54DBBA00C848FA /* SelectSetInteractor.swift in Sources */,
 				91ABBD6F202D1242005F2C05 /* WalletLandingInteractor.swift in Sources */,
