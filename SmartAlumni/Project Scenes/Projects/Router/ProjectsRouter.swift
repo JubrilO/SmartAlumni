@@ -9,21 +9,21 @@
 import UIKit
 
 protocol ProjectsRouterProtocol {
-
+    
     weak var viewController: ProjectsViewController? { get }
-
-    func navigateToSomewhere()
+    
+    func navigateToProjectDetails(project: Project)
 }
 
 final class ProjectsRouter {
-
+    
     weak var viewController: ProjectsViewController?
-
-
+    
+    
     // MARK: - Initializers
-
+    
     init(viewController: ProjectsViewController?) {
-
+        
         self.viewController = viewController
     }
 }
@@ -32,11 +32,16 @@ final class ProjectsRouter {
 // MARK: - ProjectsRouterProtocol
 
 extension ProjectsRouter: ProjectsRouterProtocol {
-
-
+    
+    
     // MARK: - Navigation
-
-    func navigateToSomewhere() {
-
+    
+    func navigateToProjectDetails(project: Project) {
+        let projectStoryboard = UIStoryboard(name: Constants.StoryboardNames.Project, bundle: nil)
+        if let projectDetailViewController = projectStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.ProjectDetailScene) as? ProjectDetailViewController {
+            projectDetailViewController.output.project = project
+            projectDetailViewController.hidesBottomBarWhenPushed = true
+            viewController?.navigationController?.pushViewController(projectDetailViewController, animated: true)
+        }
     }
 }

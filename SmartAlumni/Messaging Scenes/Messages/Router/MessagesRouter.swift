@@ -40,7 +40,7 @@ extension MessagesRouter: MessagesRouterProtocol {
     func navigateToChatRoom(chatRoom: ChatRoom) {
         let chatRoomVC = ConversationViewController()
        chatRoomVC.output.chatRoom = chatRoom
-        viewController?.navigationController?.hidesBottomBarWhenPushed = true
+        chatRoomVC.hidesBottomBarWhenPushed = true
         viewController?.navigationController?.pushViewController(chatRoomVC, animated: true)
     }
     

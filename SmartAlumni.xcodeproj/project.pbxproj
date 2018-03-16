@@ -61,6 +61,14 @@
 		915B98D22059736F0093FAD5 /* ProjectsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D12059736F0093FAD5 /* ProjectsCollectionViewCell.swift */; };
 		915B98D420597F020093FAD5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D320597F020093FAD5 /* Project.swift */; };
 		915B98D620598E8D0093FAD5 /* ProjectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98D520598E8D0093FAD5 /* ProjectAPI.swift */; };
+		915B98E8205AAE2B0093FAD5 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98DB205AAE2B0093FAD5 /* ProjectDetailViewModel.swift */; };
+		915B98E9205AAE2B0093FAD5 /* ProjectDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98DD205AAE2B0093FAD5 /* ProjectDetailPresenter.swift */; };
+		915B98EA205AAE2B0093FAD5 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98DF205AAE2B0093FAD5 /* ProjectDetailViewController.swift */; };
+		915B98EB205AAE2B0093FAD5 /* ProjectDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98E1205AAE2B0093FAD5 /* ProjectDetailConfigurator.swift */; };
+		915B98EC205AAE2B0093FAD5 /* ProjectDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98E3205AAE2B0093FAD5 /* ProjectDetailWorker.swift */; };
+		915B98ED205AAE2B0093FAD5 /* ProjectDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98E5205AAE2B0093FAD5 /* ProjectDetailInteractor.swift */; };
+		915B98EE205AAE2B0093FAD5 /* ProjectDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98E7205AAE2B0093FAD5 /* ProjectDetailRouter.swift */; };
+		915B98F0205AB8590093FAD5 /* Donor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B98EF205AB8590093FAD5 /* Donor.swift */; };
 		915C33841F38A32600729106 /* SignUpConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33771F38A32600729106 /* SignUpConfigurator.swift */; };
 		915C33851F38A32600729106 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C33791F38A32600729106 /* SignUpInteractor.swift */; };
 		915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C337B1F38A32600729106 /* SignUpPresenter.swift */; };
@@ -230,6 +238,14 @@
 		915B98D12059736F0093FAD5 /* ProjectsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCollectionViewCell.swift; sourceTree = "<group>"; };
 		915B98D320597F020093FAD5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
 		915B98D520598E8D0093FAD5 /* ProjectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectAPI.swift; path = Networking/ProjectAPI.swift; sourceTree = "<group>"; };
+		915B98DB205AAE2B0093FAD5 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
+		915B98DD205AAE2B0093FAD5 /* ProjectDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailPresenter.swift; sourceTree = "<group>"; };
+		915B98DF205AAE2B0093FAD5 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		915B98E1205AAE2B0093FAD5 /* ProjectDetailConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailConfigurator.swift; sourceTree = "<group>"; };
+		915B98E3205AAE2B0093FAD5 /* ProjectDetailWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailWorker.swift; sourceTree = "<group>"; };
+		915B98E5205AAE2B0093FAD5 /* ProjectDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailInteractor.swift; sourceTree = "<group>"; };
+		915B98E7205AAE2B0093FAD5 /* ProjectDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailRouter.swift; sourceTree = "<group>"; };
+		915B98EF205AB8590093FAD5 /* Donor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Donor.swift; path = Models/Donor.swift; sourceTree = "<group>"; };
 		915C33771F38A32600729106 /* SignUpConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfigurator.swift; sourceTree = "<group>"; };
 		915C33791F38A32600729106 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		915C337B1F38A32600729106 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -703,6 +719,76 @@
 			isa = PBXGroup;
 			children = (
 				915B98C7204DCB7B0093FAD5 /* ProjectsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		915B98D9205AAE2B0093FAD5 /* ProjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				915B98DA205AAE2B0093FAD5 /* ViewModel */,
+				915B98DC205AAE2B0093FAD5 /* Presenter */,
+				915B98DE205AAE2B0093FAD5 /* View */,
+				915B98E0205AAE2B0093FAD5 /* Configurator */,
+				915B98E2205AAE2B0093FAD5 /* Worker */,
+				915B98E4205AAE2B0093FAD5 /* Interactor */,
+				915B98E6205AAE2B0093FAD5 /* Router */,
+			);
+			path = ProjectDetail;
+			sourceTree = "<group>";
+		};
+		915B98DA205AAE2B0093FAD5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				915B98DB205AAE2B0093FAD5 /* ProjectDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		915B98DC205AAE2B0093FAD5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				915B98DD205AAE2B0093FAD5 /* ProjectDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		915B98DE205AAE2B0093FAD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				915B98DF205AAE2B0093FAD5 /* ProjectDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		915B98E0205AAE2B0093FAD5 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				915B98E1205AAE2B0093FAD5 /* ProjectDetailConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		915B98E2205AAE2B0093FAD5 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				915B98E3205AAE2B0093FAD5 /* ProjectDetailWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		915B98E4205AAE2B0093FAD5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				915B98E5205AAE2B0093FAD5 /* ProjectDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		915B98E6205AAE2B0093FAD5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				915B98E7205AAE2B0093FAD5 /* ProjectDetailRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1302,6 +1388,7 @@
 				916287871F799ADC0015F467 /* PollOption.swift */,
 				91EB8DC01F749F2700D37371 /* Department.swift */,
 				916287851F790FA80015F467 /* Poll.swift */,
+				915B98EF205AB8590093FAD5 /* Donor.swift */,
 				915B98CF204F6FFF0093FAD5 /* Voter.swift */,
 				91B724501FC66C5F00961F40 /* PollVisibility.swift */,
 				91EB8DC21F749F3D00D37371 /* Faculty.swift */,
@@ -1390,6 +1477,7 @@
 			isa = PBXGroup;
 			children = (
 				915B98B9204DCB7B0093FAD5 /* Projects */,
+				915B98D9205AAE2B0093FAD5 /* ProjectDetail */,
 				91CD9511203C503D005D535A /* NewProject */,
 				91CD9527203C515A005D535A /* Project.storyboard */,
 			);
@@ -1860,12 +1948,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Dropdowns/Dropdowns.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Paystack/Paystack.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1873,7 +1963,7 @@
 				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/StarscreamSocketIO/StarscreamSocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1881,12 +1971,14 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropdowns.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Paystack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1894,7 +1986,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StarscreamSocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1975,6 +2067,7 @@
 				915B98C8204DCB7B0093FAD5 /* ProjectsViewModel.swift in Sources */,
 				91DB84A61FDF454C00C4B033 /* MessagesViewController.swift in Sources */,
 				9134F6AB1FC782240037202D /* PollVisibilityPresenter.swift in Sources */,
+				915B98F0205AB8590093FAD5 /* Donor.swift in Sources */,
 				915C33881F38A32600729106 /* SignUpViewController.swift in Sources */,
 				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
 				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
@@ -1999,6 +2092,7 @@
 				91ABBD57202B8501005F2C05 /* SelectFacultyViewController.swift in Sources */,
 				91835567202D8C8900664BDC /* TransactionDetailViewModel.swift in Sources */,
 				9190AEA21F4F9197003DEA3F /* SelectSchoolViewController.swift in Sources */,
+				915B98ED205AAE2B0093FAD5 /* ProjectDetailInteractor.swift in Sources */,
 				9190AE9E1F4F9197003DEA3F /* SelectSchoolConfigurator.swift in Sources */,
 				915C33871F38A32600729106 /* SignUpRouter.swift in Sources */,
 				916287881F799ADC0015F467 /* PollOption.swift in Sources */,
@@ -2084,10 +2178,14 @@
 				9164AA461FA3890A00A66F37 /* PollsPresenter.swift in Sources */,
 				91835568202D8C8900664BDC /* TransactionDetailPresenter.swift in Sources */,
 				91EDAF421FCD0B04001E68D9 /* PollCompletionInteractor.swift in Sources */,
+				915B98EB205AAE2B0093FAD5 /* ProjectDetailConfigurator.swift in Sources */,
+				915B98E9205AAE2B0093FAD5 /* ProjectDetailPresenter.swift in Sources */,
 				918D42921F54DBBA00C848FA /* SelectSetViewController.swift in Sources */,
+				915B98EC205AAE2B0093FAD5 /* ProjectDetailWorker.swift in Sources */,
 				915B98CA204DCB7B0093FAD5 /* ProjectsViewController.swift in Sources */,
 				91CD9526203C503D005D535A /* NewProjectRouter.swift in Sources */,
 				91DB84A91FDF454C00C4B033 /* MessagesInteractor.swift in Sources */,
+				915B98EE205AAE2B0093FAD5 /* ProjectDetailRouter.swift in Sources */,
 				913C54331FC09DA100B7B554 /* PollCell.swift in Sources */,
 				91E07A482035BAA60069FDC3 /* ConversationViewModel.swift in Sources */,
 				918D42931F54DBBA00C848FA /* SelectSetViewModel.swift in Sources */,
@@ -2099,6 +2197,7 @@
 				91ABBD6B202D1242005F2C05 /* WalletLandingPresenter.swift in Sources */,
 				91185B081FB5ACD800ADFD39 /* OptionCell.swift in Sources */,
 				91DB84A81FDF454C00C4B033 /* MessagesWorker.swift in Sources */,
+				915B98EA205AAE2B0093FAD5 /* ProjectDetailViewController.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
 				91EDAF5A1FCD14AA001E68D9 /* VisibilityOptionInteractor.swift in Sources */,
 				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
@@ -2108,6 +2207,7 @@
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				911955BE20494CFD00DFD419 /* SchoolDetails.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
+				915B98E8205AAE2B0093FAD5 /* ProjectDetailViewModel.swift in Sources */,
 				9115B39C202517A200FAB317 /* SelectSchoolCategoryVC.swift in Sources */,
 				9134F6AE1FC782310037202D /* PollVisibilityWorker.swift in Sources */,
 				91EDAF3E1FCD0B04001E68D9 /* PollCompletionPresenter.swift in Sources */,

@@ -17,6 +17,8 @@ target 'SmartAlumni' do
     pod 'Segmentio', :git => 'https://github.com/Yalantis/Segmentio.git' , :branch => 'master'
     pod 'SkyFloatingLabelTextField', '~> 3.0'
     pod 'MessageKit'
+    pod 'Dropdowns'
+    pod 'Paystack'
     pod 'Socket.IO-Client-Swift', '~> 13.1.0'
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     

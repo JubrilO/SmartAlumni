@@ -9,6 +9,7 @@
 import UIKit
 import Segmentio
 import Kingfisher
+import Dropdowns
 
 protocol ProjectsViewControllerInput: ProjectsPresenterOutput {
 
@@ -24,6 +25,8 @@ final class ProjectsViewController: UIViewController {
 
     var output: ProjectsViewControllerOutput!
     var router: ProjectsRouterProtocol!
+    var dropDown: DropdownController?
+
 
     @IBOutlet weak var segmentioView: Segmentio!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,6 +68,11 @@ final class ProjectsViewController: UIViewController {
         self.title = "Projects"
         setupSegmentio()
         output.fetchProjects()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //self.tabBarController?.tabBar.isHidden = false
     }
     
     func setupSegmentio() {
@@ -110,11 +118,43 @@ final class ProjectsViewController: UIViewController {
 
 
     @IBAction func onFilterButtonClick(_ sender: UIButton) {
-        
+        if dropDown == nil {
+            toggleDropDown()
+        }
+        else {
+            dropDown?.hide()
+            dropDown = nil
+        }
     }
     
     @IBAction func onNewPollButtonClick(_ sender: UIBarButtonItem) {
+        dropDown?.hide()
+    }
+    
+    func toggleDropDown() {
+        let items = ["Top Picks", "Sets", "Faculties"]
+        Config.List.backgroundColor = UIColor.white
+        Config.List.rowHeight = 40
+        Config.List.DefaultCell.Text.font = UIFont.systemFont(ofSize: 15)
+        Config.List.DefaultCell.Text.color = UIColor.black
+        Config.List.Cell.config = { cell, item, index, selected in
+            guard let cell = cell as? TableCell else { return }
+
+            cell.label.text = item.capitalized
+            cell.checkmark.isHidden = !selected
+        }
+        let contentController = TableController(items: items, initialIndex: 0)
         
+        contentController.dismiss = {[weak self] in
+            self?.dropDown?.hide()
+            self?.dropDown = nil
+        }
+        contentController.action = {[weak self] index in
+            self?.dropDown?.hide()
+            self?.dropDown = nil
+        }
+        dropDown = DropdownController(contentController: contentController, containerView: collectionView, offsetY: 0)
+        dropDown?.toggle()
     }
     
     
@@ -155,6 +195,14 @@ extension ProjectsViewController: UICollectionViewDataSource {
         let url = URL(string: project.imageURL)
         cell.projectImageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.3))], progressBlock: nil, completionHandler: nil)
         return cell
+    }
+}
+
+extension ProjectsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedProject = output.projects[indexPath.item]
+        router.navigateToProjectDetails(project: selectedProject)
     }
 }
 

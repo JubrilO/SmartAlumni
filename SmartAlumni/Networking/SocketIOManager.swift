@@ -25,9 +25,11 @@ class SocketIOManager: NSObject {
         static let MessageToClient = "message_to_client"
     }
     
-    let socket =  SocketIOClient(socketURL: URL(string: "https://www.smartalumni.ng")!, config: [.log(true)])
+    let manager =  SocketManager(socketURL: URL(string: "https://www.smartalumni.ng")!, config: [.log(true)])
+    let socket: SocketIOClient
     
     override init() {
+        self.socket = manager.defaultSocket
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(handleReceiveMessageData), name: .messageToClient, object: nil)
     }

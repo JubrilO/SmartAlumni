@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.6.0)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
+  - Dropdowns (2.0.0)
   - Fabric (1.7.3)
   - Firebase/Core (4.8.2):
     - FirebaseAnalytics (= 4.0.9)
@@ -35,6 +36,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Paystack (3.0.4):
+    - Paystack/Core (= 3.0.4)
+  - Paystack/Core (3.0.4)
   - PhoneNumberKit (2.1.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
     - PhoneNumberKit/UIKit (= 2.1.0)
@@ -59,15 +63,16 @@ PODS:
     - Realm (= 3.1.1)
   - Segmentio (3.0)
   - SkyFloatingLabelTextField (3.4.0)
-  - Socket.IO-Client-Swift (11.1.3):
-    - StarscreamSocketIO (~> 8.0.5)
-  - StarscreamSocketIO (8.0.7)
+  - Socket.IO-Client-Swift (13.1.1):
+    - Starscream (~> 3.0.2)
+  - Starscream (3.0.4)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Crashlytics (~> 3.9.3)
+  - Dropdowns
   - Fabric (~> 1.7.2)
   - Firebase/Core
   - Firebase/Storage
@@ -75,12 +80,13 @@ DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - Locksmith
   - MessageKit
+  - Paystack
   - PhoneNumberKit
   - PromiseKit (~> 4.4)
   - RealmSwift
   - Segmentio (from `https://github.com/Yalantis/Segmentio.git`, branch `master`)
   - SkyFloatingLabelTextField (~> 3.0)
-  - Socket.IO-Client-Swift (~> 11.1.3)
+  - Socket.IO-Client-Swift (~> 13.1.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
 
@@ -103,6 +109,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
   Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
@@ -116,17 +123,18 @@ SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   MessageKit: fc74d71d9b05385138d47b3a4b7beef5c687daf1
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Paystack: 027a5d476f87992b4fc7a4a623b446ec5544b8f2
   PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
   PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   Segmentio: 1607fba3b42230f5f91e997d1a3f337f1176674c
   SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
-  Socket.IO-Client-Swift: b8e59ddc16bc3609ca2f49a4b50253f095d535c8
-  StarscreamSocketIO: 00b54e4208481ca5cef089545353aaf126bae16d
+  Socket.IO-Client-Swift: f22222913f29801e30ae0df712db663ec096edc2
+  Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: fb6606efccb68fcc9865aa5231c565df745a0e17
+PODFILE CHECKSUM: e0d8015d403d5cb138a8af5f3f4c93178c8a3cda
 
 COCOAPODS: 1.3.1

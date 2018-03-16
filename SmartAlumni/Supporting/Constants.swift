@@ -38,6 +38,7 @@ struct Constants {
         static let WalletLandingScene = "WalletLandingScene"
         static let TransactionDetailScene = "TransactionDetailScene"
         static let MessagesScene = "MessagesScene"
+        static let ProjectDetailScene = "ProjectDetailScene"
     }
     
     struct StoryboardNames {
@@ -45,6 +46,7 @@ struct Constants {
         static let Polls = "Polls"
         static let Wallet = "Wallet"
         static let Landing = "Landing"
+        static let Project = "Project"
     }
     
     struct CellIdentifiers {
