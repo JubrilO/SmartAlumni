@@ -57,6 +57,14 @@ class Message: MessageType {
         switch type {
         case .text:
             self.data = .text(text)
+        case .image(let url):
+            let url = URL(string: url)!
+            self.data = .photo(UIImage())
+            if let data = try? Data(contentsOf: url){
+                //guard let image = UIImage(data: data) else {return}
+            }
+        case .contact(let name, let email, let phone):
+            print("")
         case .admin:
             self.content = ""
         default:

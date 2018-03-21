@@ -31,6 +31,7 @@ class PollAPI {
                 case .success:
                     guard let jsonData = response.result.value else {return}
                     let pollsTuple = Utilities.parsePollsFromJSON(json: JSON(jsonData))
+                    Utilities.addPollsToRealm(pollsTuple.polls)
                     completionHandler(pollsTuple.polls, pollsTuple.error)
                 case .failure(let error):
                     print(error)
@@ -42,7 +43,7 @@ class PollAPI {
     }
     
     func votePoll(pollID: String, userID: String, optionIndex: Int, completionHandler: @escaping (Bool, String?) -> ()){
-        let parameters = [ "id" : userID, "voter" : ["user" : userID, "option" : optionIndex ]] as [String : Any]
+        let parameters = [ "id" : pollID, "voter" : ["user" : userID, "option" : optionIndex ]] as [String : Any]
         print("Parameters \(parameters)")
         Alamofire.request(APIConstants.VotePollURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{
             response in

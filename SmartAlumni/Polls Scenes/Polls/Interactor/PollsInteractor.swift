@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol PollsInteractorInput: PollsViewControllerOutput {
 
@@ -61,11 +62,15 @@ final class PollsInteractor: PollsViewControllerOutput {
     }
     
     func loadOngoingPolls() {
+        let realm = try! Realm()
+        ongoingPolls = Array(realm.objects(Poll.self).filter("pollStat == 'ongoing'"))
         polls = ongoingPolls
         output.presentPolls()
     }
     
     func loadCompletedPolls() {
+        let realm = try! Realm()
+        completedPolls = Array(realm.objects(Poll.self).filter("pollStat == 'completed'"))
         polls = completedPolls
         output.presentPolls()
     }

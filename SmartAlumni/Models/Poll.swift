@@ -8,18 +8,23 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class Poll {
-    var id = ""
-    var name = ""
-    var question = ""
-    var startDate = Date()
-    var endDate = Date()
-    var voters = [Voter]()
-    var status = PollStatus.ongoing
-    var options = [PollOption]()
+class Poll: Object {
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var question = ""
+    @objc dynamic var startDate = Date()
+    @objc dynamic var endDate = Date()
+    let voters = List<Voter>()
+    @objc private dynamic var pollStat = PollStatus.ongoing.rawValue
+    var status: PollStatus {
+        get{return PollStatus(rawValue: pollStat)!}
+        set{pollStat = newValue.rawValue}
+    }
+    let options = List<PollOption>()
     
-    enum PollStatus {
+    enum PollStatus: String {
         case ongoing
         case completed
     }
@@ -30,19 +35,15 @@ class Poll {
         self.name = json["name"].stringValue
         self.question = json["question"].stringValue
         let optionsArray = json["options"].arrayValue
-        var options = [PollOption]()
         for optionJSON in optionsArray {
             let pollOption = PollOption(json: optionJSON)
-            options.append(pollOption)
+            self.options.append(pollOption)
         }
         let votersArray = json["voters"].arrayValue
-        var voters = [Voter]()
         for voterJson in  votersArray {
             let voter = Voter(json: voterJson)
-            voters.append(voter)
+            self.voters.append(voter)
         }
-        self.voters = voters
-        self.options = options
         if json["status"].stringValue == "ongoing" {
             self.status = PollStatus.ongoing
         }
@@ -55,6 +56,10 @@ class Poll {
             self.startDate = startDate
             self.endDate = endDate
         }
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     private func convertStringToDate(dateString: String) -> Date? {

@@ -69,7 +69,6 @@ final class PollsViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         setupSegmentio()
-        
     }
 
 
@@ -187,7 +186,6 @@ extension PollsViewController: UITableViewDataSource, UITableViewDelegate {
         if currentCell.questionLabel.numberOfVisibleLines > 1 || currentCell.titleLabel.numberOfVisibleLines > 1 {
             let titleHeight = ((titleLabelHeight - 19 + 2) * CGFloat((titleNumberofLines - 1)))
             let questionHeight = ((questionLabelHeight - 14 + 1)   * CGFloat((questionNumberOfLines - 1)))
-            print("More than one line")
             return 200.0 + (49.0 * CGFloat(poll.options.count - 1) + questionHeight + titleHeight)
         }
         return 200.0 + (49.0 * CGFloat(poll.options.count - 1))

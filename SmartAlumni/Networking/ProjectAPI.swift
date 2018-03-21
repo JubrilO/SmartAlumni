@@ -41,4 +41,26 @@ class ProjectAPI {
             }
         }
     }
+    
+    func fundProject(amount: Int, project: Project, transactionRef: String) {
+        let realm = try! Realm()
+        let user = realm.objects(User.self)[0]
+        let parameters: [String : Any] = ["email": user.email, "user_id": user.uid , "project_id":project.id, "reference":transactionRef, "amount":String(amount)]
+        Alamofire.request(APIConstants.FundProjectURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                guard let jsonData = response.result.value else {
+                    print("Error: Could not fetch json data")
+                    return
+                }
+                print(jsonData)
+                
+            case .failure(let error):
+                print(error)
+            }
+
+        }
+    }
 }

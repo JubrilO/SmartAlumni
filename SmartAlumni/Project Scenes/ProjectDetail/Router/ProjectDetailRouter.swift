@@ -12,7 +12,7 @@ protocol ProjectDetailRouterProtocol {
 
     weak var viewController: ProjectDetailViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToFundProject(project: Project)
 }
 
 final class ProjectDetailRouter {
@@ -36,7 +36,12 @@ extension ProjectDetailRouter: ProjectDetailRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-
-    }
+    func navigateToFundProject(project: Project) {
+        let fundProjectVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.FundProjectScene)
+        fundProjectVC?.hidesBottomBarWhenPushed = true
+        UIApplication.shared.keyWindow?.addSubview(viewController!.view)
+        
+ viewController?.navigationController?.pushViewController(fundProjectVC!, animated: true)
+        viewController!.view.removeFromSuperview()
+        }
 }

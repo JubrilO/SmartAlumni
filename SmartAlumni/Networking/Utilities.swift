@@ -161,6 +161,14 @@ class Utilities {
         return parameters
     }
     
+    class func addPollsToRealm(_ polls: [Poll]?) {
+        guard let polls = polls else{return}
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(polls, update: true)
+        }
+    }
+    
 }
 
 struct StringError : LocalizedError {

@@ -39,6 +39,7 @@ struct Constants {
         static let TransactionDetailScene = "TransactionDetailScene"
         static let MessagesScene = "MessagesScene"
         static let ProjectDetailScene = "ProjectDetailScene"
+        static let FundProjectScene = "FundProjectScene"
     }
     
     struct StoryboardNames {
@@ -68,6 +69,7 @@ struct Constants {
         static let borderColor = UIColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)
         static let softBlue = UIColor(red: 107/255, green: 163/255, blue: 241/255, alpha: 1.0)
         static let darkGrey = UIColor(red: 78/255, green: 86/255, blue: 95/255, alpha: 1.0)
+        static let medGrey = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 168/255)
         
     }
     

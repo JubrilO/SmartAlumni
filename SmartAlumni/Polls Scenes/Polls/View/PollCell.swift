@@ -26,13 +26,7 @@ class PollCell: UITableViewCell {
         self.titleLabel.text = poll.name
         self.questionLabel.text = poll.question
         setupOptions(poll: poll, viewController: viewController)
-        if (poll.endDate > Date()) {
-            durationLabel.text = "\(poll.voters.count) Votes. \(poll.endDate.timeAgoSinceNow(useNumericDates: true)) left"
-        }
-        else {
-            durationLabel.text = "\(poll.voters.count) Votes. Ended \(poll.endDate.timeAgoSinceNow(useNumericDates: true))"
-            //displayVotedState(animated: false)
-        }
+        updateVoteCountLabel()
     }
     
     override func prepareForReuse() {
@@ -73,6 +67,15 @@ class PollCell: UITableViewCell {
         else {
             return true
             
+        }
+    }
+    
+    func updateVoteCountLabel() {
+        if (poll.endDate > Date()) {
+            durationLabel.text = "\(poll.voters.count) Votes. \(poll.endDate.timeAgoSinceNow(useNumericDates: true)) left"
+        }
+        else {
+            durationLabel.text = "\(poll.voters.count) Votes. Ended \(poll.endDate.timeAgoSinceNow(useNumericDates: true))"
         }
     }
     
@@ -119,7 +122,15 @@ class PollCell: UITableViewCell {
         if let optionView = sender.view as? OptionView {
             let realm = try! Realm()
             let user = realm.objects(User.self)[0]
+            let voter = Voter()
+            voter.userID = user.uid
+            voter.selectedOption = optionView.option.index
+            try! realm.write {
+                poll.voters.append(voter)
+                optionView.option.numberOfVotes += 1
+            }
             performVoteAnimationSequence(optionView: optionView)
+            updateVoteCountLabel()
             PollAPI.sharedManager.votePoll(pollID: poll.id, userID: user.uid, optionIndex: optionView.option.index) {
                 voteComplete, error in
                 if voteComplete {

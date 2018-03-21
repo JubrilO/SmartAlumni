@@ -8,10 +8,11 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class Voter {
-    var userID = ""
-    var selectedOption = 0
+class Voter: Object {
+    @objc dynamic var userID = ""
+    @objc dynamic var selectedOption = 0
     
     required convenience init(json: JSON) {
         self.init()

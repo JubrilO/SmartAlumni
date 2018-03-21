@@ -210,6 +210,8 @@ extension ConversationViewController: MessagesDataSource {
     func numberOfMessages(in messagesCollectionView: MessagesCollectionView) -> Int {
         return output.messages.count
     }
+    
+    
 }
 
 
@@ -253,7 +255,7 @@ extension ConversationViewController: MessagesDisplayDelegate {
         }()
         if let message = message as? Message {
         switch message.type {
-        case .text:
+        case .text, .image:
             return NSAttributedString(string: message.sender.displayName, attributes: defaultAttributes)
         default:
             return nil
@@ -274,7 +276,7 @@ extension ConversationViewController: MessagesDisplayDelegate {
         dateFormatter.dateFormat = "h:mma"
         let dateString = dateFormatter.string(from: message.sentDate)
         switch message.type {
-        case .text:
+        case .text, .image:
             return NSAttributedString(string: dateString, attributes: defaultAttributes)
         default:
             break

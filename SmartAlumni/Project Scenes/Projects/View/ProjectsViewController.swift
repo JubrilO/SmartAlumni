@@ -153,7 +153,7 @@ final class ProjectsViewController: UIViewController {
             self?.dropDown?.hide()
             self?.dropDown = nil
         }
-        dropDown = DropdownController(contentController: contentController, containerView: collectionView, offsetY: 0)
+        dropDown = DropdownController(contentController: contentController, containerView: self.view, offsetY: filterButton.bounds.height+1)
         dropDown?.toggle()
     }
     

@@ -11,6 +11,7 @@ import Locksmith
 import RealmSwift
 import Firebase
 import Fabric
+import Paystack
 import Crashlytics
 import IQKeyboardManagerSwift
 
@@ -24,6 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        Paystack.setDefaultPublicKey("pk_test_xxxx")
+        let config = Realm.Configuration(
+            schemaVersion: 4,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
         let realm = try! Realm()
         let signUpStage1 = UserDefaults.standard.bool(forKey: Constants.UserDefaults.SignUpStage1)
         let signUpStage2 = UserDefaults.standard.bool(forKey: Constants.UserDefaults.SignUpStage2)
@@ -66,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         Fabric.with([Crashlytics.self])
+        
         return true
     }
     

@@ -88,7 +88,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PollCell" id="TZg-z7-6GQ" customClass="PollCell" customModule="SmartAlumni" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TZg-z7-6GQ" id="4Ac-yz-j8y">
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TZg-z7-6GQ" id="4Ac-yz-j8y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -721,7 +721,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="vvd-EX-CG7">
             <objects>
-                <tabBarController storyboardIdentifier="LandingTabBarScene" id="mrQ-Oa-4qW" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LandingTabBarScene" hidesBottomBarWhenPushed="YES" id="mrQ-Oa-4qW" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="dXN-Gi-l2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

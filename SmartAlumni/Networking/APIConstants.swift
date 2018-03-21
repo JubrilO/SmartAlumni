@@ -27,7 +27,7 @@ struct APIConstants {
     static let GetMessagesURL = ChatRoomURL + "/get-chat-history"
     static let ProjectURL = RootURL + "/project"
     static let UsersProjectURL = ProjectURL + "/user"
-
+    static let FundProjectURL = ProjectURL + "/fund-project"
 }
 
 

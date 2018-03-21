@@ -8,13 +8,14 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class PollOption {
+class PollOption: Object {
     
-    var id = ""
-    var name = ""
-    var numberOfVotes = 0
-    var index = 0
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var numberOfVotes = 0
+    @objc dynamic var index = 0
     
     required convenience init(json: JSON) {
         self.init()

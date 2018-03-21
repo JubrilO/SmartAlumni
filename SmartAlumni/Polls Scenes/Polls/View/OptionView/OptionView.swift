@@ -20,6 +20,8 @@ class OptionView: UIView {
     
     override func draw(_ rect: CGRect) {
         backgroundView.layer.borderWidth = 1
+        backgroundView.layer.cornerRadius = 2
+        backgroundView.clipsToBounds = true
         backgroundView.layer.borderColor = Constants.Colors.softBlue.cgColor
     }
     

@@ -17,6 +17,7 @@ class Project {
     var description = ""
     var schoolName = ""
     var set = ""
+    var paystackSubaccount = ""
     var raisedAmount: Double = 0
     var donors = [Donor]()
     var imageURL = ""
@@ -31,6 +32,7 @@ class Project {
         self.description = json["description"].stringValue
         self.status = json["status"].stringValue
         self.imageURL = json["image"].stringValue
+        self.paystackSubaccount = json["paystack_subaccount"].stringValue
         self.schoolName = json["visibility"]["school"]["name"].stringValue
         self.raisedAmount = json["raised_amount"].doubleValue
         let startDateString = json["start_date"].stringValue

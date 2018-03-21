@@ -84,7 +84,7 @@ final class ProjectDetailViewController: UIViewController {
     }
     
     @IBAction func onFundProjectButtonClick(_ sender: UIButton) {
-        
+        router.navigateToFundProject(project: output.project)
     }
     
     @IBAction func onReadMoreButtonClick(_ sender: UIButton) {
@@ -94,25 +94,6 @@ final class ProjectDetailViewController: UIViewController {
     
     func fetchProject() {
         output.fetchProject()
-    }
-    
-    func setupProjectDetails() {
-        
-        titleLabel.text = output.project.title.capitalized
-        descriptionLabel.text = output.project.description
-        goalLabel.text = "Goal: NGN \(output.project.amount)"
-        imageView.kf.setImage(with: URL(string: output.project.imageURL))
-        progressLabel.text = "\(output.project.percentageCompletion())%"
-        donorsLabel.text = String(output.project.donors.count)
-        if let days = output.project.numberOfDaysLeft() {
-            daysLeftLabel.text = String(days)
-        }
-    }
-    
-    func doSomethingOnLoad() {
-        
-        // TODO: Ask the Interactor to do some work
-        
     }
 }
 
@@ -134,5 +115,9 @@ extension ProjectDetailViewController: ProjectDetailViewControllerInput {
         progressLabel.text = viewModel.precentageCompletion
         donorsLabel.text = viewModel.donorCount
         daysLeftLabel.text = viewModel.daysLeft
+        readMoreButton.isHidden = true
+        if descriptionLabel.numberOfVisibleLines > 4 {
+            readMoreButton.isHidden = false
+        }
     }
 }

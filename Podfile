@@ -19,8 +19,10 @@ target 'SmartAlumni' do
     pod 'MessageKit'
     pod 'Dropdowns'
     pod 'Paystack'
+    pod 'EasyTipView', :git => 'https://github.com/igorkislyuk/EasyTipView.git', :branch => 'master'
     pod 'Socket.IO-Client-Swift', '~> 13.1.0'
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
+    
     
 end
 
