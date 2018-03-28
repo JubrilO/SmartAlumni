@@ -53,7 +53,15 @@ final class ConversationInteractor: ConversationViewControllerOutput {
                 self.output.presentError(error: error)
                 return
             }
-            self.messages = messages
+            for message in messages {
+                switch message.type {
+                case .image(let url):
+                message.data = self.setMessageData(data: url, contentType: "image", messageIndex: self.messages.count)
+                default:
+                    message.data = .text(message.content)
+                }
+                self.messages.append(message)
+            }
             self.output.presentMessages()
         }
         connectSocket()
@@ -85,8 +93,41 @@ final class ConversationInteractor: ConversationViewControllerOutput {
         SocketIOManager.sharedInstance.sendMessage(message: textMessage)
     }
     
+    func setMessageData(data: String, contentType: String, messageIndex: Int) -> MessageData {
+        if contentType.range(of:"image") != nil {
+            let imageView = UIImageView()
+            let url = URL(string: data)!
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: url, completionHandler: {
+                (image, error, cacheType, imageUrl) in
+                if (image != nil) {
+                    self.reloadMessage(messageIndex, MessageData.photo(image!))
+                }
+            })
+            if (imageView.image != nil) {
+                return MessageData.photo(imageView.image!)
+            }
+            return MessageData.photo(UIImage(named: "messageImagePlaceholder")!)
+        } else if contentType.range(of:"video") != nil {
+            let url = URL(string: data)!
+            return MessageData.video(file: url, thumbnail: UIImage(named: "videoThumbnail")!)
+        }
+        return MessageData.text(data)
+    }
     
-    // MARK: - Websocket Delegate
-    
+    func reloadMessage(_ messageIndex: Int,_ messageData :MessageData) -> Void {
+        if messageIndex < messages.count {
+            let oldMessage = messages[messageIndex]
+            let message = Message()
+            message.sender = oldMessage.sender
+            message.messageId = oldMessage.messageId
+            message.sentDate = oldMessage.sentDate
+            message.data = messageData
+            messages[messageIndex] = message
+            self.output.presentMessages()
+            //self.messagesCollectionView.reloadData()
+            //self.messagesCollectionView.scrollToBottom()
+        }
+    }
     
 }

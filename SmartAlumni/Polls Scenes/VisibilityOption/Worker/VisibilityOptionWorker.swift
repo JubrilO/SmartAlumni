@@ -15,7 +15,7 @@ class VisibilityOptionWorker {
 
     func fetchSchools(completionHandler: @escaping ([School]?, Error?) -> ()) {
         
-        SchoolAPI.sharedManager.getAllSchools() {
+        SchoolAPI.sharedManager.getAllUsersSchools() {
             schools, error in
             completionHandler(schools, error)
         }

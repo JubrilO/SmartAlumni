@@ -121,6 +121,17 @@ class Utilities {
         }
     }
     
+    class func parseProjectFromJSON(json: JSON) -> (project: Project?, error: Error?) {
+        if json["status"].stringValue == Constants.Success {
+            let project = Project(json: json["data"])
+            return (project, nil)
+        }
+        else {
+            let error = json["err"].stringValue
+            return(nil, StringError(error))
+        }
+    }
+    
     class func parseSuccessFromJSON(json: JSON) -> (success: Bool, error: String?) {
         print(json)
         if json["status"].stringValue == Constants.Success {

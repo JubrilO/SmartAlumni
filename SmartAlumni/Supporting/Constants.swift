@@ -40,6 +40,7 @@ struct Constants {
         static let MessagesScene = "MessagesScene"
         static let ProjectDetailScene = "ProjectDetailScene"
         static let FundProjectScene = "FundProjectScene"
+        static let NewProjectScene = "NewProjectScene"
     }
     
     struct StoryboardNames {
@@ -58,6 +59,8 @@ struct Constants {
         static let TransactionCell = "TransactionCell"
         static let MessageCell = "messageCell"
         static let ProjectCell = "ProjectCell"
+        static let EditProfileCell = "EditProfileCell"
+        static let SwitchControlCell = "SwitchControlCell"
     }
     
     struct  Errors {

@@ -183,6 +183,8 @@ extension ConversationViewController: ConversationViewControllerInput {
     
     func displayMessages() {
         messagesCollectionView.reloadData()
+        //messagesCollectionView.scrollToBottom()
+
     }
     
     func displayIncomingMessage() {
@@ -458,7 +460,7 @@ extension ConversationViewController: MessageInputBarDelegate {
                 messagesCollectionView.insertSections([output.messages.count - 1])
             }
             else if let text = component as? String {
-                let textMessage = Message(sender: user, text: text, type: .text, messageID: messageID, chatRoomID: output.chatRoom.id)
+                let textMessage = Message(sender: user, text: text, type: .text(text: text), messageID: messageID, chatRoomID: output.chatRoom.id)
                 output.send(textMessage: textMessage)
                 output.messages.append(textMessage)
                 messagesCollectionView.insertSections([output.messages.count - 1])

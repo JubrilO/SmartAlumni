@@ -56,6 +56,7 @@ class Project {
     
     func numberOfDaysLeft() -> Int? {
         guard let start = startDate, let end = endDate else {return nil}
+        if end < Date() {return 0}
         let calendar = Calendar.current
         let unitFlag = Set<Calendar.Component>([ .day])
         let dateComponents = calendar.dateComponents(unitFlag, from: start, to: end)

@@ -9,45 +9,45 @@
 import UIKit
 
 protocol NewProjectInteractorInput: NewProjectViewControllerOutput {
-
+    
 }
 
 protocol NewProjectInteractorOutput {
-
+    
     func presentSomething()
 }
 
-final class NewProjectInteractor {
-
+final class NewProjectInteractor: NewProjectViewControllerOutput {
+    
     let output: NewProjectInteractorOutput
     let worker: NewProjectWorker
-
-
+    
+    var timeInterval = Duration()
+    
+    
     // MARK: - Initializers
-
+    
     init(output: NewProjectInteractorOutput, worker: NewProjectWorker = NewProjectWorker()) {
-
+        
         self.output = output
         self.worker = worker
     }
-}
-
-
-// MARK: - NewProjectInteractorInput
-
-extension NewProjectInteractor: NewProjectViewControllerOutput {
-
-
+    
+    
+    // MARK: - NewProjectInteractorInput
+    
+    
+    
     // MARK: - Business logic
-
+    
     func doSomething() {
-
+        
         // TODO: Create some Worker to do the work
-
+        
         worker.doSomeWork()
-
+        
         // TODO: Pass the result to the Presenter
-
+        
         output.presentSomething()
     }
 }

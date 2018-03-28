@@ -30,13 +30,14 @@ protocol PollVisibilityViewControllerOutput {
     func saveVisibilityOptions()
 }
 
-final class PollVisibilityViewController: UIViewController {
-    
+final class PollVisibilityViewController: UIViewController{
     var output: PollVisibilityViewControllerOutput!
     var router: PollVisibilityRouterProtocol!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var copyLabel: UILabel!
     
+    var pollMode = true
     let pickerView = UIPickerView()
     var pickerData = [String]()
     var selectedIndex = 0
@@ -67,6 +68,12 @@ final class PollVisibilityViewController: UIViewController {
         setupNavBar()
         pickerView.delegate = self
         tableView.tableFooterView = UIView()
+        if pollMode {
+            copyLabel.text = "Choose who can participate in this poll"
+        }
+        else {
+            copyLabel.text = "Choose who can participate in this project"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,11 +94,13 @@ final class PollVisibilityViewController: UIViewController {
     
     func setupTextfields() {
         if output.targetSchool?.category == SchoolCategory.Secondary.rawValue || output.targetSchool?.category == SchoolCategory.Primary.rawValue {
-            textFieldType.remove(at: 1)
-            textFieldType.remove(at: 2)
-            let deparmentIndexPath = IndexPath(row: 2, section: 0)
-            let facultyIndexPath = IndexPath(row: 1, section: 0)
-            tableView.deleteRows(at: [facultyIndexPath, deparmentIndexPath], with: .automatic)
+            if   textFieldType.count > 2 {
+                textFieldType.remove(at: 1)
+                textFieldType.remove(at: 2)
+                let deparmentIndexPath = IndexPath(row: 2, section: 0)
+                let facultyIndexPath = IndexPath(row: 1, section: 0)
+                tableView.deleteRows(at: [facultyIndexPath, deparmentIndexPath], with: .automatic)
+            }
         }
         else {
             textFieldType = ["Target School", "Faculty", "Department", "Set"]

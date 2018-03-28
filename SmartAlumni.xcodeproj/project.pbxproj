@@ -42,6 +42,13 @@
 		913C542C1FBDB6EA00B7B554 /* OptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913C542B1FBDB6EA00B7B554 /* OptionView.xib */; };
 		913C54311FBE405300B7B554 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54301FBE405300B7B554 /* OptionView.swift */; };
 		913C54331FC09DA100B7B554 /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54321FC09DA100B7B554 /* PollCell.swift */; };
+		91432AF920642044000D0ECA /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */; };
+		91432AFA20642044000D0ECA /* ChatRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */; };
+		91432AFB20642044000D0ECA /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF020642043000D0ECA /* ChatRoomViewController.swift */; };
+		91432AFC20642044000D0ECA /* ChatRoomConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */; };
+		91432AFD20642044000D0ECA /* ChatRoomWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF420642043000D0ECA /* ChatRoomWorker.swift */; };
+		91432AFE20642044000D0ECA /* ChatRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF620642043000D0ECA /* ChatRoomInteractor.swift */; };
+		91432AFF20642044000D0ECA /* ChatRoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF820642043000D0ECA /* ChatRoomRouter.swift */; };
 		9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146838E1FB306EF003F2DE1 /* Animation.swift */; };
 		91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */; };
 		91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */; };
@@ -156,6 +163,9 @@
 		91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBC01FAAB2B1007FCCF2 /* NewPollViewModel.swift */; };
 		91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBC21FAAB2B1007FCCF2 /* NewPollWorker.swift */; };
 		91C4FBCF1FAB9F95007FCCF2 /* TimeIntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4FBCE1FAB9F95007FCCF2 /* TimeIntervalPicker.swift */; };
+		91C76007206AF2480035CEAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C76006206AF2480035CEAA /* Settings.storyboard */; };
+		91C76009206B0B690035CEAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C76008206B0B690035CEAA /* SettingsViewController.swift */; };
+		91C7600B206B0CC50035CEAA /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C7600A206B0CC50035CEAA /* EditProfileCell.swift */; };
 		91CD950C20389EDE005D535A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD950B20389EDE005D535A /* SocketIOManager.swift */; };
 		91CD9520203C503D005D535A /* NewProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD9513203C503D005D535A /* NewProjectViewModel.swift */; };
 		91CD9521203C503D005D535A /* NewProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD9515203C503D005D535A /* NewProjectPresenter.swift */; };
@@ -229,6 +239,13 @@
 		913C542B1FBDB6EA00B7B554 /* OptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionView.xib; sourceTree = "<group>"; };
 		913C54301FBE405300B7B554 /* OptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		913C54321FC09DA100B7B554 /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
+		91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
+		91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomPresenter.swift; sourceTree = "<group>"; };
+		91432AF020642043000D0ECA /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomConfigurator.swift; sourceTree = "<group>"; };
+		91432AF420642043000D0ECA /* ChatRoomWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomWorker.swift; sourceTree = "<group>"; };
+		91432AF620642043000D0ECA /* ChatRoomInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomInteractor.swift; sourceTree = "<group>"; };
+		91432AF820642043000D0ECA /* ChatRoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomRouter.swift; sourceTree = "<group>"; };
 		9146838E1FB306EF003F2DE1 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Supporting/Animation.swift; sourceTree = "<group>"; };
 		91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
@@ -352,6 +369,9 @@
 		91C4FBC01FAAB2B1007FCCF2 /* NewPollViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
 		91C4FBC21FAAB2B1007FCCF2 /* NewPollWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPollWorker.swift; sourceTree = "<group>"; };
 		91C4FBCE1FAB9F95007FCCF2 /* TimeIntervalPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalPicker.swift; sourceTree = "<group>"; };
+		91C76006206AF2480035CEAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = "Settings Scenes/Settings.storyboard"; sourceTree = "<group>"; };
+		91C76008206B0B690035CEAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "Settings Scenes/SettingsViewController.swift"; sourceTree = "<group>"; };
+		91C7600A206B0CC50035CEAA /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditProfileCell.swift; path = "Settings Scenes/EditProfileCell.swift"; sourceTree = "<group>"; };
 		91CD950B20389EDE005D535A /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketIOManager.swift; path = Networking/SocketIOManager.swift; sourceTree = "<group>"; };
 		91CD9513203C503D005D535A /* NewProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectViewModel.swift; sourceTree = "<group>"; };
 		91CD9515203C503D005D535A /* NewProjectPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectPresenter.swift; sourceTree = "<group>"; };
@@ -600,6 +620,76 @@
 				913C542B1FBDB6EA00B7B554 /* OptionView.xib */,
 			);
 			path = OptionView;
+			sourceTree = "<group>";
+		};
+		91432AEA20642043000D0ECA /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				91432AEB20642043000D0ECA /* ViewModel */,
+				91432AED20642043000D0ECA /* Presenter */,
+				91432AEF20642043000D0ECA /* View */,
+				91432AF120642043000D0ECA /* Configurator */,
+				91432AF320642043000D0ECA /* Worker */,
+				91432AF520642043000D0ECA /* Interactor */,
+				91432AF720642043000D0ECA /* Router */,
+			);
+			path = ChatRoom;
+			sourceTree = SOURCE_ROOT;
+		};
+		91432AEB20642043000D0ECA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91432AED20642043000D0ECA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		91432AEF20642043000D0ECA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91432AF020642043000D0ECA /* ChatRoomViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91432AF120642043000D0ECA /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		91432AF320642043000D0ECA /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				91432AF420642043000D0ECA /* ChatRoomWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		91432AF520642043000D0ECA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				91432AF620642043000D0ECA /* ChatRoomInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		91432AF720642043000D0ECA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				91432AF820642043000D0ECA /* ChatRoomRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		91503D4D1F4E2C14002C8F46 /* Welcome */ = {
@@ -1150,6 +1240,7 @@
 			children = (
 				9187E1FF1F2F747000A240E3 /* AppDelegate.swift */,
 				916287811F7720510015F467 /* Landing.storyboard */,
+				91C76005206AF20F0035CEAA /* Settings Scenes */,
 				91DB84921FDF440F00C4B033 /* Messaging Scenes */,
 				91CD9510203C503D005D535A /* Project Scenes */,
 				9190AE8C1F4F90EF003DEA3F /* Join School Scenes */,
@@ -1566,6 +1657,16 @@
 			path = "Polls Scenes/NewPoll";
 			sourceTree = "<group>";
 		};
+		91C76005206AF20F0035CEAA /* Settings Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91C76006206AF2480035CEAA /* Settings.storyboard */,
+				91C76008206B0B690035CEAA /* SettingsViewController.swift */,
+				91C7600A206B0CC50035CEAA /* EditProfileCell.swift */,
+			);
+			name = "Settings Scenes";
+			sourceTree = "<group>";
+		};
 		91CD9510203C503D005D535A /* Project Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1651,6 +1752,7 @@
 		91DB84921FDF440F00C4B033 /* Messaging Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				91432AEA20642043000D0ECA /* ChatRoom */,
 				91E07A392035BAA50069FDC3 /* Conversation */,
 				91DB84951FDF454C00C4B033 /* Messages */,
 				91DB84AB1FDF456F00C4B033 /* Messaging.storyboard */,
@@ -2020,6 +2122,7 @@
 				913C542C1FBDB6EA00B7B554 /* OptionView.xib in Resources */,
 				91ABBD74202D2F81005F2C05 /* Wallet.storyboard in Resources */,
 				91DB84AC1FDF456F00C4B033 /* Messaging.storyboard in Resources */,
+				91C76007206AF2480035CEAA /* Settings.storyboard in Resources */,
 				916287821F7720510015F467 /* Landing.storyboard in Resources */,
 				9190AE8B1F4F8FBB003DEA3F /* JoinSchool.storyboard in Resources */,
 				9115B39E2025DC2E00FAB317 /* GoogleService-Info.plist in Resources */,
@@ -2042,6 +2145,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Chatto/Chatto.framework",
+				"${BUILT_PRODUCTS_DIR}/ChattoAdditions/ChattoAdditions.framework",
 				"${BUILT_PRODUCTS_DIR}/Dropdowns/Dropdowns.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -2061,11 +2166,14 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chatto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChattoAdditions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropdowns.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyTipView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -2085,6 +2193,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2156,12 +2265,15 @@
 				91DB84A51FDF454C00C4B033 /* MessagesPresenter.swift in Sources */,
 				91503D611F4E2C14002C8F46 /* WelcomeViewModel.swift in Sources */,
 				9125CA601F4309AD00174534 /* EditProfileInteractor.swift in Sources */,
+				91C7600B206B0CC50035CEAA /* EditProfileCell.swift in Sources */,
 				9164AA481FA3890A00A66F37 /* PollsViewController.swift in Sources */,
 				91E07A4D2035BAA60069FDC3 /* ConversationInteractor.swift in Sources */,
 				91E07A4B2035BAA60069FDC3 /* ConversationConfigurator.swift in Sources */,
 				9183556F202D99ED00664BDC /* Transaction.swift in Sources */,
+				91432AFE20642044000D0ECA /* ChatRoomInteractor.swift in Sources */,
 				91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */,
 				915B98C8204DCB7B0093FAD5 /* ProjectsViewModel.swift in Sources */,
+				91432AFA20642044000D0ECA /* ChatRoomPresenter.swift in Sources */,
 				91DB84A61FDF454C00C4B033 /* MessagesViewController.swift in Sources */,
 				9134F6AB1FC782240037202D /* PollVisibilityPresenter.swift in Sources */,
 				915B98F0205AB8590093FAD5 /* Donor.swift in Sources */,
@@ -2189,6 +2301,7 @@
 				9190AEA11F4F9197003DEA3F /* SelectSchoolRouter.swift in Sources */,
 				91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */,
 				91ABBD57202B8501005F2C05 /* SelectFacultyViewController.swift in Sources */,
+				91C76009206B0B690035CEAA /* SettingsViewController.swift in Sources */,
 				91835567202D8C8900664BDC /* TransactionDetailViewModel.swift in Sources */,
 				9190AEA21F4F9197003DEA3F /* SelectSchoolViewController.swift in Sources */,
 				915B98ED205AAE2B0093FAD5 /* ProjectDetailInteractor.swift in Sources */,
@@ -2198,7 +2311,9 @@
 				91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */,
 				918355772033E0BB00664BDC /* MessageTableViewCell.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
+				91432AFD20642044000D0ECA /* ChatRoomWorker.swift in Sources */,
 				91CD9523203C503D005D535A /* NewProjectConfigurator.swift in Sources */,
+				91432AFF20642044000D0ECA /* ChatRoomRouter.swift in Sources */,
 				91EDAF411FCD0B04001E68D9 /* PollCompletionWorker.swift in Sources */,
 				915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
@@ -2305,15 +2420,18 @@
 				91DB84A81FDF454C00C4B033 /* MessagesWorker.swift in Sources */,
 				915B98EA205AAE2B0093FAD5 /* ProjectDetailViewController.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
+				91432AFB20642044000D0ECA /* ChatRoomViewController.swift in Sources */,
 				91EDAF5A1FCD14AA001E68D9 /* VisibilityOptionInteractor.swift in Sources */,
 				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
+				91432AF920642044000D0ECA /* ChatRoomViewModel.swift in Sources */,
 				9183557920343F7500664BDC /* DateHelper.swift in Sources */,
 				91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */,
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				911955BE20494CFD00DFD419 /* SchoolDetails.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
 				915B98E8205AAE2B0093FAD5 /* ProjectDetailViewModel.swift in Sources */,
+				91432AFC20642044000D0ECA /* ChatRoomConfigurator.swift in Sources */,
 				9115B39C202517A200FAB317 /* SelectSchoolCategoryVC.swift in Sources */,
 				9134F6AE1FC782310037202D /* PollVisibilityWorker.swift in Sources */,
 				91EDAF3E1FCD0B04001E68D9 /* PollCompletionPresenter.swift in Sources */,

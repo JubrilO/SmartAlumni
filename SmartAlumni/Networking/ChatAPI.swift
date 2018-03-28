@@ -37,6 +37,35 @@ class ChatAPI {
         }
     }
     
+    func createDirectMessageChatRoom(senderID: String, receiverID: String, schoolID: String, completionHandler: (Bool, Error?) -> ()) {
+        let parameters: [String:Any] = ["sender_id" : senderID, "receiver_id": receiverID, "school_id" : schoolID]
+        
+        Alamofire.request(APIConstants.CreateDmURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let jsonData = response.result.value else {
+                    return
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+    }
+    
+    func createGroupChatRoom(name: String, schoolID: String, userID: String, members: [String], completionHandler: (Bool, Error?) -> ()) {
+        let parameters: [String:Any] = ["name" : name, "school_id" : schoolID, "user_id" : userID, "members" : members]
+        Alamofire.request(APIConstants.CreateGroupURL, method: .post, parameters: parameters).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let jsonData = response.result.value else {return}
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func getMessagesFor(chatroom: ChatRoom, completionHandler: @escaping ([Message]?, Error?) -> Void) {
         Alamofire.request(APIConstants.GetMessagesURL, method: .post, parameters: ["_id" : chatroom.id], encoding: JSONEncoding.default).responseJSON {
             response in

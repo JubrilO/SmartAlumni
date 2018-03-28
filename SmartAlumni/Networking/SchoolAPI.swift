@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 import SwiftyJSON
 
 class SchoolAPI {
@@ -23,6 +24,7 @@ class SchoolAPI {
             case .success:
                 guard let jsonData = response.result.value else {
                     print("Error: Could not get json data")
+                    completionHandler(nil, StringError("Error: Could not get json data"))
                     return
                 }
                 
@@ -33,6 +35,32 @@ class SchoolAPI {
                 print(error)
                 completionHandler(nil, error)
             }
+        }
+    }
+    
+    func getAllUsersSchools(completionHandler: @escaping ([School]?, Error?) -> ()) {
+        let realm = try! Realm()
+        let user = realm.objects(User.self)[0]
+        let params = ["_id" : user.uid]
+        Alamofire.request(APIConstants.UserSchoolURL, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
+            response in
+            
+            switch response.result {
+            
+            case .success:
+                guard let jsonData = response.result.value else {
+                    print("")
+                    completionHandler(nil, StringError("Error: Could not get json data"))
+                    return
+                }
+                let schoolsTuple = Utilities.parseSchoolsFromJSON(json: JSON(jsonData))
+                completionHandler(schoolsTuple.schools, schoolsTuple.error)
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(nil, error)
+            }
+            
         }
     }
     

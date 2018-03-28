@@ -12,7 +12,9 @@ protocol NewProjectRouterProtocol {
 
     weak var viewController: NewProjectViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToVisibilityScene()
+    func navigateToPhotoLibrary()
+    func navigateToCamera()
 }
 
 final class NewProjectRouter {
@@ -35,8 +37,36 @@ extension NewProjectRouter: NewProjectRouterProtocol {
 
 
     // MARK: - Navigation
-
-    func navigateToSomewhere() {
-
+    func navigateToVisibilityScene() {
+        if  let visibilityVC = UIStoryboard(name: Constants.StoryboardNames.Polls, bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollVisibilityScene) as? PollVisibilityViewController {
+            visibilityVC.pollMode = false
+            viewController?.navigationController?.pushViewController(visibilityVC, animated: true)
+        }
+        
+    }
+    
+    func navigateToPhotoLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = viewController
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.allowsEditing = true
+        viewController?.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func navigateToCamera() {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = viewController
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            viewController?.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have a camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            viewController?.present(alert, animated: true, completion: nil)
+        }
     }
 }

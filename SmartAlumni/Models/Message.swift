@@ -22,7 +22,7 @@ class Message: MessageType {
     }
     
     enum MessageType {
-        case text
+        case text(text: String)
         case image(imageurl: String)
         case document(name: String, size: String, url: String)
         case contact(name: String, email: String, phone: String)
@@ -37,7 +37,7 @@ class Message: MessageType {
     var data: MessageData = .text("")
     var sender = Sender(id: "", displayName: "")
     var sentDate = Date()
-    var type: MessageType = .text
+    var type: MessageType = .text(text: "")
     
     required convenience init(json: JSON) {
         self.init()
@@ -57,14 +57,6 @@ class Message: MessageType {
         switch type {
         case .text:
             self.data = .text(text)
-        case .image(let url):
-            let url = URL(string: url)!
-            self.data = .photo(UIImage())
-            if let data = try? Data(contentsOf: url){
-                //guard let image = UIImage(data: data) else {return}
-            }
-        case .contact(let name, let email, let phone):
-            print("")
         case .admin:
             self.content = ""
         default:
@@ -185,7 +177,7 @@ class Message: MessageType {
         switch typeString {
             
         case MessageTypeConstants.text:
-            return .text
+            return .text(text: json["message"].stringValue)
             
         case MessageTypeConstants.contact:
             let name = json["contact"]["name"].stringValue

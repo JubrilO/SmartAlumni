@@ -45,7 +45,16 @@ extension ProjectDetailPresenter: ProjectDetailPresenterInput {
         let timeLeftLabelText = daysLeft == 1 ? "day left" : "days left"
         let donorsLabelText = project.donors.count == 1 ? "donor" : "donors"
 
-        let viewModel = ProjectDetailViewModel(title: project.title.capitalized, descriptionString: project.description, totalAmount: "Goal: NGN \(project.amount)", imageURL: URL(string: project.imageURL), precentageCompletion: "\(project.percentageCompletion())%", donorCount: String(project.donors.count), daysLeft: String(daysLeft), timeLeftLabelText: timeLeftLabelText)
+        let viewModel = ProjectDetailViewModel(title: project.title.capitalized, descriptionString: project.description, totalAmount: "Goal: ₦\(project.amount.formattedAmount())", imageURL: URL(string: project.imageURL), precentageCompletion: "\(project.percentageCompletion())%", donorCount: String(project.donors.count), daysLeft: String(daysLeft), timeLeftLabelText: timeLeftLabelText)
         output.displayProject(viewModel: viewModel)
+    }
+}
+
+extension Double {
+    func formattedAmount() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        guard let number =  numberFormatter.string(from: NSNumber(value: self)) else {return "0"}
+        return number
     }
 }

@@ -18,7 +18,11 @@ protocol ProjectsViewControllerInput: ProjectsPresenterOutput {
 protocol ProjectsViewControllerOutput {
 
     var projects: [Project] {get set}
+    var ongoingProjects: [Project] {get set}
+    var endedProjects: [Project] {get set}
     func fetchProjects()
+    func loadOngoingProjects()
+    func loadCompletedProjects()
 }
 
 final class ProjectsViewController: UIViewController {
@@ -77,14 +81,14 @@ final class ProjectsViewController: UIViewController {
     
     func setupSegmentio() {
         segmentioView.valueDidChange = { [unowned self] (_ segmentio: Segmentio, _ selectedSegmentioIndex: Int) in
-//            switch selectedSegmentioIndex {
-//            case 0:
-//                //self.output.loadOngoingPolls()
-//            case 1:
-//                //self.output.loadCompletedPolls()
-//            default:
-//                //self.output.loadOngoingPolls()
-//            }
+            switch selectedSegmentioIndex {
+            case 0:
+                self.output.loadOngoingProjects()
+            case 1:
+                self.output.loadCompletedProjects()
+            default:
+                self.output.loadOngoingProjects()
+            }
         }
         var content = [SegmentioItem]()
         let ongoingItem = SegmentioItem(title: "Funding", image: nil)
@@ -129,6 +133,7 @@ final class ProjectsViewController: UIViewController {
     
     @IBAction func onNewPollButtonClick(_ sender: UIBarButtonItem) {
         dropDown?.hide()
+        router.navigateToNewProjectScene()
     }
     
     func toggleDropDown() {
@@ -191,7 +196,7 @@ extension ProjectsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.ProjectCell, for: indexPath) as! ProjectsCollectionViewCell
         cell.titleLabel.text = project.title
         cell.schoolNameLabel.text = project.schoolName
-        cell.setLabel.text = "\(project.set) Set"
+        cell.setLabel.text = ""
         let url = URL(string: project.imageURL)
         cell.projectImageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.3))], progressBlock: nil, completionHandler: nil)
         return cell

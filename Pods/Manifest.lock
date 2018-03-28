@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.6.0)
+  - Chatto (3.3.0)
+  - ChattoAdditions (3.3.0):
+    - Chatto
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Dropdowns (2.0.0)
@@ -69,9 +72,12 @@ PODS:
   - Starscream (3.0.4)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (4.0.0)
+  - SwipeMenuViewController (2.0.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - Chatto (from `https://github.com/badoo/Chatto`, branch `master`)
+  - ChattoAdditions (from `https://github.com/badoo/Chatto`, branch `master`)
   - Crashlytics (~> 3.9.3)
   - Dropdowns
   - EasyTipView (from `https://github.com/igorkislyuk/EasyTipView.git`, branch `master`)
@@ -91,8 +97,15 @@ DEPENDENCIES:
   - Socket.IO-Client-Swift (~> 13.1.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
+  - SwipeMenuViewController
 
 EXTERNAL SOURCES:
+  Chatto:
+    :branch: master
+    :git: https://github.com/badoo/Chatto
+  ChattoAdditions:
+    :branch: master
+    :git: https://github.com/badoo/Chatto
   EasyTipView:
     :branch: master
     :git: https://github.com/igorkislyuk/EasyTipView.git
@@ -104,6 +117,12 @@ EXTERNAL SOURCES:
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 CHECKOUT OPTIONS:
+  Chatto:
+    :commit: b7f3cd2e83fdb25119327b04919f7125a8a41f41
+    :git: https://github.com/badoo/Chatto
+  ChattoAdditions:
+    :commit: b7f3cd2e83fdb25119327b04919f7125a8a41f41
+    :git: https://github.com/badoo/Chatto
   EasyTipView:
     :commit: 11de6146d447582abe0304bb287600ff93abb23a
     :git: https://github.com/igorkislyuk/EasyTipView.git
@@ -116,6 +135,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Chatto: 66acd1b5905242f22a04b4fe8823c342cc4f4f71
+  ChattoAdditions: 5860b864f666b02919d0e02e2b005119da3fe646
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
   EasyTipView: 236dda1a58f9a15bd39f11d84347e6b8643a744c
@@ -143,7 +164,8 @@ SPEC CHECKSUMS:
   Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwipeMenuViewController: fe912fbd0ae2cc1607b99084ca718cc7e60e50f9
 
-PODFILE CHECKSUM: 47ec8781c164aaf55f9520c896c0698ae504b363
+PODFILE CHECKSUM: 1acb4d3f826f54bfa155786f775b6637406c11e0
 
 COCOAPODS: 1.3.1

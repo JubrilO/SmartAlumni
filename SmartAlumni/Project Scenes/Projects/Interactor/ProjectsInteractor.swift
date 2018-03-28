@@ -22,6 +22,8 @@ final class ProjectsInteractor: ProjectsViewControllerOutput {
     let output: ProjectsInteractorOutput
     let worker: ProjectsWorker
     var projects = [Project]()
+    var ongoingProjects = [Project]()
+    var endedProjects = [Project]()
 
     // MARK: - Initializers
 
@@ -48,8 +50,44 @@ final class ProjectsInteractor: ProjectsViewControllerOutput {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            self.projects = projects
+             self.ongoingProjects = projects.filter({ project in
+                if let endDate =  project.endDate {
+                    if endDate > Date() {
+                        return true
+                    }
+                    else { return false}
+                }
+                else{
+                    return false
+                }
+            })
+            
+            self.projects = self.ongoingProjects
+            
+            self.endedProjects = projects.filter({ project in
+                if let endDate =  project.endDate {
+                    if endDate < Date() {
+                        return true
+                    }
+                    else { return false}
+                }
+                else{
+                    return false
+                }
+                
+            })
             self.output.presentProjects()
         }
+    }
+    
+    func loadOngoingProjects() {
+        projects = ongoingProjects
+        output.presentProjects()
+    }
+    
+    
+    func loadCompletedProjects() {
+        projects = endedProjects
+        output.presentProjects()
     }
 }

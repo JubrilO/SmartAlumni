@@ -13,6 +13,7 @@ protocol ProjectsRouterProtocol {
     weak var viewController: ProjectsViewController? { get }
     
     func navigateToProjectDetails(project: Project)
+    func navigateToNewProjectScene()
 }
 
 final class ProjectsRouter {
@@ -42,6 +43,13 @@ extension ProjectsRouter: ProjectsRouterProtocol {
             projectDetailViewController.output.project = project
             projectDetailViewController.hidesBottomBarWhenPushed = true
             viewController?.navigationController?.pushViewController(projectDetailViewController, animated: true)
+        }
+    }
+    
+    func navigateToNewProjectScene() {
+        let projectStoryboard = UIStoryboard(name: Constants.StoryboardNames.Project, bundle: nil)
+        if let newProjectViewController = projectStoryboard.instantiateViewController(withIdentifier: "NewProjectNavScene") as? UINavigationController {
+            viewController?.present(newProjectViewController, animated: true, completion: nil)
         }
     }
 }

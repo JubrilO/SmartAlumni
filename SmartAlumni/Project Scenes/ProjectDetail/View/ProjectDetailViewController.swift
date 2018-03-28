@@ -33,6 +33,8 @@ final class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var fundProjectButton: UIButton!
+    @IBOutlet weak var goalAndReadMoreSpacingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackViewAndProgressBarSpacingConstriant: NSLayoutConstraint!
     
     // MARK: - Initializers
     
@@ -75,6 +77,7 @@ final class ProjectDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupSpacingForSmallerDevices()
         progressView.setProgress(Float(self.output.project.percentageCompletion()/100), animated: true)
     }
     
@@ -90,7 +93,15 @@ final class ProjectDetailViewController: UIViewController {
     @IBAction func onReadMoreButtonClick(_ sender: UIButton) {
         
     }
-    // MARK: - Load data
+    // MARK: - Load datat
+    
+    func setupSpacingForSmallerDevices() {
+        if view.bounds.width < 375 {
+            goalAndReadMoreSpacingConstraint.constant = 7
+            stackViewAndProgressBarSpacingConstriant.constant = 15
+            view.layoutIfNeeded()
+        }
+    }
     
     func fetchProject() {
         output.fetchProject()
@@ -110,13 +121,14 @@ extension ProjectDetailViewController: ProjectDetailViewControllerInput {
         // TODO: Update UI
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.descriptionString
+        descriptionLabel.text = "Spielberg’s blockbuster, “Minority Report”, is set in the year 2054. The future – at least according to a team of MIT futurologists, hired by the cinematic genius – is the captive of embarrassingly personalized and disturbingly intrusive, mostly outdoor, interactive advertising."
         goalLabel.text = viewModel.totalAmount
         imageView.kf.setImage(with: viewModel.imageURL)
         progressLabel.text = viewModel.precentageCompletion
         donorsLabel.text = viewModel.donorCount
         daysLeftLabel.text = viewModel.daysLeft
         readMoreButton.isHidden = true
-        if descriptionLabel.numberOfVisibleLines > 4 {
+        if descriptionLabel.numberOfVisibleLines >= 4 {
             readMoreButton.isHidden = false
         }
     }
