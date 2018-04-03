@@ -105,7 +105,7 @@ extension SelectSchoolViewController: SelectSchoolViewControllerInput {
 
     // MARK: - Display logic
     
-    func displayError(errorMessage: String) {
+    func displayError(errorMessage: String?) {
         activityIndicator.stopAnimating()
         displayErrorModal(error: errorMessage)
     }

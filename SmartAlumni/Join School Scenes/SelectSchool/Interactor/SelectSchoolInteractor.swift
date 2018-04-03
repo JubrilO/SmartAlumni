@@ -14,7 +14,7 @@ protocol SelectSchoolInteractorInput: SelectSchoolViewControllerOutput {
 
 protocol SelectSchoolInteractorOutput {
     
-    func presentError(errorMessage: String)
+    func presentError(errorMessage: String?)
     func presentSchools(schools: [School])
     func presentSearchResults(schools: [School])
 }
@@ -53,7 +53,7 @@ extension SelectSchoolInteractor: SelectSchoolViewControllerOutput {
             schools, error in
             
             guard error == nil else {
-                self.output.presentError(errorMessage: error!.localizedDescription)
+                self.output.presentError(errorMessage: error?.localizedDescription)
                 return
             }
             

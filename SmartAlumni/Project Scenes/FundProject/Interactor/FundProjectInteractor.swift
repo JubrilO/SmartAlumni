@@ -72,9 +72,11 @@ final class FundProjectInteractor: FundProjectViewControllerOutput {
     
         }, didRequestValidation: {
             reference in
+            print("\(reference) didRequestValidation")
             
         }, didTransactionSuccess: {
             reference in
+            print("\(reference) didTransactionSuccess")
             
         })
     }

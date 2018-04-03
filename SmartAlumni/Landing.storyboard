@@ -1060,7 +1060,7 @@
         <!--Projects-->
         <scene sceneID="32c-sF-Soc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8JX-gf-vju" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="projectsNav" automaticallyAdjustsScrollViewInsets="NO" id="8JX-gf-vju" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Projects" image="projectsIcon" id="zhT-Bt-jXc"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

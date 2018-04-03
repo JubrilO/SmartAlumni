@@ -10,6 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import Paystack
 import EasyTipView
+import IQKeyboardManagerSwift
 import SwiftValidator
 
 protocol FundProjectViewControllerInput: FundProjectPresenterOutput {
@@ -26,10 +27,11 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     
     var output: FundProjectViewControllerOutput!
     var router: FundProjectRouterProtocol!
-    let paymentTextField = CardTextField()
+    //let paymentTextField = CardTextField()
     let validator = Validator()
     var activeToolTip: EasyTipView?
     
+    @IBOutlet weak var paymentTextField: CardTextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var amountTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var paymentMethodButton: UIButton!
@@ -40,7 +42,6 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     init(configurator: FundProjectConfigurator = FundProjectConfigurator.sharedInstance) {
         
         super.init(nibName: nil, bundle: nil)
-        
         configure()
     }
     
@@ -66,12 +67,13 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
         
         super.viewDidLoad()
         setupFields()
+        hideNavigationBar()
         setupButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideNavigationBar()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,10 +103,10 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
         paymentTextField.frame = CGRect(x: 40, y: illustrationBackground.bounds.height + 150, width: self.view.bounds.width - 80, height: 40)
         paymentTextField.borderWidth = 0
         paymentTextField.delegate = self
-        let lineView = UIView(frame: CGRect(x: 40, y: illustrationBackground.bounds.height + 191, width: self.view.bounds.width - 80, height: 0.5))
-        lineView.backgroundColor = UIColor.lightGray
+        //let lineView = UIView(frame: CGRect(x: 40, y: illustrationBackground.bounds.height + 191, width: self.view.bounds.width - 80, height: 0.5))
+       // lineView.backgroundColor = UIColor.lightGray
         view.addSubview(paymentTextField)
-        view.addSubview(lineView)
+        //view.addSubview(lineView)
     }
     
     func toggleToolTip() {
@@ -151,12 +153,16 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     
     
     func validationSuccessful() {
+        print("Initial validation successful")
         paymentTextField.isValid ? output.chargeCard(amount: Double(amountTextField.text!)!, cardParams: paymentTextField.cardParams, vc: self) : displayErrorModal(error: "Please enter valid card details")
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
-        for error in errors {
-            displayErrorModal(error:  error.1.errorMessage)
+        print("Validation error!!!")
+        for (field, error ) in errors {
+            if let field = field as? SkyFloatingLabelTextField {
+                field.errorMessage = error.errorMessage
+            }
         }
     }
     

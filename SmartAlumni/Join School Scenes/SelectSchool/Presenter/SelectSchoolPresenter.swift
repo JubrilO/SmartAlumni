@@ -15,7 +15,7 @@ protocol SelectSchoolPresenterInput: SelectSchoolInteractorOutput {
 protocol SelectSchoolPresenterOutput: class {
     
     func displaySchools(viewModels: [SelectSchoolViewModel])
-    func displayError(errorMessage: String)
+    func displayError(errorMessage: String?)
 }
 
 final class SelectSchoolPresenter {
@@ -39,7 +39,7 @@ extension SelectSchoolPresenter: SelectSchoolPresenterInput {
     
     // MARK: - Presentation logic
     
-    func presentError(errorMessage: String) {
+    func presentError(errorMessage: String?) {
         output.displayError(errorMessage: errorMessage)
     }
     

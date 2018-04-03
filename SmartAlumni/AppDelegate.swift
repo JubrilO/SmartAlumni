@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        Paystack.setDefaultPublicKey("pk_test_xxxx")
+        Paystack.setDefaultPublicKey("pk_test_3e188db0984e4bf765993a6063bd54a8fc84aca5")
         let config = Realm.Configuration(
             schemaVersion: 4,
             migrationBlock: { migration, oldSchemaVersion in
