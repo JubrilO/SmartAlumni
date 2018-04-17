@@ -12,7 +12,7 @@ protocol FundProjectRouterProtocol {
 
     weak var viewController: FundProjectViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToSuccessScene()
 }
 
 final class FundProjectRouter {
@@ -36,7 +36,13 @@ extension FundProjectRouter: FundProjectRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-
+    func navigateToSuccessScene() {
+        if let successScene = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.FundProjectCompleteScene) as? FundProjectCompleteViewController {
+            successScene.projectName = (viewController?.output.project.title)!
+            successScene.amountDonated = (viewController?.output.amountFunded)!
+            successScene.schoolName = (viewController?.output.project.schoolName)!
+            viewController?.navigationController?.pushViewController(successScene, animated: true) 
+        }
     }
+    
 }

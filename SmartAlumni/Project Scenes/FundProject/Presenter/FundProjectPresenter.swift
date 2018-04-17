@@ -14,7 +14,9 @@ protocol FundProjectPresenterInput: FundProjectInteractorOutput {
 
 protocol FundProjectPresenterOutput: class {
 
-    func displaySomething(viewModel: FundProjectViewModel)
+    func displayError(errorString: String?)
+    func displaySuccessScene()
+    func displayActiveState()
 }
 
 final class FundProjectPresenter {
@@ -34,11 +36,17 @@ final class FundProjectPresenter {
 // MARK: - FundProjectPresenterInput
 
 extension FundProjectPresenter: FundProjectPresenterInput {
-
-
-    // MARK: - Presentation logic
-
-    func presentError(string: String) {
-        
+    
+    func presentError(string: String?) {
+        output.displayError(errorString: string)
     }
+    
+    func presentFundCompletionScene() {
+        output.displaySuccessScene()
+    }
+    
+    func presentActiveState() {
+        output.displayActiveState()
+    }
+    
 }

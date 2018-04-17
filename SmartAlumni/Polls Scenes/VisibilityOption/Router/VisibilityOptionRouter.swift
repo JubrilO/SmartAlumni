@@ -65,8 +65,8 @@ extension VisibilityOptionRouter: VisibilityOptionRouterProtocol {
                 if let faculty = viewController?.output.faculties[selectedIndex.row] {
                     faculties.append(faculty)
                 }
-                pollVisibilityVC.output.targetFaculties = faculties
             }
+            pollVisibilityVC.output.targetFaculties = faculties
         case .Department:
             var deparments = [Department]()
             for selectedIndex in selectedIndexes {
@@ -82,6 +82,7 @@ extension VisibilityOptionRouter: VisibilityOptionRouterProtocol {
                     sets.append(set)
                 }
             }
+            print("Sets: \(sets)")
             pollVisibilityVC.output.targetSets = sets
         }
        

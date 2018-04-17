@@ -49,6 +49,7 @@ extension PollVisibilityPresenter: PollVisibilityPresenterInput {
     }
     
     func presentSelectedSets(sets: [String]) {
+        print("Selected Sets: \(sets)")
         let setsString = formatStringArray(array: sets)
         output.displayTargetSets(sets: setsString)
     }
@@ -69,6 +70,7 @@ extension PollVisibilityPresenter: PollVisibilityPresenterInput {
                 string += element
             }
         }
+        print("formatted String: \(string)")
         return string
     }
     

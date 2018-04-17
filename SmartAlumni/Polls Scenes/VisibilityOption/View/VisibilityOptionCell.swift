@@ -10,5 +10,10 @@ import UIKit
 
 class VisibilityOptionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var checkmarkImageView: UIImageView!
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        if selected {
+            self.accessoryType = .checkmark
+        }
+    }
 }

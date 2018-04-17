@@ -20,6 +20,7 @@ protocol FundProjectViewControllerInput: FundProjectPresenterOutput {
 protocol FundProjectViewControllerOutput {
     
     var project: Project {get set}
+    var amountFunded: Int? {get}
     func chargeCard(amount: Double, cardParams: PSTCKCardParams, vc: UIViewController)
 }
 
@@ -36,6 +37,7 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     @IBOutlet weak var amountTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var paymentMethodButton: UIButton!
     @IBOutlet weak var illustrationBackground: UIView!
+    @IBOutlet weak var activityIndicatot: UIActivityIndicatorView!
     
     // MARK: - Initializers
     
@@ -66,6 +68,7 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        activityIndicatot.hidesWhenStopped = true
         setupFields()
         hideNavigationBar()
         setupButton()
@@ -154,7 +157,14 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
     
     func validationSuccessful() {
         print("Initial validation successful")
-        paymentTextField.isValid ? output.chargeCard(amount: Double(amountTextField.text!)!, cardParams: paymentTextField.cardParams, vc: self) : displayErrorModal(error: "Please enter valid card details")
+        if paymentTextField.isValid {
+            activityIndicatot.startAnimating()
+            nextButton.isHidden = true
+            output.chargeCard(amount: Double(amountTextField.text!)!, cardParams: paymentTextField.cardParams, vc: self)
+            
+        } else {
+            displayErrorModal(error: "Please enter valid card details")
+        }
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
@@ -176,12 +186,21 @@ final class FundProjectViewController: UIViewController, ValidationDelegate {
 
 extension FundProjectViewController: FundProjectViewControllerInput {
     
-    
     // MARK: - Display logic
     
-    func displaySomething(viewModel: FundProjectViewModel) {
-        
-        // TODO: Update UI
+    func displaySuccessScene() {
+        router.navigateToSuccessScene()
+    }
+    
+    func displayError(errorString: String?) {
+        activityIndicatot.stopAnimating()
+        nextButton.isHidden = false
+        displayErrorModal(error: errorString)
+    }
+    
+    func displayActiveState() {
+        activityIndicatot.stopAnimating()
+        nextButton.isHidden = false
     }
 }
 

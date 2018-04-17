@@ -47,6 +47,7 @@ extension UIViewController {
     func showNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
 }
 
 extension UIResponder {

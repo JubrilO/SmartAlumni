@@ -41,6 +41,10 @@ struct Constants {
         static let ProjectDetailScene = "ProjectDetailScene"
         static let FundProjectScene = "FundProjectScene"
         static let NewProjectScene = "NewProjectScene"
+        static let FundProjectCompleteScene = "FundProjectCompleteScene"
+        static let AddBankScence = "AddBankScence"
+        static let BanksListScene = "BanksListScene"
+        static let NewProjectCompletionScene = "NewProjectCompletionVC"
     }
     
     struct StoryboardNames {
@@ -61,6 +65,7 @@ struct Constants {
         static let ProjectCell = "ProjectCell"
         static let EditProfileCell = "EditProfileCell"
         static let SwitchControlCell = "SwitchControlCell"
+        static let BankCell = "BankCell"
     }
     
     struct  Errors {
@@ -85,4 +90,12 @@ struct Constants {
     }
     
     static let SmartAlumniUser = "SmartAlumniUser"
+}
+
+extension UIScrollView {
+    
+    func scrollToBottom() {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+        setContentOffset(bottomOffset, animated: true)
+    }
 }

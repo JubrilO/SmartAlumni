@@ -15,6 +15,8 @@ protocol NewProjectRouterProtocol {
     func navigateToVisibilityScene()
     func navigateToPhotoLibrary()
     func navigateToCamera()
+    func navigateToAddBankScene()
+    func navigateToSuccessScreen()
 }
 
 final class NewProjectRouter {
@@ -34,9 +36,16 @@ final class NewProjectRouter {
 // MARK: - NewProjectRouterProtocol
 
 extension NewProjectRouter: NewProjectRouterProtocol {
-
-
+    
     // MARK: - Navigation
+    
+    func navigateToSuccessScreen() {
+        if  let successVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.NewProjectCompletionScene) as? NewProjectCompletionVC {
+            viewController?.navigationController?.pushViewController(successVC, animated: true)
+            
+        }
+    }
+
     func navigateToVisibilityScene() {
         if  let visibilityVC = UIStoryboard(name: Constants.StoryboardNames.Polls, bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.PollVisibilityScene) as? PollVisibilityViewController {
             visibilityVC.pollMode = false
@@ -67,6 +76,12 @@ extension NewProjectRouter: NewProjectRouterProtocol {
             let alert  = UIAlertController(title: "Warning", message: "You don't have a camera", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             viewController?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func navigateToAddBankScene() {
+        if let addBankVC = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.AddBankScence) as? AddBankViewController {
+            viewController?.navigationController?.pushViewController(addBankVC, animated: true)
         }
     }
 }

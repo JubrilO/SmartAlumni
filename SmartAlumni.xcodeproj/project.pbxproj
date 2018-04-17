@@ -142,6 +142,7 @@
 		9190AEA31F4F9197003DEA3F /* SelectSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE9B1F4F9197003DEA3F /* SelectSchoolViewModel.swift */; };
 		9190AEA41F4F9197003DEA3F /* SelectSchoolWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AE9D1F4F9197003DEA3F /* SelectSchoolWorker.swift */; };
 		9190AEA61F4F93AE003DEA3F /* SelectSchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */; };
+		9199568A2074D514001CFD53 /* FundProjectCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919956892074D514001CFD53 /* FundProjectCompleteViewController.swift */; };
 		91ABBD57202B8501005F2C05 /* SelectFacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBD56202B8501005F2C05 /* SelectFacultyViewController.swift */; };
 		91ABBD6A202D1242005F2C05 /* WalletLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBD5D202D1241005F2C05 /* WalletLandingViewModel.swift */; };
 		91ABBD6B202D1242005F2C05 /* WalletLandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBD5F202D1241005F2C05 /* WalletLandingPresenter.swift */; };
@@ -152,6 +153,10 @@
 		91ABBD70202D1242005F2C05 /* WalletLandingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBD69202D1241005F2C05 /* WalletLandingRouter.swift */; };
 		91ABBD72202D1DE7005F2C05 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBD71202D1DE7005F2C05 /* TransactionCell.swift */; };
 		91ABBD74202D2F81005F2C05 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91ABBD73202D2F81005F2C05 /* Wallet.storyboard */; };
+		91AE149D207830780024E1F3 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE149C207830780024E1F3 /* AddBankViewController.swift */; };
+		91AE149F207B43DE0024E1F3 /* BanksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE149E207B43DE0024E1F3 /* BanksListViewController.swift */; };
+		91AE14A1207B46FB0024E1F3 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE14A0207B46FB0024E1F3 /* Bank.swift */; };
+		91AE14A3207B4BB40024E1F3 /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE14A2207B4BB40024E1F3 /* BankCell.swift */; };
 		91B724511FC66C5F00961F40 /* PollVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B724501FC66C5F00961F40 /* PollVisibility.swift */; };
 		91BA151A1F2F9A2D004273EC /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */; };
 		91BDAF481F4446D200BC1666 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BDAF471F4446D200BC1666 /* User.swift */; };
@@ -208,6 +213,8 @@
 		91EDAF5A1FCD14AA001E68D9 /* VisibilityOptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDAF521FCD14AA001E68D9 /* VisibilityOptionInteractor.swift */; };
 		91EDAF5B1FCD14AA001E68D9 /* VisibilityOptionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDAF541FCD14AA001E68D9 /* VisibilityOptionRouter.swift */; };
 		91EDAF5D1FCD1651001E68D9 /* VisibilityOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDAF5C1FCD1651001E68D9 /* VisibilityOptionCell.swift */; };
+		91EE5C792084CDF8003C74C8 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EE5C782084CDF8003C74C8 /* Milestone.swift */; };
+		91EE5C7B20852407003C74C8 /* NewProjectCompletionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EE5C7A20852407003C74C8 /* NewProjectCompletionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -349,6 +356,7 @@
 		9190AE9B1F4F9197003DEA3F /* SelectSchoolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolViewModel.swift; sourceTree = "<group>"; };
 		9190AE9D1F4F9197003DEA3F /* SelectSchoolWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolWorker.swift; sourceTree = "<group>"; };
 		9190AEA51F4F93AE003DEA3F /* SelectSchoolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolCell.swift; sourceTree = "<group>"; };
+		919956892074D514001CFD53 /* FundProjectCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundProjectCompleteViewController.swift; sourceTree = "<group>"; };
 		91ABBD56202B8501005F2C05 /* SelectFacultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectFacultyViewController.swift; path = "Join School Scenes/SelectFacultyViewController.swift"; sourceTree = "<group>"; };
 		91ABBD5D202D1241005F2C05 /* WalletLandingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletLandingViewModel.swift; sourceTree = "<group>"; };
 		91ABBD5F202D1241005F2C05 /* WalletLandingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletLandingPresenter.swift; sourceTree = "<group>"; };
@@ -359,6 +367,10 @@
 		91ABBD69202D1241005F2C05 /* WalletLandingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletLandingRouter.swift; sourceTree = "<group>"; };
 		91ABBD71202D1DE7005F2C05 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		91ABBD73202D2F81005F2C05 /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		91AE149C207830780024E1F3 /* AddBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBankViewController.swift; sourceTree = "<group>"; };
+		91AE149E207B43DE0024E1F3 /* BanksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksListViewController.swift; sourceTree = "<group>"; };
+		91AE14A0207B46FB0024E1F3 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = Models/Bank.swift; sourceTree = "<group>"; };
+		91AE14A2207B4BB40024E1F3 /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		91B724501FC66C5F00961F40 /* PollVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PollVisibility.swift; path = Models/PollVisibility.swift; sourceTree = "<group>"; };
 		91BA15191F2F9A2D004273EC /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		91BDAF471F4446D200BC1666 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -415,6 +427,8 @@
 		91EDAF521FCD14AA001E68D9 /* VisibilityOptionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibilityOptionInteractor.swift; sourceTree = "<group>"; };
 		91EDAF541FCD14AA001E68D9 /* VisibilityOptionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibilityOptionRouter.swift; sourceTree = "<group>"; };
 		91EDAF5C1FCD1651001E68D9 /* VisibilityOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityOptionCell.swift; sourceTree = "<group>"; };
+		91EE5C782084CDF8003C74C8 /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Milestone.swift; path = Models/Milestone.swift; sourceTree = "<group>"; };
+		91EE5C7A20852407003C74C8 /* NewProjectCompletionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectCompletionVC.swift; sourceTree = "<group>"; };
 		AACF35A4119C03DE8166DC99 /* Pods-SmartAlumni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartAlumni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni.debug.xcconfig"; sourceTree = "<group>"; };
 		F94901EF5BB0BA4E34A7F3E9 /* Pods_SmartAlumni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartAlumni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1582,6 +1596,8 @@
 				918355702033C87900664BDC /* ChatRoom.swift */,
 				911955BD20494CFD00DFD419 /* SchoolDetails.swift */,
 				915B98D320597F020093FAD5 /* Project.swift */,
+				91AE14A0207B46FB0024E1F3 /* Bank.swift */,
+				91EE5C782084CDF8003C74C8 /* Milestone.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1677,6 +1693,10 @@
 				915B98D9205AAE2B0093FAD5 /* ProjectDetail */,
 				91CD9511203C503D005D535A /* NewProject */,
 				91CD9527203C515A005D535A /* Project.storyboard */,
+				919956892074D514001CFD53 /* FundProjectCompleteViewController.swift */,
+				91AE149C207830780024E1F3 /* AddBankViewController.swift */,
+				91AE149E207B43DE0024E1F3 /* BanksListViewController.swift */,
+				91AE14A2207B4BB40024E1F3 /* BankCell.swift */,
 			);
 			path = "Project Scenes";
 			sourceTree = "<group>";
@@ -1715,6 +1735,7 @@
 			isa = PBXGroup;
 			children = (
 				91CD9517203C503D005D535A /* NewProjectViewController.swift */,
+				91EE5C7A20852407003C74C8 /* NewProjectCompletionVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2288,11 +2309,14 @@
 				9125CA621F4309AD00174534 /* EditProfileRouter.swift in Sources */,
 				91BDAF481F4446D200BC1666 /* User.swift in Sources */,
 				918D42901F54DBBA00C848FA /* SelectSetPresenter.swift in Sources */,
+				91AE149F207B43DE0024E1F3 /* BanksListViewController.swift in Sources */,
 				91EDAF551FCD14AA001E68D9 /* VisibilityOptionViewModel.swift in Sources */,
 				91ABBD6C202D1242005F2C05 /* WalletLandingViewController.swift in Sources */,
+				91EE5C792084CDF8003C74C8 /* Milestone.swift in Sources */,
 				911CF2C11F39D06100FEC8D6 /* Constants.swift in Sources */,
 				91E07A492035BAA60069FDC3 /* ConversationPresenter.swift in Sources */,
 				9125CA611F4309AD00174534 /* EditProfilePresenter.swift in Sources */,
+				91AE14A1207B46FB0024E1F3 /* Bank.swift in Sources */,
 				91503D621F4E2C14002C8F46 /* WelcomeWorker.swift in Sources */,
 				913C1D3F1F407FC10080F5CE /* OTPInteractor.swift in Sources */,
 				9164AA471FA3890A00A66F37 /* PollsRouter.swift in Sources */,
@@ -2307,6 +2331,7 @@
 				91EDAF3D1FCD0B04001E68D9 /* PollCompletionViewModel.swift in Sources */,
 				9190AEA11F4F9197003DEA3F /* SelectSchoolRouter.swift in Sources */,
 				91503D601F4E2C14002C8F46 /* WelcomeViewController.swift in Sources */,
+				9199568A2074D514001CFD53 /* FundProjectCompleteViewController.swift in Sources */,
 				91ABBD57202B8501005F2C05 /* SelectFacultyViewController.swift in Sources */,
 				91C76009206B0B690035CEAA /* SettingsViewController.swift in Sources */,
 				91835567202D8C8900664BDC /* TransactionDetailViewModel.swift in Sources */,
@@ -2318,10 +2343,12 @@
 				91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */,
 				918355772033E0BB00664BDC /* MessageTableViewCell.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
+				91AE149D207830780024E1F3 /* AddBankViewController.swift in Sources */,
 				91432AFD20642044000D0ECA /* ChatRoomWorker.swift in Sources */,
 				91CD9523203C503D005D535A /* NewProjectConfigurator.swift in Sources */,
 				91432AFF20642044000D0ECA /* ChatRoomRouter.swift in Sources */,
 				91EDAF411FCD0B04001E68D9 /* PollCompletionWorker.swift in Sources */,
+				91EE5C7B20852407003C74C8 /* NewProjectCompletionVC.swift in Sources */,
 				915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */,
 				915C33861F38A32600729106 /* SignUpPresenter.swift in Sources */,
 				91EDAF561FCD14AA001E68D9 /* VisibilityOptionPresenter.swift in Sources */,
@@ -2386,6 +2413,7 @@
 				916287861F790FA80015F467 /* Poll.swift in Sources */,
 				91C4FBC81FAAB2B1007FCCF2 /* NewPollRouter.swift in Sources */,
 				91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */,
+				91AE14A3207B4BB40024E1F3 /* BankCell.swift in Sources */,
 				9164AA4A1FA3890A00A66F37 /* PollsWorker.swift in Sources */,
 				91CD9520203C503D005D535A /* NewProjectViewModel.swift in Sources */,
 				918355712033C87900664BDC /* ChatRoom.swift in Sources */,

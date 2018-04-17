@@ -78,12 +78,12 @@ final class PollVisibilityViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        output.getPollVisiblityData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupTextfields()
+        output.getPollVisiblityData()
     }
     
     // MARK: - Load data
@@ -110,7 +110,7 @@ final class PollVisibilityViewController: UIViewController{
     
     func setupNavBar() {
         title = "Visibility"
-        doneBarButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(saveVisibilitySettings))
+        doneBarButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(saveVisibilitySettings))
         doneBarButton.tintColor = UIColor.black
         navigationItem.setRightBarButton(doneBarButton, animated: false)
         navigationItem.rightBarButtonItem?.isEnabled = false
@@ -120,6 +120,9 @@ final class PollVisibilityViewController: UIViewController{
         print("saving visibility settings")
         if let targetSchool = output.targetSchool {
             router.navigateToNewPollScene(school: targetSchool, faculties: output.targetFaculties, departments: output.targetDeparments, sets: output.targetSets)
+        }
+        else {
+            displayErrorModal(error: "Please select a school who can view this")
         }
     }
 }
@@ -151,10 +154,18 @@ extension PollVisibilityViewController: PollVisibilityViewControllerInput {
     }
     
     func displayTargetSets(sets: String) {
-        if let index = textFieldType.index(of: "Set"){
-            let setCell = tableView.cellForRow(at: IndexPath(row: Int(index), section: 0)) as! VisibilityCell
-            setCell.titleTextField.text = sets
+        if textFieldType.count > 1 {
+            if output.targetSchool?.category == SchoolCategory.Secondary.rawValue || output.targetSchool?.category == SchoolCategory.Primary.rawValue {
+                let setCell = tableView.cellForRow(at: IndexPath(row: Int(1), section: 0)) as! VisibilityCell
+                setCell.titleTextField.text = sets
+            }
+            else {
+                let setCell = tableView.cellForRow(at: IndexPath(row: Int(3), section: 0)) as! VisibilityCell
+                setCell.titleTextField.text = sets
+                
+            }
         }
+        
     }
 }
 

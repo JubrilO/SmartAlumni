@@ -105,8 +105,8 @@ final class NewPollViewController: UIViewController {
     }
     
     @IBAction func onNextButtonTouch(_ sender: UIBarButtonItem) {
-        validator.validate(self)
         diplayActivityIndicator()
+        validator.validate(self)
     }
     
     @IBAction func onBackButtonTouch(_ sender: UIBarButtonItem) {

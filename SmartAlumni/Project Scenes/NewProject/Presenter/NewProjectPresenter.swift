@@ -13,8 +13,8 @@ protocol NewProjectPresenterInput: NewProjectInteractorOutput {
 }
 
 protocol NewProjectPresenterOutput: class {
-
-    func displaySomething(viewModel: NewProjectViewModel)
+    func displayError(_ string: String?)
+    func displaySuccessScreen()
 }
 
 final class NewProjectPresenter {
@@ -34,15 +34,20 @@ final class NewProjectPresenter {
 // MARK: - NewProjectPresenterInput
 
 extension NewProjectPresenter: NewProjectPresenterInput {
+    func presentSomething() {
+        
+    }
+    
 
 
     // MARK: - Presentation logic
-
-    func presentSomething() {
-
-        // TODO: Format the response from the Interactor and pass the result back to the View Controller
-
-        let viewModel = NewProjectViewModel()
-        output.displaySomething(viewModel: viewModel)
+    
+    func presentError(string: String?) {
+        output.displayError(string)
     }
+    
+    func presentSuccessScreen() {
+        output.displaySuccessScreen()
+    }
+
 }

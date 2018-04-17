@@ -32,6 +32,7 @@ struct APIConstants {
     static let CreateProjectURL = ProjectURL + "/create"
     static let UsersProjectURL = ProjectURL + "/user"
     static let FundProjectURL = ProjectURL + "/fund-project"
+    static let BanksURL = ProjectURL + "/banks"
 }
 
 

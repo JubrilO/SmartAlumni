@@ -17,6 +17,10 @@ protocol VisibilityOptionViewControllerOutput {
     var dataType: DataType {get set}
     var schools: [School] {get set}
     var faculties: [Faculty] {get set}
+    var targetSets: [String]? {get set}
+    var targetSchool: School? {get set}
+    var targetDepartments: [Department]? {get set}
+    var targetFaculties: [Faculty]? {get set}
     var sets: [String] {get set}
     var departments: [Department] {get set}
     func fetchData()
@@ -73,6 +77,7 @@ final class VisibilityOptionViewController: UIViewController {
         output.fetchData()
         if output.dataType == .School{
             activityIndicator.startAnimating()
+            tableView.allowsMultipleSelection = false
         }
     }
     
@@ -130,9 +135,47 @@ extension VisibilityOptionViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.VisibilityOptionCell) as! VisibilityOptionCell
-        cell.checkmarkImageView.image = Constants.PlaceholderImages.Circle
-        cell.titleLabel.text = output.schoolData[indexPath.row]
-        return cell
+        cell.accessoryType = .none
+        let name = output.schoolData[indexPath.row]
+        cell.titleLabel.text = name
+        switch output.dataType {
+        case .School:
+            if let school = output.targetSchool {
+                print("target School \(school.name), \(name)")
+                if school.name == name {
+                    print("Selected Cell")
+                    cell.setSelected(true, animated: false)
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    doneButton.isEnabled = true
+                }
+            }
+        case .Faculty:
+            if let faculties = output.targetFaculties {
+                if let _ = faculties.first(where: {$0.name.lowercased() == name.lowercased()}) {
+                    cell.setSelected(true, animated: false)
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    doneButton.isEnabled = true
+
+                }
+            }
+        case .Department:
+            if let depts = output.targetDepartments {
+                if let _ = depts.first(where: {$0.name.lowercased() == name.lowercased()}) {
+                    cell.setSelected(true, animated: false)
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    doneButton.isEnabled = true
+                }
+            }
+        case .Set:
+            if let sets = output.targetSets {
+                if let _ =  sets.first(where: {$0.lowercased() == name.lowercased()}) {
+                    cell.setSelected(true, animated: false)
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                    doneButton.isEnabled = true
+                }
+            }
+        }
+    return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,21 +190,18 @@ extension VisibilityOptionViewController: UITableViewDataSource, UITableViewDele
             return output.sets.count
         }
     }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
-            cell.checkmarkImageView.image = Constants.PlaceholderImages.Checkmark
-            doneButton.isEnabled = true
-        }
-        
-        func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-            let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
-            cell.checkmarkImageView.image = Constants.PlaceholderImages.Circle
-//            if let selectedRows = tableView.indexPathsForSelectedRows {
-//                if selectedRows.isEmpty { doneButton.isEnabled = false }
-//            }
-        }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
+        doneButton.isEnabled = true
+        cell.accessoryType = .checkmark
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! VisibilityOptionCell
+        cell.accessoryType = .none
+    }
+}
 
 
 enum DataType: String{

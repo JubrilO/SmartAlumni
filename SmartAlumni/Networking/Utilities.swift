@@ -22,7 +22,7 @@ class Utilities {
     }
         
     class func parseOTPFromJSON(json: JSON) -> String? {
-        print(json)
+        //print(json)
         if json["status"].stringValue == "success" {
             return json["data"].stringValue
         }
@@ -121,6 +121,21 @@ class Utilities {
         }
     }
     
+    class func parseBanksFromJSON(json: JSON) -> (banks: [Bank]?, error: Error?) {
+        if json["status"].stringValue == Constants.Success {
+            var banks = [Bank]()
+            for bankJson in json["data"].arrayValue {
+                let bank = Bank(json: bankJson)
+                banks.append(bank)
+            }
+            return (banks, nil)
+        }
+        else {
+            let error = json["err"].stringValue
+            return (nil, StringError(error))
+        }
+    }
+    
     class func parseProjectFromJSON(json: JSON) -> (project: Project?, error: Error?) {
         if json["status"].stringValue == Constants.Success {
             let project = Project(json: json["data"])
@@ -139,6 +154,22 @@ class Utilities {
         }
         else {
             return (false, json["err"].stringValue)
+        }
+    }
+    
+    class func parseTransactionRefStatusFromJSON(json: JSON) -> (success: Bool, error: String?) {
+         let jsonString = json["data"].stringValue
+        print(jsonString)
+        let jsons = JSON.init(parseJSON: jsonString)
+     
+        
+        if jsons["status"].stringValue == Constants.Success {
+            return (true, nil)
+        }
+            
+        else {
+            print(jsons["err"].stringValue)
+            return (false, jsons["err"].stringValue)
         }
     }
     
@@ -169,6 +200,30 @@ class Utilities {
         if let user = realm.objects(User.self).first {
         parameters = ["name" : title, "creator" : user.uid, "question" : question, "start_date" : startDate, "duration" : duration, "options" : optionsDict, "visibility" : visibility, "status": "ongoing"] as [String : Any]
         }
+        return parameters
+    }
+    
+    class func generateProjectDict(title: String, desc: String, amount: String, startDate: Date, endDate: Date, milestones: [Milestone], visibility: [String : Any], account: AccountDetails, image: String? = nil) -> [String : Any]{
+        var milestonesDict = [[String : Any]]()
+        for (_, milestone) in milestones.enumerated() {
+            let milestoneDict = ["name" : milestone.name] as [String : Any]
+            milestonesDict.append(milestoneDict)
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var parameters = [String : Any]()
+        let realm = try! Realm()
+        let startDateString = dateFormatter.string(from: startDate)
+        let endDateString = dateFormatter.string(from: endDate)
+        if let user = realm.objects(User.self).first {
+            if let image = image {
+                parameters = ["details" : ["name" : title, "description" : desc, "start_date" : startDateString, "end_date" : endDateString, "visibility": visibility, "milestones" : milestonesDict, "user" : ["email" : user.email, "phone" : user.phoneNumber, "name" : "\(user.firstName) \(user.lastName)"], "amount" : Int(amount)!, "status" : "ongoing", "creator" : user.uid, "creator_type" : "User", "image" : image], "bank" : ["account_number" : account.accountNumber, "bank_name" : account.bank.name]]
+            }
+            else {
+                parameters = ["details" : ["name" : title, "description" : desc, "start_date" : startDateString, "end_date" : endDateString, "visibility": visibility, "milestones" : milestonesDict, "user" : ["email" : user.email, "phone" : user.phoneNumber, "name" : "\(user.firstName) \(user.lastName)"], "amount" : Int(amount)!, "status" : "ongoing", "creator" : user.uid, "creator_type" : "User"], "bank" : ["account_number" : account.accountNumber, "bank_name" : account.bank.name]]
+            }
+        }
+        print(" Prams: \(parameters)")
         return parameters
     }
     

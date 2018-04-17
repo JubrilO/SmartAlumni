@@ -86,6 +86,7 @@ final class PollVisibilityInteractor: PollVisibilityViewControllerOutput  {
         }
         output.presentSelectedFaculties(faculties: targetFaculties)
         output.presentSelectedDeparments(departments: targetDeparments)
+        print(targetSets)
         output.presentSelectedSets(sets: targetSets)
         
     }

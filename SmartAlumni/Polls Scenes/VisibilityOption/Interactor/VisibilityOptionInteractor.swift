@@ -44,6 +44,10 @@ final class VisibilityOptionInteractor: VisibilityOptionViewControllerOutput {
         }
     }
     var dataType: DataType = .School
+    var targetSchool: School?
+    var targetSets: [String]?
+    var targetFaculties: [Faculty]?
+    var targetDepartments: [Department]?
     
     
     // MARK: - Initializers
