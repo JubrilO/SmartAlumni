@@ -36,11 +36,11 @@ class Message: Object, MessageType {
             switch newValue {
             case .text(let text):
                 messageContent?.text = text
-                case .photo(<#T##UIImage#>)
+            case .photo(let image):
+                messageContent?.image = Image(urlString: "")
             default:
-                <#code#>
+                break
             }
-            
         }
         get {
             switch messageContent?.messageType {
@@ -55,7 +55,13 @@ class Message: Object, MessageType {
     }
     
     var sender: Sender {
-        return Sender(id: senderUID, displayName: senderDisplayName)
+        set  {
+            senderUID = newValue.id
+            senderDisplayName = newValue.displayName
+        }
+        get {
+            return Sender(id: senderUID, displayName: senderDisplayName)
+        }
     }
     
     
