@@ -38,8 +38,9 @@ extension MessagesRouter: MessagesRouterProtocol {
     // MARK: - Navigation
 
     func navigateToChatRoom(chatRoom: ChatRoom) {
-        let chatRoomVC = ChatRoomViewController()
-       //chatRoomVC.output.chatRoom = chatRoom
+        let chatRoomVC = ConversationViewController()
+       chatRoomVC.output.chatRoom = chatRoom
+        //chatRoomVC.dataSource = DemoChatDataSource(count: 0, pageSize: 50)
         chatRoomVC.hidesBottomBarWhenPushed = true
         viewController?.navigationController?.pushViewController(chatRoomVC, animated: true)
     }

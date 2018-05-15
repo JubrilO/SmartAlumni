@@ -235,9 +235,9 @@ extension ConversationViewController: MessagesDisplayDelegate {
     func messageHeaderView(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageHeaderView {
         let header = messagesCollectionView.dequeueReusableHeaderView(MessageDateHeaderView.self, for: indexPath)
         if let message = message as? Message {
-            switch message.type {
-            case .admin(let text):
-                header.dateLabel.text = text
+            switch message.messageContent?.messageType {
+            case MessageTypeConstants.admin:
+                header.dateLabel.text = message.messageContent!.text
                 return header
             default:
                 break
@@ -256,8 +256,8 @@ extension ConversationViewController: MessagesDisplayDelegate {
             ]
         }()
         if let message = message as? Message {
-        switch message.type {
-        case .text, .image:
+        switch message.messageContent?.messageType {
+        case MessageTypeConstants.text, MessageTypeConstants.image:
             return NSAttributedString(string: message.sender.displayName, attributes: defaultAttributes)
         default:
             return nil
@@ -277,8 +277,8 @@ extension ConversationViewController: MessagesDisplayDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mma"
         let dateString = dateFormatter.string(from: message.sentDate)
-        switch message.type {
-        case .text, .image:
+        switch message.messageContent?.messageType {
+        case MessageTypeConstants.text, MessageTypeConstants.image:
             return NSAttributedString(string: dateString, attributes: defaultAttributes)
         default:
             break
@@ -288,8 +288,8 @@ extension ConversationViewController: MessagesDisplayDelegate {
     
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
         if let message = message as? Message {
-            switch message.type {
-            case .admin:
+            switch message.messageContent?.messageType {
+            case MessageTypeConstants.admin:
                 return true
             default:
                 break
@@ -309,8 +309,8 @@ extension ConversationViewController: MessagesDisplayDelegate {
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         if let message = message as? Message {
-            switch message.type {
-            case .admin:
+            switch message.messageContent?.messageType {
+            case MessageTypeConstants.admin:
                 return UIColor.clear
             default:
                 break
@@ -455,12 +455,12 @@ extension ConversationViewController: MessageInputBarDelegate {
         print(messageID)
         for component in inputBar.inputTextView.components {
             if let image = component as? UIImage {
-                let imageMessage = Message(sender: user, image: image, type: .image(imageurl: ""), messageID: messageID, chatRoomID: output.chatRoom.id  )
+                let imageMessage = Message(sender: user, image: image, type: MessageTypeConstants.image, messageID: messageID, chatRoomID: output.chatRoom.id  )
                 output.messages.append(imageMessage)
                 messagesCollectionView.insertSections([output.messages.count - 1])
             }
             else if let text = component as? String {
-                let textMessage = Message(sender: user, text: text, type: .text(text: text), messageID: messageID, chatRoomID: output.chatRoom.id)
+                let textMessage = Message(sender: user, text: text, type: MessageTypeConstants.text, messageID: messageID, chatRoomID: output.chatRoom.id)
                 output.send(textMessage: textMessage)
                 output.messages.append(textMessage)
                 messagesCollectionView.insertSections([output.messages.count - 1])

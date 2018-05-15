@@ -54,9 +54,9 @@ final class ConversationInteractor: ConversationViewControllerOutput {
                 return
             }
             for message in messages {
-                switch message.type {
-                case .image(let url):
-                message.data = self.setMessageData(data: url, contentType: "image", messageIndex: self.messages.count)
+                switch message.messageContent!.messageType {
+                case MessageTypeConstants.image:
+                message.data = self.setMessageData(data: message.messageContent!.image!.urlString, contentType: "image", messageIndex: self.messages.count)
                 default:
                     message.data = .text(message.content)
                 }

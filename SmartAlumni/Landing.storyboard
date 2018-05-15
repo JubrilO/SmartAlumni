@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mrQ-Oa-4qW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mrQ-Oa-4qW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -714,7 +714,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="252"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kX-1g-jB0">
-                                                                    <rect key="frame" x="15" y="65" width="140" height="21"/>
+                                                                    <rect key="frame" x="15" y="65" width="140" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -785,21 +785,6 @@
                                     <outlet property="delegate" destination="07l-ua-Vat" id="Bk8-gG-CA6"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aet-hg-jya">
-                                <rect key="frame" x="292" y="0.0" width="83" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="01z-Cn-T17"/>
-                                    <constraint firstAttribute="width" constant="83" id="gHw-d9-dsF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Filter" image="filter">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onFilterButtonClick:" destination="07l-ua-Vat" eventType="touchUpInside" id="PGv-Kn-Xhb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LK4-c0-TRk">
                                 <rect key="frame" x="0.0" y="40" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -807,34 +792,40 @@
                                     <constraint firstAttribute="height" constant="0.5" id="p01-1A-dL5"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Y-0b-bH6">
+                                <rect key="frame" x="309" y="0.0" width="66" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="22o-Bf-YBl"/>
+                                    <constraint firstAttribute="width" constant="66" id="84H-ZF-i5V"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="66" id="GtI-GR-01O"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="oR0-eM-1hA"/>
+                                </constraints>
+                                <state key="normal" image="plusNew"/>
+                                <connections>
+                                    <action selector="onNewPollButtonClick:" destination="07l-ua-Vat" eventType="touchUpInside" id="yk9-p1-bzZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="OM0-GC-KRe" secondAttribute="trailing" id="8zL-yU-Qre"/>
                             <constraint firstItem="LK4-c0-TRk" firstAttribute="top" secondItem="KkJ-Mk-Ta3" secondAttribute="bottom" id="Ige-EJ-Qw3"/>
+                            <constraint firstItem="LK4-c0-TRk" firstAttribute="top" secondItem="Q6Y-0b-bH6" secondAttribute="bottom" id="NLN-IC-rtn"/>
                             <constraint firstItem="KkJ-Mk-Ta3" firstAttribute="width" secondItem="eld-vM-5DC" secondAttribute="width" multiplier="237/375" id="TlN-1T-5CH"/>
                             <constraint firstItem="KkJ-Mk-Ta3" firstAttribute="leading" secondItem="eld-vM-5DC" secondAttribute="leading" id="Utj-sO-26m"/>
                             <constraint firstItem="8xE-TM-rfb" firstAttribute="top" secondItem="OM0-GC-KRe" secondAttribute="bottom" id="XDU-sk-6Zc"/>
-                            <constraint firstItem="Aet-hg-jya" firstAttribute="top" secondItem="R30-F4-ldQ" secondAttribute="bottom" id="dJR-tT-tlX"/>
                             <constraint firstAttribute="trailing" secondItem="LK4-c0-TRk" secondAttribute="trailing" id="gdm-lj-unh"/>
                             <constraint firstItem="KkJ-Mk-Ta3" firstAttribute="top" secondItem="R30-F4-ldQ" secondAttribute="bottom" id="kuc-Jy-ayi"/>
+                            <constraint firstAttribute="trailing" secondItem="Q6Y-0b-bH6" secondAttribute="trailing" id="lb5-23-YQn"/>
                             <constraint firstItem="OM0-GC-KRe" firstAttribute="top" secondItem="LK4-c0-TRk" secondAttribute="bottom" id="r4P-qB-OHy"/>
                             <constraint firstItem="LK4-c0-TRk" firstAttribute="leading" secondItem="eld-vM-5DC" secondAttribute="leading" id="s82-Lu-BTo"/>
-                            <constraint firstAttribute="trailing" secondItem="Aet-hg-jya" secondAttribute="trailing" id="wSJ-xF-gC7"/>
                             <constraint firstItem="OM0-GC-KRe" firstAttribute="leading" secondItem="eld-vM-5DC" secondAttribute="leading" id="we2-Mk-x3m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VzU-jC-Sg0">
-                        <barButtonItem key="rightBarButtonItem" image="plusNew" id="2oK-pK-vsK">
-                            <color key="tintColor" red="0.41960784309999999" green="0.63921568630000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="onNewPollButtonClick:" destination="07l-ua-Vat" id="Nzo-ou-aub"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="VzU-jC-Sg0"/>
                     <connections>
                         <outlet property="collectionView" destination="OM0-GC-KRe" id="RTd-nY-C4O"/>
-                        <outlet property="filterButton" destination="Aet-hg-jya" id="aOu-Oc-lyX"/>
                         <outlet property="segmentioView" destination="KkJ-Mk-Ta3" id="tKk-pB-kxs"/>
                     </connections>
                 </viewController>
@@ -1102,7 +1093,6 @@
         <image name="Disclosure Indicator" width="9" height="14"/>
         <image name="chatIcon" width="25" height="25"/>
         <image name="emptyStatePolls" width="192" height="206"/>
-        <image name="filter" width="15" height="13"/>
         <image name="moreOptions" width="16" height="4"/>
         <image name="next" width="22" height="22"/>
         <image name="plusNew" width="14" height="14"/>

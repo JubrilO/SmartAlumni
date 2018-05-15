@@ -42,13 +42,8 @@
 		913C542C1FBDB6EA00B7B554 /* OptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913C542B1FBDB6EA00B7B554 /* OptionView.xib */; };
 		913C54311FBE405300B7B554 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54301FBE405300B7B554 /* OptionView.swift */; };
 		913C54331FC09DA100B7B554 /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C54321FC09DA100B7B554 /* PollCell.swift */; };
-		91432AF920642044000D0ECA /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */; };
-		91432AFA20642044000D0ECA /* ChatRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */; };
-		91432AFB20642044000D0ECA /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF020642043000D0ECA /* ChatRoomViewController.swift */; };
-		91432AFC20642044000D0ECA /* ChatRoomConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */; };
-		91432AFD20642044000D0ECA /* ChatRoomWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF420642043000D0ECA /* ChatRoomWorker.swift */; };
-		91432AFE20642044000D0ECA /* ChatRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF620642043000D0ECA /* ChatRoomInteractor.swift */; };
-		91432AFF20642044000D0ECA /* ChatRoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91432AF820642043000D0ECA /* ChatRoomRouter.swift */; };
+		91440E2020A0705E0077DDCD /* MessageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91440E1F20A0705E0077DDCD /* MessageContent.swift */; };
+		91440E2220A073540077DDCD /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91440E2120A073540077DDCD /* MessageType.swift */; };
 		9146838F1FB306EF003F2DE1 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146838E1FB306EF003F2DE1 /* Animation.swift */; };
 		91503D5C1F4E2C14002C8F46 /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */; };
 		91503D5D1F4E2C14002C8F46 /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */; };
@@ -247,13 +242,8 @@
 		913C542B1FBDB6EA00B7B554 /* OptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionView.xib; sourceTree = "<group>"; };
 		913C54301FBE405300B7B554 /* OptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		913C54321FC09DA100B7B554 /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
-		91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
-		91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomPresenter.swift; sourceTree = "<group>"; };
-		91432AF020642043000D0ECA /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
-		91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomConfigurator.swift; sourceTree = "<group>"; };
-		91432AF420642043000D0ECA /* ChatRoomWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomWorker.swift; sourceTree = "<group>"; };
-		91432AF620642043000D0ECA /* ChatRoomInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomInteractor.swift; sourceTree = "<group>"; };
-		91432AF820642043000D0ECA /* ChatRoomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomRouter.swift; sourceTree = "<group>"; };
+		91440E1F20A0705E0077DDCD /* MessageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageContent.swift; path = Models/MessageContent.swift; sourceTree = "<group>"; };
+		91440E2120A073540077DDCD /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = Models/MessageType.swift; sourceTree = "<group>"; };
 		9146838E1FB306EF003F2DE1 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Supporting/Animation.swift; sourceTree = "<group>"; };
 		91503D4F1F4E2C14002C8F46 /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
 		91503D511F4E2C14002C8F46 /* WelcomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
@@ -635,76 +625,6 @@
 				913C542B1FBDB6EA00B7B554 /* OptionView.xib */,
 			);
 			path = OptionView;
-			sourceTree = "<group>";
-		};
-		91432AEA20642043000D0ECA /* ChatRoom */ = {
-			isa = PBXGroup;
-			children = (
-				91432AEB20642043000D0ECA /* ViewModel */,
-				91432AED20642043000D0ECA /* Presenter */,
-				91432AEF20642043000D0ECA /* View */,
-				91432AF120642043000D0ECA /* Configurator */,
-				91432AF320642043000D0ECA /* Worker */,
-				91432AF520642043000D0ECA /* Interactor */,
-				91432AF720642043000D0ECA /* Router */,
-			);
-			path = ChatRoom;
-			sourceTree = SOURCE_ROOT;
-		};
-		91432AEB20642043000D0ECA /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				91432AEC20642043000D0ECA /* ChatRoomViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		91432AED20642043000D0ECA /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				91432AEE20642043000D0ECA /* ChatRoomPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		91432AEF20642043000D0ECA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				91432AF020642043000D0ECA /* ChatRoomViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		91432AF120642043000D0ECA /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				91432AF220642043000D0ECA /* ChatRoomConfigurator.swift */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		91432AF320642043000D0ECA /* Worker */ = {
-			isa = PBXGroup;
-			children = (
-				91432AF420642043000D0ECA /* ChatRoomWorker.swift */,
-			);
-			path = Worker;
-			sourceTree = "<group>";
-		};
-		91432AF520642043000D0ECA /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				91432AF620642043000D0ECA /* ChatRoomInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		91432AF720642043000D0ECA /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				91432AF820642043000D0ECA /* ChatRoomRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		91503D4D1F4E2C14002C8F46 /* Welcome */ = {
@@ -1583,8 +1503,10 @@
 			isa = PBXGroup;
 			children = (
 				91BDAF471F4446D200BC1666 /* User.swift */,
+				91440E1F20A0705E0077DDCD /* MessageContent.swift */,
 				918D425B1F50023D00C848FA /* School.swift */,
 				918355722033CA2800664BDC /* Message.swift */,
+				91440E2120A073540077DDCD /* MessageType.swift */,
 				916287871F799ADC0015F467 /* PollOption.swift */,
 				91EB8DC01F749F2700D37371 /* Department.swift */,
 				916287851F790FA80015F467 /* Poll.swift */,
@@ -1775,7 +1697,6 @@
 		91DB84921FDF440F00C4B033 /* Messaging Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				91432AEA20642043000D0ECA /* ChatRoom */,
 				91E07A392035BAA50069FDC3 /* Conversation */,
 				91DB84951FDF454C00C4B033 /* Messages */,
 				91DB84AB1FDF456F00C4B033 /* Messaging.storyboard */,
@@ -2298,10 +2219,8 @@
 				91E07A4D2035BAA60069FDC3 /* ConversationInteractor.swift in Sources */,
 				91E07A4B2035BAA60069FDC3 /* ConversationConfigurator.swift in Sources */,
 				9183556F202D99ED00664BDC /* Transaction.swift in Sources */,
-				91432AFE20642044000D0ECA /* ChatRoomInteractor.swift in Sources */,
 				91C4FBCA1FAAB2B1007FCCF2 /* NewPollViewModel.swift in Sources */,
 				915B98C8204DCB7B0093FAD5 /* ProjectsViewModel.swift in Sources */,
-				91432AFA20642044000D0ECA /* ChatRoomPresenter.swift in Sources */,
 				91DB84A61FDF454C00C4B033 /* MessagesViewController.swift in Sources */,
 				9134F6AB1FC782240037202D /* PollVisibilityPresenter.swift in Sources */,
 				915B98F0205AB8590093FAD5 /* Donor.swift in Sources */,
@@ -2342,11 +2261,10 @@
 				916287881F799ADC0015F467 /* PollOption.swift in Sources */,
 				91C4FBC91FAAB2B1007FCCF2 /* NewPollViewController.swift in Sources */,
 				918355772033E0BB00664BDC /* MessageTableViewCell.swift in Sources */,
+				91440E2020A0705E0077DDCD /* MessageContent.swift in Sources */,
 				913C1D441F407FC10080F5CE /* OTPWorker.swift in Sources */,
 				91AE149D207830780024E1F3 /* AddBankViewController.swift in Sources */,
-				91432AFD20642044000D0ECA /* ChatRoomWorker.swift in Sources */,
 				91CD9523203C503D005D535A /* NewProjectConfigurator.swift in Sources */,
-				91432AFF20642044000D0ECA /* ChatRoomRouter.swift in Sources */,
 				91EDAF411FCD0B04001E68D9 /* PollCompletionWorker.swift in Sources */,
 				91EE5C7B20852407003C74C8 /* NewProjectCompletionVC.swift in Sources */,
 				915B98CE204DCB7B0093FAD5 /* ProjectsRouter.swift in Sources */,
@@ -2455,18 +2373,16 @@
 				91DB84A81FDF454C00C4B033 /* MessagesWorker.swift in Sources */,
 				915B98EA205AAE2B0093FAD5 /* ProjectDetailViewController.swift in Sources */,
 				915C33A21F38A81B00729106 /* PhoneNumberField.swift in Sources */,
-				91432AFB20642044000D0ECA /* ChatRoomViewController.swift in Sources */,
 				91EDAF5A1FCD14AA001E68D9 /* VisibilityOptionInteractor.swift in Sources */,
 				918D42941F54DBBA00C848FA /* SelectSetWorker.swift in Sources */,
+				91440E2220A073540077DDCD /* MessageType.swift in Sources */,
 				9187E2001F2F747000A240E3 /* AppDelegate.swift in Sources */,
-				91432AF920642044000D0ECA /* ChatRoomViewModel.swift in Sources */,
 				9183557920343F7500664BDC /* DateHelper.swift in Sources */,
 				91C4FBCB1FAAB2B1007FCCF2 /* NewPollWorker.swift in Sources */,
 				918D425E1F50C4D100C848FA /* SchoolAPI.swift in Sources */,
 				911955BE20494CFD00DFD419 /* SchoolDetails.swift in Sources */,
 				9125CA641F4309AD00174534 /* EditProfileViewModel.swift in Sources */,
 				915B98E8205AAE2B0093FAD5 /* ProjectDetailViewModel.swift in Sources */,
-				91432AFC20642044000D0ECA /* ChatRoomConfigurator.swift in Sources */,
 				9115B39C202517A200FAB317 /* SelectSchoolCategoryVC.swift in Sources */,
 				9134F6AE1FC782310037202D /* PollVisibilityWorker.swift in Sources */,
 				91EDAF3E1FCD0B04001E68D9 /* PollCompletionPresenter.swift in Sources */,

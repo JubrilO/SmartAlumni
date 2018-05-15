@@ -131,7 +131,7 @@ final class ProjectsViewController: UIViewController {
         }
     }
     
-    @IBAction func onNewPollButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func onNewPollButtonClick(_ sender: UIButton) {
         dropDown?.hide()
         router.navigateToNewProjectScene()
     }

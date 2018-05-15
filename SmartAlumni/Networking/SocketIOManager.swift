@@ -85,5 +85,6 @@ class SocketIOManager: NSObject {
             socket.emit(Event.MessageToServer, messageStringJSON)
         }
     }
+    
 
 }

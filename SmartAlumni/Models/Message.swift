@@ -9,17 +9,10 @@
 import Foundation
 import SwiftyJSON
 import MessageKit
+import RealmSwift
 
-class Message: MessageType {
+class Message: Object, MessageType {
     
-    fileprivate struct MessageTypeConstants {
-        static let text = "TYPE_TEXT"
-        static let image = "TYPE_IMAGE"
-        static let document = "TYPE_DOCUMENT"
-        static let contact = "TYPE_CONTACT"
-        static let admin = "TYPE_ADMIN"
-        static let error = "TYPE_ERROR"
-    }
     
     enum MessageType {
         case text(text: String)
@@ -30,14 +23,41 @@ class Message: MessageType {
         case error
     }
     
-    var messageId = ""
-    var user = ""
-    var content = ""
-    var chatroomID = ""
-    var data: MessageData = .text("")
-    var sender = Sender(id: "", displayName: "")
-    var sentDate = Date()
-    var type: MessageType = .text(text: "")
+    @objc dynamic var messageId = ""
+    @objc dynamic var user = ""
+    @objc dynamic var content = ""
+    @objc dynamic var chatroomID = ""
+    @objc dynamic var  messageContent:  MessageContent?
+    @objc dynamic var sentDate = Date()
+    @objc dynamic var senderUID = ""
+    @objc dynamic var senderDisplayName = ""
+    var data: MessageData {
+        set {
+            switch newValue {
+            case .text(let text):
+                messageContent?.text = text
+                case .photo(<#T##UIImage#>)
+            default:
+                <#code#>
+            }
+            
+        }
+        get {
+            switch messageContent?.messageType {
+            case MessageTypeConstants.text:
+                return MessageData.text(messageContent!.text)
+            case MessageTypeConstants.image:
+                return MessageData.photo(UIImage(named: messageContent!.image!.urlString)!)
+            default:
+                return MessageData.text("")
+            }
+        }
+    }
+    
+    var sender: Sender {
+        return Sender(id: senderUID, displayName: senderDisplayName)
+    }
+    
     
     required convenience init(json: JSON) {
         self.init()
@@ -47,64 +67,100 @@ class Message: MessageType {
         let text = json["message"].stringValue
         if json["user"].exists() {
             let user = User(jsonData: json["user"])
-            self.sender = Sender(id: user.uid, displayName: user.username)
+            self.senderUID = user.uid
+            self.senderDisplayName = user.username
         }
         self.content = text
         let epochDouble = json["timestamp"].doubleValue
         self.sentDate = parseDateFrom(epoch: epochDouble)
-        let messageType = parseMessageTypeFrom(json: json)
-        self.type = messageType
-        switch type {
-        case .text:
-            self.data = .text(text)
-        case .admin:
-            self.content = ""
-        default:
-            break
-        }
+        self.messageContent = populateMessageContentFrom(json: json)
     }
     
-    convenience init(sender: User, text: String, type: Message.MessageType, messageID: String, chatRoomID: String) {
+    convenience init(sender: User, text: String, type: String, messageID: String, chatRoomID: String) {
         self.init()
         self.user = sender.uid
         self.content = text
-        self.type = type
+        let messageContent = MessageContent()
+        messageContent.messageType = type
         self.chatroomID = chatRoomID
-        self.sender = Sender(id: sender.uid, displayName: sender.username)
+        self.senderUID  = sender.uid
+        self.senderDisplayName = sender.username
         switch type {
-        case .text:
-            self.data = .text(text)
+        case MessageTypeConstants.text:
+            messageContent.text = text
         default:
             break
         }
+        self.messageContent = messageContent
         self.messageId = messageID
         self.sentDate = Date()
     }
     
-    convenience init(sender: User, image: UIImage, type: Message.MessageType, messageID: String, chatRoomID: String) {
+    convenience init(sender: User, image: UIImage, type: String, messageID: String, chatRoomID: String) {
         self.init()
         self.user = sender.uid
         self.content = ""
-        self.type = type
+        let messageContent = MessageContent()
+        messageContent.messageType = type
         self.chatroomID = chatRoomID
         switch type {
-        case .text:
-            self.data = .text("")
-        case .image:
-            self.data = .photo(image)
+        case MessageTypeConstants.text:
+            messageContent.text = ""
+        case MessageTypeConstants.image:
+            messageContent.image!.urlString = ""
         default:
             break
         }
-        self.sender = Sender(id: sender.uid, displayName: sender.username)
+        self.senderUID  = sender.uid
+        self.senderDisplayName = sender.username
         self.messageId = messageID
         self.sentDate = Date()
+    }
+    
+    func populateMessageContentFrom(json: JSON) -> MessageContent {
+        let messageContent = MessageContent()
+        let typeString = json["type"].stringValue
+        messageContent.messageType = typeString
+        
+        switch typeString {
+            
+        case MessageTypeConstants.text:
+            messageContent.text = json["message"].stringValue
+            
+        case MessageTypeConstants.contact:
+            let name = json["contact"]["name"].stringValue
+            let email = json["contact"]["email"].stringValue
+            let phone = json["contact"]["phone"].stringValue
+            let contact =  Contact(name: name, email: email, phone: phone)
+            messageContent.contact = contact
+            
+        case MessageTypeConstants.document:
+            let fileName = json["document"]["name"].stringValue
+            let fileSize = json["document"]["size"].stringValue
+            let fileURL = json["document"]["remote_url"].stringValue
+            let document =  Document(name: fileName, size: fileSize, url: fileURL)
+            messageContent.document = document
+            
+        case MessageTypeConstants.image:
+            let imageURL = json["image"]["remote_url"].stringValue
+            let image = Image(urlString: imageURL)
+            messageContent.image = image
+            
+        case MessageTypeConstants.admin:
+            let adminText = AdminText(json["message"].stringValue)
+            messageContent.adminText = adminText
+            
+        default:
+            break
+        }
+        return messageContent
     }
     
     func toJsonDict() -> [String : Any] {
         var jsonDict = [String : Any]()
         
-        switch self.type {
-        case .text:
+        switch self.messageContent!.messageType {
+        case MessageTypeConstants.text:
             jsonDict = ["message" : [
                 "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
@@ -116,7 +172,7 @@ class Message: MessageType {
             ]
             return jsonDict
             
-        case .image(imageurl: let url):
+        case MessageTypeConstants.image:
             jsonDict = ["message" : [
                 "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
@@ -124,12 +180,12 @@ class Message: MessageType {
                 "type" : MessageTypeConstants.image,
                 "user" : self.user,
                 "room" : self.chatroomID,
-                "image" : ["remote_url" : url]
+                "image" : ["remote_url" : self.messageContent!.image!.urlString]
                 ]
             ]
             return jsonDict
             
-        case .contact(name: let cnName, email: let cnEmail, phone: let cnPhone):
+        case MessageTypeConstants.contact:
             jsonDict = ["message" : [
                 "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
@@ -138,14 +194,14 @@ class Message: MessageType {
                 "user" : self.user,
                 "room" : self.chatroomID,
                 "contact" : [
-                    "email" : cnEmail,
-                    "name" : cnName,
-                    "phone" : cnPhone ]
+                    "email" : messageContent!.contact!.email,
+                    "name" : messageContent!.contact!.name,
+                    "phone" : messageContent!.contact!.phone]
                 ]
             ]
             return jsonDict
             
-        case .document(name: let docname, size: let docsize, url: let docurl):
+        case MessageTypeConstants.document:
             jsonDict = ["message" : [
                 "timestamp" : Int(self.sentDate.timeIntervalSince1970),
                 "message" : self.content,
@@ -154,9 +210,9 @@ class Message: MessageType {
                 "user" : self.user,
                 "room" : self.chatroomID,
                 "document" : [
-                    "name" : docname,
-                    "size" : docsize,
-                    "remote_url" : docurl ]
+                    "name" : messageContent!.document!.name,
+                    "size" : messageContent!.document!.size,
+                    "remote_url" : messageContent!.document!.url ]
                 ]
             ]
             return jsonDict
@@ -171,35 +227,14 @@ class Message: MessageType {
         return Date(timeIntervalSince1970: timeSinceEpoch)
     }
     
-    private func parseMessageTypeFrom(json: JSON) -> MessageType {
-        let typeString = json["type"].stringValue
-        
-        switch typeString {
-            
-        case MessageTypeConstants.text:
-            return .text(text: json["message"].stringValue)
-            
-        case MessageTypeConstants.contact:
-            let name = json["contact"]["name"].stringValue
-            let email = json["contact"]["email"].stringValue
-            let phone = json["contact"]["phone"].stringValue
-            return .contact(name: name, email: email, phone: phone)
-            
-        case MessageTypeConstants.document:
-            let fileName = json["document"]["name"].stringValue
-            let fileSize = json["document"]["size"].stringValue
-            let fileURL = json["document"]["remote_url"].stringValue
-            return .document(name: fileName, size: fileSize, url: fileURL)
-            
-        case MessageTypeConstants.image:
-            let imageURL = json["image"]["remote_url"].stringValue
-            return .image(imageurl: imageURL)
-            
-        case MessageTypeConstants.admin:
-            return .admin(text: json["message"].stringValue)
-            
-        default:
-            return .error
-        }
-    }
 }
+
+struct MessageTypeConstants {
+    static let text = "TYPE_TEXT"
+    static let image = "TYPE_IMAGE"
+    static let document = "TYPE_DOCUMENT"
+    static let contact = "TYPE_CONTACT"
+    static let admin = "TYPE_ADMIN"
+    static let error = "TYPE_ERROR"
+}
+
