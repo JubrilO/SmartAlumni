@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 class SchoolDetails: Object {
     @objc dynamic var schoolID = ""
@@ -21,6 +22,14 @@ class SchoolDetails: Object {
         self.departmentID = departmentID
         self.facultyID = facultyID
         self.set = set
+    }
+    
+    required convenience init(json: JSON) {
+        self.init()
+        self.schoolID = json["school"].stringValue
+        self.departmentID = json["department"].stringValue
+        self.facultyID = json["faculty"].stringValue
+        self.set = json["school_set"].intValue
     }
     
     func toJSON() -> [String : Any] {

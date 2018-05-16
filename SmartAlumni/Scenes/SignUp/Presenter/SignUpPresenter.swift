@@ -15,7 +15,7 @@ protocol SignUpPresenterInput: SignUpInteractorOutput {
 protocol SignUpPresenterOutput: class {
 
     func displayError(viewModel: SignUpViewModel)
-    func presentOTPScene()
+    func presentOTPScene(user: User?)
 }
 
 final class SignUpPresenter {
@@ -44,8 +44,8 @@ extension SignUpPresenter: SignUpPresenterInput {
         
     }
     
-    func presentOTPScene() {
-        output.presentOTPScene()
+    func presentOTPScene(user: User?) {
+        output.presentOTPScene(user: user)
     }
     
 }

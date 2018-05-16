@@ -104,10 +104,10 @@ extension SignUpViewController: ValidationDelegate {
 extension SignUpViewController: SignUpViewControllerInput {
     // MARK: - Display logic
     
-    func presentOTPScene() {
+    func presentOTPScene(user: User?) {
         activityIndicator.stopAnimating()
         continueButton.isHidden = false
-        router.presentOTPScene()
+        router.presentOTPScene(user: user)
     }
     
     func displayError(viewModel: SignUpViewModel) {

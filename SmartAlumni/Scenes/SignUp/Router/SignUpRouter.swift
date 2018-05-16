@@ -13,7 +13,7 @@ protocol SignUpRouterProtocol {
     weak var viewController: SignUpViewController? { get }
     
     func popViewController()
-    func presentOTPScene()
+    func presentOTPScene(user: User?)
 }
 
 final class SignUpRouter {
@@ -37,9 +37,10 @@ extension SignUpRouter: SignUpRouterProtocol {
     
     // MARK: - Navigation
     
-    func presentOTPScene() {
+    func presentOTPScene(user: User?) {
         if let otpViewController = viewController?.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.OTPScene) as? OTPViewController {
             otpViewController.output.email  = viewController?.output.email
+            otpViewController.output.user = user
             viewController?.navigationController?.pushViewController(otpViewController, animated: true)
         }
     }

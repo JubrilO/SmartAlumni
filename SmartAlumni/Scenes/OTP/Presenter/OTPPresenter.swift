@@ -15,6 +15,7 @@ protocol OTPPresenterInput: OTPInteractorOutput {
 protocol OTPPresenterOutput: class {
     
     func presentNextScene()
+    func displayLandingScene()
     func displayError(viewModel: OTPViewModel)
     func displayOTPCopy(copy: String)
 }
@@ -46,6 +47,10 @@ extension OTPPresenter: OTPPresenterInput {
     
     func presentNextScene() {
         output.presentNextScene()
+    }
+    
+    func presentLandingScene() {
+        output.displayLandingScene()
     }
     
     func displayEmail(email: String?) {

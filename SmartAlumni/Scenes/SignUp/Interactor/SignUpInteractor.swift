@@ -16,7 +16,7 @@ protocol SignUpInteractorInput: SignUpViewControllerOutput {
 protocol SignUpInteractorOutput {
     
     func presentError(errorMessage: String)
-    func presentOTPScene()
+    func presentOTPScene(user: User?)
 }
 
 final class SignUpInteractor: SignUpViewControllerOutput, ValidationDelegate {
@@ -67,7 +67,7 @@ final class SignUpInteractor: SignUpViewControllerOutput, ValidationDelegate {
     func signUpUser(email: String) {
         
         worker.signUpUser(email: email) {
-            errorMessage in
+            user, errorMessage in
             
             guard errorMessage != nil else {
                 
@@ -82,7 +82,7 @@ final class SignUpInteractor: SignUpViewControllerOutput, ValidationDelegate {
                     UserDefaults.standard.set(otp!, forKey: Constants.UserDefaults.OTP)
                     UserDefaults.standard.set(email, forKey: Constants.UserDefaults.Email)
                     UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage1)
-                    self.output.presentOTPScene()
+                    self.output.presentOTPScene(user: user)
                 }
                 return
             }
