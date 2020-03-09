@@ -14,6 +14,7 @@ protocol OTPRouterProtocol {
     
     func popViewController()
     func routeToEditProfile()
+    func routeToLanding()
 }
 
 final class OTPRouter {
@@ -46,4 +47,11 @@ extension OTPRouter: OTPRouterProtocol {
             viewController?.navigationController?.pushViewController(editProfileVC, animated: true)
         }
     }
+    
+    func routeToLanding() {
+        let landingStoryboard = UIStoryboard(name: "Landing", bundle: nil)
+        let landingVC = landingStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIdentifiers.LandingTabBarScene)
+        viewController?.present(landingVC, animated: true, completion: nil)
+    }
 }
+

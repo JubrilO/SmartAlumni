@@ -15,14 +15,14 @@ class SignUpWorker {
     // MARK: - Business Logic
     
     
-    func signUpUser(email: String, completionHandler: @escaping (String?) -> () ) {
+    func signUpUser(email: String, completionHandler: @escaping (User?, String?) -> () ) {
         UserAPI.sharedManager.signUpUser(email: email) {
-           _ , errorMessage in
-            guard errorMessage != nil else {
-                completionHandler(nil)
+           user , error in
+            guard error != nil else {
+                completionHandler(user, nil)
                 return
             }
-            completionHandler(errorMessage)
+            completionHandler(nil, error?.localizedDescription)
         }
     }
 

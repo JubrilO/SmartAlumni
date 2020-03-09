@@ -16,6 +16,7 @@ protocol OTPViewControllerInput: OTPPresenterOutput {
 protocol OTPViewControllerOutput {
     
     var email: String? {get set}
+    var user: User? {get set}
     func verifyOTP(otp: String)
     func fetchPhoneNumber()
     func resendOTP()
@@ -175,6 +176,10 @@ extension OTPViewController: OTPViewControllerInput {
     
     func displayOTPCopy(copy: String) {
         self.confirmationLabel.text = copy
+    }
+    
+    func displayLandingScene() {
+        router.routeToLanding()
     }
 }
 

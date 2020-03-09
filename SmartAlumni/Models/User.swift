@@ -35,6 +35,15 @@ class User: Object {
         self.notificationToken = json["data"]["notification_token"].stringValue
         self.username = json["data"]["name"].stringValue
         self.isAdmin = json["data"]["is_admin"].boolValue
+        let schoolsDetailsList = List<SchoolDetails>()
+        let schoolIDs = List<String>()
+        for schoolDetailsJson in json["data"]["school_details"].arrayValue {
+            let schoolDetails = SchoolDetails(json: schoolDetailsJson)
+            schoolIDs.append(schoolDetails.schoolID)
+            schoolsDetailsList.append(schoolDetails)
+        }
+        self.schoolIds = schoolIDs
+        self.schoolDetailsList = schoolsDetailsList
         
     }
     
@@ -49,6 +58,15 @@ class User: Object {
         self.notificationToken = jsonData["notification_token"].stringValue
         self.username = jsonData["name"].stringValue
         self.isAdmin = jsonData["is_admin"].boolValue
+        let schoolsDetailsList = List<SchoolDetails>()
+        let schoolIDs = List<String>()
+        for schoolDetailsJson in jsonData["school_details"].arrayValue {
+            let schoolDetails = SchoolDetails(json: schoolDetailsJson)
+            schoolIDs.append(schoolDetails.schoolID)
+            schoolsDetailsList.append(schoolDetails)
+        }
+        self.schoolIds = schoolIDs
+        self.schoolDetailsList = schoolsDetailsList
     }
     
     func toJSON() -> [String:Any] {

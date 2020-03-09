@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol OTPInteractorInput: OTPViewControllerOutput {
     
@@ -18,6 +19,7 @@ protocol OTPInteractorOutput {
     
     func presentError(errorMessage: String?)
     func presentNextScene()
+    func presentLandingScene()
     func displayEmail(email: String?)
 }
 
@@ -39,6 +41,7 @@ final class OTPInteractor: OTPViewControllerOutput {
 
     // MARK: - Business logic
     var email: String?
+    var user: User?
     
     func verifyOTP(otp: String) {
         
@@ -49,10 +52,24 @@ final class OTPInteractor: OTPViewControllerOutput {
                 return
             }
             UserDefaults.standard.set(false, forKey: Constants.UserDefaults.SignUpStage1)
-            UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage2)
-            output.presentNextScene()
+            if let user = user {
+                if user.schoolDetailsList.isEmpty {
+                    UserDefaults.standard.set(true, forKey: Constants.UserDefaults.SignUpStage2)
+                    output.presentNextScene()
+                }
+                else {
+                    addUserToRealm(user: user)
+                    output.presentLandingScene()
+                }
+            }
         }
-        
+    }
+    
+    func addUserToRealm(user: User)  {
+        let realm = try! Realm()
+        try! Realm().write {
+            realm.add(user)
+        }
     }
     
     func fetchPhoneNumber() {

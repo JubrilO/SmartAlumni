@@ -36,7 +36,7 @@ class UserAPI {
         }
     }
     
-    func signUpUser(email: String, completionHandler: @escaping (String?, String?) -> Void ) {
+    func signUpUser(email: String, completionHandler: @escaping (User?, Error?) -> Void ) {
         
         
         Alamofire.request(APIConstants.SignUpURL, method: .post, parameters: ["email" : email], encoding: JSONEncoding.default).responseJSON {
@@ -46,17 +46,18 @@ class UserAPI {
             case .success:
                 print("success")
                 guard let jsonData = response.result.value else {
-                    completionHandler(nil, response.result.error?.localizedDescription)
+                    completionHandler(nil, response.result.error)
                     return
                 }
                 let uidTupule = Utilities.parseUIDFromJSON(json: JSON(jsonData))
                 if let uid = uidTupule.0 {
                     UserDefaults.standard.set(uid, forKey: Constants.UserDefaults.UID)
                 }
-                completionHandler(uidTupule.0, uidTupule.1)
+                let userTuple = Utilities.parseUserFromJSON(json: JSON(jsonData))
+                completionHandler(userTuple.user, userTuple.error)
             case .failure(let error):
                 print(error)
-                completionHandler(nil, error.localizedDescription)
+                completionHandler(nil, error)
             }
         }
     }
