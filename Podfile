@@ -19,7 +19,7 @@ target 'SmartAlumni' do
     pod 'MessageKit'
     pod 'Dropdowns'
     pod 'Paystack'
-    pod 'SwipeMenuViewController'
+    # pod 'SwipeMenuViewController'
     pod 'Chatto', :git => 'https://github.com/badoo/Chatto', :branch => 'master'
     pod 'ChattoAdditions', :git => 'https://github.com/badoo/Chatto', :branch => 'master'
     pod 'EasyTipView', :git => 'https://github.com/igorkislyuk/EasyTipView.git', :branch => 'master'

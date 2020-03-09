@@ -139,6 +139,7 @@ final class EditProfileViewController: UIViewController {
             phoneNumberTextField.errorMessage = "Invalid Phone Number"
             activityIndicator.stopAnimating()
             continueButton.isHidden = false
+            
             return nil
         }
     }

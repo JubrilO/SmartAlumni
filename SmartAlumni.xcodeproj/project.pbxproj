@@ -2010,7 +2010,6 @@
 				9187E1F91F2F747000A240E3 /* Frameworks */,
 				9187E1FA1F2F747000A240E3 /* Resources */,
 				2571A0B7CCB8220E135D7370 /* [CP] Embed Pods Frameworks */,
-				37515CEB9EA3274E71966481 /* [CP] Copy Pods Resources */,
 				91ABBD55202B2FC3005F2C05 /* ShellScript */,
 			);
 			buildRules = (
@@ -2115,7 +2114,6 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2142,27 +2140,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37515CEB9EA3274E71966481 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartAlumni/Pods-SmartAlumni-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68506182A99342AB45F304C7 /* [CP] Check Pods Manifest.lock */ = {
@@ -2194,7 +2176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" c753c38bc2c4da7ce638524ae0691afdca6eaad3 3e1cc8d82703f89d44d97a8b8464d438aec53215412781525437591aeb724f3a";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c753c38bc2c4da7ce638524ae0691afdca6eaad3 3e1cc8d82703f89d44d97a8b8464d438aec53215412781525437591aeb724f3a\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -40,7 +40,7 @@ public final class AnimationToken {
     
     internal init(view: UIView, animations: [Animation], mode: AnimationMode) {
         self.view = view
-        self.animations = animations
+        self.animations = animationsdx
         self.mode = mode
     }
     

@@ -14,6 +14,7 @@ import SwiftyJSON
 class PollAPI {
     static let sharedManager =  PollAPI()
     
+    
     func getAllPolls(completionHandler:@escaping ([Poll]?, String?) -> ()) {
         let realm = try! Realm()
         if let user = realm.objects(User.self).first {

@@ -17,10 +17,10 @@ PODS:
   - FirebaseAnalytics (4.0.9):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.14):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (2.0.8):
     - FirebaseCore (~> 4.0)
   - FirebaseStorage (2.1.2):
@@ -28,7 +28,7 @@ PODS:
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.3)":
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GTMSessionFetcher/Core (1.1.13)
   - IQKeyboardManagerSwift (5.0.7)
@@ -72,7 +72,6 @@ PODS:
   - Starscream (3.0.4)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (4.0.0)
-  - SwipeMenuViewController (2.0.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -97,7 +96,34 @@ DEPENDENCIES:
   - Socket.IO-Client-Swift (~> 13.1.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
-  - SwipeMenuViewController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - Dropdowns
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseStorage
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Locksmith
+    - MessageKit
+    - nanopb
+    - Paystack
+    - PhoneNumberKit
+    - PromiseKit
+    - Realm
+    - RealmSwift
+    - SkyFloatingLabelTextField
+    - Socket.IO-Client-Swift
+    - Starscream
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   Chatto:
@@ -164,8 +190,7 @@ SPEC CHECKSUMS:
   Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  SwipeMenuViewController: fe912fbd0ae2cc1607b99084ca718cc7e60e50f9
 
-PODFILE CHECKSUM: 1acb4d3f826f54bfa155786f775b6637406c11e0
+PODFILE CHECKSUM: f128dce959315d8642618b4f39c273732b1c323e
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.2
